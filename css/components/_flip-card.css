@@ -1,0 +1,254 @@
+/**
+ * Peraa Design System - Flip Card Component
+ * 
+ * Cards that flip horizontally on click to reveal more content.
+ */
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   FLIP CARD CONTAINER
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.peraa-flip-card {
+  perspective: 1500px;
+  cursor: pointer;
+  height: 100%; /* Fill grid cell height */
+}
+
+.peraa-flip-card__inner {
+  display: grid;
+  width: 100%;
+  height: 100%; /* Fill parent height */
+  min-height: 320px;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-style: preserve-3d;
+}
+
+.peraa-flip-card:hover .peraa-flip-card__inner {
+  transform: scale(1.02);
+}
+
+.peraa-flip-card.is-flipped .peraa-flip-card__inner {
+  transform: rotateY(180deg) scale(1.05);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   CARD FACES
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.peraa-flip-card__front,
+.peraa-flip-card__back {
+  grid-area: 1 / 1; /* Stack both faces in same grid cell */
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  border-radius: var(--peraa-radius-none, 0);
+  overflow: hidden;
+  background-color: var(--peraa-card-bg);
+  border: var(--peraa-border-width-1) solid var(--peraa-card-border);
+  box-shadow: var(--peraa-card-shadow);
+}
+
+.peraa-flip-card:hover .peraa-flip-card__front,
+.peraa-flip-card:hover .peraa-flip-card__back {
+  box-shadow: var(--peraa-card-shadow-hover);
+}
+
+/* Front face */
+.peraa-flip-card__front {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Back face */
+.peraa-flip-card__back {
+  transform: rotateY(180deg);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: var(--peraa-spacing-6);
+  background: linear-gradient(
+    135deg,
+    var(--peraa-color-purple-500) 0%,
+    var(--peraa-color-purple-700) 100%
+  );
+  border-color: var(--peraa-color-purple-600);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   FRONT CONTENT
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.peraa-flip-card__image {
+  width: 100%;
+  height: 140px;
+  background-color: var(--peraa-image-placeholder-bg);
+  object-fit: cover;
+}
+
+.peraa-flip-card__content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: var(--peraa-spacing-5);
+}
+
+.peraa-flip-card__title {
+  font-size: var(--peraa-font-size-lg);
+  font-weight: var(--peraa-font-weight-semibold);
+  color: var(--peraa-text-primary);
+  line-height: var(--peraa-line-height-snug);
+  margin-bottom: var(--peraa-spacing-2);
+}
+
+.peraa-flip-card__description {
+  font-size: var(--peraa-font-size-sm);
+  color: var(--peraa-text-secondary);
+  line-height: var(--peraa-line-height-relaxed);
+  margin-bottom: var(--peraa-spacing-3);
+}
+
+.peraa-flip-card__front-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--peraa-spacing-2);
+  margin-top: auto;
+}
+
+.peraa-flip-card__front-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px var(--peraa-spacing-2);
+  font-size: var(--peraa-font-size-xs);
+  font-weight: var(--peraa-font-weight-medium);
+  color: var(--peraa-color-purple-500);
+  background: var(--peraa-color-purple-50);
+  border-radius: var(--peraa-radius-sm);
+  white-space: nowrap;
+}
+
+[data-theme="dark"] .peraa-flip-card__front-tag {
+  color: var(--peraa-color-purple-300);
+  background: var(--peraa-color-purple-900);
+}
+
+.peraa-flip-card__hint {
+  display: flex;
+  align-items: center;
+  gap: var(--peraa-spacing-2);
+  margin-top: var(--peraa-spacing-4);
+  font-size: var(--peraa-font-size-xs);
+  color: var(--peraa-text-tertiary);
+}
+
+.peraa-flip-card__hint-icon {
+  width: 16px;
+  height: 16px;
+  opacity: 0.6;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   BACK CONTENT
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.peraa-flip-card__back-title {
+  font-size: var(--peraa-font-size-lg);
+  font-weight: var(--peraa-font-weight-semibold);
+  color: var(--peraa-color-neutral-0);
+  line-height: var(--peraa-line-height-snug);
+  margin-bottom: var(--peraa-spacing-4);
+}
+
+.peraa-flip-card__back-description {
+  font-size: var(--peraa-font-size-sm);
+  color: rgba(255, 255, 255, 0.9);
+  line-height: var(--peraa-line-height-relaxed);
+}
+
+.peraa-flip-card__back-list {
+  margin-top: var(--peraa-spacing-3);
+  padding-left: var(--peraa-spacing-4);
+  list-style: disc;
+  display: flex;
+  flex-direction: column;
+  gap: var(--peraa-spacing-2);
+}
+
+.peraa-flip-card__back-list li {
+  font-size: var(--peraa-font-size-sm);
+  color: rgba(255, 255, 255, 0.85);
+  line-height: var(--peraa-line-height-normal);
+}
+
+.peraa-flip-card__close-hint {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--peraa-spacing-2);
+  margin-top: var(--peraa-spacing-4);
+  padding-top: var(--peraa-spacing-4);
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  font-size: var(--peraa-font-size-xs);
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   GRID LAYOUT
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.peraa-flip-card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 1fr; /* Equal height rows based on tallest card */
+  align-items: stretch; /* Cards fill available row height */
+  gap: var(--peraa-spacing-6);
+}
+
+@media (max-width: 1024px) {
+  .peraa-flip-card-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .peraa-flip-card-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .peraa-flip-card__inner {
+    min-height: 280px;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   AUTO-HEIGHT BEHAVIOR
+   Cards now auto-size based on content (no scroll traps)
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* Ensure both faces fill available height */
+.peraa-flip-card__front,
+.peraa-flip-card__back {
+  min-height: 320px;
+  height: 100%;
+}
+
+/* Legacy class - no longer needed but kept for backwards compatibility */
+.peraa-flip-card--expanded .peraa-flip-card__inner {
+  min-height: auto;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   CARD METADATA (Back)
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.peraa-flip-card__meta {
+  margin-top: auto;
+  padding-top: var(--peraa-spacing-4);
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.peraa-flip-card__meta-company {
+  font-size: var(--peraa-font-size-sm);
+  font-weight: var(--peraa-font-weight-semibold);
+  color: rgba(255, 255, 255, 0.95);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}

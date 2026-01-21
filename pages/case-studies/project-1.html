@@ -1,0 +1,1410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Sapling Design System Documentation Case Study - Ridgeline - Todd R. Lewis">
+  <title>Sapling Design System Documentation - Todd R. Lewis</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="../../css/main.css">
+  <style>
+    /* Case Study Specific Styles */
+    .case-study-hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--peraa-spacing-8);
+      align-items: start;
+      margin-bottom: var(--peraa-spacing-10);
+    }
+    
+    @media (max-width: 768px) {
+      .case-study-hero {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    .case-study-hero__title {
+      font-size: var(--peraa-font-size-6xl);
+      font-weight: var(--peraa-font-weight-regular);
+      line-height: 1;
+      color: var(--peraa-text-primary);
+    }
+    
+    .case-study-hero__title span {
+      display: block;
+    }
+    
+    .case-study-hero__badge {
+      display: inline-block;
+      margin-top: var(--peraa-spacing-4);
+      padding: var(--peraa-spacing-3) var(--peraa-spacing-4);
+      background: var(--peraa-surface-card);
+      border: 1px solid var(--peraa-border-default);
+      font-size: var(--peraa-font-size-sm);
+    }
+    
+    .case-study-hero__image {
+      width: 100%;
+      aspect-ratio: 4/3;
+      background: linear-gradient(135deg, #2d5a27 0%, #4a8c3f 50%, #6ab35a 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 48px;
+      font-weight: var(--peraa-font-weight-medium);
+      font-family: var(--peraa-font-family-sans);
+      letter-spacing: 0.02em;
+    }
+    
+    .case-study-section {
+      margin-bottom: var(--peraa-spacing-8);
+    }
+    
+    .case-study-section__title {
+      font-size: var(--peraa-font-size-lg);
+      font-weight: var(--peraa-font-weight-medium);
+      color: var(--peraa-text-primary);
+      margin-bottom: var(--peraa-spacing-4);
+      padding-bottom: var(--peraa-spacing-2);
+      border-bottom: 2px solid var(--peraa-color-teal-500);
+      display: inline-block;
+    }
+    
+    .case-study-two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--peraa-spacing-8);
+    }
+    
+    @media (max-width: 768px) {
+      .case-study-two-col {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    .case-study-role__title {
+      font-size: var(--peraa-font-size-sm);
+      font-weight: var(--peraa-font-weight-medium);
+      color: var(--peraa-text-tertiary);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: var(--peraa-spacing-1);
+    }
+    
+    .case-study-role__name {
+      font-size: var(--peraa-font-size-lg);
+      font-weight: var(--peraa-font-weight-medium);
+      color: var(--peraa-text-primary);
+      margin-bottom: var(--peraa-spacing-3);
+    }
+    
+    .case-study-role__list {
+      list-style: none;
+      padding: 0;
+    }
+    
+    .case-study-role__list li {
+      font-size: var(--peraa-font-size-sm);
+      color: var(--peraa-text-secondary);
+      padding-left: var(--peraa-spacing-4);
+      position: relative;
+      margin-bottom: var(--peraa-spacing-2);
+    }
+    
+    .case-study-role__list li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: var(--peraa-color-teal-500);
+    }
+    
+    /* Mini Cards Row */
+    .case-study-card-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--peraa-spacing-3);
+    }
+    
+    .case-study-mini-card {
+      padding: var(--peraa-spacing-3) var(--peraa-spacing-4);
+      background: var(--peraa-surface-card);
+      border: 1px solid var(--peraa-border-default);
+      font-size: var(--peraa-font-size-sm);
+      color: var(--peraa-text-primary);
+    }
+    
+    .case-study-mini-card--warn {
+      border-left: 3px solid var(--peraa-color-error-500);
+      background: rgba(239, 68, 68, 0.05);
+    }
+    
+    .case-study-mini-card--tool {
+      border-left: 3px solid var(--peraa-color-teal-500);
+      background: rgba(20, 184, 166, 0.05);
+    }
+    
+    /* Callout */
+    .case-study-callout {
+      padding: var(--peraa-spacing-6);
+      background: var(--peraa-color-teal-950);
+      border-left: 4px solid var(--peraa-color-teal-400);
+    }
+    
+    [data-theme="light"] .case-study-callout {
+      background: var(--peraa-color-teal-50);
+    }
+    
+    .case-study-callout__label {
+      font-size: var(--peraa-font-size-xs);
+      font-weight: var(--peraa-font-weight-semibold);
+      color: var(--peraa-color-teal-400);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: var(--peraa-spacing-2);
+    }
+    
+    .case-study-callout__text {
+      font-size: var(--peraa-font-size-lg);
+      color: var(--peraa-text-primary);
+      line-height: var(--peraa-line-height-relaxed);
+    }
+    
+    /* Quote callout */
+    .case-study-quote {
+      padding: var(--peraa-spacing-6);
+      background: var(--peraa-surface-subtle);
+      border-left: 4px solid var(--peraa-color-brand);
+      font-style: italic;
+    }
+    
+    .case-study-quote__text {
+      font-size: var(--peraa-font-size-lg);
+      color: var(--peraa-text-primary);
+      line-height: var(--peraa-line-height-relaxed);
+    }
+    
+    .case-study-quote__cite {
+      font-size: var(--peraa-font-size-sm);
+      color: var(--peraa-text-tertiary);
+      font-style: normal;
+      margin-top: var(--peraa-spacing-3);
+      display: block;
+    }
+    
+    /* Approach Cards Grid */
+    .case-study-approach-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--peraa-spacing-6);
+    }
+    
+    @media (max-width: 768px) {
+      .case-study-approach-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    .case-study-approach-card {
+      padding: var(--peraa-spacing-6);
+      background: var(--peraa-surface-card);
+      border: 1px solid var(--peraa-border-default);
+      position: relative;
+    }
+    
+    .case-study-approach-card__number {
+      position: absolute;
+      top: var(--peraa-spacing-4);
+      right: var(--peraa-spacing-4);
+      width: 32px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--peraa-color-teal-500);
+      color: black;
+      font-size: var(--peraa-font-size-sm);
+      font-weight: var(--peraa-font-weight-semibold);
+      border-radius: 50%;
+    }
+    
+    .case-study-approach-card__title {
+      font-size: var(--peraa-font-size-base);
+      font-weight: var(--peraa-font-weight-medium);
+      color: var(--peraa-text-primary);
+      margin-bottom: var(--peraa-spacing-3);
+      padding-right: var(--peraa-spacing-10);
+    }
+    
+    .case-study-approach-card__desc {
+      font-size: var(--peraa-font-size-sm);
+      color: var(--peraa-text-secondary);
+      line-height: var(--peraa-line-height-relaxed);
+    }
+    
+    /* Challenges & Outcome cards */
+    .case-study-outcome {
+      padding: var(--peraa-spacing-6);
+      margin-bottom: var(--peraa-spacing-6);
+    }
+    
+    .case-study-outcome--challenges {
+      background: rgba(239, 68, 68, 0.1);
+      border-left: 4px solid #ef4444;
+    }
+    
+    .case-study-outcome--success {
+      background: rgba(34, 197, 94, 0.1);
+      border-left: 4px solid #22c55e;
+    }
+    
+    .case-study-outcome__title {
+      font-size: var(--peraa-font-size-base);
+      font-weight: var(--peraa-font-weight-medium);
+      color: var(--peraa-text-primary);
+      margin-bottom: var(--peraa-spacing-3);
+    }
+    
+    .case-study-outcome__text {
+      font-size: var(--peraa-font-size-sm);
+      color: var(--peraa-text-secondary);
+      line-height: var(--peraa-line-height-relaxed);
+    }
+    
+    /* Results Grid */
+    .case-study-results-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--peraa-spacing-6);
+    }
+    
+    @media (max-width: 900px) {
+      .case-study-results-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    .case-study-result-card {
+      padding: var(--peraa-spacing-5);
+      background: var(--peraa-surface-card);
+      border: 1px solid var(--peraa-border-default);
+    }
+    
+    .case-study-result-card--highlight {
+      background: var(--peraa-color-teal-950);
+      border-color: var(--peraa-color-teal-500);
+    }
+    
+    [data-theme="light"] .case-study-result-card--highlight {
+      background: var(--peraa-color-teal-50);
+    }
+    
+    .case-study-result-card__title {
+      font-size: var(--peraa-font-size-sm);
+      font-weight: var(--peraa-font-weight-semibold);
+      color: var(--peraa-text-primary);
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      margin-bottom: var(--peraa-spacing-4);
+      padding-bottom: var(--peraa-spacing-2);
+      border-bottom: 2px solid var(--peraa-color-teal-500);
+    }
+    
+    .case-study-result-metric {
+      display: flex;
+      flex-direction: column;
+      padding: var(--peraa-spacing-3) 0;
+      border-bottom: 1px solid var(--peraa-border-subtle);
+    }
+    
+    .case-study-result-metric:last-child {
+      border-bottom: none;
+    }
+    
+    .case-study-result-metric__label {
+      font-size: var(--peraa-font-size-xs);
+      color: var(--peraa-text-tertiary);
+      margin-bottom: var(--peraa-spacing-1);
+    }
+    
+    .case-study-result-metric__value {
+      font-size: var(--peraa-font-size-sm);
+      font-weight: var(--peraa-font-weight-medium);
+      color: var(--peraa-text-primary);
+    }
+    
+    /* Reflection Cards */
+    .case-study-reflection-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--peraa-spacing-4);
+    }
+    
+    @media (max-width: 768px) {
+      .case-study-reflection-cards {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    .case-study-reflection-card {
+      padding: var(--peraa-spacing-5);
+      background: var(--peraa-surface-subtle);
+      border-left: 3px solid var(--peraa-color-teal-500);
+      font-size: var(--peraa-font-size-sm);
+      color: var(--peraa-text-primary);
+      font-style: italic;
+    }
+    
+    /* Stats row */
+    .case-study-stats {
+      display: flex;
+      gap: var(--peraa-spacing-8);
+      margin: var(--peraa-spacing-6) 0;
+    }
+    
+    .case-study-stat {
+      text-align: center;
+    }
+    
+    .case-study-stat__number {
+      font-size: var(--peraa-font-size-4xl);
+      font-weight: var(--peraa-font-weight-bold);
+      color: var(--peraa-color-teal-500);
+      line-height: 1;
+    }
+    
+    .case-study-stat__label {
+      font-size: var(--peraa-font-size-sm);
+      color: var(--peraa-text-tertiary);
+      margin-top: var(--peraa-spacing-1);
+    }
+    
+    /* Gallery styles */
+    .case-study-gallery {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--peraa-spacing-4);
+    }
+    
+    @media (max-width: 900px) {
+      .case-study-gallery {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    
+    @media (max-width: 600px) {
+      .case-study-gallery {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    .case-study-gallery__item {
+      width: 100%;
+      aspect-ratio: 4/3;
+      cursor: pointer;
+      overflow: hidden;
+      transition: transform var(--peraa-duration-200) var(--peraa-ease-out),
+                  box-shadow var(--peraa-duration-200) var(--peraa-ease-out);
+    }
+    
+    .case-study-gallery__item:hover {
+      transform: scale(1.02);
+      box-shadow: var(--peraa-shadow-lg);
+    }
+    
+    .case-study-gallery__item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    /* Modal styles */
+    .case-study-modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1000;
+      display: none;
+      overflow-y: auto;
+    }
+    
+    .case-study-modal.is-active {
+      display: block;
+    }
+    
+    .case-study-modal__overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.85);
+      cursor: pointer;
+    }
+    
+    .case-study-modal__header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 56px;
+      background: var(--peraa-color-neutral-900);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 var(--peraa-spacing-6);
+      z-index: 10;
+      border-bottom: 1px solid var(--peraa-color-neutral-700);
+    }
+    
+    .case-study-modal__header-title {
+      color: white;
+      font-size: var(--peraa-font-size-sm);
+      font-weight: var(--peraa-font-weight-medium);
+    }
+    
+    .case-study-modal__close {
+      display: flex;
+      align-items: center;
+      gap: var(--peraa-spacing-2);
+      background: var(--peraa-color-neutral-800);
+      border: 1px solid var(--peraa-color-neutral-600);
+      color: white;
+      font-size: var(--peraa-font-size-sm);
+      cursor: pointer;
+      padding: var(--peraa-spacing-2) var(--peraa-spacing-4);
+      border-radius: var(--peraa-radius-sm);
+      transition: background var(--peraa-duration-150) var(--peraa-ease-out);
+    }
+    
+    .case-study-modal__close:hover {
+      background: var(--peraa-color-neutral-700);
+    }
+    
+    .case-study-modal__close-icon {
+      font-size: 18px;
+      line-height: 1;
+    }
+    
+    .case-study-modal__content {
+      position: relative;
+      width: 80%;
+      max-width: 1200px;
+      margin: 0 auto;
+      z-index: 1;
+      padding: calc(56px + var(--peraa-spacing-8)) 0 var(--peraa-spacing-8);
+    }
+    
+    .case-study-modal__image-container {
+      width: 100%;
+    }
+    
+    .case-study-modal__image {
+      width: 100%;
+      display: block;
+    }
+    
+    /* Section Divider with Logo */
+    .case-study-divider {
+      display: flex;
+      align-items: center;
+      gap: var(--peraa-spacing-4);
+      padding: 64px 0;
+      margin: var(--peraa-spacing-4) 0;
+    }
+    
+    .case-study-divider__line {
+      flex: 1;
+      height: 1px;
+      background: var(--peraa-border-default);
+    }
+    
+    .case-study-divider__logo {
+      width: 18px;
+      height: 18px;
+      opacity: 1;
+      flex-shrink: 0;
+    }
+    
+    .case-study-divider__logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+    
+    /* Case Study Navigation */
+    .case-study-nav {
+      display: flex;
+      justify-content: space-between;
+      margin-top: var(--peraa-spacing-10);
+      padding-top: var(--peraa-spacing-8);
+      border-top: 1px solid var(--peraa-border-default);
+    }
+    
+    .case-study-nav__link {
+      display: flex;
+      flex-direction: column;
+      gap: var(--peraa-spacing-1);
+      padding: var(--peraa-spacing-4);
+      text-decoration: none;
+      transition: background var(--peraa-duration-150) var(--peraa-ease-out);
+      border-radius: var(--peraa-radius-sm);
+    }
+    
+    .case-study-nav__link:hover {
+      background: var(--peraa-surface-subtle);
+    }
+    
+    .case-study-nav__link--prev {
+      align-items: flex-start;
+    }
+    
+    .case-study-nav__link--next {
+      align-items: flex-end;
+      text-align: right;
+    }
+    
+    .case-study-nav__label {
+      font-size: var(--peraa-font-size-xs);
+      color: var(--peraa-text-tertiary);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    
+    .case-study-nav__title {
+      font-size: var(--peraa-font-size-lg);
+      font-weight: var(--peraa-font-weight-medium);
+      color: var(--peraa-color-teal-500);
+    }
+    
+    .case-study-nav__link:hover .case-study-nav__title {
+      color: var(--peraa-color-teal-400);
+    }
+    
+    @media (max-width: 600px) {
+      .case-study-nav {
+        flex-direction: column;
+        gap: var(--peraa-spacing-4);
+      }
+      
+      .case-study-nav__link--next {
+        align-items: flex-start;
+        text-align: left;
+      }
+    }
+    
+    /* Timeline enhancements for this case study */
+    .peraa-timeline {
+      width: 160px;
+      padding-top: var(--peraa-spacing-8);
+    }
+    
+    .peraa-timeline__item {
+      padding: var(--peraa-spacing-6) 0;
+    }
+    
+    .peraa-timeline__description {
+      max-width: 120px;
+    }
+    
+    .peraa-timeline__item--active .peraa-timeline__marker {
+      background-color: var(--peraa-color-teal-500);
+    }
+    
+    .peraa-timeline__item--active .peraa-timeline__time {
+      color: var(--peraa-color-teal-400);
+    }
+  </style>
+</head>
+<body>
+  <div class="peraa-page">
+    <!-- Navigation -->
+    <header class="peraa-header">
+      <div class="peraa-container">
+        <nav class="peraa-nav">
+          <a href="../../index.html" class="peraa-nav__logo">Todd R. Lewis</a>
+          <ul class="peraa-nav__menu">
+            <li><a href="../../index.html" class="peraa-nav__link">Home</a></li>
+            <li><a href="index.html" class="peraa-nav__link peraa-nav__link--active">Case Studies + Projects</a></li>
+            <li><a href="../about.html" class="peraa-nav__link">About Me</a></li>
+            <li><a href="../challenges-welcomed.html" class="peraa-nav__link">Challenges Welcomed</a></li>
+            <li><a href="../writings.html" class="peraa-nav__link">Writings</a></li>
+            <li class="peraa-nav__divider" aria-hidden="true"></li>
+            <li><a href="../design-system.html" class="peraa-nav__link">Peraa Design System</a></li>
+          </ul>
+          <button class="peraa-btn peraa-btn--tertiary peraa-btn--icon-only" data-theme-toggle aria-label="Toggle theme">
+            <svg class="peraa-btn__icon peraa-btn__icon--sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="5"/>
+              <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+            </svg>
+            <svg class="peraa-btn__icon peraa-btn__icon--moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+            </svg>
+          </button>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="peraa-main">
+      <section class="peraa-section">
+        <div class="peraa-container">
+          <a href="index.html" class="peraa-link peraa-body-sm">← Back to Case Studies</a>
+          
+          <!-- Hero Section -->
+          <div class="case-study-hero peraa-mt-8">
+            <div>
+              <h1 class="case-study-hero__title" style="font-size: var(--peraa-font-size-4xl);">
+                <span>Sapling Design</span>
+                <span>System</span>
+                <span>Documentation</span>
+              </h1>
+              <div class="case-study-hero__badge">
+                Staff Product Designer, Design Systems<br>
+                <strong>@Ridgeline</strong>
+              </div>
+            </div>
+            <div class="case-study-hero__image">
+              Sapling
+            </div>
+          </div>
+
+          <!-- Timeline Wrapper - Main Content with Timeline -->
+          <div class="peraa-timeline-wrapper">
+            <!-- Main Content Column -->
+            <div class="peraa-timeline-content">
+
+              <!-- My Role - Lead paragraph -->
+              <div class="case-study-section" id="section-role">
+                <p class="peraa-lead">
+                  I joined Ridgeline as the design systems design lead, working closely with the UI Frameworks and Experience Engineering teams. In addition to owning the Sapling design system, I identified, designed, and implemented a centralized documentation platform to address systemic breakdowns in how design system knowledge was created, shared, and maintained.
+                </p>
+              </div>
+
+              <!-- Divider -->
+              <div class="case-study-divider">
+                <div class="case-study-divider__line"></div>
+                <div class="case-study-divider__logo">
+                  <img src="../../assets/images/rune.png" alt="">
+                </div>
+                <div class="case-study-divider__line"></div>
+              </div>
+
+              <!-- Overview -->
+              <div class="case-study-section" id="section-overview">
+                <h2 class="case-study-section__title">Overview</h2>
+                <p class="peraa-body">
+                  Ridgeline was in its sixth year as a startup when I joined. The product was months away from going live, with a single customer and an ambitious roadmap ahead. Sapling, the design system, was the sole system used to shape the entire platform's UX/UI, supporting a core UI library and multiple micro-frontends.
+                </p>
+                
+                <p class="peraa-body peraa-mt-4">
+                  While the component library itself was solid, documentation had become fragmented across six tools:
+                </p>
+                
+                <div class="case-study-card-row peraa-mt-4">
+                  <div class="case-study-mini-card case-study-mini-card--tool">Figma</div>
+                  <div class="case-study-mini-card case-study-mini-card--tool">GitHub</div>
+                  <div class="case-study-mini-card case-study-mini-card--tool">Storybook</div>
+                  <div class="case-study-mini-card case-study-mini-card--tool">Confluence</div>
+                  <div class="case-study-mini-card case-study-mini-card--tool">Jira</div>
+                  <div class="case-study-mini-card case-study-mini-card--tool">Google Docs/Sheets</div>
+                </div>
+
+                <p class="peraa-body peraa-mt-6">
+                  There was no clear source of truth, no documentation strategy, and no shared understanding of where decisions lived or how they evolved. As a result, teams struggled to confidently use Sapling, despite it being foundational to the product.
+                </p>
+              </div>
+
+              <!-- Divider -->
+              <div class="case-study-divider">
+                <div class="case-study-divider__line"></div>
+                <div class="case-study-divider__logo">
+                  <img src="../../assets/images/rune.png" alt="">
+                </div>
+                <div class="case-study-divider__line"></div>
+              </div>
+
+              <!-- Defining the Problem -->
+              <div class="case-study-section" id="section-problem">
+                <h2 class="case-study-section__title">Defining the Problem</h2>
+                <p class="peraa-body">
+                  The problem was not a lack of documentation. It was a lack of cohesion, discoverability, and trust.
+                </p>
+                
+                <p class="peraa-body peraa-mt-4">
+                  Designers, product engineers, PMs, and UI engineers had to visit multiple tools to answer basic questions:
+                </p>
+                
+                <ul class="case-study-role__list peraa-mt-2">
+                  <li>Does a component already exist?</li>
+                  <li>How is it meant to be used?</li>
+                  <li>Why was it designed this way?</li>
+                  <li>Has it changed recently?</li>
+                </ul>
+
+                <p class="peraa-body peraa-mt-4"><strong>This led to:</strong></p>
+                <div class="case-study-card-row case-study-card-row--warn peraa-mt-4">
+                  <div class="case-study-mini-card case-study-mini-card--warn">Slower onboarding for new hires</div>
+                  <div class="case-study-mini-card case-study-mini-card--warn">Engineers hunting for answers in Slack</div>
+                  <div class="case-study-mini-card case-study-mini-card--warn">Repeated bespoke implementations</div>
+                  <div class="case-study-mini-card case-study-mini-card--warn">Incorrect or inconsistent component usage</div>
+                  <div class="case-study-mini-card case-study-mini-card--warn">UI engineers becoming a bottleneck for knowledge</div>
+                </div>
+
+                <p class="peraa-body peraa-mt-6" style="font-style: italic; color: var(--peraa-text-secondary);">
+                  The source of truth was blurry, and decision history was effectively lost.
+                </p>
+              </div>
+
+              <!-- Divider -->
+              <div class="case-study-divider">
+                <div class="case-study-divider__line"></div>
+                <div class="case-study-divider__logo">
+                  <img src="../../assets/images/rune.png" alt="">
+                </div>
+                <div class="case-study-divider__line"></div>
+              </div>
+
+              <!-- Research & Validation -->
+              <div class="case-study-section" id="section-research">
+                <h2 class="case-study-section__title">Research & Validation</h2>
+                <p class="peraa-body">
+                  Rather than assuming the problem, I validated it through deep qualitative and quantitative research:
+                </p>
+                
+                <div class="case-study-stats" style="flex-wrap: wrap; gap: var(--peraa-spacing-6);">
+                  <div class="case-study-stat">
+                    <div class="case-study-stat__number">62</div>
+                    <div class="case-study-stat__label">Interviews</div>
+                  </div>
+                  <div class="case-study-stat">
+                    <div class="case-study-stat__number">22</div>
+                    <div class="case-study-stat__label">Usability Tests</div>
+                  </div>
+                  <div class="case-study-stat">
+                    <div class="case-study-stat__number">4</div>
+                    <div class="case-study-stat__label">Fireside Chats</div>
+                  </div>
+                  <div class="case-study-stat">
+                    <div class="case-study-stat__number">2</div>
+                    <div class="case-study-stat__label">Surveys</div>
+                  </div>
+                  <div class="case-study-stat">
+                    <div class="case-study-stat__number">2</div>
+                    <div class="case-study-stat__label">Presentations</div>
+                  </div>
+                  <div class="case-study-stat">
+                    <div class="case-study-stat__number">1</div>
+                    <div class="case-study-stat__label">Company Demo</div>
+                  </div>
+                </div>
+
+                <p class="peraa-body peraa-mt-2"><strong>Key insights emerged consistently:</strong></p>
+                <ul class="case-study-role__list peraa-mt-2">
+                  <li>Engineers often bypassed documentation entirely because it was outdated or hard to find</li>
+                  <li>Storybook was trusted most, but lacked context, rationale, and discoverability</li>
+                  <li>Designers and engineers wanted everything in one place, without losing role-specific detail</li>
+                  <li>New hires had "nothing" to onboard from</li>
+                  <li>Teams wanted documentation to reflect how things are actually built, not idealized intent</li>
+                </ul>
+
+                <div class="case-study-quote peraa-mt-6">
+                  <p class="case-study-quote__text">"I don't want ten ways to do something. Show me the one we're supposed to build."</p>
+                  <span class="case-study-quote__cite">Recurring theme from interviews</span>
+                </div>
+              </div>
+
+              <!-- Divider -->
+              <div class="case-study-divider">
+                <div class="case-study-divider__line"></div>
+                <div class="case-study-divider__logo">
+                  <img src="../../assets/images/rune.png" alt="">
+                </div>
+                <div class="case-study-divider__line"></div>
+              </div>
+
+              <!-- Goals -->
+              <div class="case-study-section" id="section-goals">
+                <h2 class="case-study-section__title">Goals</h2>
+                <p class="peraa-body">
+                  The goal was not to replace existing tools, but to make the system legible.
+                </p>
+                
+                <div class="case-study-approach-grid peraa-mt-6">
+                  <div class="case-study-approach-card">
+                    <div class="case-study-approach-card__number">1</div>
+                    <h3 class="case-study-approach-card__title">Single Entry Point</h3>
+                    <p class="case-study-approach-card__desc">
+                      Create a single, centralized entry point for all Sapling documentation.
+                    </p>
+                  </div>
+
+                  <div class="case-study-approach-card">
+                    <div class="case-study-approach-card__number">2</div>
+                    <h3 class="case-study-approach-card__title">Preserve Workflows</h3>
+                    <p class="case-study-approach-card__desc">
+                      Preserve existing ownership and workflows for content creation.
+                    </p>
+                  </div>
+
+                  <div class="case-study-approach-card">
+                    <div class="case-study-approach-card__number">3</div>
+                    <h3 class="case-study-approach-card__title">Discoverable Context</h3>
+                    <p class="case-study-approach-card__desc">
+                      Make design, code, decisions, and usage discoverable in context.
+                    </p>
+                  </div>
+
+                  <div class="case-study-approach-card">
+                    <div class="case-study-approach-card__number">4</div>
+                    <h3 class="case-study-approach-card__title">Reduce Dependency</h3>
+                    <p class="case-study-approach-card__desc">
+                      Reduce dependency on UI engineers for basic questions. Improve onboarding speed and day-to-day efficiency.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Divider -->
+              <div class="case-study-divider">
+                <div class="case-study-divider__line"></div>
+                <div class="case-study-divider__logo">
+                  <img src="../../assets/images/rune.png" alt="">
+                </div>
+                <div class="case-study-divider__line"></div>
+              </div>
+
+              <!-- Strategy & Principles -->
+              <div class="case-study-section" id="section-strategy">
+                <h2 class="case-study-section__title">Strategy & Principles</h2>
+                
+                <div class="case-study-callout">
+                  <p class="case-study-callout__label">Approach</p>
+                  <p class="case-study-callout__text">I intentionally chose aggregation over consolidation.</p>
+                </div>
+
+                <p class="peraa-body peraa-mt-6">
+                  Rather than forcing teams to abandon tools they already relied on, I designed a documentation site that reflected and surfaced content from multiple sources, bringing it together into one coherent experience.
+                </p>
+                
+                <p class="peraa-body peraa-mt-4"><strong>Three guiding principles shaped every decision:</strong></p>
+                
+                <div class="case-study-reflection-cards peraa-mt-4">
+                  <div class="case-study-reflection-card">
+                    <p>Meet teams where they already work</p>
+                  </div>
+                  <div class="case-study-reflection-card">
+                    <p>Documentation should reflect reality, not intent</p>
+                  </div>
+                  <div class="case-study-reflection-card">
+                    <p>Decisions must be discoverable</p>
+                  </div>
+                </div>
+
+                <p class="peraa-body peraa-mt-6">
+                  This allowed us to improve clarity and trust without disrupting existing processes.
+                </p>
+              </div>
+
+              <!-- Divider -->
+              <div class="case-study-divider">
+                <div class="case-study-divider__line"></div>
+                <div class="case-study-divider__logo">
+                  <img src="../../assets/images/rune.png" alt="">
+                </div>
+                <div class="case-study-divider__line"></div>
+              </div>
+
+              <!-- Solution -->
+              <div class="case-study-section" id="section-solution">
+                <h2 class="case-study-section__title">Solution: A Purpose-Built Documentation Site</h2>
+                <p class="peraa-body">
+                  I designed and built a Documentation Site for Sapling (DSD) from the ground up.
+                </p>
+                
+                <p class="peraa-body peraa-mt-4"><strong>The site:</strong></p>
+                <ul class="case-study-role__list peraa-mt-2">
+                  <li>Acts as a centralized hub for all design system knowledge</li>
+                  <li>Embeds Storybook directly into the experience</li>
+                  <li>Surfaces Figma specs, design tokens, usage guidelines, and standards</li>
+                  <li>Provides direct links back to source repositories when deeper detail is needed</li>
+                </ul>
+
+                <p class="peraa-body peraa-mt-4" style="font-style: italic; color: var(--peraa-text-secondary);">
+                  Teams no longer needed to remember where something lived, only what they were looking for.
+                </p>
+              </div>
+
+              <!-- Divider -->
+              <div class="case-study-divider">
+                <div class="case-study-divider__line"></div>
+                <div class="case-study-divider__logo">
+                  <img src="../../assets/images/rune.png" alt="">
+                </div>
+                <div class="case-study-divider__line"></div>
+              </div>
+
+              <!-- Execution -->
+              <div class="case-study-section" id="section-execution">
+                <h2 class="case-study-section__title">Execution</h2>
+                
+                <div class="case-study-approach-grid">
+                  <div class="case-study-approach-card">
+                    <div class="case-study-approach-card__number">1</div>
+                    <h3 class="case-study-approach-card__title">Design & Build</h3>
+                    <p class="case-study-approach-card__desc">
+                      I bootstrapped the site myself using HTML, CSS, and JavaScript, designing the IA, interaction model, and visual structure. I continue to maintain and enhance it regularly.
+                    </p>
+                  </div>
+
+                  <div class="case-study-approach-card">
+                    <div class="case-study-approach-card__number">2</div>
+                    <h3 class="case-study-approach-card__title">Storybook Integration</h3>
+                    <p class="case-study-approach-card__desc">
+                      Keeping Storybook in sync was one of the hardest problems. Initially, I manually tracked updates, but this didn't scale. I developed a script that consumes Storybook's JSON map, dynamically linking and iframing relevant stories per documentation page. Eventually, I enabled the entire Storybook instance to load within the site.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="case-study-callout peraa-mt-6">
+                  <p class="case-study-callout__label">Key Challenge Solved</p>
+                  <p class="case-study-callout__text" style="font-size: var(--peraa-font-size-base);">
+                    The Storybook integration removed me as a bottleneck and ensured accuracy at scale. Users always access the latest content without leaving the DSD.
+                  </p>
+                </div>
+                
+                <h3 class="peraa-heading-4 peraa-mt-8">Contributions & Governance</h3>
+                <p class="peraa-body peraa-mt-4">
+                  Another challenge was enabling non-technical contributions. Originally, I explored building a CMS to support federated documentation ownership. While viable, it introduced long-term maintenance complexity.
+                </p>
+                
+                <p class="peraa-body peraa-mt-4">
+                  Advances in AI tooling allowed a better solution:
+                </p>
+                <ul class="case-study-role__list peraa-mt-2">
+                  <li>Documentation changes can now originate from Jira tickets, threads, or files</li>
+                  <li>AI agents generate or update content directly in the site</li>
+                  <li>Humans review and approve changes before publishing</li>
+                </ul>
+
+                <p class="peraa-body peraa-mt-4"><strong>This approach:</strong></p>
+                <div class="case-study-card-row peraa-mt-2">
+                  <div class="case-study-mini-card">Reduces friction to contribute</div>
+                  <div class="case-study-mini-card">Preserves quality through human oversight</div>
+                  <div class="case-study-mini-card">Moves Sapling toward a more agnostic, system-driven future</div>
+                </div>
+              </div>
+
+              <!-- Divider -->
+              <div class="case-study-divider">
+                <div class="case-study-divider__line"></div>
+                <div class="case-study-divider__logo">
+                  <img src="../../assets/images/rune.png" alt="">
+                </div>
+                <div class="case-study-divider__line"></div>
+              </div>
+
+              <!-- Results & Impact -->
+              <div class="case-study-section" id="section-results">
+                <h2 class="case-study-section__title">Results & Impact</h2>
+                
+                <div class="case-study-results-grid">
+                  <!-- Immediate Outcomes -->
+                  <div class="case-study-result-card">
+                    <h3 class="case-study-result-card__title">Immediate Outcomes</h3>
+                    <ul class="case-study-role__list">
+                      <li>Sapling documentation now has a single, trusted home</li>
+                      <li>Engineers spend less time searching, asking, or rebuilding</li>
+                      <li>Onboarding is significantly faster for new hires</li>
+                      <li>Documentation is now viewed as a product, not an afterthought</li>
+                    </ul>
+                  </div>
+
+                  <!-- Qualitative Impact -->
+                  <div class="case-study-result-card case-study-result-card--highlight">
+                    <h3 class="case-study-result-card__title">Qualitative Impact</h3>
+                    <div class="case-study-result-metric">
+                      <span class="case-study-result-metric__value">Faster development speed</span>
+                    </div>
+                    <div class="case-study-result-metric">
+                      <span class="case-study-result-metric__value">Higher confidence in implementation</span>
+                    </div>
+                    <div class="case-study-result-metric">
+                      <span class="case-study-result-metric__value">Reduced dependency on UI engineers</span>
+                    </div>
+                    <div class="case-study-result-metric">
+                      <span class="case-study-result-metric__value">Clearer collaboration between design and engineering</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="case-study-quote peraa-mt-6">
+                  <p class="case-study-quote__text">"If engineers have access to components and related patterns, there's less waterfall and more collaboration. Faster to design, faster to build, faster to production."</p>
+                  <span class="case-study-quote__cite">Engineer feedback</span>
+                </div>
+              </div>
+
+              <!-- Divider -->
+              <div class="case-study-divider">
+                <div class="case-study-divider__line"></div>
+                <div class="case-study-divider__logo">
+                  <img src="../../assets/images/rune.png" alt="">
+                </div>
+                <div class="case-study-divider__line"></div>
+              </div>
+
+              <!-- Challenges & Tradeoffs -->
+              <div class="case-study-section" id="section-challenges">
+                <h2 class="case-study-section__title">Challenges & Tradeoffs</h2>
+                
+                <div class="case-study-approach-grid">
+                  <div class="case-study-outcome case-study-outcome--challenges" style="margin-bottom: 0;">
+                    <h3 class="case-study-outcome__title">Technical Complexity</h3>
+                    <p class="case-study-outcome__text">
+                      Maintaining sync across multiple source systems required technical problem-solving beyond traditional design work.
+                    </p>
+                  </div>
+                  
+                  <div class="case-study-outcome case-study-outcome--challenges" style="margin-bottom: 0; border-left-color: var(--peraa-color-warning-500); background: rgba(245, 158, 11, 0.1);">
+                    <h3 class="case-study-outcome__title">Deferred Features</h3>
+                    <p class="case-study-outcome__text">
+                      Versioning and deprecation were intentionally deferred from the MVP, then layered in later.
+                    </p>
+                  </div>
+                  
+                  <div class="case-study-outcome case-study-outcome--challenges" style="margin-bottom: 0; grid-column: 1 / -1; border-left-color: var(--peraa-color-teal-500); background: rgba(20, 184, 166, 0.1);">
+                    <h3 class="case-study-outcome__title">Building Trust in AI Workflows</h3>
+                    <p class="case-study-outcome__text">
+                      Trust in AI-assisted workflows required careful framing and guardrails. Each tradeoff was made to ensure adoption first, perfection later.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Divider -->
+              <div class="case-study-divider">
+                <div class="case-study-divider__line"></div>
+                <div class="case-study-divider__logo">
+                  <img src="../../assets/images/rune.png" alt="">
+                </div>
+                <div class="case-study-divider__line"></div>
+              </div>
+
+              <!-- Reflection & Legacy -->
+              <div class="case-study-section" id="section-reflection">
+                <h2 class="case-study-section__title">Reflection & Legacy</h2>
+                <p class="peraa-body">
+                  This project elevated Sapling's perceived maturity and reinforced a critical lesson:
+                </p>
+                
+                <div class="case-study-callout peraa-mt-4">
+                  <p class="case-study-callout__text" style="font-weight: var(--peraa-font-weight-medium);">
+                    Design systems don't scale without documentation that scales with them.
+                  </p>
+                </div>
+
+                <p class="peraa-body peraa-mt-6">
+                  What I'm most proud of is not the site itself, but the shift in mindset:
+                </p>
+                
+                <div class="case-study-reflection-cards peraa-mt-4">
+                  <div class="case-study-reflection-card">
+                    <p>Documentation is now infrastructure</p>
+                  </div>
+                  <div class="case-study-reflection-card">
+                    <p>Knowledge is shared, not hoarded</p>
+                  </div>
+                  <div class="case-study-reflection-card">
+                    <p>Decisions are visible, traceable, and reusable</p>
+                  </div>
+                </div>
+
+                <p class="peraa-body peraa-mt-6" style="font-style: italic; color: var(--peraa-text-secondary);">
+                  This work represents how I approach design systems holistically, as products that serve organizations, not just interfaces.
+                </p>
+              </div>
+
+              <!-- Divider -->
+              <div class="case-study-divider">
+                <div class="case-study-divider__line"></div>
+                <div class="case-study-divider__logo">
+                  <img src="../../assets/images/rune.png" alt="">
+                </div>
+                <div class="case-study-divider__line"></div>
+              </div>
+
+              <!-- Visual Artifacts Gallery -->
+              <div class="case-study-section" id="section-visuals">
+                <h2 class="case-study-section__title">Visual Artifacts</h2>
+                <div class="case-study-gallery">
+                  <div class="case-study-gallery__item" data-modal-trigger data-image="../../assets/images/caseStudy1/dsd1.png">
+                    <img src="../../assets/images/caseStudy1/dsd1.png" alt="Sapling Documentation 1">
+                  </div>
+                  <div class="case-study-gallery__item" data-modal-trigger data-image="../../assets/images/caseStudy1/dsd2.png">
+                    <img src="../../assets/images/caseStudy1/dsd2.png" alt="Sapling Documentation 2">
+                  </div>
+                  <div class="case-study-gallery__item" data-modal-trigger data-image="../../assets/images/caseStudy1/dsd3.png">
+                    <img src="../../assets/images/caseStudy1/dsd3.png" alt="Sapling Documentation 3">
+                  </div>
+                  <div class="case-study-gallery__item" data-modal-trigger data-image="../../assets/images/caseStudy1/dsd4.png">
+                    <img src="../../assets/images/caseStudy1/dsd4.png" alt="Sapling Documentation 4">
+                  </div>
+                  <div class="case-study-gallery__item" data-modal-trigger data-image="../../assets/images/caseStudy1/dsd5.png">
+                    <img src="../../assets/images/caseStudy1/dsd5.png" alt="Sapling Documentation 5">
+                  </div>
+                  <div class="case-study-gallery__item" data-modal-trigger data-image="../../assets/images/caseStudy1/dsd6.png">
+                    <img src="../../assets/images/caseStudy1/dsd6.png" alt="Sapling Documentation 6">
+                  </div>
+                  <div class="case-study-gallery__item" data-modal-trigger data-image="../../assets/images/caseStudy1/dsd7.png">
+                    <img src="../../assets/images/caseStudy1/dsd7.png" alt="Sapling Documentation 7">
+                  </div>
+                  <div class="case-study-gallery__item" data-modal-trigger data-image="../../assets/images/caseStudy1/dsd8.png">
+                    <img src="../../assets/images/caseStudy1/dsd8.png" alt="Sapling Documentation 8">
+                  </div>
+                  <div class="case-study-gallery__item" data-modal-trigger data-image="../../assets/images/caseStudy1/dsd9.png">
+                    <img src="../../assets/images/caseStudy1/dsd9.png" alt="Sapling Documentation 9">
+                  </div>
+                </div>
+              </div>
+            
+            </div><!-- End peraa-timeline-content -->
+
+            <!-- Vertical Timeline -->
+            <aside class="peraa-timeline" aria-label="Project timeline">
+              <div class="peraa-timeline__line"></div>
+              
+              <div class="peraa-timeline__item peraa-timeline__item--active" id="timeline-discovery">
+                <div class="peraa-timeline__marker"></div>
+                <div class="peraa-timeline__label">
+                  <span class="peraa-timeline__time">Phase 1</span>
+                  <span class="peraa-timeline__description">Discovery & research</span>
+                </div>
+              </div>
+              
+              <div class="peraa-timeline__item" id="timeline-strategy">
+                <div class="peraa-timeline__marker"></div>
+                <div class="peraa-timeline__label">
+                  <span class="peraa-timeline__time">Phase 2</span>
+                  <span class="peraa-timeline__description">Strategy & IA</span>
+                </div>
+              </div>
+              
+              <div class="peraa-timeline__item" id="timeline-build">
+                <div class="peraa-timeline__marker"></div>
+                <div class="peraa-timeline__label">
+                  <span class="peraa-timeline__time">Phase 3</span>
+                  <span class="peraa-timeline__description">Design & build</span>
+                </div>
+              </div>
+              
+              <div class="peraa-timeline__item" id="timeline-integration">
+                <div class="peraa-timeline__marker"></div>
+                <div class="peraa-timeline__label">
+                  <span class="peraa-timeline__time">Phase 4</span>
+                  <span class="peraa-timeline__description">Storybook integration</span>
+                </div>
+              </div>
+              
+              <div class="peraa-timeline__item" id="timeline-governance">
+                <div class="peraa-timeline__marker"></div>
+                <div class="peraa-timeline__label">
+                  <span class="peraa-timeline__time">Phase 5</span>
+                  <span class="peraa-timeline__description">AI-assisted governance</span>
+                </div>
+              </div>
+              
+              <div class="peraa-timeline__item" id="timeline-ongoing">
+                <div class="peraa-timeline__marker"></div>
+                <div class="peraa-timeline__label">
+                  <span class="peraa-timeline__time">Ongoing</span>
+                  <span class="peraa-timeline__description">Enhancement & maintenance</span>
+                </div>
+              </div>
+            </aside>
+          </div><!-- End peraa-timeline-wrapper -->
+
+          <!-- Image Modal -->
+          <div class="case-study-modal" id="imageModal">
+            <div class="case-study-modal__overlay"></div>
+            <div class="case-study-modal__header">
+              <span class="case-study-modal__header-title" id="modalTitle">Image Preview</span>
+              <button class="case-study-modal__close" aria-label="Close modal">
+                <span class="case-study-modal__close-icon">×</span>
+                <span>Close</span>
+              </button>
+            </div>
+            <div class="case-study-modal__content">
+              <div class="case-study-modal__image-container">
+                <img class="case-study-modal__image" src="" alt="Expanded view">
+              </div>
+            </div>
+          </div>
+
+          <!-- Case Study Navigation -->
+          <nav class="case-study-nav" aria-label="Case study navigation">
+            <a href="project-4.html" class="case-study-nav__link case-study-nav__link--prev">
+              <span class="case-study-nav__label">Previous</span>
+              <span class="case-study-nav__title">Moody's Analytics</span>
+            </a>
+            <a href="project-2.html" class="case-study-nav__link case-study-nav__link--next">
+              <span class="case-study-nav__label">Next</span>
+              <span class="case-study-nav__title">Flexport Latitude</span>
+            </a>
+          </nav>
+
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="peraa-footer">
+      <div class="peraa-footer__inner">
+        <div class="peraa-footer__main">
+          <div class="peraa-footer__links">
+            <a href="https://www.linkedin.com/in/toddrlewis/" class="peraa-footer__link" target="_blank" rel="noopener noreferrer">
+              <svg class="peraa-footer__link-icon" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+              </svg>
+              LinkedIn
+            </a>
+            <a href="https://x.com/allbydesign13" class="peraa-footer__link" target="_blank" rel="noopener noreferrer">
+              <svg class="peraa-footer__link-icon" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+              </svg>
+              X
+            </a>
+            <a href="https://medium.com/@trldesignr" class="peraa-footer__link" target="_blank" rel="noopener noreferrer">
+              <svg class="peraa-footer__link-icon" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/>
+              </svg>
+              Medium
+            </a>
+          </div>
+        </div>
+        <div class="peraa-footer__bottom">
+          <p class="peraa-footer__copyright">© 2026 Todd R. Lewis. All rights reserved.</p>
+          <span class="peraa-footer__design-system">
+            Built with <span class="peraa-footer__design-system-name">Peraa</span> Design System. Not a template
+          </span>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script src="../../js/main.js"></script>
+  <script>
+    // Image Gallery Modal
+    (function() {
+      const modal = document.getElementById('imageModal');
+      const modalOverlay = modal.querySelector('.case-study-modal__overlay');
+      const modalClose = modal.querySelector('.case-study-modal__close');
+      const modalImage = modal.querySelector('.case-study-modal__image');
+      const modalTitle = document.getElementById('modalTitle');
+      const galleryItems = document.querySelectorAll('.case-study-gallery__item');
+      
+      // Open modal
+      galleryItems.forEach((item, index) => {
+        item.addEventListener('click', () => {
+          const imageSrc = item.getAttribute('data-image');
+          const imageAlt = item.querySelector('img')?.alt || `Design ${index + 1}`;
+          if (imageSrc) {
+            modalImage.src = imageSrc;
+            modalImage.style.display = 'block';
+          } else {
+            modalImage.style.display = 'none';
+          }
+          modalTitle.textContent = imageAlt;
+          modal.classList.add('is-active');
+          document.body.style.overflow = 'hidden';
+        });
+      });
+      
+      // Close modal functions
+      function closeModal() {
+        modal.classList.remove('is-active');
+        document.body.style.overflow = '';
+        modalImage.src = '';
+      }
+      
+      modalOverlay.addEventListener('click', closeModal);
+      modalClose.addEventListener('click', closeModal);
+      
+      // Close on escape key
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal.classList.contains('is-active')) {
+          closeModal();
+        }
+      });
+    })();
+
+    // Timeline scroll highlighting
+    (function() {
+      const sections = [
+        { id: 'section-role', timelineIndex: 0 },
+        { id: 'section-overview', timelineIndex: 0 },
+        { id: 'section-problem', timelineIndex: 0 },
+        { id: 'section-research', timelineIndex: 0 },
+        { id: 'section-goals', timelineIndex: 1 },
+        { id: 'section-strategy', timelineIndex: 1 },
+        { id: 'section-solution', timelineIndex: 2 },
+        { id: 'section-execution', timelineIndex: 3 },
+        { id: 'section-results', timelineIndex: 4 },
+        { id: 'section-challenges', timelineIndex: 4 },
+        { id: 'section-reflection', timelineIndex: 5 },
+        { id: 'section-visuals', timelineIndex: 5 }
+      ];
+      
+      const timelineItems = document.querySelectorAll('.peraa-timeline__item');
+      
+      function updateActiveTimeline() {
+        const scrollPosition = window.scrollY + window.innerHeight / 3;
+        
+        let activeIndex = 0;
+        
+        sections.forEach((section) => {
+          const element = document.getElementById(section.id);
+          if (element) {
+            const rect = element.getBoundingClientRect();
+            const elementTop = rect.top + window.scrollY;
+            
+            if (scrollPosition >= elementTop) {
+              activeIndex = section.timelineIndex;
+            }
+          }
+        });
+        
+        timelineItems.forEach((item, index) => {
+          if (index <= activeIndex) {
+            item.classList.add('peraa-timeline__item--active');
+          } else {
+            item.classList.remove('peraa-timeline__item--active');
+          }
+        });
+      }
+      
+      // Throttled scroll handler
+      let ticking = false;
+      window.addEventListener('scroll', () => {
+        if (!ticking) {
+          window.requestAnimationFrame(() => {
+            updateActiveTimeline();
+            ticking = false;
+          });
+          ticking = true;
+        }
+      });
+      
+      // Initial call
+      updateActiveTimeline();
+    })();
+  </script>
+</body>
+</html>

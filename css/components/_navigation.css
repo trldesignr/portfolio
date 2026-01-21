@@ -1,0 +1,121 @@
+/**
+ * Peraa Design System - Navigation Component
+ * 
+ * Site header and navigation styles.
+ */
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   HEADER
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.peraa-header {
+  position: sticky;
+  top: 0;
+  z-index: var(--peraa-z-50);
+  background-color: var(--peraa-surface-page);
+  border-bottom: var(--peraa-border-width-1) solid var(--peraa-border-subtle);
+  backdrop-filter: blur(8px);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   NAVIGATION
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.peraa-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--peraa-spacing-6);
+  padding: var(--peraa-spacing-4) 0;
+}
+
+.peraa-nav__logo {
+  display: flex;
+  align-items: center;
+  font-size: var(--peraa-font-size-lg);
+  font-weight: var(--peraa-font-weight-bold);
+  color: var(--peraa-text-primary);
+  text-decoration: none;
+  letter-spacing: var(--peraa-letter-spacing-tight);
+  transition: color var(--peraa-duration-150) var(--peraa-ease-out);
+}
+
+.peraa-nav__logo:hover {
+  color: var(--peraa-text-brand);
+}
+
+.peraa-nav__logo-img {
+  height: 40px;
+  width: auto;
+  opacity: 0.8;
+  transition: opacity var(--peraa-duration-150) var(--peraa-ease-out);
+}
+
+.peraa-nav__logo:hover .peraa-nav__logo-img {
+  opacity: 1;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   MENU
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.peraa-nav__menu {
+  display: flex;
+  align-items: center;
+  gap: var(--peraa-spacing-1);
+}
+
+.peraa-nav__link {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--peraa-spacing-2) var(--peraa-spacing-3);
+  font-size: var(--peraa-font-size-sm);
+  font-weight: var(--peraa-font-weight-medium);
+  color: var(--peraa-text-secondary);
+  text-decoration: none;
+  border-radius: var(--peraa-radius-md);
+  transition: 
+    color var(--peraa-duration-150) var(--peraa-ease-out),
+    background-color var(--peraa-duration-150) var(--peraa-ease-out);
+}
+
+.peraa-nav__link:hover {
+  color: var(--peraa-text-primary);
+  background-color: var(--peraa-surface-subtle);
+}
+
+.peraa-nav__link--active {
+  color: var(--peraa-text-brand);
+  background-color: var(--peraa-interactive-secondary-bg-hover);
+}
+
+/* Navigation Divider */
+.peraa-nav__divider {
+  width: 1px;
+  height: 20px;
+  background-color: var(--peraa-border-default);
+  margin: 0 var(--peraa-spacing-2);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   RESPONSIVE
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+@media (max-width: 768px) {
+  .peraa-nav {
+    flex-wrap: wrap;
+  }
+
+  .peraa-nav__menu {
+    order: 3;
+    width: 100%;
+    flex-wrap: wrap;
+    padding-top: var(--peraa-spacing-3);
+    border-top: var(--peraa-border-width-1) solid var(--peraa-border-subtle);
+  }
+
+  .peraa-nav__link {
+    font-size: var(--peraa-font-size-xs);
+    padding: var(--peraa-spacing-2);
+  }
+}

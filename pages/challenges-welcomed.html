@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Challenges Welcomed - Todd R. Lewis">
+  <title>Challenges Welcomed - Todd R. Lewis</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="../css/main.css">
+</head>
+<body>
+  <div class="peraa-page">
+    <!-- Navigation -->
+    <header class="peraa-header">
+      <div class="peraa-container">
+        <nav class="peraa-nav">
+          <a href="../index.html" class="peraa-nav__logo">Todd R. Lewis</a>
+          <ul class="peraa-nav__menu">
+            <li><a href="../index.html" class="peraa-nav__link">Home</a></li>
+            <li><a href="case-studies/index.html" class="peraa-nav__link">Case Studies + Projects</a></li>
+            <li><a href="about.html" class="peraa-nav__link">About Me</a></li>
+            <li><a href="challenges-welcomed.html" class="peraa-nav__link peraa-nav__link--active">Challenges Welcomed</a></li>
+            <li><a href="writings.html" class="peraa-nav__link">Writings</a></li>
+            <li class="peraa-nav__divider" aria-hidden="true"></li>
+            <li><a href="design-system.html" class="peraa-nav__link">Peraa Design System</a></li>
+          </ul>
+          <button class="peraa-btn peraa-btn--tertiary peraa-btn--icon-only" data-theme-toggle aria-label="Toggle theme">
+            <svg class="peraa-btn__icon peraa-btn__icon--sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="5"/>
+              <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+            </svg>
+            <svg class="peraa-btn__icon peraa-btn__icon--moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+            </svg>
+          </button>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="peraa-main">
+      <section class="peraa-section">
+        <div class="peraa-container">
+          <p class="peraa-overline">Achievements</p>
+          <h1 class="peraa-heading-1 peraa-mt-4">Challenges Welcomed</h1>
+          <p class="peraa-body peraa-mt-6">
+            Click on any of the cards below. These challenges pushed my abilities and had a significant impact on my career, driving both personal and professional growth. They helped me develop my craft with tools, refine soft skills, navigate differing opinions, adapt to organizational shifts, collaborate across teams, build knowledge, and more.
+          </p>
+          <p class="peraa-body peraa-mt-4 peraa-mb-8">
+            In many ways, looking back at these challenges has helped me better understand the problems I've tackled. My case studies and finished work are great for showcasing project context, process, and outcomes, but none of that would matter without first developing a clear understanding of the problem itself. If I didn't fall in love with the right problem, it didn't matter how "good" my solution was, because there's nothing worse than solving the wrong one.
+          </p>
+
+          <!-- Flip Cards Grid -->
+          <div class="peraa-flip-card-grid">
+            
+            <!-- Card 1: Fragmented Documentation -->
+            <div class="peraa-flip-card" onclick="this.classList.toggle('is-flipped')">
+              <div class="peraa-flip-card__inner">
+                <div class="peraa-flip-card__front">
+                  <div class="peraa-flip-card__image"></div>
+                  <div class="peraa-flip-card__content">
+                    <h3 class="peraa-flip-card__title">Fragmented Documentation</h3>
+                    <p class="peraa-flip-card__description">Disparate sources of truth across 5+ tools</p>
+                    <div class="peraa-flip-card__front-tags">
+                      <span class="peraa-flip-card__front-tag">Documentation</span>
+                      <span class="peraa-flip-card__front-tag">Leadership</span>
+                      <span class="peraa-flip-card__front-tag">Org Shift</span>
+                    </div>
+                    <div class="peraa-flip-card__hint">
+                      <svg class="peraa-flip-card__hint-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 18l6-6-6-6"/>
+                      </svg>
+                      Click to learn more
+                    </div>
+                  </div>
+                </div>
+                <div class="peraa-flip-card__back">
+                  <p class="peraa-flip-card__back-description">
+                    Consolidated documentation spread across more than five tools into a single, authoritative source of truth. Reduced confusion, shortened onboarding time, and ensured designers and engineers had consistent access to accurate, up-to-date guidance.
+                  </p>
+                  <div class="peraa-flip-card__meta">
+                    <span class="peraa-flip-card__meta-company">Ridgeline</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 2: UI Migration -->
+            <div class="peraa-flip-card" onclick="this.classList.toggle('is-flipped')">
+              <div class="peraa-flip-card__inner">
+                <div class="peraa-flip-card__front">
+                  <div class="peraa-flip-card__image"></div>
+                  <div class="peraa-flip-card__content">
+                    <h3 class="peraa-flip-card__title">UI Migration</h3>
+                    <p class="peraa-flip-card__description">Migrating from a legacy UI library to a modern framework</p>
+                    <div class="peraa-flip-card__front-tags">
+                      <span class="peraa-flip-card__front-tag">Components</span>
+                      <span class="peraa-flip-card__front-tag">Auditing</span>
+                      <span class="peraa-flip-card__front-tag">Product Design</span>
+                    </div>
+                    <div class="peraa-flip-card__hint">
+                      <svg class="peraa-flip-card__hint-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 18l6-6-6-6"/>
+                      </svg>
+                      Click to learn more
+                    </div>
+                  </div>
+                </div>
+                <div class="peraa-flip-card__back">
+                  <p class="peraa-flip-card__back-description">
+                    Led the strategic migration from a legacy UI library to a modern, scalable framework. Authored migration guides, component mapping documentation, and partnered cross-functionally to minimize disruption while maintaining delivery velocity across product teams.
+                  </p>
+                  <div class="peraa-flip-card__meta">
+                    <span class="peraa-flip-card__meta-company">Wells Fargo</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 3: Design Tokens -->
+            <div class="peraa-flip-card" onclick="this.classList.toggle('is-flipped')">
+              <div class="peraa-flip-card__inner">
+                <div class="peraa-flip-card__front">
+                  <div class="peraa-flip-card__image"></div>
+                  <div class="peraa-flip-card__content">
+                    <h3 class="peraa-flip-card__title">Introducing Token Methodology</h3>
+                    <p class="peraa-flip-card__description">Driving adoption of design tokens within a core design system</p>
+                    <div class="peraa-flip-card__front-tags">
+                      <span class="peraa-flip-card__front-tag">Design Tokens</span>
+                      <span class="peraa-flip-card__front-tag">Auditing</span>
+                      <span class="peraa-flip-card__front-tag">Product Design</span>
+                    </div>
+                    <div class="peraa-flip-card__hint">
+                      <svg class="peraa-flip-card__hint-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 18l6-6-6-6"/>
+                      </svg>
+                      Click to learn more
+                    </div>
+                  </div>
+                </div>
+                <div class="peraa-flip-card__back">
+                  <p class="peraa-flip-card__back-description">
+                    Championed the adoption of design tokens across the organization. Built alignment through workshops, live demos, and clear documentation. Implemented a two-tier token architecture (primitives and semantic tokens) that improved theming flexibility and strengthened design-to-development handoff.
+                  </p>
+                  <div class="peraa-flip-card__meta">
+                    <span class="peraa-flip-card__meta-company">Ridgeline</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 4: AI Tools and Workflows -->
+            <div class="peraa-flip-card" onclick="this.classList.toggle('is-flipped')">
+              <div class="peraa-flip-card__inner">
+                <div class="peraa-flip-card__front">
+                  <div class="peraa-flip-card__image"></div>
+                  <div class="peraa-flip-card__content">
+                    <h3 class="peraa-flip-card__title">Improving Workflows with AI</h3>
+                    <p class="peraa-flip-card__description">Evolving standards and workflows to responsibly incorporate AI</p>
+                    <div class="peraa-flip-card__front-tags">
+                      <span class="peraa-flip-card__front-tag">Ai</span>
+                      <span class="peraa-flip-card__front-tag">Process</span>
+                      <span class="peraa-flip-card__front-tag">Tool Building</span>
+                    </div>
+                    <div class="peraa-flip-card__hint">
+                      <svg class="peraa-flip-card__hint-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 18l6-6-6-6"/>
+                      </svg>
+                      Click to learn more
+                    </div>
+                  </div>
+                </div>
+                <div class="peraa-flip-card__back">
+                  <p class="peraa-flip-card__back-description">
+                    Evolved design system standards, defaults, and workflows to incorporate AI tools without compromising quality. Established clear guidelines for responsible AI usage, resulting in measurable efficiency gains across design and development workflows.
+                  </p>
+                  <div class="peraa-flip-card__meta">
+                    <span class="peraa-flip-card__meta-company">Ridgeline</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 5: Building a Design System Team -->
+            <div class="peraa-flip-card" onclick="this.classList.toggle('is-flipped')">
+              <div class="peraa-flip-card__inner">
+                <div class="peraa-flip-card__front">
+                  <div class="peraa-flip-card__image"></div>
+                  <div class="peraa-flip-card__content">
+                    <h3 class="peraa-flip-card__title">Building a Design Systems Team</h3>
+                    <p class="peraa-flip-card__description">Establishing a design systems team from the ground up</p>
+                    <div class="peraa-flip-card__front-tags">
+                      <span class="peraa-flip-card__front-tag">Components</span>
+                      <span class="peraa-flip-card__front-tag">Auditing</span>
+                      <span class="peraa-flip-card__front-tag">Product Design</span>
+                    </div>
+                    <div class="peraa-flip-card__hint">
+                      <svg class="peraa-flip-card__hint-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 18l6-6-6-6"/>
+                      </svg>
+                      Click to learn more
+                    </div>
+                  </div>
+                </div>
+                <div class="peraa-flip-card__back">
+                  <p class="peraa-flip-card__back-description">
+                    Built and led a centralized design systems team through influence-based leadership. Supported and coordinated a cross-functional group including:
+                  </p>
+                  <ul class="peraa-flip-card__back-list">
+                    <li>8 designers</li>
+                    <li>1 content writer</li>
+                    <li>2 product managers</li>
+                    <li>3 engineers</li>
+                  </ul>
+                  <p class="peraa-flip-card__back-description">
+                    Created operating norms, ownership models, and collaboration patterns that scaled across the organization.
+                  </p>
+                  <div class="peraa-flip-card__meta">
+                    <span class="peraa-flip-card__meta-company">Flexport</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 6: Table Component Innovation -->
+            <div class="peraa-flip-card" onclick="this.classList.toggle('is-flipped')">
+              <div class="peraa-flip-card__inner">
+                <div class="peraa-flip-card__front">
+                  <div class="peraa-flip-card__image"></div>
+                  <div class="peraa-flip-card__content">
+                    <h3 class="peraa-flip-card__title">Table Component Innovation</h3>
+                    <p class="peraa-flip-card__description">Table components and patterns that dramatically reduced iteration time</p>
+                    <div class="peraa-flip-card__front-tags">
+                      <span class="peraa-flip-card__front-tag">Figma</span>
+                      <span class="peraa-flip-card__front-tag">Product Design</span>
+                      <span class="peraa-flip-card__front-tag">Tools</span>
+                    </div>
+                    <div class="peraa-flip-card__hint">
+                      <svg class="peraa-flip-card__hint-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 18l6-6-6-6"/>
+                      </svg>
+                      Click to learn more
+                    </div>
+                  </div>
+                </div>
+                <div class="peraa-flip-card__back">
+                  <p class="peraa-flip-card__back-description">
+                    Introduced a robust collection of table components and usage patterns with significant impact:
+                  </p>
+                  <ul class="peraa-flip-card__back-list">
+                    <li>Reduced design iteration time from 1–2 days to 2–4 hours</li>
+                    <li>Lowered operational and build costs for engineering</li>
+                    <li>Standardized data table patterns across multiple products</li>
+                  </ul>
+                  <div class="peraa-flip-card__meta">
+                    <span class="peraa-flip-card__meta-company">Flexport</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 7: In-Product Onboarding -->
+            <div class="peraa-flip-card" onclick="this.classList.toggle('is-flipped')">
+              <div class="peraa-flip-card__inner">
+                <div class="peraa-flip-card__front">
+                  <div class="peraa-flip-card__image"></div>
+                  <div class="peraa-flip-card__content">
+                    <h3 class="peraa-flip-card__title">In-Product Onboarding</h3>
+                    <p class="peraa-flip-card__description">End-user onboarding with measurable business impact</p>
+                    <div class="peraa-flip-card__front-tags">
+                      <span class="peraa-flip-card__front-tag">Experience Design</span>
+                      <span class="peraa-flip-card__front-tag">Business Goals</span>
+                      <span class="peraa-flip-card__front-tag">Features</span>
+                    </div>
+                    <div class="peraa-flip-card__hint">
+                      <svg class="peraa-flip-card__hint-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 18l6-6-6-6"/>
+                      </svg>
+                      Click to learn more
+                    </div>
+                  </div>
+                </div>
+                <div class="peraa-flip-card__back">
+                  <p class="peraa-flip-card__back-description">
+                    Designed and introduced an in-product onboarding experience for end users, resulting in:
+                  </p>
+                  <ul class="peraa-flip-card__back-list">
+                    <li>250 hours saved annually (500 operators × 30 minutes)</li>
+                    <li>$5–10K per year in reduced training costs</li>
+                    <li>$10–12K saved through reduced user education support tickets</li>
+                    <li>Faster time to file and respond to support requests</li>
+                  </ul>
+                  <div class="peraa-flip-card__meta">
+                    <span class="peraa-flip-card__meta-company">Wells Fargo</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 8: Office Hours Program -->
+            <div class="peraa-flip-card" onclick="this.classList.toggle('is-flipped')">
+              <div class="peraa-flip-card__inner">
+                <div class="peraa-flip-card__front">
+                  <div class="peraa-flip-card__image"></div>
+                  <div class="peraa-flip-card__content">
+                    <h3 class="peraa-flip-card__title">Office Hours Program</h3>
+                    <p class="peraa-flip-card__description">Office hours program unblocking teams at scale</p>
+                    <div class="peraa-flip-card__front-tags">
+                      <span class="peraa-flip-card__front-tag">Team Building</span>
+                      <span class="peraa-flip-card__front-tag">Leadership</span>
+                      <span class="peraa-flip-card__front-tag">Design Ops</span>
+                    </div>
+                    <div class="peraa-flip-card__hint">
+                      <svg class="peraa-flip-card__hint-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 18l6-6-6-6"/>
+                      </svg>
+                      Click to learn more
+                    </div>
+                  </div>
+                </div>
+                <div class="peraa-flip-card__back">
+                  <p class="peraa-flip-card__back-description">
+                    Hosted 65 design systems office hours sessions, providing direct support and unblocking design and engineering teams across the product organization. Established a culture of accessibility, trust, and shared ownership between the design system and product teams.
+                  </p>
+                  <div class="peraa-flip-card__meta">
+                    <span class="peraa-flip-card__meta-company">Flexport</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 9: Component Workshops -->
+            <div class="peraa-flip-card" onclick="this.classList.toggle('is-flipped')">
+              <div class="peraa-flip-card__inner">
+                <div class="peraa-flip-card__front">
+                  <div class="peraa-flip-card__image"></div>
+                  <div class="peraa-flip-card__content">
+                    <h3 class="peraa-flip-card__title">Component Workshops</h3>
+                    <p class="peraa-flip-card__description">Targeted workshops driving design system evolution</p>
+                    <div class="peraa-flip-card__front-tags">
+                      <span class="peraa-flip-card__front-tag">Research</span>
+                      <span class="peraa-flip-card__front-tag">Collaboration</span>
+                      <span class="peraa-flip-card__front-tag">Design Systems</span>
+                    </div>
+                    <div class="peraa-flip-card__hint">
+                      <svg class="peraa-flip-card__hint-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 18l6-6-6-6"/>
+                      </svg>
+                      Click to learn more
+                    </div>
+                  </div>
+                </div>
+                <div class="peraa-flip-card__back">
+                  <p class="peraa-flip-card__back-description">
+                    Facilitated 10 micro workshops over one year, directly contributing to:
+                  </p>
+                  <ul class="peraa-flip-card__back-list">
+                    <li>48 published enhancements to the design system</li>
+                    <li>16 net-new components</li>
+                    <li>11 enhanced or modernized existing components</li>
+                  </ul>
+                  <p class="peraa-flip-card__back-description">
+                    Used workshops as a lightweight, high-impact mechanism for alignment and continuous improvement.
+                  </p>
+                  <div class="peraa-flip-card__meta">
+                    <span class="peraa-flip-card__meta-company">Flexport</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="peraa-footer">
+      <div class="peraa-footer__inner">
+        <div class="peraa-footer__main">
+          <div class="peraa-footer__links">
+            <a href="https://www.linkedin.com/in/toddrlewis/" class="peraa-footer__link" target="_blank" rel="noopener noreferrer">
+              <svg class="peraa-footer__link-icon" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+              </svg>
+              LinkedIn
+            </a>
+            <a href="https://x.com/allbydesign13" class="peraa-footer__link" target="_blank" rel="noopener noreferrer">
+              <svg class="peraa-footer__link-icon" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+              </svg>
+              X
+            </a>
+            <a href="https://medium.com/@trldesignr" class="peraa-footer__link" target="_blank" rel="noopener noreferrer">
+              <svg class="peraa-footer__link-icon" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/>
+              </svg>
+              Medium
+            </a>
+          </div>
+        </div>
+        <div class="peraa-footer__bottom">
+          <p class="peraa-footer__copyright">© 2026 Todd R. Lewis. All rights reserved.</p>
+          <span class="peraa-footer__design-system">
+            Built with <span class="peraa-footer__design-system-name">Peraa</span> Design System. Not a template
+          </span>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,174 @@
+/**
+ * Peraa Design System - Button Components
+ * 
+ * Buttons with three intents: primary, secondary, tertiary
+ * Each button supports default, hover, active, focus, and disabled states.
+ */
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   BASE BUTTON STYLES
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.peraa-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--peraa-spacing-2);
+  padding: var(--peraa-spacing-3) var(--peraa-spacing-5);
+  font-family: var(--peraa-font-family-sans);
+  font-size: var(--peraa-font-size-sm);
+  font-weight: var(--peraa-font-weight-medium);
+  line-height: 1;
+  text-decoration: none;
+  border-radius: var(--peraa-radius-md);
+  border: var(--peraa-border-width-2) solid transparent;
+  cursor: pointer;
+  transition: 
+    background-color var(--peraa-duration-150) var(--peraa-ease-out),
+    color var(--peraa-duration-150) var(--peraa-ease-out),
+    border-color var(--peraa-duration-150) var(--peraa-ease-out),
+    box-shadow var(--peraa-duration-150) var(--peraa-ease-out),
+    transform var(--peraa-duration-100) var(--peraa-ease-out);
+  user-select: none;
+  white-space: nowrap;
+}
+
+.peraa-btn:focus-visible {
+  outline: 2px solid var(--peraa-border-focus);
+  outline-offset: 2px;
+}
+
+.peraa-btn:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+.peraa-btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   BUTTON SIZES
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.peraa-btn--sm {
+  padding: var(--peraa-spacing-2) var(--peraa-spacing-3);
+  font-size: var(--peraa-font-size-xs);
+  border-radius: var(--peraa-radius-sm);
+}
+
+.peraa-btn--lg {
+  padding: var(--peraa-spacing-4) var(--peraa-spacing-6);
+  font-size: var(--peraa-font-size-base);
+  border-radius: var(--peraa-radius-lg);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   PRIMARY BUTTON
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.peraa-btn--primary {
+  background-color: var(--peraa-interactive-primary-bg);
+  color: var(--peraa-interactive-primary-text);
+  border-color: var(--peraa-interactive-primary-bg);
+}
+
+.peraa-btn--primary:hover:not(:disabled) {
+  background-color: var(--peraa-interactive-primary-bg-hover);
+  border-color: var(--peraa-interactive-primary-bg-hover);
+}
+
+.peraa-btn--primary:active:not(:disabled) {
+  background-color: var(--peraa-interactive-primary-bg-active);
+  border-color: var(--peraa-interactive-primary-bg-active);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   SECONDARY BUTTON
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.peraa-btn--secondary {
+  background-color: var(--peraa-interactive-secondary-bg);
+  color: var(--peraa-interactive-secondary-text);
+  border-color: var(--peraa-interactive-secondary-border);
+}
+
+.peraa-btn--secondary:hover:not(:disabled) {
+  background-color: var(--peraa-interactive-secondary-bg-hover);
+  color: var(--peraa-interactive-secondary-text-hover);
+}
+
+.peraa-btn--secondary:active:not(:disabled) {
+  background-color: var(--peraa-interactive-secondary-bg-active);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   TERTIARY BUTTON
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.peraa-btn--tertiary {
+  background-color: var(--peraa-interactive-tertiary-bg);
+  color: var(--peraa-interactive-tertiary-text);
+  border-color: transparent;
+}
+
+.peraa-btn--tertiary:hover:not(:disabled) {
+  background-color: var(--peraa-interactive-tertiary-bg-hover);
+  color: var(--peraa-interactive-tertiary-text-hover);
+}
+
+.peraa-btn--tertiary:active:not(:disabled) {
+  background-color: var(--peraa-interactive-tertiary-bg-active);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   BUTTON WITH ICON
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.peraa-btn__icon {
+  width: 1em;
+  height: 1em;
+  flex-shrink: 0;
+}
+
+.peraa-btn--icon-only {
+  padding: var(--peraa-spacing-3);
+}
+
+.peraa-btn--icon-only.peraa-btn--sm {
+  padding: var(--peraa-spacing-2);
+}
+
+.peraa-btn--icon-only.peraa-btn--lg {
+  padding: var(--peraa-spacing-4);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   FULL WIDTH BUTTON
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.peraa-btn--full {
+  width: 100%;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   THEME TOGGLE ICONS
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* Default state: show moon (light mode), hide sun */
+.peraa-btn__icon--sun {
+  display: none;
+}
+
+.peraa-btn__icon--moon {
+  display: block;
+}
+
+/* Dark mode: show sun, hide moon */
+[data-theme="dark"] .peraa-btn__icon--sun {
+  display: block;
+}
+
+[data-theme="dark"] .peraa-btn__icon--moon {
+  display: none;
+}

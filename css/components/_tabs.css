@@ -1,0 +1,146 @@
+/**
+ * Peraa Design System - Horizontal Tabs Component
+ * 
+ * A clean, minimal tab component for navigation or content switching.
+ */
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   TAB CONTAINER
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.peraa-tabs {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.peraa-tabs__list {
+  display: flex;
+  align-items: center;
+  gap: var(--peraa-spacing-1);
+  padding: var(--peraa-spacing-1);
+  background-color: var(--peraa-tabs-bg);
+  border-radius: var(--peraa-radius-lg);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   INDIVIDUAL TAB
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.peraa-tabs__tab {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--peraa-spacing-2);
+  padding: var(--peraa-spacing-3) var(--peraa-spacing-4);
+  font-family: var(--peraa-font-family-sans);
+  font-size: var(--peraa-font-size-sm);
+  font-weight: var(--peraa-font-weight-medium);
+  color: var(--peraa-tabs-text);
+  background: transparent;
+  border: none;
+  border-radius: var(--peraa-radius-md);
+  cursor: pointer;
+  transition: 
+    color var(--peraa-duration-150) var(--peraa-ease-out),
+    background-color var(--peraa-duration-150) var(--peraa-ease-out);
+  user-select: none;
+  white-space: nowrap;
+}
+
+.peraa-tabs__tab:hover:not(.peraa-tabs__tab--active):not(:disabled) {
+  color: var(--peraa-tabs-text-active);
+}
+
+.peraa-tabs__tab--active {
+  background-color: var(--peraa-tabs-active-bg);
+  color: var(--peraa-tabs-text-active);
+  box-shadow: var(--peraa-shadow-xs);
+}
+
+.peraa-tabs__tab:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.peraa-tabs__tab:focus-visible {
+  outline: 2px solid var(--peraa-border-focus);
+  outline-offset: 2px;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   TAB CONTENT PANELS
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.peraa-tabs__content {
+  margin-top: var(--peraa-spacing-4);
+}
+
+.peraa-tabs__panel {
+  display: none;
+  animation: peraa-tabs-fade-in var(--peraa-duration-200) var(--peraa-ease-out);
+}
+
+.peraa-tabs__panel--active {
+  display: block;
+}
+
+@keyframes peraa-tabs-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   TAB VARIANTS
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* Underline variant */
+.peraa-tabs--underline .peraa-tabs__list {
+  background: transparent;
+  padding: 0;
+  gap: var(--peraa-spacing-4);
+  border-bottom: var(--peraa-border-width-1) solid var(--peraa-border-default);
+  border-radius: 0;
+}
+
+.peraa-tabs--underline .peraa-tabs__tab {
+  padding: var(--peraa-spacing-3) var(--peraa-spacing-1);
+  border-radius: 0;
+  margin-bottom: -1px;
+}
+
+.peraa-tabs--underline .peraa-tabs__tab--active {
+  background: transparent;
+  box-shadow: none;
+  border-bottom: 2px solid var(--peraa-border-brand);
+}
+
+/* Pills variant - full width */
+.peraa-tabs--pills-full .peraa-tabs__list {
+  width: 100%;
+}
+
+.peraa-tabs--pills-full .peraa-tabs__tab {
+  flex: 1;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   TAB SIZES
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.peraa-tabs--sm .peraa-tabs__tab {
+  padding: var(--peraa-spacing-2) var(--peraa-spacing-3);
+  font-size: var(--peraa-font-size-xs);
+}
+
+.peraa-tabs--lg .peraa-tabs__tab {
+  padding: var(--peraa-spacing-4) var(--peraa-spacing-6);
+  font-size: var(--peraa-font-size-base);
+}

@@ -1,0 +1,171 @@
+/**
+ * Peraa Design System - Typography
+ * 
+ * Typography styles and utility classes for consistent text styling.
+ */
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   HEADING STYLES
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.peraa-heading-1 {
+  font-family: var(--peraa-font-family-heading);
+  font-size: var(--peraa-font-size-5xl);
+  font-weight: var(--peraa-font-weight-regular);
+  line-height: var(--peraa-line-height-tight);
+  letter-spacing: var(--peraa-letter-spacing-tight);
+  color: var(--peraa-text-primary);
+}
+
+.peraa-heading-2 {
+  font-family: var(--peraa-font-family-heading);
+  font-size: var(--peraa-font-size-4xl);
+  font-weight: var(--peraa-font-weight-regular);
+  line-height: var(--peraa-line-height-tight);
+  letter-spacing: var(--peraa-letter-spacing-tight);
+  color: var(--peraa-text-primary);
+}
+
+.peraa-heading-3 {
+  font-family: var(--peraa-font-family-heading);
+  font-size: var(--peraa-font-size-3xl);
+  font-weight: var(--peraa-font-weight-regular);
+  line-height: var(--peraa-line-height-snug);
+  color: var(--peraa-text-primary);
+}
+
+.peraa-heading-4 {
+  font-family: var(--peraa-font-family-heading);
+  font-size: var(--peraa-font-size-2xl);
+  font-weight: var(--peraa-font-weight-regular);
+  line-height: var(--peraa-line-height-snug);
+  color: var(--peraa-text-primary);
+}
+
+.peraa-heading-5 {
+  font-family: var(--peraa-font-family-heading);
+  font-size: var(--peraa-font-size-xl);
+  font-weight: var(--peraa-font-weight-regular);
+  line-height: var(--peraa-line-height-snug);
+  color: var(--peraa-text-primary);
+}
+
+.peraa-heading-6 {
+  font-family: var(--peraa-font-family-heading);
+  font-size: var(--peraa-font-size-lg);
+  font-weight: var(--peraa-font-weight-regular);
+  line-height: var(--peraa-line-height-snug);
+  color: var(--peraa-text-primary);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   BODY TEXT STYLES
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.peraa-body-lg {
+  font-size: var(--peraa-font-size-lg);
+  font-weight: var(--peraa-font-weight-regular);
+  line-height: var(--peraa-line-height-relaxed);
+  color: var(--peraa-text-secondary);
+}
+
+.peraa-body {
+  font-size: var(--peraa-font-size-base);
+  font-weight: var(--peraa-font-weight-regular);
+  line-height: var(--peraa-line-height-normal);
+  color: var(--peraa-text-secondary);
+}
+
+.peraa-body-sm {
+  font-size: var(--peraa-font-size-sm);
+  font-weight: var(--peraa-font-weight-regular);
+  line-height: var(--peraa-line-height-normal);
+  color: var(--peraa-text-secondary);
+}
+
+.peraa-body-xs {
+  font-size: var(--peraa-font-size-xs);
+  font-weight: var(--peraa-font-weight-regular);
+  line-height: var(--peraa-line-height-normal);
+  color: var(--peraa-text-tertiary);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   SPECIAL TEXT STYLES
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.peraa-lead {
+  font-size: var(--peraa-font-size-xl);
+  font-weight: var(--peraa-font-weight-regular);
+  line-height: var(--peraa-line-height-relaxed);
+  color: var(--peraa-text-secondary);
+}
+
+.peraa-caption {
+  font-size: var(--peraa-font-size-xs);
+  font-weight: var(--peraa-font-weight-medium);
+  line-height: var(--peraa-line-height-normal);
+  letter-spacing: var(--peraa-letter-spacing-wide);
+  color: var(--peraa-text-tertiary);
+}
+
+.peraa-overline {
+  font-size: var(--peraa-font-size-xs);
+  font-weight: var(--peraa-font-weight-semibold);
+  line-height: var(--peraa-line-height-normal);
+  letter-spacing: var(--peraa-letter-spacing-widest);
+  text-transform: uppercase;
+  color: var(--peraa-text-tertiary);
+}
+
+.peraa-code {
+  font-family: var(--peraa-font-family-mono);
+  font-size: 0.875em;
+  background-color: var(--peraa-surface-subtle);
+  padding: 0.125em 0.375em;
+  border-radius: var(--peraa-radius-sm);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   TEXT COLOR UTILITIES
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.peraa-text-primary {
+  color: var(--peraa-text-primary);
+}
+
+.peraa-text-secondary {
+  color: var(--peraa-text-secondary);
+}
+
+.peraa-text-tertiary {
+  color: var(--peraa-text-tertiary);
+}
+
+.peraa-text-brand {
+  color: var(--peraa-text-brand);
+}
+
+.peraa-text-inverse {
+  color: var(--peraa-text-inverse);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   LINK STYLES
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.peraa-link {
+  color: var(--peraa-text-link);
+  text-decoration: none;
+  transition: color var(--peraa-duration-150) var(--peraa-ease-out);
+}
+
+.peraa-link:hover {
+  color: var(--peraa-text-link-hover);
+  text-decoration: underline;
+}
+
+.peraa-link--underline {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}

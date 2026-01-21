@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Design Systems Must Evolve - Todd R. Lewis">
+  <title>Design Systems Must Evolve - Todd R. Lewis</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="../../css/main.css">
+</head>
+<body>
+  <div class="peraa-page">
+    <!-- Navigation -->
+    <header class="peraa-header">
+      <div class="peraa-container">
+        <nav class="peraa-nav">
+          <a href="../../index.html" class="peraa-nav__logo">Todd R. Lewis</a>
+          <ul class="peraa-nav__menu">
+            <li><a href="../../index.html" class="peraa-nav__link">Home</a></li>
+            <li><a href="../case-studies/index.html" class="peraa-nav__link">Case Studies + Projects</a></li>
+            <li><a href="../about.html" class="peraa-nav__link">About Me</a></li>
+            <li><a href="../challenges-welcomed.html" class="peraa-nav__link">Challenges Welcomed</a></li>
+            <li><a href="../writings.html" class="peraa-nav__link peraa-nav__link--active">Writings</a></li>
+            <li class="peraa-nav__divider" aria-hidden="true"></li>
+            <li><a href="../design-system.html" class="peraa-nav__link">Peraa Design System</a></li>
+          </ul>
+          <button class="peraa-btn peraa-btn--tertiary peraa-btn--icon-only" data-theme-toggle aria-label="Toggle theme">
+            <svg class="peraa-btn__icon peraa-btn__icon--sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="5"/>
+              <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+            </svg>
+            <svg class="peraa-btn__icon peraa-btn__icon--moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+            </svg>
+          </button>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="peraa-main">
+      <div class="peraa-container">
+        <div class="peraa-article-layout">
+          <!-- Sidebar -->
+          <aside class="peraa-article-sidebar">
+            <p class="peraa-article-sidebar__title">More Writings</p>
+            <ul class="peraa-article-sidebar__list">
+              <li><a href="design-systems-must-evolve.html" class="peraa-article-sidebar__link peraa-article-sidebar__link--active">Design Systems Must Evolve</a></li>
+              <li><a href="no-product-owner.html" class="peraa-article-sidebar__link">When there is no product owner...</a></li>
+              <li><a href="not-your-experiences.html" class="peraa-article-sidebar__link">You are not your experiences</a></li>
+            </ul>
+          </aside>
+
+          <!-- Article -->
+          <article class="peraa-article-full">
+          <!-- Article Header -->
+          <header class="peraa-article-full__header">
+            <a href="../writings.html" class="peraa-article-full__back">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
+                <path d="M19 12H5M12 19l-7-7 7-7"/>
+              </svg>
+              Back to Writings
+            </a>
+            <h1 class="peraa-article-full__title">Design Systems Must Evolve… And Agentic May Be (or is) That Next Step.</h1>
+            <div class="peraa-article-full__meta">
+              <time class="peraa-article-full__date">Sep 15, 2025</time>
+            </div>
+          </header>
+
+          <!-- Article Content -->
+          <div class="peraa-article-full__content">
+            <p class="peraa-article-full__lead">
+              Design systems have come a long way, from static pattern libraries and scattered documentation to today's token-driven, cross-functional platforms. Most include some combination of plugins, custom or third-party CMSs, and a dedicated team. Many now operate with a system-minded perspective.
+            </p>
+
+            <p>But for all that progress, something critical is still missing.</p>
+
+            <p>Most design systems remain passive. They're excellent at pointing to the <em>what</em> (what to use, what to build) but they rarely help explain <em>why</em>, or <em>when not to</em>. They're useful for those who already know what they're looking for, but they often fall short for those trying to learn, make decisions, or create something new. That gap can erode trust, stall adoption, and force teams to repeatedly justify the system's value: why it deserves time, money, and people instead of simply wrapping a third-party library in branded CSS.</p>
+
+            <h2>People Are the Source of Truth: The System Should Reflect That</h2>
+
+            <p>The strongest design systems aren't just a collection of tokens and components. They hold decisions. Rationale. In-product examples. They embody a mindset shaped by experience and evolving needs.</p>
+
+            <p>But that institutional knowledge, those decisions and rationales, usually lives elsewhere. In Slack threads. In Jira tickets. In undocumented Figma frames. Or in the heads of a few key people. It becomes tribal knowledge: deeply valuable, but difficult to access or scale.</p>
+
+            <p>That makes discovery harder. It creates friction. It slows teams down. And it reduces the system to a static reference, instead of the active collaborator it needs to be.</p>
+
+            <h2>The System Must Learn</h2>
+
+            <p>Imagine a system that remembers: not just the output, but the thinking behind it. A dialog footer decision made two quarters ago, connected to its component, documentation, and the team who shaped it. A living chain of rationale that others can trace, question, and build upon.</p>
+
+            <p>With today's tooling (automation, indexing, AI) that vision isn't far off. But it does require a fundamental shift in how we treat the system. It can't just archive decisions. It must absorb them. It must learn.</p>
+
+            <p>A modern system should be:</p>
+
+            <ul>
+              <li>Searchable, not just browsable</li>
+              <li>Reference-able, not just decorative</li>
+              <li>Informed by practice, not detached from it</li>
+            </ul>
+
+            <p>This is not abstract. It's achievable. It's system thinking, applied to the system itself.</p>
+
+            <h2>What That Looks Like</h2>
+
+            <p>This next phase of design systems will require infrastructure built around a new set of primitives:</p>
+
+            <ul>
+              <li><strong>Recipes</strong> grounded in real product implementations, not just abstract patterns, but contextual guidance</li>
+              <li><strong>Decision logs</strong> that capture rationale in a structured, searchable format</li>
+              <li><strong>Maturity scoring</strong> based on use, adoption, and quality, not opinion</li>
+              <li><strong>Audit pipelines</strong> that surface not just accessibility gaps, but clarity, cohesion, and completeness</li>
+              <li><strong>AI-enabled tooling</strong> that highlights outdated examples, links related decisions, and prompts updates when gaps appear</li>
+            </ul>
+
+            <p>These are not lofty ideals. They are pragmatic upgrades that reflect how teams actually work, and where they struggle.</p>
+
+            <h2>What It's Not</h2>
+
+            <p>This isn't about replacing people with AI or auto-generating every piece of content. It's about amplifying what we already do well. Helping people understand the context behind a component, explore the logic that informed it, and contribute meaningfully to its continued evolution.</p>
+
+            <p>It's a shift from treating the system as a frozen answer key to treating it as a record of inquiry. A record that values the problem space as much as the solution.</p>
+
+            <blockquote class="peraa-article-full__quote">
+              <p>"Fall in love with the problem, not the solution."</p>
+              <cite>Aaron Martin</cite>
+            </blockquote>
+
+            <h2>A System That Feels Alive</h2>
+
+            <p>A system that feels alive doesn't just keep pace with the product. It helps shape it. It:</p>
+
+            <ul>
+              <li>Surfaces the thinking, not just the specs</li>
+              <li>Evolves as its users evolve</li>
+              <li>Teaches how to apply, not just what to apply</li>
+              <li>Explains itself, with clarity and traceability</li>
+              <li>Responds when it becomes outdated</li>
+              <li>Is opinionated, yet open to change when better insights emerge</li>
+            </ul>
+
+            <p>Design systems should be capable of learning. A truly modern system, especially one enhanced by AI, cannot be static. It must continuously absorb signals from the products it supports: how components are used or extended, how decisions are made and revisited, what patterns emerge in production, what workarounds get applied, and what bugs persist.</p>
+
+            <p>When a system can understand those signals, when it can reason, it stops being a passive repository and becomes an active guide. It delivers more relevant documentation, richer examples, and more proactive, contextual guidance.</p>
+
+            <p>An AI-enhanced system is not just a source of truth. It becomes responsive. It reflects not only how design is practiced today, but how it should be practiced tomorrow, within the reality of the platform, the product, and the people behind it.</p>
+
+            <h2>Where We're Headed</h2>
+
+            <p>This is where design systems are going, or at least, where they need to go.</p>
+
+            <p>Not toward just more components, tighter token sets, or more polished docs. But toward real infrastructure for how teams think, work, and grow, together.</p>
+
+            <p>The traditional component and pattern libraries have likely reached the upper limits of growth, especially in mature systems. Any further complexity often comes from business and context-specific logic. The next wave of meaningful growth won't come from new components. It will come from:</p>
+
+            <ul>
+              <li>Assistant patterns</li>
+              <li>Documented rationale and branching logic</li>
+              <li>Deployable agents</li>
+              <li>AI tooling guidelines and libraries</li>
+              <li>Integrated business logic rendered through system tokens and just-in-time UI generation</li>
+            </ul>
+
+            <h2>The Point</h2>
+
+            <p class="peraa-article-full__conclusion">
+              A design system should not just hold content.<br>
+              It should be the structure that activates it, and keeps it alive.
+            </p>
+          </div>
+        </article>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="peraa-footer">
+      <div class="peraa-footer__inner">
+        <div class="peraa-footer__main">
+          <div class="peraa-footer__links">
+            <a href="https://www.linkedin.com/in/toddrlewis/" class="peraa-footer__link" target="_blank" rel="noopener noreferrer">
+              <svg class="peraa-footer__link-icon" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+              </svg>
+              LinkedIn
+            </a>
+            <a href="https://x.com/allbydesign13" class="peraa-footer__link" target="_blank" rel="noopener noreferrer">
+              <svg class="peraa-footer__link-icon" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+              </svg>
+              X
+            </a>
+            <a href="https://medium.com/@trldesignr" class="peraa-footer__link" target="_blank" rel="noopener noreferrer">
+              <svg class="peraa-footer__link-icon" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/>
+              </svg>
+              Medium
+            </a>
+          </div>
+        </div>
+        <div class="peraa-footer__bottom">
+          <p class="peraa-footer__copyright">© 2026 Todd R. Lewis. All rights reserved.</p>
+          <span class="peraa-footer__design-system">
+            Built with <span class="peraa-footer__design-system-name">Peraa</span> Design System. Not a template
+          </span>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script src="../../js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Case Studies - Todd R. Lewis">
+  <title>Case Studies - Todd R. Lewis</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="../../css/main.css">
+  <style>
+    /* Case study card with logo */
+    .peraa-image-placeholder--logo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: var(--peraa-spacing-8);
+    }
+    
+    .peraa-image-placeholder__logo {
+      max-width: 70%;
+      max-height: 60%;
+      object-fit: contain;
+      transition: transform var(--peraa-duration-300) var(--peraa-ease-out);
+    }
+    
+    .peraa-image-placeholder:hover .peraa-image-placeholder__logo {
+      transform: scale(1.05);
+    }
+    
+    /* Wells Fargo branded card */
+    .peraa-image-placeholder--wells-fargo {
+      background: #c41230;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    /* Moody's Analytics branded card */
+    .peraa-image-placeholder--moodys {
+      background: #1a1f71;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    /* Ridgeline branded card */
+    .peraa-image-placeholder--ridgeline {
+      background: linear-gradient(135deg, #2d5a27 0%, #4a8c3f 50%, #6ab35a 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .peraa-image-placeholder__brand-text {
+      font-size: var(--peraa-font-size-3xl);
+      font-weight: var(--peraa-font-weight-bold);
+      color: white;
+      letter-spacing: 0.05em;
+      text-align: center;
+      line-height: 1.2;
+      transition: transform var(--peraa-duration-300) var(--peraa-ease-out);
+    }
+    
+    .peraa-image-placeholder:hover .peraa-image-placeholder__brand-text {
+      transform: scale(1.05);
+    }
+    
+    /* Placeholder card */
+    .peraa-image-placeholder--placeholder {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .peraa-image-placeholder__number {
+      font-size: var(--peraa-font-size-6xl);
+      font-weight: var(--peraa-font-weight-bold);
+      color: var(--peraa-text-tertiary);
+      opacity: 0.3;
+      transition: transform var(--peraa-duration-300) var(--peraa-ease-out);
+    }
+    
+    .peraa-image-placeholder:hover .peraa-image-placeholder__number {
+      transform: scale(1.05);
+    }
+    
+    /* Section Divider with Logo */
+    .case-study-divider {
+      display: flex;
+      align-items: center;
+      gap: var(--peraa-spacing-4);
+      padding: 64px 0;
+      margin: var(--peraa-spacing-4) 0;
+    }
+    
+    .case-study-divider__line {
+      flex: 1;
+      height: 1px;
+      background: var(--peraa-border-default);
+    }
+    
+    .case-study-divider__logo {
+      width: 18px;
+      height: 18px;
+      opacity: 1;
+      flex-shrink: 0;
+    }
+    
+    .case-study-divider__logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+    
+    /* Micro Projects Grid */
+    .micro-projects-grid {
+      display: flex;
+      justify-content: space-between;
+      gap: var(--peraa-spacing-8);
+    }
+    
+    @media (max-width: 768px) {
+      .micro-projects-grid {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+    
+    .micro-project-card {
+      flex: 1;
+      max-width: 280px;
+      position: relative;
+      aspect-ratio: 4/3;
+      overflow: hidden;
+      display: block;
+      text-decoration: none;
+      border: 1px solid var(--peraa-border-default);
+      transition: transform var(--peraa-duration-300) var(--peraa-ease-out),
+                  box-shadow var(--peraa-duration-300) var(--peraa-ease-out),
+                  border-color var(--peraa-duration-300) var(--peraa-ease-out);
+    }
+    
+    .micro-project-card:hover {
+      transform: scale(1.02);
+      box-shadow: var(--peraa-shadow-lg);
+      border-color: var(--peraa-color-teal-500);
+    }
+    
+    .micro-project-card__image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform var(--peraa-duration-300) var(--peraa-ease-out);
+    }
+    
+    .micro-project-card:hover .micro-project-card__image {
+      transform: scale(1.05);
+    }
+    
+    .micro-project-card__overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: var(--peraa-spacing-4);
+      background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 100%);
+      display: flex;
+      flex-direction: column;
+      gap: var(--peraa-spacing-1);
+    }
+    
+    .micro-project-card__title {
+      font-size: var(--peraa-font-size-lg);
+      font-weight: var(--peraa-font-weight-medium);
+      color: white;
+    }
+    
+    .micro-project-card__subtitle {
+      font-size: var(--peraa-font-size-sm);
+      color: rgba(255,255,255,0.8);
+    }
+  </style>
+</head>
+<body>
+  <div class="peraa-page">
+    <!-- Navigation -->
+    <header class="peraa-header">
+      <div class="peraa-container">
+        <nav class="peraa-nav">
+          <a href="../../index.html" class="peraa-nav__logo">Todd R. Lewis</a>
+          <ul class="peraa-nav__menu">
+            <li><a href="../../index.html" class="peraa-nav__link">Home</a></li>
+            <li><a href="index.html" class="peraa-nav__link peraa-nav__link--active">Case Studies + Projects</a></li>
+            <li><a href="../about.html" class="peraa-nav__link">About Me</a></li>
+            <li><a href="../challenges-welcomed.html" class="peraa-nav__link">Challenges Welcomed</a></li>
+            <li><a href="../writings.html" class="peraa-nav__link">Writings</a></li>
+            <li class="peraa-nav__divider" aria-hidden="true"></li>
+            <li><a href="../design-system.html" class="peraa-nav__link">Peraa Design System</a></li>
+          </ul>
+          <button class="peraa-btn peraa-btn--tertiary peraa-btn--icon-only" data-theme-toggle aria-label="Toggle theme">
+            <svg class="peraa-btn__icon peraa-btn__icon--sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="5"/>
+              <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+            </svg>
+            <svg class="peraa-btn__icon peraa-btn__icon--moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+            </svg>
+          </button>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="peraa-main">
+      <section class="peraa-section">
+        <div class="peraa-container">
+          <p class="peraa-overline">Portfolio</p>
+          <h1 class="peraa-heading-1 peraa-mt-4">Case Studies</h1>
+          <p class="peraa-lead peraa-mt-6 peraa-mb-8">
+            Explore my work through detailed case studies.
+          </p>
+
+          <!-- Case Studies Grid -->
+          <div class="peraa-grid peraa-grid--2">
+            <!-- Project 1 - Ridgeline Sapling -->
+            <a href="project-1.html" class="peraa-image-placeholder peraa-image-placeholder--logo">
+              <img src="../../assets/images/caseStudy1/saplingLogo.png" alt="Sapling" class="peraa-image-placeholder__logo">
+              <div class="peraa-image-placeholder__overlay">
+                <span class="peraa-image-placeholder__title">Sapling Documentation</span>
+                <span class="peraa-image-placeholder__subtitle">Ridgeline</span>
+              </div>
+              <div class="peraa-image-placeholder__cta">
+                <svg class="peraa-image-placeholder__cta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+              </div>
+            </a>
+
+            <!-- Project 2 - Flexport Latitude -->
+            <a href="project-2.html" class="peraa-image-placeholder peraa-image-placeholder--logo">
+              <img src="../../assets/images/caseStudy2/LogoMarks.png" alt="Flexport" class="peraa-image-placeholder__logo">
+              <div class="peraa-image-placeholder__overlay">
+                <span class="peraa-image-placeholder__title">Latitude Design System</span>
+                <span class="peraa-image-placeholder__subtitle">Flexport</span>
+              </div>
+              <div class="peraa-image-placeholder__cta">
+                <svg class="peraa-image-placeholder__cta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+              </div>
+            </a>
+
+            <!-- Project 3 - Wells Fargo WCDD -->
+            <a href="project-3.html" class="peraa-image-placeholder peraa-image-placeholder--wells-fargo">
+              <span class="peraa-image-placeholder__brand-text">WELLS<br>FARGO</span>
+              <div class="peraa-image-placeholder__overlay">
+                <span class="peraa-image-placeholder__title">WCDD Platform</span>
+                <span class="peraa-image-placeholder__subtitle">Wells Fargo</span>
+              </div>
+              <div class="peraa-image-placeholder__cta">
+                <svg class="peraa-image-placeholder__cta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+              </div>
+            </a>
+
+            <!-- Project 4 - Moody's Analytics -->
+            <a href="project-4.html" class="peraa-image-placeholder peraa-image-placeholder--moodys">
+              <span class="peraa-image-placeholder__brand-text" style="font-family: Georgia, 'Times New Roman', serif; font-size: 80px;">M</span>
+              <div class="peraa-image-placeholder__overlay">
+                <span class="peraa-image-placeholder__title">Visual & UX Modernization</span>
+                <span class="peraa-image-placeholder__subtitle">Moody's Analytics</span>
+              </div>
+              <div class="peraa-image-placeholder__cta">
+                <svg class="peraa-image-placeholder__cta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+              </div>
+            </a>
+          </div>
+
+          <!-- Divider -->
+          <div class="case-study-divider">
+            <div class="case-study-divider__line"></div>
+            <div class="case-study-divider__logo">
+              <img src="../../assets/images/rune.png" alt="">
+            </div>
+            <div class="case-study-divider__line"></div>
+          </div>
+
+          <!-- Micro Projects Section -->
+          <h2 class="peraa-heading-3 peraa-mb-6">Micro Projects</h2>
+          <div class="micro-projects-grid">
+            <a href="micro-projects.html?tab=netflix" class="micro-project-card">
+              <img src="../../assets/images/microProjects/Cover - Netflix.png" alt="Netflix Redesign" class="micro-project-card__image">
+              <div class="micro-project-card__overlay">
+                <span class="micro-project-card__title">Netflix</span>
+                <span class="micro-project-card__subtitle">Redesign Exploration</span>
+              </div>
+            </a>
+            <a href="micro-projects.html?tab=urlist" class="micro-project-card">
+              <img src="../../assets/images/microProjects/Cover - urList.png" alt="URlist Design Challenge" class="micro-project-card__image">
+              <div class="micro-project-card__overlay">
+                <span class="micro-project-card__title">URlist</span>
+                <span class="micro-project-card__subtitle">Design Challenge</span>
+              </div>
+            </a>
+            <a href="micro-projects.html?tab=proview" class="micro-project-card">
+              <img src="../../assets/images/microProjects/Cover - Proview.png" alt="Proview Proof of Concept" class="micro-project-card__image">
+              <div class="micro-project-card__overlay">
+                <span class="micro-project-card__title">Proview</span>
+                <span class="micro-project-card__subtitle">Proof of Concept</span>
+              </div>
+            </a>
+          </div>
+
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="peraa-footer">
+      <div class="peraa-footer__inner">
+        <div class="peraa-footer__main">
+          <div class="peraa-footer__links">
+            <a href="https://www.linkedin.com/in/toddrlewis/" class="peraa-footer__link" target="_blank" rel="noopener noreferrer">
+              <svg class="peraa-footer__link-icon" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+              </svg>
+              LinkedIn
+            </a>
+            <a href="https://x.com/allbydesign13" class="peraa-footer__link" target="_blank" rel="noopener noreferrer">
+              <svg class="peraa-footer__link-icon" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+              </svg>
+              X
+            </a>
+            <a href="https://medium.com/@trldesignr" class="peraa-footer__link" target="_blank" rel="noopener noreferrer">
+              <svg class="peraa-footer__link-icon" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/>
+              </svg>
+              Medium
+            </a>
+          </div>
+        </div>
+        <div class="peraa-footer__bottom">
+          <p class="peraa-footer__copyright">© 2026 Todd R. Lewis. All rights reserved.</p>
+          <span class="peraa-footer__design-system">
+            Built with <span class="peraa-footer__design-system-name">Peraa</span> Design System. Not a template
+          </span>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script src="../../js/main.js"></script>
+</body>
+</html>
