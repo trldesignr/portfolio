@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Access Required - Todd R. Lewis Portfolio">
+  <title>Access Required - Todd R. Lewis</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="../../css/main.css">
+  <style>
+    .gate-container {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: var(--peraa-spacing-6);
+    }
+    
+    .gate-card {
+      width: 100%;
+      max-width: 400px;
+      padding: var(--peraa-spacing-8);
+      background: var(--peraa-surface-card);
+      border: 1px solid var(--peraa-border-default);
+    }
+    
+    .gate-icon {
+      width: 48px;
+      height: 48px;
+      margin-bottom: var(--peraa-spacing-6);
+      color: var(--peraa-text-tertiary);
+    }
+    
+    .gate-title {
+      font-size: var(--peraa-font-size-2xl);
+      font-weight: var(--peraa-font-weight-medium);
+      color: var(--peraa-text-primary);
+      margin-bottom: var(--peraa-spacing-2);
+    }
+    
+    .gate-description {
+      font-size: var(--peraa-font-size-sm);
+      color: var(--peraa-text-secondary);
+      margin-bottom: var(--peraa-spacing-6);
+      line-height: var(--peraa-line-height-relaxed);
+    }
+    
+    .gate-form {
+      display: flex;
+      flex-direction: column;
+      gap: var(--peraa-spacing-4);
+    }
+    
+    .gate-input-wrapper {
+      position: relative;
+    }
+    
+    .gate-input {
+      width: 100%;
+      padding: var(--peraa-spacing-3) var(--peraa-spacing-4);
+      font-family: var(--peraa-font-family-sans);
+      font-size: var(--peraa-font-size-base);
+      color: var(--peraa-text-primary);
+      background: var(--peraa-surface-default);
+      border: 1px solid var(--peraa-border-default);
+      outline: none;
+      transition: border-color var(--peraa-duration-150) var(--peraa-ease-out),
+                  box-shadow var(--peraa-duration-150) var(--peraa-ease-out);
+    }
+    
+    .gate-input:focus {
+      border-color: var(--peraa-color-teal-500);
+      box-shadow: 0 0 0 3px rgba(20, 184, 166, 0.1);
+    }
+    
+    .gate-input--error {
+      border-color: var(--peraa-color-error-500);
+    }
+    
+    .gate-input--error:focus {
+      box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+    }
+    
+    .gate-error {
+      display: none;
+      font-size: var(--peraa-font-size-sm);
+      color: var(--peraa-color-error-500);
+      margin-top: var(--peraa-spacing-2);
+    }
+    
+    .gate-error.is-visible {
+      display: block;
+    }
+    
+    .gate-submit {
+      width: 100%;
+      padding: var(--peraa-spacing-3) var(--peraa-spacing-4);
+      font-family: var(--peraa-font-family-sans);
+      font-size: var(--peraa-font-size-base);
+      font-weight: var(--peraa-font-weight-medium);
+      color: black;
+      background: var(--peraa-color-teal-500);
+      border: none;
+      cursor: pointer;
+      transition: background var(--peraa-duration-150) var(--peraa-ease-out);
+    }
+    
+    .gate-submit:hover {
+      background: var(--peraa-color-teal-400);
+    }
+    
+    .gate-submit:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+    
+    .gate-back {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--peraa-spacing-2);
+      margin-top: var(--peraa-spacing-6);
+      font-size: var(--peraa-font-size-sm);
+      color: var(--peraa-text-tertiary);
+      text-decoration: none;
+      transition: color var(--peraa-duration-150) var(--peraa-ease-out);
+    }
+    
+    .gate-back:hover {
+      color: var(--peraa-text-primary);
+    }
+  </style>
+</head>
+<body>
+  <div class="peraa-page">
+    <div class="gate-container">
+      <div class="gate-card">
+        <!-- Lock Icon -->
+        <svg class="gate-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+          <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+        </svg>
+        
+        <h1 class="gate-title">Access Required</h1>
+        <p class="gate-description">
+          This section contains detailed case studies and is password protected. If you've received a password, enter it below to continue.
+        </p>
+        
+        <form class="gate-form" id="gateForm">
+          <div class="gate-input-wrapper">
+            <input 
+              type="password" 
+              class="gate-input" 
+              id="passwordInput"
+              placeholder="Enter password"
+              autocomplete="off"
+              required
+            >
+            <p class="gate-error" id="errorMessage">Incorrect password. Please try again.</p>
+          </div>
+          <button type="submit" class="gate-submit" id="submitBtn">
+            Continue
+          </button>
+        </form>
+        
+        <a href="../../index.html" class="gate-back">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M19 12H5M12 19l-7-7 7-7"/>
+          </svg>
+          Back to Home
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <script src="../../js/auth.js"></script>
+  <script>
+    // If already authenticated, redirect to stored destination or case studies index
+    if (PortfolioAuth.hasAccess()) {
+      window.location.replace(PortfolioAuth.getRedirectUrl('index.html'));
+    }
+    
+    const form = document.getElementById('gateForm');
+    const passwordInput = document.getElementById('passwordInput');
+    const errorMessage = document.getElementById('errorMessage');
+    const submitBtn = document.getElementById('submitBtn');
+    
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      
+      // Disable button during check
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Checking...';
+      
+      const password = passwordInput.value;
+      const isValid = await PortfolioAuth.checkPasswordAndSet(password);
+      
+      if (isValid) {
+        // Redirect to originally requested page or case studies index
+        const redirectUrl = PortfolioAuth.getRedirectUrl('index.html');
+        window.location.replace(redirectUrl);
+      } else {
+        // Show error
+        passwordInput.classList.add('gate-input--error');
+        errorMessage.classList.add('is-visible');
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Continue';
+        passwordInput.focus();
+        passwordInput.select();
+      }
+    });
+    
+    // Clear error on input
+    passwordInput.addEventListener('input', () => {
+      passwordInput.classList.remove('gate-input--error');
+      errorMessage.classList.remove('is-visible');
+    });
+  </script>
+</body>
+</html>

@@ -6,6 +6,15 @@
   <meta name="description" content="Sapling Design System Documentation Case Study - Ridgeline - Todd R. Lewis">
   <title>Sapling Design System Documentation - Todd R. Lewis</title>
   
+  <!-- Auth Guard - Must be first -->
+  <script src="../../js/auth.js"></script>
+  <script>
+    if (!PortfolioAuth.hasAccess()) {
+      PortfolioAuth.storeRedirect();
+      window.location.replace('gate.html');
+    }
+  </script>
+  
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -1294,6 +1303,9 @@
           <span class="peraa-footer__design-system">
             Built with <span class="peraa-footer__design-system-name">Peraa</span> Design System. Not a template
           </span>
+        </div>
+        <div style="margin-top: var(--peraa-spacing-4); padding-top: var(--peraa-spacing-4); border-top: 1px solid var(--peraa-border-subtle);">
+          <a href="#" onclick="PortfolioAuth.logout('gate.html'); return false;" style="font-size: var(--peraa-font-size-xs); color: var(--peraa-text-tertiary); text-decoration: none;">Log out</a>
         </div>
       </div>
     </footer>
