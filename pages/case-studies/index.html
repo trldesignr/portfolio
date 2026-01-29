@@ -194,6 +194,20 @@
       font-size: var(--peraa-font-size-sm);
       color: rgba(255,255,255,0.8);
     }
+    
+    .micro-project-card__year {
+      font-size: var(--peraa-font-size-sm);
+      color: var(--peraa-text-tertiary);
+      text-align: center;
+      margin-top: var(--peraa-spacing-2);
+    }
+    
+    .micro-project-wrapper {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      max-width: 280px;
+    }
   </style>
 </head>
 <body>
@@ -209,6 +223,7 @@
             <li><a href="../about.html" class="peraa-nav__link">About Me</a></li>
             <li><a href="../challenges-welcomed.html" class="peraa-nav__link">Challenges Welcomed</a></li>
             <li><a href="../writings.html" class="peraa-nav__link">Writings</a></li>
+            <li><a href="../mentorship.html" class="peraa-nav__link">Mentorship</a></li>
             <li class="peraa-nav__divider" aria-hidden="true"></li>
             <li><a href="../design-system.html" class="peraa-nav__link">Peraa Design System</a></li>
           </ul>
@@ -306,27 +321,36 @@
           <!-- Micro Projects Section -->
           <h2 class="peraa-heading-3 peraa-mb-6">Micro Projects</h2>
           <div class="micro-projects-grid">
-            <a href="micro-projects.html?tab=netflix" class="micro-project-card">
-              <img src="../../assets/images/microProjects/Cover - Netflix.png" alt="Netflix Redesign" class="micro-project-card__image">
-              <div class="micro-project-card__overlay">
-                <span class="micro-project-card__title">Netflix</span>
-                <span class="micro-project-card__subtitle">Redesign Exploration</span>
-              </div>
-            </a>
-            <a href="micro-projects.html?tab=urlist" class="micro-project-card">
-              <img src="../../assets/images/microProjects/Cover - urList.png" alt="URlist Design Challenge" class="micro-project-card__image">
-              <div class="micro-project-card__overlay">
-                <span class="micro-project-card__title">URlist</span>
-                <span class="micro-project-card__subtitle">Design Challenge</span>
-              </div>
-            </a>
-            <a href="micro-projects.html?tab=proview" class="micro-project-card">
-              <img src="../../assets/images/microProjects/Cover - Proview.png" alt="Proview Proof of Concept" class="micro-project-card__image">
-              <div class="micro-project-card__overlay">
-                <span class="micro-project-card__title">Proview</span>
-                <span class="micro-project-card__subtitle">Proof of Concept</span>
-              </div>
-            </a>
+            <div class="micro-project-wrapper">
+              <a href="micro-projects.html?tab=netflix" class="micro-project-card">
+                <img src="../../assets/images/microProjects/Cover - Netflix.png" alt="Netflix Redesign" class="micro-project-card__image">
+                <div class="micro-project-card__overlay">
+                  <span class="micro-project-card__title">Netflix</span>
+                  <span class="micro-project-card__subtitle">Redesign Exploration</span>
+                </div>
+              </a>
+              <span class="micro-project-card__year">2023</span>
+            </div>
+            <div class="micro-project-wrapper">
+              <a href="micro-projects.html?tab=urlist" class="micro-project-card">
+                <img src="../../assets/images/microProjects/Cover - urList.png" alt="URlist Design Challenge" class="micro-project-card__image">
+                <div class="micro-project-card__overlay">
+                  <span class="micro-project-card__title">URlist</span>
+                  <span class="micro-project-card__subtitle">Design Challenge</span>
+                </div>
+              </a>
+              <span class="micro-project-card__year">2016</span>
+            </div>
+            <div class="micro-project-wrapper">
+              <a href="micro-projects.html?tab=proview" class="micro-project-card">
+                <img src="../../assets/images/microProjects/Cover - Proview.png" alt="Proview Proof of Concept" class="micro-project-card__image">
+                <div class="micro-project-card__overlay">
+                  <span class="micro-project-card__title">Proview</span>
+                  <span class="micro-project-card__subtitle">Proof of Concept</span>
+                </div>
+              </a>
+              <span class="micro-project-card__year">2013</span>
+            </div>
           </div>
 
         </div>

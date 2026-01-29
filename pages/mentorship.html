@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Mentorship - Todd R. Lewis">
+  <title>Mentorship - Todd R. Lewis</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="../css/main.css">
+  <style>
+    /* Stats Row */
+    .mentorship-stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--peraa-spacing-6);
+      margin: var(--peraa-spacing-8) 0;
+    }
+    
+    .mentorship-stat {
+      text-align: center;
+      min-width: 80px;
+    }
+    
+    .mentorship-stat__number {
+      font-size: var(--peraa-font-size-3xl);
+      font-weight: var(--peraa-font-weight-bold);
+      color: var(--peraa-color-teal-500);
+      line-height: 1;
+    }
+    
+    .mentorship-stat__label {
+      font-size: var(--peraa-font-size-sm);
+      color: var(--peraa-text-secondary);
+      margin-top: var(--peraa-spacing-2);
+    }
+    
+    /* Callout */
+    .mentorship-callout {
+      padding: var(--peraa-spacing-6);
+      background: var(--peraa-color-teal-950);
+      border-left: 4px solid var(--peraa-color-teal-400);
+      margin: var(--peraa-spacing-6) 0;
+    }
+    
+    [data-theme="light"] .mentorship-callout {
+      background: var(--peraa-color-teal-50);
+    }
+    
+    .mentorship-callout__label {
+      font-size: var(--peraa-font-size-xs);
+      font-weight: var(--peraa-font-weight-semibold);
+      color: var(--peraa-color-teal-400);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: var(--peraa-spacing-2);
+    }
+    
+    .mentorship-callout__text {
+      font-size: var(--peraa-font-size-lg);
+      color: var(--peraa-text-primary);
+      line-height: var(--peraa-line-height-relaxed);
+    }
+    
+    /* Quote Block */
+    .mentorship-quote {
+      padding: var(--peraa-spacing-6);
+      background: var(--peraa-surface-card);
+      border: 1px solid var(--peraa-border-default);
+      margin: var(--peraa-spacing-6) 0;
+      position: relative;
+    }
+    
+    .mentorship-quote::before {
+      content: '"';
+      position: absolute;
+      top: var(--peraa-spacing-3);
+      left: var(--peraa-spacing-4);
+      font-size: 48px;
+      color: var(--peraa-color-teal-500);
+      opacity: 0.3;
+      line-height: 1;
+      font-family: Georgia, serif;
+    }
+    
+    .mentorship-quote__text {
+      font-size: var(--peraa-font-size-lg);
+      font-style: italic;
+      color: var(--peraa-text-primary);
+      line-height: var(--peraa-line-height-relaxed);
+      padding-left: var(--peraa-spacing-6);
+    }
+    
+    .mentorship-quote__attribution {
+      font-size: var(--peraa-font-size-sm);
+      color: var(--peraa-text-tertiary);
+      margin-top: var(--peraa-spacing-3);
+      padding-left: var(--peraa-spacing-6);
+    }
+    
+    /* Section Divider */
+    .mentorship-divider {
+      display: flex;
+      align-items: center;
+      gap: var(--peraa-spacing-4);
+      padding: var(--peraa-spacing-10) 0;
+    }
+    
+    .mentorship-divider__line {
+      flex: 1;
+      height: 1px;
+      background: var(--peraa-border-default);
+    }
+    
+    .mentorship-divider__logo {
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+    }
+    
+    .mentorship-divider__logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+    
+    /* Section Title */
+    .mentorship-section-title {
+      font-size: var(--peraa-font-size-xl);
+      font-weight: var(--peraa-font-weight-medium);
+      color: var(--peraa-text-primary);
+      margin-bottom: var(--peraa-spacing-4);
+    }
+    
+    /* Highlight Numbers inline */
+    .highlight-number {
+      font-weight: var(--peraa-font-weight-semibold);
+      color: var(--peraa-color-teal-500);
+    }
+    
+    /* Impact Cards */
+    .mentorship-impact-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--peraa-spacing-4);
+      margin: var(--peraa-spacing-6) 0;
+    }
+    
+    @media (max-width: 600px) {
+      .mentorship-impact-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    .mentorship-impact-card {
+      padding: var(--peraa-spacing-4);
+      background: var(--peraa-surface-card);
+      border: 1px solid var(--peraa-border-default);
+    }
+    
+    .mentorship-impact-card__title {
+      font-size: var(--peraa-font-size-sm);
+      font-weight: var(--peraa-font-weight-medium);
+      color: var(--peraa-text-primary);
+      margin-bottom: var(--peraa-spacing-1);
+    }
+    
+    .mentorship-impact-card__desc {
+      font-size: var(--peraa-font-size-sm);
+      color: var(--peraa-text-secondary);
+    }
+    
+    /* Global Stats Banner */
+    .mentorship-global-stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--peraa-spacing-4);
+      padding: var(--peraa-spacing-6);
+      background: var(--peraa-surface-card);
+      border: 1px solid var(--peraa-border-default);
+      margin: var(--peraa-spacing-6) 0;
+    }
+    
+    @media (max-width: 600px) {
+      .mentorship-global-stats {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    
+    .mentorship-global-stat {
+      text-align: center;
+    }
+    
+    .mentorship-global-stat__number {
+      font-size: var(--peraa-font-size-2xl);
+      font-weight: var(--peraa-font-weight-bold);
+      color: var(--peraa-color-teal-500);
+      line-height: 1;
+    }
+    
+    .mentorship-global-stat__label {
+      font-size: var(--peraa-font-size-xs);
+      color: var(--peraa-text-secondary);
+      margin-top: var(--peraa-spacing-1);
+    }
+  </style>
+</head>
+<body>
+  <div class="peraa-page">
+    <!-- Navigation -->
+    <header class="peraa-header">
+      <div class="peraa-container">
+        <nav class="peraa-nav">
+          <a href="../index.html" class="peraa-nav__logo">Todd R. Lewis</a>
+          <ul class="peraa-nav__menu">
+            <li><a href="../index.html" class="peraa-nav__link">Home</a></li>
+            <li><a href="case-studies/index.html" class="peraa-nav__link">Case Studies + Projects</a></li>
+            <li><a href="about.html" class="peraa-nav__link">About Me</a></li>
+            <li><a href="challenges-welcomed.html" class="peraa-nav__link">Challenges Welcomed</a></li>
+            <li><a href="writings.html" class="peraa-nav__link">Writings</a></li>
+            <li><a href="mentorship.html" class="peraa-nav__link peraa-nav__link--active">Mentorship</a></li>
+            <li class="peraa-nav__divider" aria-hidden="true"></li>
+            <li><a href="design-system.html" class="peraa-nav__link">Peraa Design System</a></li>
+          </ul>
+          <button class="peraa-btn peraa-btn--tertiary peraa-btn--icon-only" data-theme-toggle aria-label="Toggle theme">
+            <svg class="peraa-btn__icon peraa-btn__icon--sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="5"/>
+              <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+            </svg>
+            <svg class="peraa-btn__icon peraa-btn__icon--moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+            </svg>
+          </button>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="peraa-main">
+      <section class="peraa-section">
+        <div class="peraa-container peraa-container--narrow">
+          <p class="peraa-overline">Guidance & Growth</p>
+          <h1 class="peraa-heading-1 peraa-mt-4">Mentorship</h1>
+          <p class="peraa-lead peraa-mt-4 peraa-mb-8">
+            Sharing knowledge, fostering growth, and helping others navigate their design careers.
+          </p>
+
+          <!-- Opening -->
+          <p class="peraa-body">
+            Three things have shaped my career more than anything else: a genuine attraction to problem-solving, lived experience, and mentorship.
+          </p>
+          
+          <p class="peraa-body peraa-mt-4">
+            Over the past five to six years, mentorship has taken up a growing share of that equation. Interestingly, not primarily from having great mentors, though I've been fortunate there, but from <strong>being one</strong>.
+          </p>
+
+          <!-- Divider -->
+          <div class="mentorship-divider">
+            <div class="mentorship-divider__line"></div>
+            <div class="mentorship-divider__logo">
+              <img src="../assets/images/rune.png" alt="">
+            </div>
+            <div class="mentorship-divider__line"></div>
+          </div>
+
+          <!-- Mentors, Not Managers -->
+          <h2 class="mentorship-section-title">Mentors, Not Managers</h2>
+          
+          <p class="peraa-body">
+            I've worked for most of my career with what people often call "mentors, not managers." Each of them played a pivotal role in how I developed my craft: my approach to design, how I present work, how I prepare for milestones, and how I navigate complexity. I credit them fully for that foundation.
+          </p>
+          
+          <div class="mentorship-callout">
+            <p class="mentorship-callout__label">Key Insight</p>
+            <p class="mentorship-callout__text">The most significant growth I've experienced came later, when I stepped into mentorship myself.</p>
+          </div>
+
+          <!-- Divider -->
+          <div class="mentorship-divider">
+            <div class="mentorship-divider__line"></div>
+            <div class="mentorship-divider__logo">
+              <img src="../assets/images/rune.png" alt="">
+            </div>
+            <div class="mentorship-divider__line"></div>
+          </div>
+
+          <!-- Teaching Forces Clarity -->
+          <h2 class="mentorship-section-title">Teaching Forces Clarity</h2>
+          
+          <p class="peraa-body">
+            There's a familiar idea that the best way to learn something, or to test how well you understand it, is to teach it. I don't know who first said it, and I'm paraphrasing heavily, but the idea holds.
+          </p>
+          
+          <div class="mentorship-quote">
+            <p class="mentorship-quote__text">Teaching forces clarity. It exposes gaps. It demands honesty.</p>
+          </div>
+
+          <p class="peraa-body">
+            For the past six years, I've been a professional mentor. By professional, I mean I carry the title and am compensated for dedicating time to a structured platform and curriculum, mentoring individuals transitioning into UX/UI and product design.
+          </p>
+
+          <div class="mentorship-stats">
+            <div class="mentorship-stat">
+              <div class="mentorship-stat__number">6+</div>
+              <div class="mentorship-stat__label">Years of Mentoring</div>
+            </div>
+            <div class="mentorship-stat">
+              <div class="mentorship-stat__number">83</div>
+              <div class="mentorship-stat__label">Students Mentored</div>
+            </div>
+            <div class="mentorship-stat">
+              <div class="mentorship-stat__number">12+</div>
+              <div class="mentorship-stat__label">Months with Each Student</div>
+            </div>
+            <div class="mentorship-stat">
+              <div class="mentorship-stat__number">42</div>
+              <div class="mentorship-stat__label">Became Working Designers</div>
+            </div>
+          </div>
+
+          <p class="peraa-body">
+            Beyond that, I've mentored professionals across a wide range of backgrounds, industries, and seniority levels, from juniors to peers to executives. Each relationship is different, but they all require the same thing: presence, rigor, and accountability.
+          </p>
+
+          <!-- Divider -->
+          <div class="mentorship-divider">
+            <div class="mentorship-divider__line"></div>
+            <div class="mentorship-divider__logo">
+              <img src="../assets/images/rune.png" alt="">
+            </div>
+            <div class="mentorship-divider__line"></div>
+          </div>
+
+          <!-- The Curriculum -->
+          <h2 class="mentorship-section-title">The Intensity of Curriculum-Based Mentorship</h2>
+          
+          <p class="peraa-body">
+            The curriculum-based mentorship has been the most intense. These engagements last no less than <span class="highlight-number">twelve months</span>. Every week brings questions about process, best practices, real-world tradeoffs, and lived experience. There's design critique, portfolio review, feedback, motivation, and often, reassurance. You're helping someone make sense of the design process while also helping them understand what it means to be a designer working with other designers, engineers, and product managers.
+          </p>
+
+          <div class="mentorship-impact-grid">
+            <div class="mentorship-impact-card">
+              <div class="mentorship-impact-card__title">Design Critique</div>
+              <div class="mentorship-impact-card__desc">Weekly feedback on work in progress</div>
+            </div>
+            <div class="mentorship-impact-card">
+              <div class="mentorship-impact-card__title">Portfolio Review</div>
+              <div class="mentorship-impact-card__desc">Preparing work for job readiness</div>
+            </div>
+            <div class="mentorship-impact-card">
+              <div class="mentorship-impact-card__title">Process Guidance</div>
+              <div class="mentorship-impact-card__desc">Best practices and real-world tradeoffs</div>
+            </div>
+            <div class="mentorship-impact-card">
+              <div class="mentorship-impact-card__title">Career Support</div>
+              <div class="mentorship-impact-card__desc">Motivation, reassurance, and direction</div>
+            </div>
+          </div>
+
+          <!-- Divider -->
+          <div class="mentorship-divider">
+            <div class="mentorship-divider__line"></div>
+            <div class="mentorship-divider__logo">
+              <img src="../assets/images/rune.png" alt="">
+            </div>
+            <div class="mentorship-divider__line"></div>
+          </div>
+
+          <!-- The Commitment -->
+          <h2 class="mentorship-section-title">A Commitment to Honesty</h2>
+          
+          <p class="peraa-body">
+            I made a commitment early on not to "bullshit my way through" answers. That commitment turned mentorship into an exercise in self-awareness. It required me to be genuine and honest, not just with mentees, but with myself.
+          </p>
+
+          <div class="mentorship-callout">
+            <p class="mentorship-callout__label">The Real Test</p>
+            <p class="mentorship-callout__text">When you can't hide behind buzzwords or abstractions, you're forced to confront what you actually know, what you partially understand, and where your experience runs thin.</p>
+          </div>
+
+          <!-- Divider -->
+          <div class="mentorship-divider">
+            <div class="mentorship-divider__line"></div>
+            <div class="mentorship-divider__logo">
+              <img src="../assets/images/rune.png" alt="">
+            </div>
+            <div class="mentorship-divider__line"></div>
+          </div>
+
+          <!-- The Rewards -->
+          <h2 class="mentorship-section-title">The Rewards</h2>
+          
+          <p class="peraa-body">
+            The obvious reward is seeing others succeed. The less obvious benefit is how much it sharpened my own work. There's something about saying ideas out loud, and then holding yourself accountable to practice them, that turns what "sounds good on paper" into something actionable.
+          </p>
+
+          <div class="mentorship-quote">
+            <p class="mentorship-quote__text">Mentorship surfaced the areas where I lacked depth, pushed me to close those gaps, and helped me articulate my own principles, establishing my own... "standards & defaults". Which I did not know I needed. (thanks, Aaron)</p>
+          </div>
+
+          <!-- Divider -->
+          <div class="mentorship-divider">
+            <div class="mentorship-divider__line"></div>
+            <div class="mentorship-divider__logo">
+              <img src="../assets/images/rune.png" alt="">
+            </div>
+            <div class="mentorship-divider__line"></div>
+          </div>
+
+          <!-- Expanding Reach -->
+          <h2 class="mentorship-section-title">Expanding Reach</h2>
+          
+          <p class="peraa-body">
+            I continue to mentor with Springboard, but I've also expanded into a platform without a predefined curriculum. In some ways, that's even more challenging. There's no syllabus. No predictable path. I don't know what someone will bring into a session until they show up.
+          </p>
+          
+          <p class="peraa-body peraa-mt-4">
+            While most conversations still orbit design, and often design systems, the range of problems is broader and less constrained. This has been a new effort that has already contributed to meaningful connections around the world.
+          </p>
+
+          <!-- Global Stats Banner -->
+          <div class="mentorship-global-stats">
+            <div class="mentorship-global-stat">
+              <div class="mentorship-global-stat__number">58</div>
+              <div class="mentorship-global-stat__label">Sessions</div>
+            </div>
+            <div class="mentorship-global-stat">
+              <div class="mentorship-global-stat__number">1,950</div>
+              <div class="mentorship-global-stat__label">Minutes</div>
+            </div>
+            <div class="mentorship-global-stat">
+              <div class="mentorship-global-stat__number">27</div>
+              <div class="mentorship-global-stat__label">Individuals</div>
+            </div>
+            <div class="mentorship-global-stat">
+              <div class="mentorship-global-stat__number">8</div>
+              <div class="mentorship-global-stat__label">Countries</div>
+            </div>
+          </div>
+
+          <!-- Divider -->
+          <div class="mentorship-divider">
+            <div class="mentorship-divider__line"></div>
+            <div class="mentorship-divider__logo">
+              <img src="../assets/images/rune.png" alt="">
+            </div>
+            <div class="mentorship-divider__line"></div>
+          </div>
+
+          <!-- Why It Matters -->
+          <h2 class="mentorship-section-title">Why It Matters</h2>
+          
+          <p class="peraa-body">
+            What I enjoy most is the end of a session, when someone says I helped bring clarity or direction to something that felt tangled or uncertain.
+          </p>
+
+          <div class="mentorship-callout">
+            <p class="mentorship-callout__label">Core Belief</p>
+            <p class="mentorship-callout__text">That moment reinforces why mentorship matters to me, not as a resume line or side role, but as a practice that deepens understanding, sharpens judgment, and makes the work better for everyone involved.</p>
+          </div>
+
+          <!-- Divider -->
+          <div class="mentorship-divider" style="padding: var(--peraa-spacing-16) 0;">
+            <div class="mentorship-divider__line"></div>
+            <div class="mentorship-divider__logo">
+              <img src="../assets/images/rune.png" alt="">
+            </div>
+            <div class="mentorship-divider__line"></div>
+          </div>
+
+          <!-- CTA -->
+          <div style="text-align: center;">
+            <p class="peraa-body" style="font-size: var(--peraa-font-size-lg);">
+              I have bandwidth open for 2026 to take on new mentoring commitments.<br><br>I invite any and all to sync up and discuss more.
+            </p>
+            <a href="https://adplist.org/mentors/todd-r-lewis" target="_blank" rel="noopener noreferrer" class="peraa-btn peraa-btn--primary" style="margin-top: var(--peraa-spacing-6);">
+              Connect on ADPList
+            </a>
+          </div>
+
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="peraa-footer">
+      <div class="peraa-footer__inner">
+        <div class="peraa-footer__main">
+          <div class="peraa-footer__links">
+            <a href="https://www.linkedin.com/in/toddrlewis/" class="peraa-footer__link" target="_blank" rel="noopener noreferrer">
+              <svg class="peraa-footer__link-icon" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+              </svg>
+              LinkedIn
+            </a>
+            <a href="https://x.com/allbydesign13" class="peraa-footer__link" target="_blank" rel="noopener noreferrer">
+              <svg class="peraa-footer__link-icon" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+              </svg>
+              X
+            </a>
+            <a href="https://medium.com/@trldesignr" class="peraa-footer__link" target="_blank" rel="noopener noreferrer">
+              <svg class="peraa-footer__link-icon" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/>
+              </svg>
+              Medium
+            </a>
+          </div>
+        </div>
+        <div class="peraa-footer__bottom">
+          <p class="peraa-footer__copyright">© 2026 Todd R. Lewis. All rights reserved.</p>
+          <span class="peraa-footer__design-system">
+            Built with <span class="peraa-footer__design-system-name">Peraa</span> Design System. Not a template
+          </span>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>
