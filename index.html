@@ -13,6 +13,99 @@
   
   <!-- Styles -->
   <link rel="stylesheet" href="css/main.css">
+  
+  <style>
+    /* ═══════════════════════════════════════════════════════════════════════
+       INDEX PAGE ENTRANCE ANIMATIONS
+       Staggered reveal with choreographed timing
+       ═══════════════════════════════════════════════════════════════════════ */
+    
+    /* Background logomark - fades in while scaling from slightly larger */
+    @keyframes logomarkReveal {
+      from {
+        opacity: 0;
+        transform: scale(1.1);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+    
+    .peraa-logomark-bg {
+      animation: logomarkReveal 1200ms cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+    }
+    
+    /* Content reveal - slides up and fades in */
+    @keyframes contentReveal {
+      from {
+        opacity: 0;
+        transform: translateY(24px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    /* Staggered delays for hero content */
+    .peraa-hero .peraa-overline {
+      animation: contentReveal 600ms cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+      animation-delay: 200ms;
+    }
+    
+    .peraa-hero .peraa-heading-1 {
+      animation: contentReveal 600ms cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+      animation-delay: 350ms;
+    }
+    
+    .peraa-hero .peraa-lead {
+      animation: contentReveal 600ms cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+      animation-delay: 500ms;
+    }
+    
+    .peraa-hero .peraa-flex {
+      animation: contentReveal 600ms cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+      animation-delay: 650ms;
+    }
+    
+    /* Nav fades in subtly */
+    @keyframes navReveal {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+    
+    .peraa-page--hero .peraa-header {
+      animation: navReveal 400ms ease-out both;
+      animation-delay: 100ms;
+    }
+    
+    /* Footer fades in last */
+    .peraa-page--hero .peraa-footer {
+      animation: navReveal 400ms ease-out both;
+      animation-delay: 800ms;
+      background: transparent;
+    }
+    
+    /* Respect reduced motion preference */
+    @media (prefers-reduced-motion: reduce) {
+      .peraa-logomark-bg,
+      .peraa-hero .peraa-overline,
+      .peraa-hero .peraa-heading-1,
+      .peraa-hero .peraa-lead,
+      .peraa-hero .peraa-flex,
+      .peraa-page--hero .peraa-header,
+      .peraa-page--hero .peraa-footer {
+        animation: none;
+        opacity: 1;
+        transform: none;
+      }
+    }
+  </style>
 </head>
 <body>
   <div class="peraa-page peraa-page--hero">
@@ -28,10 +121,10 @@
           <ul class="peraa-nav__menu">
             <li><a href="index.html" class="peraa-nav__link peraa-nav__link--active">Home</a></li>
             <li><a href="pages/case-studies/index.html" class="peraa-nav__link">Case Studies + Projects</a></li>
-            <li><a href="pages/about.html" class="peraa-nav__link">About Me</a></li>
             <li><a href="pages/challenges-welcomed.html" class="peraa-nav__link">Challenges Welcomed</a></li>
             <li><a href="pages/writings.html" class="peraa-nav__link">Writings</a></li>
             <li><a href="pages/mentorship.html" class="peraa-nav__link">Mentorship</a></li>
+            <li><a href="pages/about.html" class="peraa-nav__link">About Me</a></li>
             <li class="peraa-nav__divider" aria-hidden="true"></li>
             <li><a href="pages/design-system.html" class="peraa-nav__link">Peraa Design System</a></li>
           </ul>
@@ -89,6 +182,22 @@
                 <path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/>
               </svg>
               Medium
+            </a>
+          </div>
+          <div class="peraa-footer__contact">
+            <a href="assets/TRL-Resume.pdf" class="peraa-footer__contact-link" target="_blank" rel="noopener noreferrer">
+              <svg class="peraa-footer__contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/>
+              </svg>
+              Resume
+            </a>
+            <div class="peraa-footer__contact-divider"></div>
+            <a href="mailto:trldesignr@gmail.com" class="peraa-footer__contact-link">
+              <svg class="peraa-footer__contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                <polyline points="22,6 12,13 2,6"/>
+              </svg>
+              trldesignr@gmail.com
             </a>
           </div>
         </div>

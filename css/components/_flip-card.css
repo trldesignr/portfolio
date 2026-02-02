@@ -82,6 +82,16 @@
   height: 140px;
   background-color: var(--peraa-image-placeholder-bg);
   object-fit: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.peraa-flip-card__icon {
+  width: 64px;
+  height: 64px;
+  color: var(--peraa-color-teal-500);
+  opacity: 0.7;
 }
 
 .peraa-flip-card__content {
