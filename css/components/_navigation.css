@@ -89,6 +89,22 @@
   background-color: var(--peraa-interactive-secondary-bg-hover);
 }
 
+.peraa-nav__link--accent {
+  color: var(--peraa-color-teal-500);
+}
+
+.peraa-nav__link--accent:hover {
+  color: var(--peraa-color-teal-400);
+}
+
+[data-theme="dark"] .peraa-nav__link--accent {
+  color: var(--peraa-color-teal-400);
+}
+
+[data-theme="dark"] .peraa-nav__link--accent:hover {
+  color: var(--peraa-color-teal-300);
+}
+
 /* Navigation Divider */
 .peraa-nav__divider {
   width: 1px;
