@@ -91,6 +91,37 @@
       background: transparent;
     }
     
+    /* Light mode: adjust footer link colors for transparent background */
+    [data-theme="light"] .peraa-page--hero .peraa-footer__link,
+    [data-theme="light"] .peraa-page--hero .peraa-footer__contact-link {
+      color: var(--peraa-color-neutral-600);
+    }
+    
+    [data-theme="light"] .peraa-page--hero .peraa-footer__link:hover,
+    [data-theme="light"] .peraa-page--hero .peraa-footer__contact-link:hover {
+      color: var(--peraa-color-neutral-900);
+    }
+    
+    [data-theme="light"] .peraa-page--hero .peraa-footer__site-name {
+      color: var(--peraa-color-neutral-900);
+    }
+    
+    [data-theme="light"] .peraa-page--hero .peraa-footer__design-system {
+      color: var(--peraa-color-neutral-600);
+    }
+    
+    [data-theme="light"] .peraa-page--hero .peraa-footer__contact-divider {
+      background: var(--peraa-color-neutral-300);
+    }
+    
+    [data-theme="light"] .peraa-page--hero .peraa-footer__bottom {
+      border-top-color: var(--peraa-color-neutral-200);
+    }
+    
+    [data-theme="light"] .peraa-page--hero .peraa-footer__copyright {
+      color: var(--peraa-color-neutral-500);
+    }
+    
     /* Respect reduced motion preference */
     @media (prefers-reduced-motion: reduce) {
       .peraa-logomark-bg,
