@@ -1,0 +1,195 @@
+/**
+ * Peraa Design System - Code Block Component
+ * 
+ * Styled code blocks for documentation.
+ */
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   CODE BLOCK
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.peraa-code-block {
+  position: relative;
+  background-color: var(--peraa-color-neutral-900);
+  border-radius: var(--peraa-radius-lg);
+  overflow: hidden;
+}
+
+[data-theme="dark"] .peraa-code-block {
+  background-color: var(--peraa-color-neutral-950);
+  border: var(--peraa-border-width-1) solid var(--peraa-color-neutral-800);
+}
+
+.peraa-code-block__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--peraa-spacing-3) var(--peraa-spacing-4);
+  background-color: rgba(0, 0, 0, 0.2);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.peraa-code-block__lang {
+  font-family: var(--peraa-font-family-mono);
+  font-size: var(--peraa-font-size-xs);
+  font-weight: var(--peraa-font-weight-medium);
+  color: var(--peraa-color-neutral-400);
+  text-transform: uppercase;
+  letter-spacing: var(--peraa-letter-spacing-wide);
+}
+
+.peraa-code-block__copy {
+  display: flex;
+  align-items: center;
+  gap: var(--peraa-spacing-1);
+  padding: var(--peraa-spacing-1) var(--peraa-spacing-2);
+  font-family: var(--peraa-font-family-sans);
+  font-size: var(--peraa-font-size-xs);
+  color: var(--peraa-color-neutral-400);
+  background: transparent;
+  border: 1px solid var(--peraa-color-neutral-700);
+  border-radius: var(--peraa-radius-sm);
+  cursor: pointer;
+  transition: 
+    color var(--peraa-duration-150) var(--peraa-ease-out),
+    border-color var(--peraa-duration-150) var(--peraa-ease-out);
+}
+
+.peraa-code-block__copy:hover {
+  color: var(--peraa-color-neutral-200);
+  border-color: var(--peraa-color-neutral-500);
+}
+
+.peraa-code-block__copy-icon {
+  width: 14px;
+  height: 14px;
+}
+
+.peraa-code-block__pre {
+  margin: 0;
+  padding: var(--peraa-spacing-4);
+  overflow-x: auto;
+}
+
+.peraa-code-block__code {
+  font-family: var(--peraa-font-family-mono);
+  font-size: var(--peraa-font-size-sm);
+  line-height: var(--peraa-line-height-relaxed);
+  color: var(--peraa-color-neutral-100);
+  white-space: pre;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   COMPONENT PREVIEW
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.peraa-preview {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--peraa-spacing-6);
+  margin-bottom: var(--peraa-spacing-6);
+}
+
+@media (max-width: 900px) {
+  .peraa-preview {
+    grid-template-columns: 1fr;
+  }
+}
+
+.peraa-preview__visual {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 200px;
+  padding: var(--peraa-spacing-8);
+  background-color: var(--peraa-surface-subtle);
+  border: var(--peraa-border-width-1) solid var(--peraa-border-default);
+  border-radius: var(--peraa-radius-lg);
+}
+
+.peraa-preview__code {
+  min-height: 200px;
+}
+
+.peraa-preview__code .peraa-code-block {
+  height: 100%;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   PROPS TABLE
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.peraa-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--peraa-font-size-sm);
+}
+
+.peraa-table th,
+.peraa-table td {
+  padding: var(--peraa-spacing-3) var(--peraa-spacing-4);
+  text-align: left;
+  border-bottom: var(--peraa-border-width-1) solid var(--peraa-border-default);
+}
+
+.peraa-table th {
+  font-weight: var(--peraa-font-weight-semibold);
+  color: var(--peraa-text-primary);
+  background-color: var(--peraa-surface-subtle);
+}
+
+.peraa-table td {
+  color: var(--peraa-text-secondary);
+}
+
+.peraa-table code {
+  font-family: var(--peraa-font-family-mono);
+  font-size: var(--peraa-font-size-xs);
+  padding: 2px 6px;
+  background-color: var(--peraa-surface-subtle);
+  border-radius: var(--peraa-radius-sm);
+  color: var(--peraa-text-brand);
+}
+
+.peraa-table--tokens td:first-child code {
+  color: var(--peraa-color-purple-400);
+}
+
+.peraa-table--tokens td:nth-child(2) code {
+  color: var(--peraa-color-accent-teal-500);
+}
+
+.peraa-table--tokens td:nth-child(3) {
+  font-family: var(--peraa-font-family-mono);
+  font-size: var(--peraa-font-size-xs);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   COMPONENT SECTION
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.peraa-doc-section {
+  margin-bottom: var(--peraa-spacing-12);
+}
+
+.peraa-doc-section__title {
+  font-size: var(--peraa-font-size-2xl);
+  font-weight: var(--peraa-font-weight-bold);
+  color: var(--peraa-text-primary);
+  margin-bottom: var(--peraa-spacing-2);
+}
+
+.peraa-doc-section__description {
+  font-size: var(--peraa-font-size-base);
+  color: var(--peraa-text-secondary);
+  margin-bottom: var(--peraa-spacing-6);
+  max-width: 65ch;
+}
+
+.peraa-doc-section__subtitle {
+  font-size: var(--peraa-font-size-lg);
+  font-weight: var(--peraa-font-weight-semibold);
+  color: var(--peraa-text-primary);
+  margin-top: var(--peraa-spacing-8);
+  margin-bottom: var(--peraa-spacing-4);
+}

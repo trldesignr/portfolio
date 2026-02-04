@@ -1,0 +1,132 @@
+/**
+ * Peraa Design System - Vertical Navigation Component
+ * 
+ * Left sidebar navigation for design system documentation.
+ */
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   VERTICAL NAV CONTAINER
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.peraa-vnav {
+  display: flex;
+  flex-direction: column;
+  gap: var(--peraa-spacing-1);
+  width: 220px;
+  flex-shrink: 0;
+  padding: var(--peraa-spacing-4) 0;
+}
+
+.peraa-vnav__section {
+  margin-bottom: var(--peraa-spacing-4);
+}
+
+.peraa-vnav__section-title {
+  font-size: var(--peraa-font-size-xs);
+  font-weight: var(--peraa-font-weight-semibold);
+  text-transform: uppercase;
+  letter-spacing: var(--peraa-letter-spacing-widest);
+  color: var(--peraa-text-tertiary);
+  padding: var(--peraa-spacing-2) var(--peraa-spacing-3);
+  margin-bottom: var(--peraa-spacing-1);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   NAV ITEMS
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.peraa-vnav__item {
+  display: flex;
+  align-items: center;
+  gap: var(--peraa-spacing-2);
+  padding: var(--peraa-spacing-2) var(--peraa-spacing-3);
+  font-size: var(--peraa-font-size-sm);
+  font-weight: var(--peraa-font-weight-medium);
+  color: var(--peraa-text-secondary);
+  text-decoration: none;
+  border-radius: var(--peraa-radius-md);
+  cursor: pointer;
+  transition: 
+    color var(--peraa-duration-150) var(--peraa-ease-out),
+    background-color var(--peraa-duration-150) var(--peraa-ease-out);
+  border: none;
+  background: none;
+  width: 100%;
+  text-align: left;
+}
+
+.peraa-vnav__item:hover {
+  color: var(--peraa-text-primary);
+  background-color: var(--peraa-surface-subtle);
+}
+
+.peraa-vnav__item--active {
+  color: var(--peraa-text-brand);
+  background-color: var(--peraa-interactive-secondary-bg-hover);
+}
+
+.peraa-vnav__item:focus-visible {
+  outline: 2px solid var(--peraa-border-focus);
+  outline-offset: -2px;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   LAYOUT WITH VERTICAL NAV
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.peraa-doc-layout {
+  display: flex;
+  gap: var(--peraa-spacing-8);
+  min-height: 60vh;
+}
+
+.peraa-doc-layout__sidebar {
+  position: sticky;
+  top: calc(var(--peraa-spacing-16) + 60px);
+  align-self: flex-start;
+  max-height: calc(100vh - 120px);
+  overflow-y: auto;
+  border-right: var(--peraa-border-width-1) solid var(--peraa-border-subtle);
+  padding-right: var(--peraa-spacing-4);
+}
+
+.peraa-doc-layout__content {
+  flex: 1;
+  min-width: 0;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   RESPONSIVE
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+@media (max-width: 900px) {
+  .peraa-doc-layout {
+    flex-direction: column;
+  }
+
+  .peraa-doc-layout__sidebar {
+    position: relative;
+    top: 0;
+    max-height: none;
+    border-right: none;
+    border-bottom: var(--peraa-border-width-1) solid var(--peraa-border-subtle);
+    padding-right: 0;
+    padding-bottom: var(--peraa-spacing-4);
+    margin-bottom: var(--peraa-spacing-4);
+  }
+
+  .peraa-vnav {
+    width: 100%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: var(--peraa-spacing-2);
+  }
+
+  .peraa-vnav__section {
+    margin-bottom: 0;
+  }
+
+  .peraa-vnav__section-title {
+    display: none;
+  }
+}

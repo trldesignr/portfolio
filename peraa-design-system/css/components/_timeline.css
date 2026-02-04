@@ -1,0 +1,206 @@
+/**
+ * Peraa Design System - Vertical Timeline Component
+ * 
+ * A sticky vertical timeline that runs along the right edge of a content area.
+ * Displays time markers (day, week, month, year) as the user scrolls.
+ * Non-interactive, purely decorative/informational.
+ */
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   TIMELINE CONTAINER
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.peraa-timeline-wrapper {
+  display: flex;
+  gap: var(--peraa-spacing-8);
+}
+
+.peraa-timeline-content {
+  flex: 1;
+  min-width: 0; /* Prevent content from overflowing */
+}
+
+.peraa-timeline {
+  position: sticky;
+  top: var(--peraa-spacing-8);
+  align-self: flex-start;
+  display: flex;
+  flex-direction: column;
+  width: 120px;
+  flex-shrink: 0;
+  padding: var(--peraa-spacing-4) 0;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   TIMELINE LINE
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.peraa-timeline__line {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 6px;
+  width: 2px;
+  background-color: var(--peraa-timeline-line);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   TIMELINE ITEM
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.peraa-timeline__item {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: var(--peraa-spacing-3);
+  padding: var(--peraa-spacing-4) 0;
+}
+
+.peraa-timeline__item:first-child {
+  padding-top: 0;
+}
+
+.peraa-timeline__item:last-child {
+  padding-bottom: 0;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   TIMELINE DOT/MARKER
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.peraa-timeline__marker {
+  position: relative;
+  z-index: 1;
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+  border-radius: var(--peraa-radius-full);
+  background-color: var(--peraa-timeline-dot-inactive);
+  border: 3px solid var(--peraa-surface-page);
+  transition: 
+    background-color var(--peraa-duration-200) var(--peraa-ease-out),
+    transform var(--peraa-duration-200) var(--peraa-ease-out);
+}
+
+.peraa-timeline__item--active .peraa-timeline__marker {
+  background-color: var(--peraa-timeline-dot);
+  transform: scale(1.2);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   TIMELINE CONTENT
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.peraa-timeline__label {
+  display: flex;
+  flex-direction: column;
+  gap: var(--peraa-spacing-1);
+  padding-top: 1px;
+}
+
+.peraa-timeline__time {
+  font-family: var(--peraa-font-family-mono);
+  font-size: var(--peraa-font-size-xs);
+  font-weight: var(--peraa-font-weight-semibold);
+  letter-spacing: var(--peraa-letter-spacing-wide);
+  text-transform: uppercase;
+  color: var(--peraa-timeline-text);
+  transition: color var(--peraa-duration-200) var(--peraa-ease-out);
+}
+
+.peraa-timeline__item--active .peraa-timeline__time {
+  color: var(--peraa-timeline-text-active);
+}
+
+.peraa-timeline__description {
+  font-size: var(--peraa-font-size-xs);
+  color: var(--peraa-text-tertiary);
+  line-height: var(--peraa-line-height-snug);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   TIMELINE POSITION VARIANTS
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* Timeline on the left (default is right) */
+.peraa-timeline-wrapper--left {
+  flex-direction: row-reverse;
+}
+
+.peraa-timeline-wrapper--left .peraa-timeline__line {
+  left: auto;
+  right: 6px;
+}
+
+.peraa-timeline-wrapper--left .peraa-timeline__item {
+  flex-direction: row-reverse;
+  text-align: right;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   TIMELINE COMPACT VARIANT
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.peraa-timeline--compact {
+  width: 80px;
+}
+
+.peraa-timeline--compact .peraa-timeline__item {
+  padding: var(--peraa-spacing-3) 0;
+}
+
+.peraa-timeline--compact .peraa-timeline__marker {
+  width: 10px;
+  height: 10px;
+  border-width: 2px;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   RESPONSIVE BEHAVIOR
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+@media (max-width: 768px) {
+  .peraa-timeline {
+    display: none; /* Hide on mobile by default */
+  }
+
+  .peraa-timeline-wrapper {
+    flex-direction: column;
+  }
+}
+
+/* Show on mobile when explicitly requested */
+.peraa-timeline--show-mobile {
+  display: flex;
+}
+
+@media (max-width: 768px) {
+  .peraa-timeline--show-mobile {
+    position: relative;
+    top: 0;
+    width: 100%;
+    flex-direction: row;
+    overflow-x: auto;
+    padding: var(--peraa-spacing-4);
+    margin-bottom: var(--peraa-spacing-4);
+    background-color: var(--peraa-surface-subtle);
+    border-radius: var(--peraa-radius-lg);
+  }
+
+  .peraa-timeline--show-mobile .peraa-timeline__line {
+    top: 50%;
+    left: 0;
+    right: 0;
+    bottom: auto;
+    width: auto;
+    height: 2px;
+    transform: translateY(-50%);
+  }
+
+  .peraa-timeline--show-mobile .peraa-timeline__item {
+    flex-direction: column;
+    align-items: center;
+    padding: 0 var(--peraa-spacing-4);
+    text-align: center;
+  }
+}

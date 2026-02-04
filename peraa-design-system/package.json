@@ -1,0 +1,40 @@
+{
+  "name": "@peraa/design-system",
+  "version": "1.0.0",
+  "description": "A minimal, token-based design system for building clean, accessible interfaces",
+  "main": "css/main.css",
+  "files": [
+    "css/",
+    "react/",
+    "tailwind/",
+    "js/"
+  ],
+  "exports": {
+    ".": "./css/main.css",
+    "./css/*": "./css/*",
+    "./react": "./react/components/index.js",
+    "./react/*": "./react/components/*",
+    "./tailwind": "./tailwind/tailwind.config.js",
+    "./tailwind/*": "./tailwind/*"
+  },
+  "keywords": [
+    "design-system",
+    "css",
+    "tokens",
+    "components",
+    "react",
+    "tailwind",
+    "accessible",
+    "dark-mode"
+  ],
+  "author": "Todd R. Lewis",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/allbydesign/peraa-design-system.git"
+  },
+  "homepage": "https://peraa.design",
+  "bugs": {
+    "url": "https://github.com/allbydesign/peraa-design-system/issues"
+  }
+}

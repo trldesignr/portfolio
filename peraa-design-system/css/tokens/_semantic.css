@@ -1,0 +1,255 @@
+/**
+ * Peraa Design System - Semantic Tokens
+ * 
+ * Semantic tokens map primitive values to meaningful, context-aware names.
+ * These are the tokens that should be used directly in components and layouts.
+ * 
+ * Token naming convention: --peraa-[context]-[element]-[property]-[state]
+ */
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   LIGHT THEME (Default)
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+:root,
+[data-theme="light"] {
+  /* ─────────────────────────────────────────────────────────────────────────
+     SURFACE & BACKGROUND
+     ───────────────────────────────────────────────────────────────────────── */
+  --peraa-surface-page: var(--peraa-color-neutral-50);
+  --peraa-surface-card: var(--peraa-color-neutral-0);
+  --peraa-surface-elevated: var(--peraa-color-neutral-0);
+  --peraa-surface-overlay: rgb(0 0 0 / 0.5);
+  --peraa-surface-subtle: var(--peraa-color-neutral-100);
+
+  /* ─────────────────────────────────────────────────────────────────────────
+     TEXT
+     ───────────────────────────────────────────────────────────────────────── */
+  --peraa-text-primary: var(--peraa-color-neutral-900);
+  --peraa-text-secondary: var(--peraa-color-neutral-600);
+  --peraa-text-tertiary: var(--peraa-color-neutral-500);
+  --peraa-text-disabled: var(--peraa-color-neutral-400);
+  --peraa-text-inverse: var(--peraa-color-neutral-0);
+  --peraa-text-brand: var(--peraa-color-purple-500);
+  --peraa-text-link: var(--peraa-color-purple-500);
+  --peraa-text-link-hover: var(--peraa-color-purple-600);
+
+  /* ─────────────────────────────────────────────────────────────────────────
+     BORDER
+     ───────────────────────────────────────────────────────────────────────── */
+  --peraa-border-default: var(--peraa-color-neutral-200);
+  --peraa-border-subtle: var(--peraa-color-neutral-100);
+  --peraa-border-strong: var(--peraa-color-neutral-300);
+  --peraa-border-brand: var(--peraa-color-purple-500);
+  --peraa-border-accent: var(--peraa-color-teal-500);
+  --peraa-border-focus: var(--peraa-color-purple-500);
+
+  /* ─────────────────────────────────────────────────────────────────────────
+     ACCENT/SECONDARY COLOR
+     ───────────────────────────────────────────────────────────────────────── */
+  --peraa-color-accent: var(--peraa-color-teal-500);
+  --peraa-color-accent-light: var(--peraa-color-teal-400);
+  --peraa-color-accent-dark: var(--peraa-color-teal-950);
+  --peraa-accent-bg: var(--peraa-color-teal-500);
+  --peraa-accent-bg-subtle: var(--peraa-color-teal-50);
+  --peraa-accent-text: var(--peraa-color-neutral-0);
+  --peraa-accent-text-on-light: var(--peraa-color-teal-700);
+
+  /* ─────────────────────────────────────────────────────────────────────────
+     INTERACTIVE - PRIMARY
+     ───────────────────────────────────────────────────────────────────────── */
+  --peraa-interactive-primary-bg: var(--peraa-color-purple-500);
+  --peraa-interactive-primary-bg-hover: var(--peraa-color-purple-600);
+  --peraa-interactive-primary-bg-active: var(--peraa-color-purple-700);
+  --peraa-interactive-primary-text: var(--peraa-color-neutral-0);
+
+  /* ─────────────────────────────────────────────────────────────────────────
+     INTERACTIVE - SECONDARY
+     ───────────────────────────────────────────────────────────────────────── */
+  --peraa-interactive-secondary-bg: transparent;
+  --peraa-interactive-secondary-bg-hover: var(--peraa-color-purple-50);
+  --peraa-interactive-secondary-bg-active: var(--peraa-color-purple-100);
+  --peraa-interactive-secondary-border: var(--peraa-color-purple-500);
+  --peraa-interactive-secondary-text: var(--peraa-color-purple-500);
+  --peraa-interactive-secondary-text-hover: var(--peraa-color-purple-600);
+
+  /* ─────────────────────────────────────────────────────────────────────────
+     INTERACTIVE - TERTIARY
+     ───────────────────────────────────────────────────────────────────────── */
+  --peraa-interactive-tertiary-bg: transparent;
+  --peraa-interactive-tertiary-bg-hover: var(--peraa-color-neutral-100);
+  --peraa-interactive-tertiary-bg-active: var(--peraa-color-neutral-200);
+  --peraa-interactive-tertiary-text: var(--peraa-color-neutral-700);
+  --peraa-interactive-tertiary-text-hover: var(--peraa-color-neutral-900);
+
+  /* ─────────────────────────────────────────────────────────────────────────
+     STATUS
+     ───────────────────────────────────────────────────────────────────────── */
+  --peraa-status-success-bg: var(--peraa-color-success-500);
+  --peraa-status-success-text: var(--peraa-color-success-500);
+  --peraa-status-warning-bg: var(--peraa-color-warning-500);
+  --peraa-status-warning-text: var(--peraa-color-warning-500);
+  --peraa-status-error-bg: var(--peraa-color-error-500);
+  --peraa-status-error-text: var(--peraa-color-error-500);
+  --peraa-status-info-bg: var(--peraa-color-info-500);
+  --peraa-status-info-text: var(--peraa-color-info-500);
+
+  /* ─────────────────────────────────────────────────────────────────────────
+     COMPONENT-SPECIFIC
+     ───────────────────────────────────────────────────────────────────────── */
+
+  /* Tabs */
+  --peraa-tabs-bg: var(--peraa-color-neutral-100);
+  --peraa-tabs-active-bg: var(--peraa-color-neutral-0);
+  --peraa-tabs-text: var(--peraa-color-neutral-600);
+  --peraa-tabs-text-active: var(--peraa-color-neutral-900);
+
+  /* Timeline */
+  --peraa-timeline-line: var(--peraa-color-neutral-200);
+  --peraa-timeline-dot: var(--peraa-color-purple-500);
+  --peraa-timeline-dot-inactive: var(--peraa-color-neutral-300);
+  --peraa-timeline-text: var(--peraa-color-neutral-600);
+  --peraa-timeline-text-active: var(--peraa-color-purple-500);
+
+  /* Cards */
+  --peraa-card-bg: var(--peraa-color-neutral-0);
+  --peraa-card-border: var(--peraa-color-neutral-200);
+  --peraa-card-shadow: var(--peraa-shadow-sm);
+  --peraa-card-shadow-hover: var(--peraa-shadow-md);
+
+  /* Badges */
+  --peraa-badge-bg: var(--peraa-color-neutral-100);
+  --peraa-badge-text: var(--peraa-color-neutral-700);
+  --peraa-badge-brand-bg: var(--peraa-color-purple-100);
+  --peraa-badge-brand-text: var(--peraa-color-purple-700);
+  --peraa-badge-accent-bg: var(--peraa-color-teal-100);
+  --peraa-badge-accent-text: var(--peraa-color-teal-700);
+
+  /* Image Placeholder */
+  --peraa-image-placeholder-bg: var(--peraa-color-neutral-200);
+  --peraa-image-placeholder-overlay: rgb(111 31 172 / 0.8);
+
+  /* Footer */
+  --peraa-footer-bg: var(--peraa-color-neutral-900);
+  --peraa-footer-text: var(--peraa-color-neutral-300);
+  --peraa-footer-text-brand: var(--peraa-color-neutral-0);
+  --peraa-footer-link: var(--peraa-color-neutral-300);
+  --peraa-footer-link-hover: var(--peraa-color-neutral-0);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   DARK THEME
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+[data-theme="dark"] {
+  /* ─────────────────────────────────────────────────────────────────────────
+     SURFACE & BACKGROUND
+     ───────────────────────────────────────────────────────────────────────── */
+  --peraa-surface-page: var(--peraa-color-neutral-950);
+  --peraa-surface-card: var(--peraa-color-neutral-900);
+  --peraa-surface-elevated: var(--peraa-color-neutral-800);
+  --peraa-surface-overlay: rgb(0 0 0 / 0.7);
+  --peraa-surface-subtle: var(--peraa-color-neutral-800);
+
+  /* ─────────────────────────────────────────────────────────────────────────
+     TEXT
+     ───────────────────────────────────────────────────────────────────────── */
+  --peraa-text-primary: var(--peraa-color-neutral-50);
+  --peraa-text-secondary: var(--peraa-color-neutral-400);
+  --peraa-text-tertiary: var(--peraa-color-neutral-500);
+  --peraa-text-disabled: var(--peraa-color-neutral-600);
+  --peraa-text-inverse: var(--peraa-color-neutral-900);
+  --peraa-text-brand: var(--peraa-color-purple-400);
+  --peraa-text-link: var(--peraa-color-purple-400);
+  --peraa-text-link-hover: var(--peraa-color-purple-300);
+
+  /* ─────────────────────────────────────────────────────────────────────────
+     BORDER
+     ───────────────────────────────────────────────────────────────────────── */
+  --peraa-border-default: var(--peraa-color-neutral-700);
+  --peraa-border-subtle: var(--peraa-color-neutral-800);
+  --peraa-border-strong: var(--peraa-color-neutral-600);
+  --peraa-border-brand: var(--peraa-color-purple-500);
+  --peraa-border-accent: var(--peraa-color-teal-500);
+  --peraa-border-focus: var(--peraa-color-purple-400);
+
+  /* ─────────────────────────────────────────────────────────────────────────
+     ACCENT/SECONDARY COLOR
+     ───────────────────────────────────────────────────────────────────────── */
+  --peraa-color-accent: var(--peraa-color-teal-400);
+  --peraa-color-accent-light: var(--peraa-color-teal-300);
+  --peraa-color-accent-dark: var(--peraa-color-teal-950);
+  --peraa-accent-bg: var(--peraa-color-teal-950);
+  --peraa-accent-bg-subtle: var(--peraa-color-teal-900);
+  --peraa-accent-text: var(--peraa-color-teal-100);
+  --peraa-accent-text-on-light: var(--peraa-color-teal-300);
+
+  /* ─────────────────────────────────────────────────────────────────────────
+     INTERACTIVE - PRIMARY
+     ───────────────────────────────────────────────────────────────────────── */
+  --peraa-interactive-primary-bg: var(--peraa-color-purple-500);
+  --peraa-interactive-primary-bg-hover: var(--peraa-color-purple-400);
+  --peraa-interactive-primary-bg-active: var(--peraa-color-purple-600);
+  --peraa-interactive-primary-text: var(--peraa-color-neutral-0);
+
+  /* ─────────────────────────────────────────────────────────────────────────
+     INTERACTIVE - SECONDARY
+     ───────────────────────────────────────────────────────────────────────── */
+  --peraa-interactive-secondary-bg: transparent;
+  --peraa-interactive-secondary-bg-hover: var(--peraa-color-purple-900);
+  --peraa-interactive-secondary-bg-active: var(--peraa-color-purple-800);
+  --peraa-interactive-secondary-border: var(--peraa-color-purple-500);
+  --peraa-interactive-secondary-text: var(--peraa-color-purple-400);
+  --peraa-interactive-secondary-text-hover: var(--peraa-color-purple-300);
+
+  /* ─────────────────────────────────────────────────────────────────────────
+     INTERACTIVE - TERTIARY
+     ───────────────────────────────────────────────────────────────────────── */
+  --peraa-interactive-tertiary-bg: transparent;
+  --peraa-interactive-tertiary-bg-hover: var(--peraa-color-neutral-800);
+  --peraa-interactive-tertiary-bg-active: var(--peraa-color-neutral-700);
+  --peraa-interactive-tertiary-text: var(--peraa-color-neutral-300);
+  --peraa-interactive-tertiary-text-hover: var(--peraa-color-neutral-100);
+
+  /* ─────────────────────────────────────────────────────────────────────────
+     COMPONENT-SPECIFIC
+     ───────────────────────────────────────────────────────────────────────── */
+
+  /* Tabs */
+  --peraa-tabs-bg: var(--peraa-color-neutral-800);
+  --peraa-tabs-active-bg: var(--peraa-color-neutral-700);
+  --peraa-tabs-text: var(--peraa-color-neutral-400);
+  --peraa-tabs-text-active: var(--peraa-color-neutral-50);
+
+  /* Timeline */
+  --peraa-timeline-line: var(--peraa-color-neutral-700);
+  --peraa-timeline-dot: var(--peraa-color-purple-500);
+  --peraa-timeline-dot-inactive: var(--peraa-color-neutral-600);
+  --peraa-timeline-text: var(--peraa-color-neutral-400);
+  --peraa-timeline-text-active: var(--peraa-color-purple-400);
+
+  /* Cards */
+  --peraa-card-bg: var(--peraa-color-neutral-900);
+  --peraa-card-border: var(--peraa-color-neutral-700);
+  --peraa-card-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.3), 0 1px 2px -1px rgb(0 0 0 / 0.3);
+  --peraa-card-shadow-hover: 0 4px 6px -1px rgb(0 0 0 / 0.4), 0 2px 4px -2px rgb(0 0 0 / 0.3);
+
+  /* Badges */
+  --peraa-badge-bg: var(--peraa-color-neutral-800);
+  --peraa-badge-text: var(--peraa-color-neutral-300);
+  --peraa-badge-brand-bg: var(--peraa-color-purple-900);
+  --peraa-badge-brand-text: var(--peraa-color-purple-300);
+  --peraa-badge-accent-bg: var(--peraa-color-teal-900);
+  --peraa-badge-accent-text: var(--peraa-color-teal-300);
+
+  /* Image Placeholder */
+  --peraa-image-placeholder-bg: var(--peraa-color-neutral-800);
+  --peraa-image-placeholder-overlay: rgb(111 31 172 / 0.85);
+
+  /* Footer */
+  --peraa-footer-bg: var(--peraa-color-neutral-900);
+  --peraa-footer-text: var(--peraa-color-neutral-400);
+  --peraa-footer-text-brand: var(--peraa-color-neutral-0);
+  --peraa-footer-link: var(--peraa-color-neutral-400);
+  --peraa-footer-link-hover: var(--peraa-color-neutral-0);
+}

@@ -1,0 +1,178 @@
+/**
+ * Peraa Design System - Badge Component
+ * 
+ * Badges for skills and tags.
+ */
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   BADGE BASE
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.peraa-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--peraa-spacing-1);
+  padding: var(--peraa-spacing-1) var(--peraa-spacing-3);
+  font-family: var(--peraa-font-family-sans);
+  font-size: var(--peraa-font-size-xs);
+  font-weight: var(--peraa-font-weight-medium);
+  line-height: var(--peraa-line-height-normal);
+  color: var(--peraa-badge-text);
+  background-color: var(--peraa-badge-bg);
+  border-radius: var(--peraa-radius-full);
+  white-space: nowrap;
+  user-select: none;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   BADGE VARIANTS
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* Brand/Primary variant */
+.peraa-badge--brand {
+  background-color: var(--peraa-badge-brand-bg);
+  color: var(--peraa-badge-brand-text);
+}
+
+/* Accent/Secondary variant (Teal) */
+.peraa-badge--accent {
+  background-color: var(--peraa-color-teal-100);
+  color: var(--peraa-color-teal-700);
+}
+
+[data-theme="dark"] .peraa-badge--accent {
+  background-color: var(--peraa-color-teal-900);
+  color: var(--peraa-color-teal-300);
+}
+
+/* Status variants */
+.peraa-badge--success {
+  background-color: rgba(34, 197, 94, 0.15);
+  color: var(--peraa-color-success-500);
+}
+
+.peraa-badge--warning {
+  background-color: rgba(245, 158, 11, 0.15);
+  color: var(--peraa-color-warning-500);
+}
+
+.peraa-badge--error {
+  background-color: rgba(239, 68, 68, 0.15);
+  color: var(--peraa-color-error-500);
+}
+
+.peraa-badge--info {
+  background-color: rgba(14, 165, 233, 0.15);
+  color: var(--peraa-color-info-500);
+}
+
+/* Outline variant */
+.peraa-badge--outline {
+  background-color: transparent;
+  border: var(--peraa-border-width-1) solid var(--peraa-border-default);
+}
+
+.peraa-badge--outline.peraa-badge--brand {
+  border-color: var(--peraa-border-brand);
+  color: var(--peraa-text-brand);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   BADGE SIZES
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.peraa-badge--sm {
+  padding: 2px var(--peraa-spacing-2);
+  font-size: 10px;
+}
+
+.peraa-badge--lg {
+  padding: var(--peraa-spacing-2) var(--peraa-spacing-4);
+  font-size: var(--peraa-font-size-sm);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   BADGE WITH ICON
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.peraa-badge__icon {
+  width: 0.875em;
+  height: 0.875em;
+  flex-shrink: 0;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   BADGE WITH DOT
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.peraa-badge--dot::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: var(--peraa-radius-full);
+  background-color: currentColor;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   BADGE GROUP
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.peraa-badge-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--peraa-spacing-2);
+}
+
+.peraa-badge-group--compact {
+  gap: var(--peraa-spacing-1);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   INTERACTIVE BADGES
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.peraa-badge--interactive {
+  cursor: pointer;
+  transition: 
+    background-color var(--peraa-duration-150) var(--peraa-ease-out),
+    transform var(--peraa-duration-100) var(--peraa-ease-out);
+}
+
+.peraa-badge--interactive:hover {
+  background-color: var(--peraa-badge-brand-bg);
+  color: var(--peraa-badge-brand-text);
+}
+
+.peraa-badge--interactive:active {
+  transform: scale(0.95);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   REMOVABLE BADGE
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.peraa-badge--removable {
+  padding-right: var(--peraa-spacing-2);
+}
+
+.peraa-badge__remove {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 14px;
+  height: 14px;
+  margin-left: var(--peraa-spacing-1);
+  border-radius: var(--peraa-radius-full);
+  cursor: pointer;
+  opacity: 0.6;
+  transition: opacity var(--peraa-duration-150) var(--peraa-ease-out);
+}
+
+.peraa-badge__remove:hover {
+  opacity: 1;
+}
+
+.peraa-badge__remove-icon {
+  width: 10px;
+  height: 10px;
+}

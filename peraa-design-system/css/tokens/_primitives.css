@@ -1,0 +1,186 @@
+/**
+ * Peraa Design System - Primitive Tokens
+ * 
+ * These are the raw, foundational values that form the basis of the design system.
+ * Primitive tokens are not meant to be used directly in components.
+ * Instead, they should be referenced by semantic tokens.
+ * 
+ * Token naming convention: --peraa-[category]-[property]-[variant]
+ */
+
+:root {
+  /* ═══════════════════════════════════════════════════════════════════════════
+     COLOR PRIMITIVES
+     ═══════════════════════════════════════════════════════════════════════════ */
+
+  /* Primary Purple Scale */
+  --peraa-color-purple-50: #f5e9fc;
+  --peraa-color-purple-100: #e5c7f7;
+  --peraa-color-purple-200: #d3a1f1;
+  --peraa-color-purple-300: #bf79eb;
+  --peraa-color-purple-400: #ab51e5;
+  --peraa-color-purple-500: #6F1FAC; /* Primary brand color */
+  --peraa-color-purple-600: #5c1a8f;
+  --peraa-color-purple-700: #491572;
+  --peraa-color-purple-800: #361055;
+  --peraa-color-purple-900: #230b38;
+
+  /* Neutral/Gray Scale */
+  --peraa-color-neutral-0: #ffffff;
+  --peraa-color-neutral-50: #fafafa;
+  --peraa-color-neutral-100: #f4f4f5;
+  --peraa-color-neutral-200: #e4e4e7;
+  --peraa-color-neutral-300: #d4d4d8;
+  --peraa-color-neutral-400: #a1a1aa;
+  --peraa-color-neutral-500: #71717a;
+  --peraa-color-neutral-600: #52525b;
+  --peraa-color-neutral-700: #3f3f46;
+  --peraa-color-neutral-800: #27272a;
+  --peraa-color-neutral-900: #18181b;
+  --peraa-color-neutral-950: #09090b;
+
+  /* Secondary/Accent Teal Scale */
+  --peraa-color-teal-50: #f0fdfa;
+  --peraa-color-teal-100: #ccfbf1;
+  --peraa-color-teal-200: #99f6e4;
+  --peraa-color-teal-300: #5eead4;
+  --peraa-color-teal-400: #2dd4bf;
+  --peraa-color-teal-500: #14b8a6; /* Secondary accent color */
+  --peraa-color-teal-600: #0d9488;
+  --peraa-color-teal-700: #0f766e;
+  --peraa-color-teal-800: #115e59;
+  --peraa-color-teal-900: #134e4a;
+  --peraa-color-teal-950: #1a4a4a;
+
+  /* Accent Colors */
+  --peraa-color-accent-coral-500: #f97066;
+  --peraa-color-accent-gold-500: #eab308;
+  --peraa-color-accent-blue-500: #3b82f6;
+
+  /* Status Colors (placeholders - update later) */
+  --peraa-color-success-500: #22c55e;
+  --peraa-color-warning-500: #f59e0b;
+  --peraa-color-error-500: #ef4444;
+  --peraa-color-info-500: #0ea5e9;
+
+  /* ═══════════════════════════════════════════════════════════════════════════
+     TYPOGRAPHY PRIMITIVES
+     ═══════════════════════════════════════════════════════════════════════════ */
+
+  /* Font Families */
+  --peraa-font-family-sans: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --peraa-font-family-heading: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --peraa-font-family-mono: 'JetBrains Mono', 'Fira Code', 'SF Mono', monospace;
+
+  /* Font Sizes */
+  --peraa-font-size-xs: 0.75rem;     /* 12px */
+  --peraa-font-size-sm: 0.875rem;    /* 14px */
+  --peraa-font-size-base: 1rem;      /* 16px */
+  --peraa-font-size-lg: 1.125rem;    /* 18px */
+  --peraa-font-size-xl: 1.25rem;     /* 20px */
+  --peraa-font-size-2xl: 1.5rem;     /* 24px */
+  --peraa-font-size-3xl: 1.875rem;   /* 30px */
+  --peraa-font-size-4xl: 2.25rem;    /* 36px */
+  --peraa-font-size-5xl: 3rem;       /* 48px */
+  --peraa-font-size-6xl: 3.75rem;    /* 60px */
+
+  /* Font Weights */
+  --peraa-font-weight-regular: 400;
+  --peraa-font-weight-medium: 500;
+  --peraa-font-weight-semibold: 600;
+  --peraa-font-weight-bold: 700;
+
+  /* Line Heights */
+  --peraa-line-height-tight: 1.2;
+  --peraa-line-height-snug: 1.375;
+  --peraa-line-height-normal: 1.5;
+  --peraa-line-height-relaxed: 1.625;
+  --peraa-line-height-loose: 2;
+
+  /* Letter Spacing */
+  --peraa-letter-spacing-tighter: -0.05em;
+  --peraa-letter-spacing-tight: -0.025em;
+  --peraa-letter-spacing-normal: 0;
+  --peraa-letter-spacing-wide: 0.025em;
+  --peraa-letter-spacing-wider: 0.05em;
+  --peraa-letter-spacing-widest: 0.1em;
+
+  /* ═══════════════════════════════════════════════════════════════════════════
+     SPACING PRIMITIVES
+     ═══════════════════════════════════════════════════════════════════════════ */
+
+  --peraa-spacing-0: 0;
+  --peraa-spacing-1: 0.25rem;   /* 4px */
+  --peraa-spacing-2: 0.5rem;    /* 8px */
+  --peraa-spacing-3: 0.75rem;   /* 12px */
+  --peraa-spacing-4: 1rem;      /* 16px */
+  --peraa-spacing-5: 1.25rem;   /* 20px */
+  --peraa-spacing-6: 1.5rem;    /* 24px */
+  --peraa-spacing-8: 2rem;      /* 32px */
+  --peraa-spacing-10: 2.5rem;   /* 40px */
+  --peraa-spacing-12: 3rem;     /* 48px */
+  --peraa-spacing-16: 4rem;     /* 64px */
+  --peraa-spacing-20: 5rem;     /* 80px */
+  --peraa-spacing-24: 6rem;     /* 96px */
+  --peraa-spacing-32: 8rem;     /* 128px */
+
+  /* ═══════════════════════════════════════════════════════════════════════════
+     BORDER & RADIUS PRIMITIVES
+     ═══════════════════════════════════════════════════════════════════════════ */
+
+  /* Border Widths */
+  --peraa-border-width-0: 0;
+  --peraa-border-width-1: 1px;
+  --peraa-border-width-2: 2px;
+  --peraa-border-width-4: 4px;
+
+  /* Border Radius */
+  --peraa-radius-none: 0;
+  --peraa-radius-sm: 0.25rem;   /* 4px */
+  --peraa-radius-md: 0.5rem;    /* 8px */
+  --peraa-radius-lg: 0.75rem;   /* 12px */
+  --peraa-radius-xl: 1rem;      /* 16px */
+  --peraa-radius-2xl: 1.5rem;   /* 24px */
+  --peraa-radius-full: 9999px;
+
+  /* ═══════════════════════════════════════════════════════════════════════════
+     SHADOW PRIMITIVES
+     ═══════════════════════════════════════════════════════════════════════════ */
+
+  --peraa-shadow-xs: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --peraa-shadow-sm: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  --peraa-shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --peraa-shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --peraa-shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  --peraa-shadow-2xl: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+
+  /* ═══════════════════════════════════════════════════════════════════════════
+     TRANSITION PRIMITIVES
+     ═══════════════════════════════════════════════════════════════════════════ */
+
+  /* Durations */
+  --peraa-duration-75: 75ms;
+  --peraa-duration-100: 100ms;
+  --peraa-duration-150: 150ms;
+  --peraa-duration-200: 200ms;
+  --peraa-duration-300: 300ms;
+  --peraa-duration-500: 500ms;
+
+  /* Easing */
+  --peraa-ease-linear: linear;
+  --peraa-ease-in: cubic-bezier(0.4, 0, 1, 1);
+  --peraa-ease-out: cubic-bezier(0, 0, 0.2, 1);
+  --peraa-ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* ═══════════════════════════════════════════════════════════════════════════
+     Z-INDEX PRIMITIVES
+     ═══════════════════════════════════════════════════════════════════════════ */
+
+  --peraa-z-0: 0;
+  --peraa-z-10: 10;
+  --peraa-z-20: 20;
+  --peraa-z-30: 30;
+  --peraa-z-40: 40;
+  --peraa-z-50: 50;
+  --peraa-z-100: 100;
+}

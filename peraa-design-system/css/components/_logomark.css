@@ -1,0 +1,178 @@
+/**
+ * Peraa Design System - Logomark Decoration
+ * 
+ * Large decorative logomark for page backgrounds.
+ */
+
+/* Hero pages with logomark - Dark mode (default) */
+.peraa-page--hero {
+  background-color: var(--peraa-color-neutral-900);
+}
+
+.peraa-page--hero .peraa-header {
+  background-color: var(--peraa-color-neutral-900);
+  border-bottom-color: var(--peraa-color-neutral-800);
+}
+
+.peraa-page--hero .peraa-nav__logo,
+.peraa-page--hero .peraa-heading-1,
+.peraa-page--hero .peraa-heading-2,
+.peraa-page--hero .peraa-heading-3 {
+  color: var(--peraa-color-neutral-0);
+}
+
+.peraa-page--hero .peraa-nav__link {
+  color: var(--peraa-color-neutral-400);
+}
+
+.peraa-page--hero .peraa-nav__link:hover {
+  color: var(--peraa-color-neutral-0);
+  background-color: var(--peraa-color-neutral-800);
+}
+
+.peraa-page--hero .peraa-nav__link--active {
+  color: var(--peraa-color-purple-400);
+  background-color: var(--peraa-color-purple-900);
+}
+
+.peraa-page--hero .peraa-overline {
+  color: var(--peraa-color-purple-400);
+}
+
+.peraa-page--hero .peraa-lead,
+.peraa-page--hero .peraa-body {
+  color: var(--peraa-color-neutral-300);
+}
+
+.peraa-page--hero .peraa-btn--primary {
+  background-color: var(--peraa-color-purple-500);
+  border-color: var(--peraa-color-purple-500);
+}
+
+.peraa-page--hero .peraa-btn--secondary {
+  border-color: var(--peraa-color-purple-400);
+  color: var(--peraa-color-purple-400);
+}
+
+.peraa-page--hero .peraa-btn--secondary:hover {
+  background-color: var(--peraa-color-purple-900);
+}
+
+/* Hero pages - Light mode overrides */
+[data-theme="light"] .peraa-page--hero {
+  background-color: var(--peraa-color-neutral-0);
+}
+
+[data-theme="light"] .peraa-page--hero .peraa-header {
+  background-color: var(--peraa-color-neutral-0);
+  border-bottom-color: var(--peraa-color-neutral-200);
+}
+
+[data-theme="light"] .peraa-page--hero .peraa-nav__logo,
+[data-theme="light"] .peraa-page--hero .peraa-heading-1,
+[data-theme="light"] .peraa-page--hero .peraa-heading-2,
+[data-theme="light"] .peraa-page--hero .peraa-heading-3 {
+  color: var(--peraa-color-neutral-900);
+}
+
+[data-theme="light"] .peraa-page--hero .peraa-nav__link {
+  color: var(--peraa-color-neutral-600);
+}
+
+[data-theme="light"] .peraa-page--hero .peraa-nav__link:hover {
+  color: var(--peraa-color-neutral-900);
+  background-color: var(--peraa-color-neutral-100);
+}
+
+[data-theme="light"] .peraa-page--hero .peraa-nav__link--active {
+  color: var(--peraa-color-purple-500);
+  background-color: var(--peraa-color-purple-50);
+}
+
+[data-theme="light"] .peraa-page--hero .peraa-overline {
+  color: var(--peraa-color-purple-500);
+}
+
+[data-theme="light"] .peraa-page--hero .peraa-lead,
+[data-theme="light"] .peraa-page--hero .peraa-body {
+  color: var(--peraa-color-neutral-600);
+}
+
+[data-theme="light"] .peraa-page--hero .peraa-btn--secondary {
+  border-color: var(--peraa-color-purple-500);
+  color: var(--peraa-color-purple-500);
+}
+
+[data-theme="light"] .peraa-page--hero .peraa-btn--secondary:hover {
+  background-color: var(--peraa-color-purple-50);
+}
+
+/* Footer in light mode for hero pages */
+[data-theme="light"] .peraa-page--hero .peraa-footer {
+  background-color: var(--peraa-color-neutral-100);
+}
+
+[data-theme="light"] .peraa-page--hero .peraa-footer__site-name {
+  color: var(--peraa-color-neutral-900);
+}
+
+[data-theme="light"] .peraa-page--hero .peraa-footer__design-system {
+  color: var(--peraa-color-neutral-600);
+}
+
+[data-theme="light"] .peraa-page--hero .peraa-footer__link {
+  color: var(--peraa-color-neutral-600);
+}
+
+[data-theme="light"] .peraa-page--hero .peraa-footer__link:hover {
+  color: var(--peraa-color-neutral-900);
+}
+
+[data-theme="light"] .peraa-page--hero .peraa-footer__copyright {
+  color: var(--peraa-color-neutral-500);
+}
+
+[data-theme="light"] .peraa-page--hero .peraa-footer__bottom {
+  border-top-color: var(--peraa-color-neutral-200);
+}
+
+.peraa-logomark-bg {
+  position: fixed;
+  bottom: 0%;
+  right: 0px;
+  width: 50vw;
+  max-width: 600px;
+  height: auto;
+  aspect-ratio: 1;
+  opacity: 1;
+  pointer-events: none;
+  z-index: 0;
+  user-select: none;
+}
+
+[data-theme="dark"] .peraa-logomark-bg {
+  opacity: 1;
+}
+
+/* Ensure content stays above the logomark */
+.peraa-main {
+  position: relative;
+  z-index: 1;
+}
+
+/* Responsive sizing */
+@media (max-width: 1024px) {
+  .peraa-logomark-bg {
+    width: 60vw;
+    bottom: 5%;
+    right: 0;
+  }
+}
+
+@media (max-width: 640px) {
+  .peraa-logomark-bg {
+    width: 70vw;
+    bottom: 10%;
+    right: -5%;
+  }
+}
