@@ -90,11 +90,19 @@
 }
 
 .peraa-nav__link--accent {
-  color: var(--peraa-color-teal-500);
+  color: var(--peraa-color-teal-600);
 }
 
 .peraa-nav__link--accent:hover {
-  color: var(--peraa-color-teal-400);
+  color: var(--peraa-color-teal-700);
+}
+
+[data-theme="light"] .peraa-nav__link--accent {
+  color: var(--peraa-color-teal-700);
+}
+
+[data-theme="light"] .peraa-nav__link--accent:hover {
+  color: var(--peraa-color-teal-800);
 }
 
 [data-theme="dark"] .peraa-nav__link--accent {

@@ -94,6 +94,10 @@
   opacity: 0.7;
 }
 
+[data-theme="light"] .peraa-flip-card__icon {
+  color: var(--peraa-color-teal-600);
+}
+
 .peraa-flip-card__content {
   display: flex;
   flex-direction: column;

@@ -173,6 +173,10 @@
       margin-bottom: var(--peraa-spacing-2);
     }
     
+    [data-theme="light"] .case-study-callout__label {
+      color: var(--peraa-color-teal-700);
+    }
+    
     .case-study-callout__text {
       font-size: var(--peraa-font-size-lg);
       color: var(--peraa-text-primary);
@@ -550,6 +554,14 @@
       color: var(--peraa-color-teal-400);
     }
     
+    [data-theme="light"] .case-study-nav__title {
+      color: var(--peraa-color-teal-700);
+    }
+    
+    [data-theme="light"] .case-study-nav__link:hover .case-study-nav__title {
+      color: var(--peraa-color-teal-600);
+    }
+    
     @media (max-width: 600px) {
       .case-study-nav {
         flex-direction: column;
@@ -582,6 +594,10 @@
     
     .peraa-timeline__item--active .peraa-timeline__time {
       color: var(--peraa-color-teal-400);
+    }
+    
+    [data-theme="light"] .peraa-timeline__item--active .peraa-timeline__time {
+      color: var(--peraa-color-teal-700);
     }
   </style>
 </head>
