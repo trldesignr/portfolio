@@ -2,9 +2,10 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <script>!function(){try{var t=localStorage.getItem("peraa-theme")||(window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light");document.documentElement.setAttribute("data-theme",t)}catch(e){}}();</script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Todd R. Lewis - Portfolio and Case Studies">
-  <title>Todd R. Lewis</title>
+  <meta name="description" content="Todd R. Lewis | Design leader, systems thinker, and independent. Enterprise design work, AI workshop facilitation, and AI systems consulting.">
+  <title>Todd R. Lewis | Design Leader & Independent</title>
   
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -68,6 +69,110 @@
       animation: contentReveal 600ms cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
       animation-delay: 650ms;
     }
+
+    .index-areas {
+      animation: contentReveal 600ms cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+      animation-delay: 850ms;
+    }
+
+    /* ─── Areas Grid ─── */
+    .index-areas__grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--peraa-spacing-6);
+    }
+
+    @media (max-width: 640px) {
+      .index-areas__grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .index-area-card {
+      display: flex;
+      flex-direction: column;
+      padding: var(--peraa-spacing-8);
+      background: var(--peraa-surface-card);
+      border: 1px solid var(--peraa-border-default);
+      transition: border-color 150ms ease, transform 150ms ease;
+    }
+
+    .index-area-card:hover {
+      border-color: var(--peraa-border-accent);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(20, 184, 166, 0.12);
+      transform: translateY(-2px);
+    }
+
+    .index-area-card__label {
+      font-size: var(--peraa-font-size-xs);
+      font-weight: var(--peraa-font-weight-semibold);
+      color: var(--peraa-color-purple-400);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: var(--peraa-spacing-3);
+    }
+
+    [data-theme="light"] .index-area-card__label {
+      color: var(--peraa-color-purple-600);
+    }
+
+    .index-area-card__title {
+      font-size: var(--peraa-font-size-xl);
+      font-weight: var(--peraa-font-weight-medium);
+      color: var(--peraa-text-primary);
+      margin-bottom: var(--peraa-spacing-3);
+    }
+
+    .index-area-card__desc {
+      font-size: var(--peraa-font-size-sm);
+      color: var(--peraa-text-secondary);
+      line-height: var(--peraa-line-height-relaxed);
+      flex: 1;
+      margin-bottom: var(--peraa-spacing-6);
+    }
+
+    .index-area-card__links {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      border-top: 1px solid var(--peraa-border-subtle);
+      padding-top: var(--peraa-spacing-4);
+    }
+
+    .index-area-card__sub-link {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: var(--peraa-spacing-3) 0;
+      font-size: var(--peraa-font-size-sm);
+      font-weight: var(--peraa-font-weight-medium);
+      color: var(--peraa-text-secondary);
+      text-decoration: none;
+      border-bottom: 1px solid var(--peraa-border-subtle);
+      transition: color 150ms ease;
+    }
+
+    .index-area-card__sub-link:last-child {
+      border-bottom: none;
+    }
+
+    .index-area-card__sub-link:hover {
+      color: var(--peraa-text-primary);
+    }
+
+    .index-area-card__sub-link-arrow {
+      color: var(--peraa-text-tertiary);
+      transition: color 150ms ease, transform 150ms ease;
+    }
+
+    .index-area-card__sub-link:hover .index-area-card__sub-link-arrow {
+      color: var(--peraa-color-teal-400);
+      transform: translateX(3px);
+    }
+
+    [data-theme="light"] .index-area-card__sub-link:hover .index-area-card__sub-link-arrow {
+      color: var(--peraa-color-teal-600);
+    }
     
     /* Nav fades in subtly */
     @keyframes navReveal {
@@ -129,12 +234,194 @@
       .peraa-hero .peraa-heading-1,
       .peraa-hero .peraa-lead,
       .peraa-hero .peraa-flex,
+      .index-areas,
       .peraa-page--hero .peraa-header,
       .peraa-page--hero .peraa-footer {
         animation: none;
         opacity: 1;
         transform: none;
       }
+    }
+
+    /* ─── Stats Banner ─── */
+    .index-stats {
+      background: #ffffff;
+      min-height: 300px;
+      display: flex;
+      align-items: center;
+      width: 100%;
+    }
+
+    .index-stats__inner {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--peraa-spacing-8);
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: var(--peraa-spacing-12) var(--peraa-spacing-8);
+    }
+
+    @media (max-width: 768px) {
+      .index-stats__inner {
+        grid-template-columns: 1fr;
+        gap: var(--peraa-spacing-10);
+        padding: var(--peraa-spacing-10) var(--peraa-spacing-6);
+      }
+    }
+
+    .index-stats__col {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: var(--peraa-spacing-3);
+    }
+
+    .index-stats__kpi {
+      display: flex;
+      align-items: baseline;
+      justify-content: center;
+      gap: var(--peraa-spacing-2);
+      flex-wrap: wrap;
+    }
+
+    .index-stats__number {
+      font-size: clamp(2.75rem, 5vw, 4rem);
+      font-weight: var(--peraa-font-weight-bold, 700);
+      color: #111111;
+      line-height: 1;
+      font-family: var(--peraa-font-sans);
+      font-variant-numeric: tabular-nums;
+    }
+
+    .index-stats__unit {
+      font-size: var(--peraa-font-size-lg, 1.125rem);
+      font-weight: var(--peraa-font-weight-medium, 500);
+      color: #555555;
+      line-height: 1.2;
+    }
+
+    .index-stats__desc {
+      font-size: var(--peraa-font-size-sm, 0.875rem);
+      color: #777777;
+      line-height: 1.6;
+      max-width: 280px;
+      text-align: center;
+    }
+
+    /* ─── Overview Sections ─── */
+    .index-overview {
+      padding: var(--peraa-spacing-20) 0;
+      border-top: 1px solid var(--peraa-border-subtle);
+    }
+
+    .index-overview__inner {
+      display: grid;
+      grid-template-columns: 3fr 2fr;
+      gap: var(--peraa-spacing-16);
+      align-items: start;
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 var(--peraa-spacing-8);
+    }
+
+    @media (max-width: 768px) {
+      .index-overview__inner {
+        grid-template-columns: 1fr;
+        gap: var(--peraa-spacing-10);
+        padding: 0 var(--peraa-spacing-6);
+      }
+    }
+
+    .index-overview__tag {
+      font-size: var(--peraa-font-size-xs);
+      font-weight: var(--peraa-font-weight-semibold);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--peraa-color-teal-400);
+      margin-bottom: var(--peraa-spacing-4);
+    }
+
+    [data-theme="light"] .index-overview__tag {
+      color: var(--peraa-color-teal-600);
+    }
+
+    .index-overview__heading {
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      font-weight: var(--peraa-font-weight-semibold);
+      letter-spacing: -0.025em;
+      line-height: 1.15;
+      color: var(--peraa-text-primary);
+      margin-bottom: var(--peraa-spacing-5);
+    }
+
+    .index-overview__body {
+      font-size: var(--peraa-font-size-base);
+      color: var(--peraa-text-secondary);
+      line-height: 1.75;
+      margin-bottom: var(--peraa-spacing-6);
+      max-width: 52ch;
+    }
+
+    .index-overview__cta {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--peraa-spacing-2);
+      font-size: var(--peraa-font-size-sm);
+      font-weight: var(--peraa-font-weight-medium);
+      color: var(--peraa-color-teal-400);
+      text-decoration: none;
+      letter-spacing: 0.02em;
+      transition: gap 150ms ease, color 150ms ease;
+    }
+
+    .index-overview__cta:hover {
+      color: var(--peraa-color-teal-300);
+      gap: var(--peraa-spacing-3);
+    }
+
+    [data-theme="light"] .index-overview__cta {
+      color: var(--peraa-color-teal-600);
+    }
+
+    [data-theme="light"] .index-overview__cta:hover {
+      color: var(--peraa-color-teal-700);
+    }
+
+    .index-overview__points {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: var(--peraa-spacing-6);
+      padding-top: var(--peraa-spacing-2);
+    }
+
+    .index-overview__point {
+      display: flex;
+      flex-direction: column;
+      gap: var(--peraa-spacing-1);
+      padding-bottom: var(--peraa-spacing-6);
+      border-bottom: 1px solid var(--peraa-border-subtle);
+    }
+
+    .index-overview__point:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .index-overview__point-label {
+      font-size: var(--peraa-font-size-xs);
+      font-weight: var(--peraa-font-weight-semibold);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--peraa-text-tertiary);
+    }
+
+    .index-overview__point-value {
+      font-size: var(--peraa-font-size-sm);
+      color: var(--peraa-text-secondary);
+      line-height: 1.6;
     }
   </style>
 </head>
@@ -150,12 +437,12 @@
               <img src="assets/images/TRL-logomark.png" alt="Todd R. Lewis" class="peraa-nav__logo-img">
             </a>
           <ul class="peraa-nav__menu">
-            <li><a href="index.html" class="peraa-nav__link peraa-nav__link--active">Home</a></li>
-            <li><a href="pages/case-studies/index.html" class="peraa-nav__link">Case Studies + Projects</a></li>
+            <li><a href="pages/ai-workshop.html" class="peraa-nav__link">AI Workshops</a></li>
+            <li><a href="pages/ai-consulting.html" class="peraa-nav__link">Consulting</a></li>
+            <li><a href="pages/case-studies/index.html" class="peraa-nav__link">UXUI Work</a></li>
             <li><a href="pages/challenges-welcomed.html" class="peraa-nav__link">Challenges Welcomed</a></li>
-            <li><a href="pages/writings.html" class="peraa-nav__link">Writings</a></li>
-            <li><a href="pages/mentorship.html" class="peraa-nav__link">Mentorship</a></li>
-            <li><a href="pages/about.html" class="peraa-nav__link">About Me</a></li>
+            <li><a href="pages/mentorship.html" class="peraa-nav__link">Mentoring</a></li>
+            <li><a href="pages/perspective.html" class="peraa-nav__link">About Me</a></li>
             <li class="peraa-nav__divider" aria-hidden="true"></li>
             <li><a href="pages/design-system.html" class="peraa-nav__link peraa-nav__link--accent">Peraa Design System</a></li>
           </ul>
@@ -177,18 +464,170 @@
       <section class="peraa-section peraa-section--lg">
         <div class="peraa-container">
           <div class="peraa-hero">
-            <p class="peraa-overline">Portfolio</p>
+            <p class="peraa-overline">Design Leader. Independent.</p>
             <h1 class="peraa-heading-1">Todd R. Lewis</h1>
             <p class="peraa-lead peraa-mt-4">
-              Welcome to my portfolio. Explore my case studies and see how I solve complex problems.
+              I lead design, build systems, and help enterprise organizations work more deliberately. This site covers both: my portfolio of design work and the independent services I offer to teams navigating complexity, with systems-thinking and AI integrations.
             </p>
-            <div class="peraa-flex peraa-gap-4 peraa-mt-6">
-              <a href="pages/case-studies/index.html" class="peraa-btn peraa-btn--primary">View Case Studies</a>
-              <a href="pages/about.html" class="peraa-btn peraa-btn--secondary">About Me</a>
-            </div>
+            <!--<div class="peraa-flex peraa-gap-4 peraa-mt-6">
+              <a href="pages/case-studies/index.html" class="peraa-btn peraa-btn--primary">View My Work</a>
+            </div>-->
           </div>
         </div>
       </section>
+
+      <!-- Areas Section -->
+      <section class="peraa-section index-areas" style="padding-top: 0;" aria-label="Site sections">
+        <div class="peraa-container peraa-container--narrow">
+          <div class="index-areas__grid">
+
+            <!-- Services Card -->
+            <div class="index-area-card">
+              <p class="index-area-card__label">Services</p>
+              <h2 class="index-area-card__title">AI-Focused Practice</h2>
+              <p class="index-area-card__desc">Structured engagements designed to help enterprise organizations integrate AI deliberately, through facilitated workshops and targeted systems audits.</p>
+              <nav class="index-area-card__links" aria-label="Services">
+                <a href="pages/ai-workshop.html" class="index-area-card__sub-link">
+                  <span>AI Workshops</span>
+                  <span class="index-area-card__sub-link-arrow" aria-hidden="true">→</span>
+                </a>
+                <a href="pages/ai-consulting.html" class="index-area-card__sub-link">
+                  <span>Consulting</span>
+                  <span class="index-area-card__sub-link-arrow" aria-hidden="true">→</span>
+                </a>
+              </nav>
+            </div>
+
+            <!-- Experience Card -->
+            <div class="index-area-card">
+              <p class="index-area-card__label">Experience</p>
+              <h2 class="index-area-card__title">Design Leadership &amp; Craft</h2>
+              <p class="index-area-card__desc">Over 15 years building enterprise products, design systems, and the practitioners who use them. Case studies available for review.</p>
+              <nav class="index-area-card__links" aria-label="Experience">
+                <a href="pages/case-studies/index.html" class="index-area-card__sub-link">
+                  <span>UXUI Work</span>
+                  <span class="index-area-card__sub-link-arrow" aria-hidden="true">→</span>
+                </a>
+                <a href="pages/mentorship.html" class="index-area-card__sub-link">
+                  <span>Mentoring</span>
+                  <span class="index-area-card__sub-link-arrow" aria-hidden="true">→</span>
+                </a>
+              </nav>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- Stats Banner -->
+      <section class="index-stats" aria-label="Experience at a glance">
+        <div class="index-stats__inner">
+
+          <div class="index-stats__col">
+            <div class="index-stats__kpi">
+              <span class="index-stats__number" data-count-to="20">0</span>
+              <span class="index-stats__unit">Years</span>
+            </div>
+            <p class="index-stats__desc">From print design, brand &amp; marketing, to websites, digital products, and design systems.</p>
+          </div>
+
+          <div class="index-stats__col">
+            <div class="index-stats__kpi">
+              <span class="index-stats__number" data-count-to="172">0</span>
+              <span class="index-stats__unit">Clients &amp; Customers</span>
+            </div>
+            <p class="index-stats__desc">I've served individuals, small businesses, large corporations, and well-known brands.</p>
+          </div>
+
+          <div class="index-stats__col">
+            <div class="index-stats__kpi">
+              <span class="index-stats__number" data-count-to="3440">0</span>
+              <span class="index-stats__unit">Hours</span>
+            </div>
+            <p class="index-stats__desc">Facilitating workshops, trainings, mentorship, and guidance engagements.</p>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Overview: AI Workshop -->
+      <section class="index-overview" aria-labelledby="overview-workshop">
+        <div class="index-overview__inner">
+          <div class="index-overview__content">
+            <p class="index-overview__tag">AI Workshop</p>
+            <h2 class="index-overview__heading" id="overview-workshop">How teams start working with AI, intentionally</h2>
+            <p class="index-overview__body">Most AI adoption stalls not because of tools, but because teams lack a shared framework for thinking about it. These workshops close that gap, building practical fluency and a systems-level understanding of where AI creates real leverage across roles and workflows.</p>
+            <a href="pages/ai-workshop.html" class="index-overview__cta">Explore the Workshop <span aria-hidden="true">→</span></a>
+          </div>
+          <ul class="index-overview__points" aria-label="Workshop details">
+            <li class="index-overview__point">
+              <span class="index-overview__point-label">Format</span>
+              <span class="index-overview__point-value">Facilitated half-day to full-day sessions, in-person or remote</span>
+            </li>
+            <li class="index-overview__point">
+              <span class="index-overview__point-label">Audience</span>
+              <span class="index-overview__point-value">Design, product, engineering, and executive leadership teams</span>
+            </li>
+            <li class="index-overview__point">
+              <span class="index-overview__point-label">Outcome</span>
+              <span class="index-overview__point-value">Shared mental models, a workflow integration map, and immediate next steps</span>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Overview: Consulting -->
+      <section class="index-overview" aria-labelledby="overview-consulting">
+        <div class="index-overview__inner">
+          <div class="index-overview__content">
+            <p class="index-overview__tag">AI Systems Consulting</p>
+            <h2 class="index-overview__heading" id="overview-consulting">Find where AI creates real leverage in your organization</h2>
+            <p class="index-overview__body">A structured audit of your current tools, processes, and workflows, with a clear map of where AI integration delivers measurable efficiency gains. Not a technology pitch. A business case built around how your organization actually works.</p>
+            <a href="pages/ai-consulting.html" class="index-overview__cta">Learn about Consulting <span aria-hidden="true">→</span></a>
+          </div>
+          <ul class="index-overview__points" aria-label="Consulting details">
+            <li class="index-overview__point">
+              <span class="index-overview__point-label">Approach</span>
+              <span class="index-overview__point-value">Independent audit with no vendor alignment or tool bias</span>
+            </li>
+            <li class="index-overview__point">
+              <span class="index-overview__point-label">Deliverables</span>
+              <span class="index-overview__point-value">Opportunity map, prioritized recommendations, and an integration roadmap</span>
+            </li>
+            <li class="index-overview__point">
+              <span class="index-overview__point-label">Scope</span>
+              <span class="index-overview__point-value">From a focused sprint to a multi-team systems review</span>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Overview: Design & Systems Thinking -->
+      <section class="index-overview" aria-labelledby="overview-design">
+        <div class="index-overview__inner">
+          <div class="index-overview__content">
+            <p class="index-overview__tag">Design Leadership</p>
+            <h2 class="index-overview__heading" id="overview-design">Design that scales, from screen to system</h2>
+            <p class="index-overview__body">15 years building enterprise digital products, design systems, and the practitioners who maintain them. The work lives upstream from the pixel, in information architecture, systems structure, team process, and the decisions that determine whether design compounds or collapses over time.</p>
+            <a href="pages/case-studies/index.html" class="index-overview__cta">View UXUI Work <span aria-hidden="true">→</span></a>
+          </div>
+          <ul class="index-overview__points" aria-label="Design leadership details">
+            <li class="index-overview__point">
+              <span class="index-overview__point-label">Enterprise UXUI</span>
+              <span class="index-overview__point-value">End-to-end product design for complex, high-stakes digital environments</span>
+            </li>
+            <li class="index-overview__point">
+              <span class="index-overview__point-label">Design Systems</span>
+              <span class="index-overview__point-value">Architecture, governance, token systems, and team enablement</span>
+            </li>
+            <li class="index-overview__point">
+              <span class="index-overview__point-label">Mentoring</span>
+              <span class="index-overview__point-value">1:1 and group mentorship for practitioners at every level of their career</span>
+            </li>
+          </ul>
+        </div>
+      </section>
+
     </main>
 
     <!-- Footer -->
@@ -243,5 +682,70 @@
   </div>
 
   <script src="js/main.js"></script>
+  <script>
+    (function () {
+      var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      function formatNumber(n) {
+        return n.toLocaleString('en-US');
+      }
+
+      function animateCount(el, target, duration) {
+        var startTime = null;
+
+        function step(timestamp) {
+          if (!startTime) startTime = timestamp;
+          var progress = Math.min((timestamp - startTime) / duration, 1);
+          // ease-out cubic
+          var eased = 1 - Math.pow(1 - progress, 3);
+          var current = Math.round(eased * target);
+          el.textContent = formatNumber(current);
+          if (progress < 1) {
+            requestAnimationFrame(step);
+          } else {
+            el.textContent = formatNumber(target);
+          }
+        }
+
+        requestAnimationFrame(step);
+      }
+
+      function initCountUp() {
+        var statsSection = document.querySelector('.index-stats');
+        if (!statsSection) return;
+
+        var counters = statsSection.querySelectorAll('[data-count-to]');
+
+        if (prefersReducedMotion) {
+          counters.forEach(function (el) {
+            el.textContent = formatNumber(parseInt(el.getAttribute('data-count-to'), 10));
+          });
+          return;
+        }
+
+        var triggered = false;
+        var observer = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting && !triggered) {
+              triggered = true;
+              counters.forEach(function (el) {
+                var target = parseInt(el.getAttribute('data-count-to'), 10);
+                animateCount(el, target, 1800);
+              });
+              observer.disconnect();
+            }
+          });
+        }, { threshold: 0.25 });
+
+        observer.observe(statsSection);
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initCountUp);
+      } else {
+        initCountUp();
+      }
+    })();
+  </script>
 </body>
 </html>

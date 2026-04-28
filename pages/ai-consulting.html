@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <script>!function(){try{var t=localStorage.getItem("peraa-theme")||(window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light");document.documentElement.setAttribute("data-theme",t)}catch(e){}}();</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="AI Systems Consulting: A diagnostic and advisory engagement for organizations that want to understand where AI creates genuine operational value.">
+  <title>AI Systems Consulting | Todd R. Lewis</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="../css/main.css">
+
+  <style>
+    /* ─── Section Divider ─── */
+    .consulting-divider {
+      display: flex;
+      align-items: center;
+      gap: var(--peraa-spacing-4);
+      padding: var(--peraa-spacing-10) 0;
+    }
+
+    .consulting-divider__line {
+      flex: 1;
+      height: 1px;
+      background: var(--peraa-border-default);
+    }
+
+    .consulting-divider__logo {
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+    }
+
+    .consulting-divider__logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    [data-theme="light"] .consulting-divider__logo img {
+      filter: invert(1);
+    }
+
+    /* ─── Section Title ─── */
+    .consulting-section-title {
+      font-size: var(--peraa-font-size-xl);
+      font-weight: var(--peraa-font-weight-medium);
+      color: var(--peraa-text-primary);
+      margin-bottom: var(--peraa-spacing-4);
+    }
+
+    /* ─── Callout Block ─── */
+    .consulting-callout {
+      padding: var(--peraa-spacing-6);
+      background: var(--peraa-color-teal-950);
+      border-left: 4px solid var(--peraa-color-teal-400);
+      margin: var(--peraa-spacing-6) 0;
+    }
+
+    [data-theme="light"] .consulting-callout {
+      background: var(--peraa-color-teal-50);
+    }
+
+    .consulting-callout__label {
+      font-size: var(--peraa-font-size-xs);
+      font-weight: var(--peraa-font-weight-semibold);
+      color: var(--peraa-color-teal-400);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: var(--peraa-spacing-2);
+    }
+
+    [data-theme="light"] .consulting-callout__label {
+      color: var(--peraa-color-teal-700);
+    }
+
+    .consulting-callout__text {
+      font-size: var(--peraa-font-size-lg);
+      color: var(--peraa-text-primary);
+      line-height: var(--peraa-line-height-relaxed);
+    }
+
+    /* ─── Evaluation Grid ─── */
+    .consulting-eval-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--peraa-spacing-3);
+      margin: var(--peraa-spacing-6) 0;
+    }
+
+    @media (max-width: 600px) {
+      .consulting-eval-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .consulting-eval-item {
+      padding: var(--peraa-spacing-4) var(--peraa-spacing-5);
+      background: var(--peraa-surface-card);
+      border: 1px solid var(--peraa-border-default);
+      border-left: 3px solid var(--peraa-color-teal-500);
+    }
+
+    .consulting-eval-item__title {
+      font-size: var(--peraa-font-size-sm);
+      font-weight: var(--peraa-font-weight-medium);
+      color: var(--peraa-text-primary);
+      margin-bottom: var(--peraa-spacing-1);
+    }
+
+    .consulting-eval-item__desc {
+      font-size: var(--peraa-font-size-sm);
+      color: var(--peraa-text-secondary);
+      line-height: var(--peraa-line-height-relaxed);
+    }
+
+    /* ─── Deliverables List ─── */
+    .consulting-deliverables {
+      list-style: none;
+      padding: 0;
+      margin: var(--peraa-spacing-6) 0;
+      display: flex;
+      flex-direction: column;
+      gap: var(--peraa-spacing-3);
+    }
+
+    .consulting-deliverables li {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--peraa-spacing-3);
+      color: var(--peraa-text-secondary);
+      line-height: var(--peraa-line-height-relaxed);
+    }
+
+    .consulting-deliverables__marker {
+      font-family: var(--peraa-font-mono);
+      font-size: var(--peraa-font-size-xs);
+      font-weight: var(--peraa-font-weight-semibold);
+      color: var(--peraa-color-teal-400);
+      flex-shrink: 0;
+      line-height: 1.8;
+      min-width: 28px;
+    }
+
+    [data-theme="light"] .consulting-deliverables__marker {
+      color: var(--peraa-color-teal-700);
+    }
+
+    /* ─── Outcomes Stats ─── */
+    .consulting-outcomes-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--peraa-spacing-4);
+      margin: var(--peraa-spacing-6) 0;
+    }
+
+    @media (max-width: 600px) {
+      .consulting-outcomes-stats {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .consulting-outcome-stat {
+      padding: var(--peraa-spacing-5);
+      background: var(--peraa-surface-card);
+      border: 1px solid var(--peraa-border-default);
+      text-align: center;
+    }
+
+    .consulting-outcome-stat__value {
+      font-size: var(--peraa-font-size-2xl);
+      font-weight: var(--peraa-font-weight-bold);
+      color: var(--peraa-color-teal-500);
+      line-height: 1;
+      margin-bottom: var(--peraa-spacing-2);
+    }
+
+    [data-theme="light"] .consulting-outcome-stat__value {
+      color: var(--peraa-color-teal-700);
+    }
+
+    .consulting-outcome-stat__label {
+      font-size: var(--peraa-font-size-xs);
+      color: var(--peraa-text-secondary);
+      line-height: var(--peraa-line-height-relaxed);
+    }
+
+    /* ─── Outcomes Bullets ─── */
+    .consulting-outcomes-list {
+      list-style: none;
+      padding: 0;
+      margin: var(--peraa-spacing-6) 0;
+      display: flex;
+      flex-direction: column;
+      gap: var(--peraa-spacing-3);
+    }
+
+    .consulting-outcomes-list li {
+      padding-left: var(--peraa-spacing-5);
+      border-left: 2px solid var(--peraa-color-teal-500);
+      color: var(--peraa-text-secondary);
+      line-height: var(--peraa-line-height-relaxed);
+    }
+
+    [data-theme="light"] .consulting-outcomes-list li {
+      border-left-color: var(--peraa-color-teal-600);
+    }
+
+    /* ─── Engagement Model ─── */
+    .consulting-engagement-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--peraa-spacing-4);
+      margin: var(--peraa-spacing-6) 0;
+    }
+
+    @media (max-width: 600px) {
+      .consulting-engagement-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .consulting-engagement-item {
+      padding: var(--peraa-spacing-5);
+      background: var(--peraa-surface-card);
+      border: 1px solid var(--peraa-border-default);
+    }
+
+    .consulting-engagement-item__label {
+      font-size: var(--peraa-font-size-xs);
+      font-weight: var(--peraa-font-weight-semibold);
+      color: var(--peraa-color-purple-400);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: var(--peraa-spacing-2);
+    }
+
+    [data-theme="light"] .consulting-engagement-item__label {
+      color: var(--peraa-color-purple-600);
+    }
+
+    .consulting-engagement-item__value {
+      font-size: var(--peraa-font-size-sm);
+      color: var(--peraa-text-primary);
+      line-height: var(--peraa-line-height-relaxed);
+    }
+
+    /* ─── CTA Block ─── */
+    .consulting-cta {
+      text-align: center;
+      padding: var(--peraa-spacing-12) var(--peraa-spacing-6);
+      background: var(--peraa-surface-card);
+      border: 1px solid var(--peraa-border-default);
+      margin: var(--peraa-spacing-6) 0;
+    }
+
+    .consulting-cta__heading {
+      font-size: var(--peraa-font-size-2xl);
+      font-weight: var(--peraa-font-weight-medium);
+      color: var(--peraa-text-primary);
+      margin-bottom: var(--peraa-spacing-4);
+    }
+
+    .consulting-cta__body {
+      max-width: 480px;
+      margin: 0 auto var(--peraa-spacing-8);
+      color: var(--peraa-text-secondary);
+      line-height: var(--peraa-line-height-relaxed);
+    }
+
+    .consulting-cta__note {
+      font-size: var(--peraa-font-size-sm);
+      color: var(--peraa-text-tertiary);
+      margin-top: var(--peraa-spacing-5);
+    }
+
+    .consulting-cta__actions {
+      display: flex;
+      gap: var(--peraa-spacing-4);
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+  </style>
+</head>
+<body>
+  <div class="peraa-page peraa-page--hero">
+
+    <!-- Decorative Logomark -->
+    <img src="../assets/images/TRL-logomark.png" alt="" class="peraa-logomark-bg" aria-hidden="true">
+
+    <!-- Navigation -->
+    <header class="peraa-header">
+      <div class="peraa-container">
+        <nav class="peraa-nav">
+          <a href="../index.html" class="peraa-nav__logo">Todd R. Lewis</a>
+          <ul class="peraa-nav__menu">
+            <li><a href="ai-workshop.html" class="peraa-nav__link">AI Workshops</a></li>
+            <li><a href="ai-consulting.html" class="peraa-nav__link peraa-nav__link--active">Consulting</a></li>
+            <li><a href="case-studies/index.html" class="peraa-nav__link">UXUI Work</a></li>
+            <li><a href="challenges-welcomed.html" class="peraa-nav__link">Challenges Welcomed</a></li>
+            <li><a href="mentorship.html" class="peraa-nav__link">Mentoring</a></li>
+            <li><a href="perspective.html" class="peraa-nav__link">About Me</a></li>
+            <li class="peraa-nav__divider" aria-hidden="true"></li>
+            <li><a href="design-system.html" class="peraa-nav__link peraa-nav__link--accent">Peraa Design System</a></li>
+          </ul>
+          <button class="peraa-btn peraa-btn--tertiary peraa-btn--icon-only" data-theme-toggle aria-label="Toggle theme">
+            <svg class="peraa-btn__icon peraa-btn__icon--sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="5"/>
+              <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+            </svg>
+            <svg class="peraa-btn__icon peraa-btn__icon--moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+            </svg>
+          </button>
+        </nav>
+      </div>
+    </header>
+
+    <main class="peraa-main">
+
+      <!-- ─────────────────────────────────────────────
+           SECTION 1: HEADER / INTRO
+      ───────────────────────────────────────────── -->
+      <section class="peraa-section peraa-section--lg" aria-labelledby="consulting-heading">
+        <div class="peraa-container peraa-container--narrow">
+          <p class="peraa-overline">AI Systems Consulting</p>
+          <h1 id="consulting-heading" class="peraa-heading-1 peraa-mt-4">Where AI Creates Operational Value</h1>
+          <p class="peraa-lead peraa-mt-6">
+            A diagnostic and advisory engagement for organizations that want specifics, not a roadmap deck.
+          </p>
+          <p class="peraa-body peraa-mt-4">
+            Before investing in AI integration, most organizations need to answer a simpler question: where does it actually help? This engagement is structured to answer that question with evidence, not assumptions.
+          </p>
+          <div class="peraa-mt-8" style="display: flex; gap: var(--peraa-spacing-4); flex-wrap: wrap;">
+            <a href="mailto:trldesignr@gmail.com?subject=AI Consulting Inquiry" class="peraa-btn peraa-btn--primary">
+              Start a Conversation
+            </a>
+            <a href="ai-workshop.html" class="peraa-btn peraa-btn--secondary">
+              View AI Workshop
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ─────────────────────────────────────────────
+           SECTION 2: WHAT THIS IS
+      ───────────────────────────────────────────── -->
+      <section class="peraa-section" style="padding-top: 0;" aria-labelledby="what-heading">
+        <div class="peraa-container peraa-container--narrow">
+
+          <div class="consulting-divider">
+            <div class="consulting-divider__line"></div>
+            <div class="consulting-divider__logo"><img src="../assets/images/rune.png" alt=""></div>
+            <div class="consulting-divider__line"></div>
+          </div>
+
+          <p class="peraa-overline">What This Is</p>
+          <h2 id="what-heading" class="consulting-section-title peraa-mt-3">An Audit, Not a Pitch</h2>
+
+          <p class="peraa-body">
+            This is not a training engagement. Not a vendor recommendation. Not a framework presentation. It is a structured audit of your existing workflows, tooling, and team practices, conducted to identify where AI creates genuine operational leverage and where it doesn't.
+          </p>
+
+          <p class="peraa-body peraa-mt-4">
+            The output is deliberate: prioritized opportunities, honest tradeoffs, and a practical sequence tailored to your organization's actual constraints. Nothing that requires a separate implementation partner to interpret.
+          </p>
+
+          <div class="consulting-callout">
+            <p class="consulting-callout__label">The Starting Point</p>
+            <p class="consulting-callout__text">Most organizations don't have an AI problem. They have a clarity problem. This engagement is designed to resolve that.</p>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ─────────────────────────────────────────────
+           SECTION 3: WHAT WE EVALUATE
+      ───────────────────────────────────────────── -->
+      <section class="peraa-section" style="padding-top: 0;" aria-labelledby="evaluate-heading">
+        <div class="peraa-container peraa-container--narrow">
+
+          <div class="consulting-divider">
+            <div class="consulting-divider__line"></div>
+            <div class="consulting-divider__logo"><img src="../assets/images/rune.png" alt=""></div>
+            <div class="consulting-divider__line"></div>
+          </div>
+
+          <p class="peraa-overline">Scope of Evaluation</p>
+          <h2 id="evaluate-heading" class="consulting-section-title peraa-mt-3">What We Evaluate</h2>
+
+          <p class="peraa-body">
+            The audit covers the dimensions of your operation most relevant to AI integration decisions, not a generic checklist, but a targeted examination of where time, cost, and quality are most at stake.
+          </p>
+
+          <div class="consulting-eval-grid" role="list" aria-label="Evaluation areas">
+            <div class="consulting-eval-item" role="listitem">
+              <p class="consulting-eval-item__title">Workflow Structure</p>
+              <p class="consulting-eval-item__desc">How work actually flows, not how it's documented. Handoffs, bottlenecks, and decision points.</p>
+            </div>
+            <div class="consulting-eval-item" role="listitem">
+              <p class="consulting-eval-item__title">Tooling Inventory</p>
+              <p class="consulting-eval-item__desc">What tools are in use, where they overlap, and where they create friction or dependency.</p>
+            </div>
+            <div class="consulting-eval-item" role="listitem">
+              <p class="consulting-eval-item__title">Automation Candidates</p>
+              <p class="consulting-eval-item__desc">Decision points and repeatable tasks with automation potential, ranked by impact and feasibility.</p>
+            </div>
+            <div class="consulting-eval-item" role="listitem">
+              <p class="consulting-eval-item__title">Time and Capacity</p>
+              <p class="consulting-eval-item__desc">Where team time is being spent relative to the work's actual business value.</p>
+            </div>
+            <div class="consulting-eval-item" role="listitem">
+              <p class="consulting-eval-item__title">Existing AI Adoption</p>
+              <p class="consulting-eval-item__desc">What AI tools are already in use, their actual adoption rate, and whether they're delivering value.</p>
+            </div>
+            <div class="consulting-eval-item" role="listitem">
+              <p class="consulting-eval-item__title">Risk and Exposure</p>
+              <p class="consulting-eval-item__desc">Quality, compliance, and dependency risks introduced, or likely to be introduced, by AI integration.</p>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ─────────────────────────────────────────────
+           SECTION 4: APPROACH
+      ───────────────────────────────────────────── -->
+      <section class="peraa-section" style="padding-top: 0;" aria-labelledby="approach-heading">
+        <div class="peraa-container peraa-container--narrow">
+
+          <div class="consulting-divider">
+            <div class="consulting-divider__line"></div>
+            <div class="consulting-divider__logo"><img src="../assets/images/rune.png" alt=""></div>
+            <div class="consulting-divider__line"></div>
+          </div>
+
+          <p class="peraa-overline">Methodology</p>
+          <h2 id="approach-heading" class="consulting-section-title peraa-mt-3">Observation Before Prescription</h2>
+
+          <p class="peraa-body">
+            The engagement begins with observation, not a framework presentation. Before any recommendations are made, the work is to map how your organization actually operates, not how it's intended to operate, not how it's described in documentation, but how it runs in practice.
+          </p>
+
+          <p class="peraa-body peraa-mt-4">
+            That foundation shapes everything that follows. Recommendations are grounded in your actual workflows, your team's real capacity, and the constraints your organization operates under. The analysis is structured around a single, honest question: where does AI create leverage without introducing new complexity, cost, or risk?
+          </p>
+
+          <p class="peraa-body peraa-mt-4">
+            The systems-thinking lens matters here. Individual workflow improvements are a starting point, not the goal. The aim is to identify integration opportunities that compound, ones that improve multiple processes, reduce tooling overhead, or create organizational capacity that scales.
+          </p>
+
+        </div>
+      </section>
+
+      <!-- ─────────────────────────────────────────────
+           SECTION 5: DELIVERABLES
+      ───────────────────────────────────────────── -->
+      <section class="peraa-section" style="padding-top: 0;" aria-labelledby="deliverables-heading">
+        <div class="peraa-container peraa-container--narrow">
+
+          <div class="consulting-divider">
+            <div class="consulting-divider__line"></div>
+            <div class="consulting-divider__logo"><img src="../assets/images/rune.png" alt=""></div>
+            <div class="consulting-divider__line"></div>
+          </div>
+
+          <p class="peraa-overline">What You Receive</p>
+          <h2 id="deliverables-heading" class="consulting-section-title peraa-mt-3">Deliverables</h2>
+
+          <p class="peraa-body">
+            Every engagement produces the same core set of outputs, documented clearly enough to act on without additional interpretation or consulting dependency.
+          </p>
+
+          <ul class="consulting-deliverables" aria-label="Deliverables list">
+            <li>
+              <span class="consulting-deliverables__marker">D–01</span>
+              <span><strong>Workflow and AI opportunity map</strong>: a clear, visual documentation of how work flows and where AI integration points exist.</span>
+            </li>
+            <li>
+              <span class="consulting-deliverables__marker">D–02</span>
+              <span><strong>Prioritized integration candidates</strong>: ranked by estimated operational impact, implementation complexity, and organizational readiness.</span>
+            </li>
+            <li>
+              <span class="consulting-deliverables__marker">D–03</span>
+              <span><strong>Risk and dependency assessment</strong>: an honest evaluation of what each integration opportunity introduces in terms of quality, compliance, and operational risk.</span>
+            </li>
+            <li>
+              <span class="consulting-deliverables__marker">D–04</span>
+              <span><strong>Tooling recommendations</strong>: specific, tied to your workflows and constraints, not a general market survey.</span>
+            </li>
+            <li>
+              <span class="consulting-deliverables__marker">D–05</span>
+              <span><strong>Implementation sequence</strong>: a clear, actionable order of operations for moving forward, with no assumed dependencies on additional engagements.</span>
+            </li>
+          </ul>
+
+        </div>
+      </section>
+
+      <!-- ─────────────────────────────────────────────
+           SECTION 6: OUTCOMES / VALUE
+      ───────────────────────────────────────────── -->
+      <section class="peraa-section" style="padding-top: 0;" aria-labelledby="outcomes-heading">
+        <div class="peraa-container peraa-container--narrow">
+
+          <div class="consulting-divider">
+            <div class="consulting-divider__line"></div>
+            <div class="consulting-divider__logo"><img src="../assets/images/rune.png" alt=""></div>
+            <div class="consulting-divider__line"></div>
+          </div>
+
+          <p class="peraa-overline">Operational Impact</p>
+          <h2 id="outcomes-heading" class="consulting-section-title peraa-mt-3">Outcomes and Value</h2>
+
+          <p class="peraa-body">
+            Organizations that go through this process typically emerge with fewer open questions, clearer investment criteria, and a realistic path to AI integration that doesn't require starting over in six months.
+          </p>
+
+          <div class="consulting-outcomes-stats" role="list" aria-label="Typical outcome indicators">
+            <div class="consulting-outcome-stat" role="listitem">
+              <p class="consulting-outcome-stat__value">15–30%</p>
+              <p class="consulting-outcome-stat__label">Reduction in time spent on repeatable, low-judgment tasks</p>
+            </div>
+            <div class="consulting-outcome-stat" role="listitem">
+              <p class="consulting-outcome-stat__value">Clear</p>
+              <p class="consulting-outcome-stat__label">Criteria for evaluating AI tools before committing budget</p>
+            </div>
+            <div class="consulting-outcome-stat" role="listitem">
+              <p class="consulting-outcome-stat__value">Reduced</p>
+              <p class="consulting-outcome-stat__label">Duplicated tooling and the cost and complexity that comes with it</p>
+            </div>
+          </div>
+
+          <ul class="consulting-outcomes-list" aria-label="Additional outcomes">
+            <li>Alignment across leadership on where AI investment makes business sense, and where it doesn't.</li>
+            <li>A foundation for scaling AI use without accumulating technical or organizational debt.</li>
+            <li>Documentation of current workflow structure that has value independent of AI decisions.</li>
+            <li>Reduced vendor influence on adoption decisions, your criteria, not theirs.</li>
+          </ul>
+
+        </div>
+      </section>
+
+      <!-- ─────────────────────────────────────────────
+           SECTION 7: ENGAGEMENT MODEL
+      ───────────────────────────────────────────── -->
+      <section class="peraa-section" style="padding-top: 0;" aria-labelledby="engagement-heading">
+        <div class="peraa-container peraa-container--narrow">
+
+          <div class="consulting-divider">
+            <div class="consulting-divider__line"></div>
+            <div class="consulting-divider__logo"><img src="../assets/images/rune.png" alt=""></div>
+            <div class="consulting-divider__line"></div>
+          </div>
+
+          <p class="peraa-overline">How It Works</p>
+          <h2 id="engagement-heading" class="consulting-section-title peraa-mt-3">Engagement Model</h2>
+
+          <p class="peraa-body">
+            Engagements are scoped individually based on team size, operational complexity, and the scope of your AI evaluation needs. There is no fixed package. The process is straightforward.
+          </p>
+
+          <div class="consulting-engagement-grid" role="list" aria-label="Engagement details">
+            <div class="consulting-engagement-item" role="listitem">
+              <p class="consulting-engagement-item__label">Scope</p>
+              <p class="consulting-engagement-item__value">Standalone engagement or as a follow-on to the AI in Practice workshop. Scoped to your organization, not a fixed template.</p>
+            </div>
+            <div class="consulting-engagement-item" role="listitem">
+              <p class="consulting-engagement-item__label">Timeline</p>
+              <p class="consulting-engagement-item__value">Typically 2–4 weeks depending on team size and operational complexity. Includes discovery, observation, and a structured findings readout.</p>
+            </div>
+            <div class="consulting-engagement-item" role="listitem">
+              <p class="consulting-engagement-item__label">Format</p>
+              <p class="consulting-engagement-item__value">Discovery calls, workflow observation sessions, and a final findings presentation with written deliverables. Remote or on-site.</p>
+            </div>
+          </div>
+
+          <p class="peraa-body-sm peraa-mt-4" style="color: var(--peraa-text-tertiary); font-style: italic;">
+            This engagement is available independently of the AI in Practice workshop, though organizations that complete the workshop first typically arrive at the audit phase with clearer baseline assumptions and better internal alignment.
+          </p>
+
+        </div>
+      </section>
+
+      <!-- ─────────────────────────────────────────────
+           SECTION 8: CALL TO ACTION
+      ───────────────────────────────────────────── -->
+      <section class="peraa-section" style="padding-top: 0;" aria-labelledby="cta-heading">
+        <div class="peraa-container peraa-container--narrow">
+
+          <div class="consulting-divider" style="padding: var(--peraa-spacing-16) 0;">
+            <div class="consulting-divider__line"></div>
+            <div class="consulting-divider__logo"><img src="../assets/images/rune.png" alt=""></div>
+            <div class="consulting-divider__line"></div>
+          </div>
+
+          <div class="consulting-cta">
+            <h2 id="cta-heading" class="consulting-cta__heading">Ready to Answer the Right Question?</h2>
+            <p class="consulting-cta__body">
+              If you want to understand where AI fits in your organization, with specifics, not generalities, the first step is a conversation. No commitment, no pitch.
+            </p>
+            <div class="consulting-cta__actions">
+              <a
+                href="mailto:trldesignr@gmail.com?subject=AI Consulting Inquiry"
+                class="peraa-btn peraa-btn--primary"
+              >
+                Start a Conversation
+              </a>
+              <a
+                href="https://www.linkedin.com/in/toddrlewis/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="peraa-btn peraa-btn--secondary"
+              >
+                Connect on LinkedIn
+              </a>
+            </div>
+            <p class="consulting-cta__note">Also available: <a href="ai-workshop.html" class="peraa-body-sm" style="color: var(--peraa-text-link);">AI in Practice, Enterprise Workshop</a></p>
+          </div>
+
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="peraa-footer">
+      <div class="peraa-footer__inner">
+        <div class="peraa-footer__main">
+          <div class="peraa-footer__links">
+            <a href="https://www.linkedin.com/in/toddrlewis/" class="peraa-footer__link" target="_blank" rel="noopener noreferrer">
+              <svg class="peraa-footer__link-icon" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+              </svg>
+              LinkedIn
+            </a>
+            <a href="https://x.com/allbydesign13" class="peraa-footer__link" target="_blank" rel="noopener noreferrer">
+              <svg class="peraa-footer__link-icon" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+              </svg>
+              X
+            </a>
+            <a href="https://medium.com/@trldesignr" class="peraa-footer__link" target="_blank" rel="noopener noreferrer">
+              <svg class="peraa-footer__link-icon" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/>
+              </svg>
+              Medium
+            </a>
+          </div>
+          <div class="peraa-footer__contact">
+            <a href="../assets/TRL-Resume.pdf" class="peraa-footer__contact-link" target="_blank" rel="noopener noreferrer">
+              <svg class="peraa-footer__contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/>
+              </svg>
+              Resume
+            </a>
+            <div class="peraa-footer__contact-divider"></div>
+            <a href="mailto:trldesignr@gmail.com" class="peraa-footer__contact-link">
+              <svg class="peraa-footer__contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                <polyline points="22,6 12,13 2,6"/>
+              </svg>
+              trldesignr@gmail.com
+            </a>
+          </div>
+        </div>
+        <div class="peraa-footer__bottom">
+          <p class="peraa-footer__copyright">© 2026 Todd R. Lewis. All rights reserved.</p>
+          <span class="peraa-footer__design-system">
+            Built with <span class="peraa-footer__design-system-name">Peraa</span> Design System. Not a template
+          </span>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

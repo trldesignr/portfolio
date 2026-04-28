@@ -11,41 +11,43 @@
 .peraa-heading-1 {
   font-family: var(--peraa-font-family-heading);
   font-size: var(--peraa-font-size-5xl);
-  font-weight: var(--peraa-font-weight-regular);
+  font-weight: var(--peraa-font-weight-semibold);
   line-height: var(--peraa-line-height-tight);
-  letter-spacing: var(--peraa-letter-spacing-tight);
+  letter-spacing: -0.03em;
   color: var(--peraa-text-primary);
 }
 
 .peraa-heading-2 {
   font-family: var(--peraa-font-family-heading);
   font-size: var(--peraa-font-size-4xl);
-  font-weight: var(--peraa-font-weight-regular);
+  font-weight: var(--peraa-font-weight-semibold);
   line-height: var(--peraa-line-height-tight);
-  letter-spacing: var(--peraa-letter-spacing-tight);
+  letter-spacing: -0.025em;
   color: var(--peraa-text-primary);
 }
 
 .peraa-heading-3 {
   font-family: var(--peraa-font-family-heading);
   font-size: var(--peraa-font-size-3xl);
-  font-weight: var(--peraa-font-weight-regular);
+  font-weight: var(--peraa-font-weight-medium);
   line-height: var(--peraa-line-height-snug);
+  letter-spacing: -0.015em;
   color: var(--peraa-text-primary);
 }
 
 .peraa-heading-4 {
   font-family: var(--peraa-font-family-heading);
   font-size: var(--peraa-font-size-2xl);
-  font-weight: var(--peraa-font-weight-regular);
+  font-weight: var(--peraa-font-weight-medium);
   line-height: var(--peraa-line-height-snug);
+  letter-spacing: -0.01em;
   color: var(--peraa-text-primary);
 }
 
 .peraa-heading-5 {
   font-family: var(--peraa-font-family-heading);
   font-size: var(--peraa-font-size-xl);
-  font-weight: var(--peraa-font-weight-regular);
+  font-weight: var(--peraa-font-weight-medium);
   line-height: var(--peraa-line-height-snug);
   color: var(--peraa-text-primary);
 }
@@ -53,7 +55,7 @@
 .peraa-heading-6 {
   font-family: var(--peraa-font-family-heading);
   font-size: var(--peraa-font-size-lg);
-  font-weight: var(--peraa-font-weight-regular);
+  font-weight: var(--peraa-font-weight-medium);
   line-height: var(--peraa-line-height-snug);
   color: var(--peraa-text-primary);
 }
@@ -115,7 +117,7 @@
   line-height: var(--peraa-line-height-normal);
   letter-spacing: var(--peraa-letter-spacing-widest);
   text-transform: uppercase;
-  color: var(--peraa-text-tertiary);
+  color: var(--peraa-text-brand);
 }
 
 .peraa-code {

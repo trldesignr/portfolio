@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <script>!function(){try{var t=localStorage.getItem("peraa-theme")||(window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light");document.documentElement.setAttribute("data-theme",t)}catch(e){}}();</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="AI in Practice: An enterprise workshop for design leaders and cross-functional teams. Move beyond experimentation and into deliberate, systems-level AI integration.">
+  <title>AI in Practice: Enterprise Workshop | Todd R. Lewis</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="../css/main.css">
+
+  <style>
+    /* ─── Section Divider ─── */
+    .workshop-divider {
+      display: flex;
+      align-items: center;
+      gap: var(--peraa-spacing-4);
+      padding: var(--peraa-spacing-10) 0;
+    }
+
+    .workshop-divider__line {
+      flex: 1;
+      height: 1px;
+      background: var(--peraa-border-default);
+    }
+
+    .workshop-divider__logo {
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+    }
+
+    .workshop-divider__logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    [data-theme="light"] .workshop-divider__logo img {
+      filter: invert(1);
+    }
+
+    /* ─── Section Title ─── */
+    .workshop-section-title {
+      font-size: var(--peraa-font-size-xl);
+      font-weight: var(--peraa-font-weight-medium);
+      color: var(--peraa-text-primary);
+      margin-bottom: var(--peraa-spacing-4);
+    }
+
+    /* ─── Callout Block ─── */
+    .workshop-callout {
+      padding: var(--peraa-spacing-6);
+      background: var(--peraa-color-purple-950);
+      border-left: 4px solid var(--peraa-color-purple-400);
+      margin: var(--peraa-spacing-6) 0;
+    }
+
+    [data-theme="light"] .workshop-callout {
+      background: var(--peraa-color-purple-50);
+    }
+
+    .workshop-callout__label {
+      font-size: var(--peraa-font-size-xs);
+      font-weight: var(--peraa-font-weight-semibold);
+      color: var(--peraa-color-purple-400);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: var(--peraa-spacing-2);
+    }
+
+    [data-theme="light"] .workshop-callout__label {
+      color: var(--peraa-color-purple-600);
+    }
+
+    .workshop-callout__text {
+      font-size: var(--peraa-font-size-lg);
+      color: var(--peraa-text-primary);
+      line-height: var(--peraa-line-height-relaxed);
+    }
+
+    /* ─── Instructor Card ─── */
+    .workshop-instructor {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: var(--peraa-spacing-8);
+      align-items: start;
+      padding: var(--peraa-spacing-8);
+      background: var(--peraa-surface-card);
+      border: 1px solid var(--peraa-border-default);
+      margin: var(--peraa-spacing-6) 0;
+    }
+
+    @media (max-width: 600px) {
+      .workshop-instructor {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .workshop-instructor__photo {
+      width: 120px;
+      height: 120px;
+      object-fit: cover;
+      object-position: center top;
+      border-radius: var(--peraa-radius-md);
+      filter: grayscale(15%);
+    }
+
+    .workshop-instructor__name {
+      font-size: var(--peraa-font-size-xl);
+      font-weight: var(--peraa-font-weight-medium);
+      color: var(--peraa-text-primary);
+      margin-bottom: var(--peraa-spacing-1);
+    }
+
+    .workshop-instructor__title {
+      font-size: var(--peraa-font-size-sm);
+      color: var(--peraa-color-purple-400);
+      font-weight: var(--peraa-font-weight-semibold);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: var(--peraa-spacing-4);
+    }
+
+    [data-theme="light"] .workshop-instructor__title {
+      color: var(--peraa-color-purple-600);
+    }
+
+    /* ─── Instructor Stats ─── */
+    .workshop-instructor-stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--peraa-spacing-6);
+      margin-top: var(--peraa-spacing-5);
+      padding-top: var(--peraa-spacing-5);
+      border-top: 1px solid var(--peraa-border-subtle);
+    }
+
+    .workshop-instructor-stat__number {
+      font-size: var(--peraa-font-size-2xl);
+      font-weight: var(--peraa-font-weight-bold);
+      color: var(--peraa-color-teal-500);
+      line-height: 1;
+    }
+
+    [data-theme="light"] .workshop-instructor-stat__number {
+      color: var(--peraa-color-teal-700);
+    }
+
+    .workshop-instructor-stat__label {
+      font-size: var(--peraa-font-size-xs);
+      color: var(--peraa-text-secondary);
+      margin-top: var(--peraa-spacing-1);
+    }
+
+    /* ─── Pain Point List ─── */
+    .workshop-pain-list {
+      list-style: none;
+      padding: 0;
+      margin: var(--peraa-spacing-6) 0;
+      display: flex;
+      flex-direction: column;
+      gap: var(--peraa-spacing-3);
+    }
+
+    .workshop-pain-list li {
+      padding: var(--peraa-spacing-4) var(--peraa-spacing-5);
+      background: var(--peraa-surface-card);
+      border: 1px solid var(--peraa-border-default);
+      border-left: 3px solid var(--peraa-color-purple-500);
+      color: var(--peraa-text-secondary);
+      line-height: var(--peraa-line-height-relaxed);
+    }
+
+    /* ─── Workshop Format Details ─── */
+    .workshop-details-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--peraa-spacing-4);
+      margin: var(--peraa-spacing-6) 0;
+    }
+
+    @media (max-width: 600px) {
+      .workshop-details-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .workshop-detail {
+      padding: var(--peraa-spacing-5);
+      background: var(--peraa-surface-card);
+      border: 1px solid var(--peraa-border-default);
+    }
+
+    .workshop-detail__label {
+      font-size: var(--peraa-font-size-xs);
+      font-weight: var(--peraa-font-weight-semibold);
+      color: var(--peraa-color-teal-400);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: var(--peraa-spacing-2);
+    }
+
+    [data-theme="light"] .workshop-detail__label {
+      color: var(--peraa-color-teal-700);
+    }
+
+    .workshop-detail__value {
+      font-size: var(--peraa-font-size-base);
+      color: var(--peraa-text-primary);
+    }
+
+    /* ─── Learning Objectives Grid ─── */
+    .workshop-learn-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--peraa-spacing-4);
+      margin: var(--peraa-spacing-6) 0;
+    }
+
+    @media (max-width: 600px) {
+      .workshop-learn-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .workshop-learn-item {
+      padding: var(--peraa-spacing-4) var(--peraa-spacing-5);
+      background: var(--peraa-surface-card);
+      border: 1px solid var(--peraa-border-default);
+      display: flex;
+      gap: var(--peraa-spacing-3);
+      align-items: flex-start;
+    }
+
+    .workshop-learn-item__number {
+      font-size: var(--peraa-font-size-xs);
+      font-weight: var(--peraa-font-weight-semibold);
+      color: var(--peraa-color-purple-400);
+      font-family: var(--peraa-font-mono);
+      line-height: 1.8;
+      flex-shrink: 0;
+      min-width: 20px;
+    }
+
+    [data-theme="light"] .workshop-learn-item__number {
+      color: var(--peraa-color-purple-600);
+    }
+
+    .workshop-learn-item__text {
+      font-size: var(--peraa-font-size-sm);
+      color: var(--peraa-text-secondary);
+      line-height: var(--peraa-line-height-relaxed);
+    }
+
+    /* ─── Module Cards ─── */
+    .workshop-modules {
+      display: flex;
+      flex-direction: column;
+      gap: var(--peraa-spacing-3);
+      margin: var(--peraa-spacing-6) 0;
+    }
+
+    .workshop-module {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: var(--peraa-spacing-5);
+      padding: var(--peraa-spacing-5);
+      background: var(--peraa-surface-card);
+      border: 1px solid var(--peraa-border-default);
+      align-items: start;
+    }
+
+    .workshop-module__index {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--peraa-spacing-1);
+    }
+
+    .workshop-module__number {
+      font-size: var(--peraa-font-size-xs);
+      font-weight: var(--peraa-font-weight-semibold);
+      font-family: var(--peraa-font-mono);
+      color: var(--peraa-color-purple-400);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      white-space: nowrap;
+    }
+
+    [data-theme="light"] .workshop-module__number {
+      color: var(--peraa-color-purple-600);
+    }
+
+    .workshop-module__duration {
+      font-size: var(--peraa-font-size-xs);
+      color: var(--peraa-text-tertiary);
+      font-family: var(--peraa-font-mono);
+      white-space: nowrap;
+    }
+
+    .workshop-module__title {
+      font-size: var(--peraa-font-size-base);
+      font-weight: var(--peraa-font-weight-medium);
+      color: var(--peraa-text-primary);
+      margin-bottom: var(--peraa-spacing-2);
+    }
+
+    .workshop-module__desc {
+      font-size: var(--peraa-font-size-sm);
+      color: var(--peraa-text-secondary);
+      line-height: var(--peraa-line-height-relaxed);
+    }
+
+    /* ─── Outcomes List ─── */
+    .workshop-outcomes-list {
+      list-style: none;
+      padding: 0;
+      margin: var(--peraa-spacing-6) 0;
+      display: flex;
+      flex-direction: column;
+      gap: var(--peraa-spacing-3);
+    }
+
+    .workshop-outcomes-list li {
+      padding-left: var(--peraa-spacing-5);
+      border-left: 2px solid var(--peraa-color-teal-500);
+      color: var(--peraa-text-secondary);
+      line-height: var(--peraa-line-height-relaxed);
+    }
+
+    [data-theme="light"] .workshop-outcomes-list li {
+      border-left-color: var(--peraa-color-teal-600);
+    }
+
+    /* ─── Audience Tags ─── */
+    .workshop-audience-list {
+      list-style: none;
+      padding: 0;
+      margin: var(--peraa-spacing-6) 0;
+      display: flex;
+      flex-direction: column;
+      gap: var(--peraa-spacing-3);
+    }
+
+    .workshop-audience-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--peraa-spacing-3);
+      color: var(--peraa-text-secondary);
+      line-height: var(--peraa-line-height-relaxed);
+    }
+
+    .workshop-audience-list__dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--peraa-color-purple-500);
+      flex-shrink: 0;
+      margin-top: 8px;
+    }
+
+    /* ─── CTA Section ─── */
+    .workshop-cta {
+      text-align: center;
+      padding: var(--peraa-spacing-12) var(--peraa-spacing-6);
+      background: var(--peraa-surface-card);
+      border: 1px solid var(--peraa-border-default);
+      margin: var(--peraa-spacing-6) 0;
+    }
+
+    .workshop-cta__heading {
+      font-size: var(--peraa-font-size-2xl);
+      font-weight: var(--peraa-font-weight-medium);
+      color: var(--peraa-text-primary);
+      margin-bottom: var(--peraa-spacing-4);
+    }
+
+    .workshop-cta__body {
+      max-width: 520px;
+      margin: 0 auto var(--peraa-spacing-8);
+      color: var(--peraa-text-secondary);
+      line-height: var(--peraa-line-height-relaxed);
+    }
+
+    .workshop-cta__actions {
+      display: flex;
+      gap: var(--peraa-spacing-4);
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+  </style>
+</head>
+<body>
+  <div class="peraa-page peraa-page--hero">
+
+    <!-- Decorative Logomark -->
+    <img src="../assets/images/TRL-logomark.png" alt="" class="peraa-logomark-bg" aria-hidden="true">
+
+    <!-- Navigation -->
+    <header class="peraa-header">
+      <div class="peraa-container">
+        <nav class="peraa-nav">
+          <a href="../index.html" class="peraa-nav__logo">Todd R. Lewis</a>
+          <ul class="peraa-nav__menu">
+            <li><a href="ai-workshop.html" class="peraa-nav__link peraa-nav__link--active">AI Workshops</a></li>
+            <li><a href="ai-consulting.html" class="peraa-nav__link">Consulting</a></li>
+            <li><a href="case-studies/index.html" class="peraa-nav__link">UXUI Work</a></li>
+            <li><a href="challenges-welcomed.html" class="peraa-nav__link">Challenges Welcomed</a></li>
+            <li><a href="mentorship.html" class="peraa-nav__link">Mentoring</a></li>
+            <li><a href="perspective.html" class="peraa-nav__link">About Me</a></li>
+            <li class="peraa-nav__divider" aria-hidden="true"></li>
+            <li><a href="design-system.html" class="peraa-nav__link peraa-nav__link--accent">Peraa Design System</a></li>
+          </ul>
+          <button class="peraa-btn peraa-btn--tertiary peraa-btn--icon-only" data-theme-toggle aria-label="Toggle theme">
+            <svg class="peraa-btn__icon peraa-btn__icon--sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="5"/>
+              <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+            </svg>
+            <svg class="peraa-btn__icon peraa-btn__icon--moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+            </svg>
+          </button>
+        </nav>
+      </div>
+    </header>
+
+    <main class="peraa-main">
+
+      <!-- ─────────────────────────────────────────────
+           SECTION 1: HERO
+      ───────────────────────────────────────────── -->
+      <section class="peraa-section peraa-section--lg" aria-labelledby="hero-heading">
+        <div class="peraa-container peraa-container--narrow">
+          <p class="peraa-overline">Enterprise AI Workshop</p>
+          <h1 id="hero-heading" class="peraa-heading-1 peraa-mt-4">AI in Practice</h1>
+          <p class="peraa-lead peraa-mt-6">
+            Most teams are using AI. Few have designed how they use it.
+          </p>
+          <p class="peraa-body peraa-mt-4">
+            This workshop helps design leaders and cross-functional teams move beyond experimentation and into a deliberate, systems-level approach to AI integration, one that creates lasting operational value rather than scattered individual habits.
+          </p>
+          <div class="peraa-mt-8" style="display: flex; gap: var(--peraa-spacing-4); flex-wrap: wrap;">
+            <a href="mailto:trldesignr@gmail.com?subject=AI Workshop Inquiry" class="peraa-btn peraa-btn--primary">
+              Book a Workshop
+            </a>
+            <a href="#workshop-overview" class="peraa-btn peraa-btn--secondary">
+              Workshop Overview
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ─────────────────────────────────────────────
+           SECTION 2: CREDIBILITY / INSTRUCTOR
+      ───────────────────────────────────────────── -->
+      <section class="peraa-section" style="padding-top: 0;" aria-labelledby="instructor-heading">
+        <div class="peraa-container peraa-container--narrow">
+
+          <div class="workshop-divider">
+            <div class="workshop-divider__line"></div>
+            <div class="workshop-divider__logo"><img src="../assets/images/rune.png" alt=""></div>
+            <div class="workshop-divider__line"></div>
+          </div>
+
+          <p class="peraa-overline">Your Facilitator</p>
+          <h2 id="instructor-heading" class="workshop-section-title peraa-mt-3">About the Instructor</h2>
+
+          <div class="workshop-instructor">
+            <img
+              src="../assets/images/trl.jpg"
+              alt="Todd R. Lewis, Design Leader and Systems Thinker"
+              class="workshop-instructor__photo"
+            >
+            <div>
+              <p class="workshop-instructor__name">Todd R. Lewis</p>
+              <p class="workshop-instructor__title">Design Leader &amp; Systems Thinker</p>
+              <p class="peraa-body-sm">
+                Todd has spent over 15 years working at the intersection of design, systems, and organizational complexity. He has led design for enterprise organizations, including Fortune 500 clients, built and scaled design systems from the ground up, and spent the past several years mentoring designers across career stages and industries.
+              </p>
+              <p class="peraa-body-sm peraa-mt-3">
+                His approach to AI is not rooted in enthusiasm for the technology itself, but in a rigorous examination of how organizations actually work, and where AI fits within that reality. He brings the same frameworks he uses to evaluate design systems and team structure to the question of AI adoption: clarity over novelty, systems over shortcuts, and outcomes over activity.
+              </p>
+              <div class="workshop-instructor-stats">
+                <div class="workshop-instructor-stat">
+                  <div class="workshop-instructor-stat__number">15+</div>
+                  <div class="workshop-instructor-stat__label">Years in Product Design</div>
+                </div>
+                <div class="workshop-instructor-stat">
+                  <div class="workshop-instructor-stat__number">10+</div>
+                  <div class="workshop-instructor-stat__label">Years in Design Systems</div>
+                </div>
+                <div class="workshop-instructor-stat">
+                  <div class="workshop-instructor-stat__number">83</div>
+                  <div class="workshop-instructor-stat__label">Designers Mentored</div>
+                </div>
+                <div class="workshop-instructor-stat">
+                  <div class="workshop-instructor-stat__number">F500</div>
+                  <div class="workshop-instructor-stat__label">Enterprise Experience</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ─────────────────────────────────────────────
+           SECTION 3: PROBLEM / PAIN POINTS
+      ───────────────────────────────────────────── -->
+      <section class="peraa-section" style="padding-top: 0;" aria-labelledby="problem-heading">
+        <div class="peraa-container peraa-container--narrow">
+
+          <div class="workshop-divider">
+            <div class="workshop-divider__line"></div>
+            <div class="workshop-divider__logo"><img src="../assets/images/rune.png" alt=""></div>
+            <div class="workshop-divider__line"></div>
+          </div>
+
+          <p class="peraa-overline">The Challenge</p>
+          <h2 id="problem-heading" class="workshop-section-title peraa-mt-3">The Problem Isn't Access to AI</h2>
+
+          <p class="peraa-body">
+            AI tools are widely available and improving rapidly. The harder problem, the one most teams aren't solving, is knowing how to integrate them into the organization in a way that scales, holds up under scrutiny, and doesn't quietly introduce new risk.
+          </p>
+
+          <ul class="workshop-pain-list" aria-label="Common AI adoption challenges">
+            <li>Teams adopt AI tools without changing how they actually work. The tool changes; the workflow doesn't.</li>
+            <li>Individual experimentation stays individual. What one person learns rarely becomes shared team practice.</li>
+            <li>The conversation focuses on prompting. Workflow design, standards, and systems thinking get left behind.</li>
+            <li>Leaders lack frameworks to evaluate AI's role in their operations, beyond what vendors are telling them.</li>
+            <li>The volume of AI discourse makes deliberate adoption harder, not easier. Signal is buried in noise.</li>
+          </ul>
+
+          <div class="workshop-callout">
+            <p class="workshop-callout__label">The Real Gap</p>
+            <p class="workshop-callout__text">The challenge isn't capability. It's the absence of a deliberate organizational strategy for how AI fits into how you work.</p>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ─────────────────────────────────────────────
+           SECTION 4: SOLUTION / WORKSHOP OVERVIEW
+      ───────────────────────────────────────────── -->
+      <section class="peraa-section" style="padding-top: 0;" id="workshop-overview" aria-labelledby="solution-heading">
+        <div class="peraa-container peraa-container--narrow">
+
+          <div class="workshop-divider">
+            <div class="workshop-divider__line"></div>
+            <div class="workshop-divider__logo"><img src="../assets/images/rune.png" alt=""></div>
+            <div class="workshop-divider__line"></div>
+          </div>
+
+          <p class="peraa-overline">The Workshop</p>
+          <h2 id="solution-heading" class="workshop-section-title peraa-mt-3">Built Around Systems, Not Shortcuts</h2>
+
+          <p class="peraa-body">
+            This is a structured, facilitated session for teams who want a clear-eyed, practical approach to AI. No vendor advocacy. No feature demonstrations. No prompting tricks.
+          </p>
+          <p class="peraa-body peraa-mt-4">
+            The focus is on building a shared mental model, mapping how AI fits your actual workflows, and establishing the criteria your team will use to evaluate and integrate AI tools going forward. Participants leave with something concrete, not just inspiration.
+          </p>
+
+          <div class="workshop-details-grid" role="list" aria-label="Workshop format details">
+            <div class="workshop-detail" role="listitem">
+              <p class="workshop-detail__label">Format</p>
+              <p class="workshop-detail__value">Facilitated workshop, on-site or remote</p>
+            </div>
+            <div class="workshop-detail" role="listitem">
+              <p class="workshop-detail__label">Duration</p>
+              <p class="workshop-detail__value">2–4 hours, modular and configurable</p>
+            </div>
+            <div class="workshop-detail" role="listitem">
+              <p class="workshop-detail__label">Participants</p>
+              <p class="workshop-detail__value">6–20 per session; cross-functional teams welcome</p>
+            </div>
+            <div class="workshop-detail" role="listitem">
+              <p class="workshop-detail__label">Customization</p>
+              <p class="workshop-detail__value">Tailored to your team's context and AI maturity</p>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ─────────────────────────────────────────────
+           SECTION 5: WHAT PARTICIPANTS WILL LEARN
+      ───────────────────────────────────────────── -->
+      <section class="peraa-section" style="padding-top: 0;" aria-labelledby="learn-heading">
+        <div class="peraa-container peraa-container--narrow">
+
+          <div class="workshop-divider">
+            <div class="workshop-divider__line"></div>
+            <div class="workshop-divider__logo"><img src="../assets/images/rune.png" alt=""></div>
+            <div class="workshop-divider__line"></div>
+          </div>
+
+          <p class="peraa-overline">Learning Objectives</p>
+          <h2 id="learn-heading" class="workshop-section-title peraa-mt-3">What Participants Will Learn</h2>
+
+          <p class="peraa-body">
+            The workshop is designed to shift thinking, not just introduce techniques. Participants will come away with new frameworks, shared language, and the practical groundwork to apply what they've learned immediately.
+          </p>
+
+          <div class="workshop-learn-grid" role="list" aria-label="Learning objectives">
+            <div class="workshop-learn-item" role="listitem">
+              <span class="workshop-learn-item__number">01</span>
+              <p class="workshop-learn-item__text">How to evaluate AI tools against actual workflow needs, not marketing claims or peer pressure.</p>
+            </div>
+            <div class="workshop-learn-item" role="listitem">
+              <span class="workshop-learn-item__number">02</span>
+              <p class="workshop-learn-item__text">Where AI creates genuine leverage versus where it introduces hidden cost or dependencies.</p>
+            </div>
+            <div class="workshop-learn-item" role="listitem">
+              <span class="workshop-learn-item__number">03</span>
+              <p class="workshop-learn-item__text">How to map AI touchpoints to existing team processes, handoffs, and decision points.</p>
+            </div>
+            <div class="workshop-learn-item" role="listitem">
+              <span class="workshop-learn-item__number">04</span>
+              <p class="workshop-learn-item__text">The distinction between automation, augmentation, and replacement, and when each is the right call.</p>
+            </div>
+            <div class="workshop-learn-item" role="listitem">
+              <span class="workshop-learn-item__number">05</span>
+              <p class="workshop-learn-item__text">How to establish team-level standards for AI use that hold up beyond individual preference.</p>
+            </div>
+            <div class="workshop-learn-item" role="listitem">
+              <span class="workshop-learn-item__number">06</span>
+              <p class="workshop-learn-item__text">How to design prompts as a repeatable, systems-level skill, not a one-off trick.</p>
+            </div>
+            <div class="workshop-learn-item" role="listitem">
+              <span class="workshop-learn-item__number">07</span>
+              <p class="workshop-learn-item__text">What "good AI integration" looks like in an enterprise context, and how to recognize its absence.</p>
+            </div>
+            <div class="workshop-learn-item" role="listitem">
+              <span class="workshop-learn-item__number">08</span>
+              <p class="workshop-learn-item__text">How to build a lightweight adoption framework your team can use, maintain, and evolve over time.</p>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ─────────────────────────────────────────────
+           SECTION 6: WORKSHOP STRUCTURE
+      ───────────────────────────────────────────── -->
+      <section class="peraa-section" style="padding-top: 0;" aria-labelledby="structure-heading">
+        <div class="peraa-container peraa-container--narrow">
+
+          <div class="workshop-divider">
+            <div class="workshop-divider__line"></div>
+            <div class="workshop-divider__logo"><img src="../assets/images/rune.png" alt=""></div>
+            <div class="workshop-divider__line"></div>
+          </div>
+
+          <p class="peraa-overline">Workshop Structure</p>
+          <h2 id="structure-heading" class="workshop-section-title peraa-mt-3">Modular. Configurable. Purposeful.</h2>
+
+          <p class="peraa-body">
+            The workshop is structured in four modules, each with a distinct purpose. Sessions can run the full sequence (3–4 hours) or be configured as focused half-day engagements (2 hours) depending on your team's needs and available time.
+          </p>
+
+          <div class="workshop-modules" role="list" aria-label="Workshop modules">
+
+            <article class="workshop-module" role="listitem">
+              <div class="workshop-module__index">
+                <span class="workshop-module__number">M–01</span>
+                <span class="workshop-module__duration">45 min</span>
+              </div>
+              <div>
+                <h3 class="workshop-module__title">Framing the Landscape</h3>
+                <p class="workshop-module__desc">Establish shared vocabulary. Examine the current AI landscape without the noise. Understand where enterprise organizations are finding traction, and where they're struggling, so your team can enter the conversation with clear eyes.</p>
+              </div>
+            </article>
+
+            <article class="workshop-module" role="listitem">
+              <div class="workshop-module__index">
+                <span class="workshop-module__number">M–02</span>
+                <span class="workshop-module__duration">60 min</span>
+              </div>
+              <div>
+                <h3 class="workshop-module__title">Mapping Your Workflow</h3>
+                <p class="workshop-module__desc">Identify the actual shape of your work. Map existing processes, handoffs, and decision points. Surface the places where AI could create real leverage, and the places where premature adoption could cause harm or introduce technical and organizational debt.</p>
+              </div>
+            </article>
+
+            <article class="workshop-module" role="listitem">
+              <div class="workshop-module__index">
+                <span class="workshop-module__number">M–03</span>
+                <span class="workshop-module__duration">60 min</span>
+              </div>
+              <div>
+                <h3 class="workshop-module__title">Designing for Integration</h3>
+                <p class="workshop-module__desc">Work through real integration scenarios using your team's actual workflows as the substrate. Practice prompt design as a systems skill. Define the criteria you'll use to evaluate new AI tools, grounded in your organization's context, not someone else's.</p>
+              </div>
+            </article>
+
+            <article class="workshop-module" role="listitem">
+              <div class="workshop-module__index">
+                <span class="workshop-module__number">M–04</span>
+                <span class="workshop-module__duration">30–45 min</span>
+              </div>
+              <div>
+                <h3 class="workshop-module__title">Building Your Practice</h3>
+                <p class="workshop-module__desc">Draft a lightweight adoption framework your team can put into practice immediately. Define what "good" looks like in your organization. Leave with clarity, shared alignment, and a concrete starting point, not a list of tools to evaluate later.</p>
+              </div>
+            </article>
+
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ─────────────────────────────────────────────
+           SECTION 7: OUTCOMES / ROI
+      ───────────────────────────────────────────── -->
+      <section class="peraa-section" style="padding-top: 0;" aria-labelledby="outcomes-heading">
+        <div class="peraa-container peraa-container--narrow">
+
+          <div class="workshop-divider">
+            <div class="workshop-divider__line"></div>
+            <div class="workshop-divider__logo"><img src="../assets/images/rune.png" alt=""></div>
+            <div class="workshop-divider__line"></div>
+          </div>
+
+          <p class="peraa-overline">Outcomes</p>
+          <h2 id="outcomes-heading" class="workshop-section-title peraa-mt-3">What Your Team Walks Away With</h2>
+
+          <p class="peraa-body">
+            The value of this workshop is not measured by how energized people feel at the end. It's measured by what they're able to do differently the following week.
+          </p>
+
+          <ul class="workshop-outcomes-list" aria-label="Workshop outcomes">
+            <li>A shared mental model for AI adoption, consistent language and framing across the team, not just among early adopters.</li>
+            <li>A documented workflow map with identified AI touchpoints, specific, grounded in your actual processes.</li>
+            <li>A clear set of criteria for evaluating new AI tools against real organizational needs.</li>
+            <li>A starting framework for team-level AI practice that is lightweight enough to implement and flexible enough to evolve.</li>
+            <li>Alignment on what responsible, effective AI use looks like in your specific context, not a generalized ideal.</li>
+          </ul>
+
+          <div class="workshop-callout">
+            <p class="workshop-callout__label">The Goal</p>
+            <p class="workshop-callout__text">Teams don't leave this workshop inspired to explore AI. They leave with a clear starting point for integrating it deliberately.</p>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ─────────────────────────────────────────────
+           SECTION 8: TARGET AUDIENCE
+      ───────────────────────────────────────────── -->
+      <section class="peraa-section" style="padding-top: 0;" aria-labelledby="audience-heading">
+        <div class="peraa-container peraa-container--narrow">
+
+          <div class="workshop-divider">
+            <div class="workshop-divider__line"></div>
+            <div class="workshop-divider__logo"><img src="../assets/images/rune.png" alt=""></div>
+            <div class="workshop-divider__line"></div>
+          </div>
+
+          <p class="peraa-overline">Who This Is For</p>
+          <h2 id="audience-heading" class="workshop-section-title peraa-mt-3">This Workshop Is Designed For</h2>
+
+          <p class="peraa-body">
+            The workshop is most effective for teams at an inflection point, organizations that have started using AI but recognize they need more structure, or those preparing to make a deliberate investment in how AI fits into their work.
+          </p>
+
+          <ul class="workshop-audience-list" aria-label="Target audience types">
+            <li>
+              <span class="workshop-audience-list__dot" aria-hidden="true"></span>
+              <span><strong>Design leaders and senior ICs</strong>: those responsible for design quality, team standards, and how the practice evolves over time.</span>
+            </li>
+            <li>
+              <span class="workshop-audience-list__dot" aria-hidden="true"></span>
+              <span><strong>Product managers and product leadership</strong>: teams making decisions about where AI fits into the product and the workflows that support it.</span>
+            </li>
+            <li>
+              <span class="workshop-audience-list__dot" aria-hidden="true"></span>
+              <span><strong>Cross-functional teams</strong> evaluating AI adoption or trying to align on how it should be used across disciplines.</span>
+            </li>
+            <li>
+              <span class="workshop-audience-list__dot" aria-hidden="true"></span>
+              <span><strong>Organizations building intentional AI practice</strong>: not just adding tools, but establishing how AI is governed, evaluated, and integrated at the team level.</span>
+            </li>
+            <li>
+              <span class="workshop-audience-list__dot" aria-hidden="true"></span>
+              <span><strong>Teams already using AI tools</strong> but lacking shared structure, standards, or a clear framework for deciding what good looks like.</span>
+            </li>
+          </ul>
+
+        </div>
+      </section>
+
+      <!-- ─────────────────────────────────────────────
+           SECTION 9: CALL TO ACTION
+      ───────────────────────────────────────────── -->
+      <section class="peraa-section" style="padding-top: 0;" aria-labelledby="cta-heading">
+        <div class="peraa-container peraa-container--narrow">
+
+          <div class="workshop-divider" style="padding: var(--peraa-spacing-16) 0;">
+            <div class="workshop-divider__line"></div>
+            <div class="workshop-divider__logo"><img src="../assets/images/rune.png" alt=""></div>
+            <div class="workshop-divider__line"></div>
+          </div>
+
+          <div class="workshop-cta">
+            <h2 id="cta-heading" class="workshop-cta__heading">Ready for a Different Kind of AI Conversation?</h2>
+            <p class="workshop-cta__body">
+              This workshop is available for on-site and remote delivery. Sessions are tailored to your team's context, current size, and maturity with AI. The first step is a conversation.
+            </p>
+            <div class="workshop-cta__actions">
+              <a
+                href="mailto:trldesignr@gmail.com?subject=AI Workshop Inquiry"
+                class="peraa-btn peraa-btn--primary"
+              >
+                Schedule a Conversation
+              </a>
+              <a
+                href="https://www.linkedin.com/in/toddrlewis/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="peraa-btn peraa-btn--secondary"
+              >
+                Connect on LinkedIn
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="peraa-footer">
+      <div class="peraa-footer__inner">
+        <div class="peraa-footer__main">
+          <div class="peraa-footer__links">
+            <a href="https://www.linkedin.com/in/toddrlewis/" class="peraa-footer__link" target="_blank" rel="noopener noreferrer">
+              <svg class="peraa-footer__link-icon" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+              </svg>
+              LinkedIn
+            </a>
+            <a href="https://x.com/allbydesign13" class="peraa-footer__link" target="_blank" rel="noopener noreferrer">
+              <svg class="peraa-footer__link-icon" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+              </svg>
+              X
+            </a>
+            <a href="https://medium.com/@trldesignr" class="peraa-footer__link" target="_blank" rel="noopener noreferrer">
+              <svg class="peraa-footer__link-icon" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/>
+              </svg>
+              Medium
+            </a>
+          </div>
+          <div class="peraa-footer__contact">
+            <a href="../assets/TRL-Resume.pdf" class="peraa-footer__contact-link" target="_blank" rel="noopener noreferrer">
+              <svg class="peraa-footer__contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/>
+              </svg>
+              Resume
+            </a>
+            <div class="peraa-footer__contact-divider"></div>
+            <a href="mailto:trldesignr@gmail.com" class="peraa-footer__contact-link">
+              <svg class="peraa-footer__contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                <polyline points="22,6 12,13 2,6"/>
+              </svg>
+              trldesignr@gmail.com
+            </a>
+          </div>
+        </div>
+        <div class="peraa-footer__bottom">
+          <p class="peraa-footer__copyright">© 2026 Todd R. Lewis. All rights reserved.</p>
+          <span class="peraa-footer__design-system">
+            Built with <span class="peraa-footer__design-system-name">Peraa</span> Design System. Not a template
+          </span>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <script>!function(){try{var t=localStorage.getItem("peraa-theme")||(window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light");document.documentElement.setAttribute("data-theme",t)}catch(e){}}();</script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Peraa Design System - Documentation">
-  <title>Peraa Design System - Todd R. Lewis</title>
+  <meta name="description" content="Peraa Design System - A minimal, token-based design system for building clean, accessible interfaces">
+  <title>Peraa Design System</title>
   
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,7 +13,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   
   <!-- Styles -->
-  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
   <div class="peraa-page">
@@ -21,16 +21,15 @@
     <header class="peraa-header">
       <div class="peraa-container">
         <nav class="peraa-nav">
-          <a href="../index.html" class="peraa-nav__logo">Todd R. Lewis</a>
+          <a href="index.html" class="peraa-nav__logo" style="display: flex; align-items: center; gap: var(--peraa-spacing-3);">
+            <img src="assets/images/TRL-logomark.png" alt="" style="height: 32px; width: auto;">
+            <span class="peraa-nav__link--accent" style="font-weight: var(--peraa-font-weight-semibold);">Peraa Design System</span>
+          </a>
           <ul class="peraa-nav__menu">
-            <li><a href="ai-workshop.html" class="peraa-nav__link">AI Workshops</a></li>
-            <li><a href="ai-consulting.html" class="peraa-nav__link">Consulting</a></li>
-            <li><a href="case-studies/index.html" class="peraa-nav__link">UXUI Work</a></li>
-            <li><a href="challenges-welcomed.html" class="peraa-nav__link">Challenges Welcomed</a></li>
-            <li><a href="mentorship.html" class="peraa-nav__link">Mentoring</a></li>
-            <li><a href="perspective.html" class="peraa-nav__link">About Me</a></li>
-            <li class="peraa-nav__divider" aria-hidden="true"></li>
-            <li><a href="design-system.html" class="peraa-nav__link peraa-nav__link--accent peraa-nav__link--active">Peraa Design System</a></li>
+            <li><a href="#overview" class="peraa-nav__link">Overview</a></li>
+            <li><a href="#components" class="peraa-nav__link">Components</a></li>
+            <li><a href="#tokens" class="peraa-nav__link">Tokens</a></li>
+            <li><a href="https://github.com/allbydesign/peraa-design-system" class="peraa-nav__link" target="_blank" rel="noopener noreferrer">GitHub</a></li>
           </ul>
           <button class="peraa-btn peraa-btn--tertiary peraa-btn--icon-only" data-theme-toggle aria-label="Toggle theme">
             <svg class="peraa-btn__icon peraa-btn__icon--sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -53,8 +52,8 @@
           <p class="peraa-overline">Design System</p>
           <h1 class="peraa-heading-1 peraa-mt-4">Peraa</h1>
           <p class="peraa-lead peraa-mt-4">
-            A minimal, token-based design system I created for building clean, accessible interfaces. Yes, I created a design system and use it for my portfolio, because Design Systems is what I do.
-            (The system is actively maintained and expanded. A standalone public release is planned.)
+            A minimal, token-based design system for building clean, accessible interfaces. 
+            Available in vanilla CSS, React, and Tailwind CSS.
           </p>
         </div>
       </section>
@@ -988,30 +987,30 @@ window.Peraa.ThemeManager.setTheme('light');</code></pre>
                               <td><code>--peraa-card-border</code></td>
                               <td>#e4e4e7</td>
                               <td>rgba(255,255,255,0.06)</td>
-                              <td>Card border — more subtle in dark mode to avoid harsh outlines</td>
+                              <td>Card border — more subtle in dark mode</td>
                             </tr>
                             <tr>
                               <td><code>--peraa-card-shadow</code></td>
                               <td>--peraa-shadow-sm</td>
-                              <td>0 1px 3px rgba(0,0,0,.5) + 1px rgba white 0.04</td>
-                              <td>Resting elevation — heavier black in dark mode</td>
+                              <td>0 1px 3px rgba(0,0,0,.5)</td>
+                              <td>Resting elevation</td>
                             </tr>
                             <tr>
                               <td><code>--peraa-card-shadow-hover</code></td>
                               <td>--peraa-shadow-md</td>
                               <td>0 4px 16px rgba(0,0,0,.5)</td>
-                              <td>Hover elevation — deeper lift in dark mode</td>
+                              <td>Hover elevation</td>
                             </tr>
                             <tr>
                               <td><em>Dark mode hover border</em></td>
                               <td>—</td>
                               <td>rgba(20,184,166,0.25)</td>
-                              <td>Teal accent border on interactive card hover (dark mode only)</td>
+                              <td>Teal accent border on interactive hover (dark only)</td>
                             </tr>
                           </tbody>
                         </table>
                         <p class="peraa-body" style="margin-bottom:0;font-size:var(--peraa-font-size-sm);color:var(--peraa-text-secondary);">
-                          <strong>Dark mode behaviour:</strong> Cards use explicit dark-mode overrides in <code>_card.css</code> rather than relying solely on semantic tokens. This allows the teal hover border and stronger shadow layering to be applied cleanly without token pollution.
+                          <strong>Dark mode behaviour:</strong> Cards use explicit dark-mode overrides in <code>_card.css</code> for the teal hover border and stronger shadow layering.
                         </p>
                       </div>
                     </div>
@@ -1678,25 +1677,17 @@ window.Peraa.ThemeManager.setTheme('light');</code></pre>
                           <div class="peraa-preview__visual">
                             <div style="display:flex;flex-direction:column;gap:1.25rem;max-width:400px;">
                               <div class="peraa-field">
-                                <label class="peraa-label" for="ds-name">Full name</label>
-                                <input class="peraa-input" type="text" id="ds-name" placeholder="Todd R. Lewis">
+                                <label class="peraa-label" for="ds-name2">Full name</label>
+                                <input class="peraa-input" type="text" id="ds-name2" placeholder="Todd R. Lewis">
                               </div>
                               <div class="peraa-field">
-                                <label class="peraa-label" for="ds-email">Email</label>
-                                <input class="peraa-input peraa-input--error" type="email" id="ds-email" placeholder="hello@example.com">
+                                <label class="peraa-label" for="ds-email2">Email</label>
+                                <input class="peraa-input peraa-input--error" type="email" id="ds-email2" placeholder="hello@example.com">
                                 <span class="peraa-field__hint peraa-field__hint--error">Please enter a valid email address.</span>
                               </div>
                               <div class="peraa-field">
-                                <label class="peraa-label" for="ds-msg">Message</label>
-                                <textarea class="peraa-input peraa-textarea" id="ds-msg" rows="3" placeholder="Your message..."></textarea>
-                              </div>
-                              <div class="peraa-field">
-                                <label class="peraa-label" for="ds-select">Role</label>
-                                <select class="peraa-input peraa-select" id="ds-select">
-                                  <option>Designer</option>
-                                  <option>Engineer</option>
-                                  <option>Product Manager</option>
-                                </select>
+                                <label class="peraa-label" for="ds-msg2">Message</label>
+                                <textarea class="peraa-input peraa-textarea" id="ds-msg2" rows="3" placeholder="Your message..."></textarea>
                               </div>
                             </div>
                           </div>
@@ -1708,8 +1699,7 @@ window.Peraa.ThemeManager.setTheme('light');</code></pre>
                             </div>
                             <div class="peraa-framework-code peraa-framework-code--active" data-code="html">
                               <div class="peraa-code-block"><div class="peraa-code-block__header"><span class="peraa-code-block__lang">HTML</span></div>
-                                <pre class="peraa-code-block__pre"><code class="peraa-code-block__code">&lt;!-- Default field --&gt;
-&lt;div class="peraa-field"&gt;
+                                <pre class="peraa-code-block__pre"><code class="peraa-code-block__code">&lt;div class="peraa-field"&gt;
   &lt;label class="peraa-label" for="name"&gt;Full name&lt;/label&gt;
   &lt;input class="peraa-input" type="text" id="name"
          placeholder="Enter your name"&gt;
@@ -1723,27 +1713,12 @@ window.Peraa.ThemeManager.setTheme('light');</code></pre>
   &lt;span class="peraa-field__hint peraa-field__hint--error"&gt;
     Invalid email address.
   &lt;/span&gt;
-&lt;/div&gt;
-
-&lt;!-- Textarea --&gt;
-&lt;div class="peraa-field"&gt;
-  &lt;label class="peraa-label" for="msg"&gt;Message&lt;/label&gt;
-  &lt;textarea class="peraa-input peraa-textarea"
-            id="msg" rows="4"&gt;&lt;/textarea&gt;
-&lt;/div&gt;
-
-&lt;!-- Select --&gt;
-&lt;div class="peraa-field"&gt;
-  &lt;label class="peraa-label" for="role"&gt;Role&lt;/label&gt;
-  &lt;select class="peraa-input peraa-select" id="role"&gt;
-    &lt;option&gt;Designer&lt;/option&gt;
-  &lt;/select&gt;
 &lt;/div&gt;</code></pre>
                               </div>
                             </div>
                             <div class="peraa-framework-code" data-code="react">
                               <div class="peraa-code-block"><div class="peraa-code-block__header"><span class="peraa-code-block__lang">JSX</span></div>
-                                <pre class="peraa-code-block__pre"><code class="peraa-code-block__code">import { Field, Input, Textarea, Select } from '@peraa/react';
+                                <pre class="peraa-code-block__pre"><code class="peraa-code-block__code">import { Field, Input, Textarea } from '@peraa/react';
 
 &lt;Field label="Full name"&gt;
   &lt;Input type="text" placeholder="Enter your name" /&gt;
@@ -1751,10 +1726,6 @@ window.Peraa.ThemeManager.setTheme('light');</code></pre>
 
 &lt;Field label="Email" error="Invalid email address."&gt;
   &lt;Input type="email" status="error" /&gt;
-&lt;/Field&gt;
-
-&lt;Field label="Message"&gt;
-  &lt;Textarea rows={4} /&gt;
 &lt;/Field&gt;</code></pre>
                               </div>
                             </div>
@@ -1776,27 +1747,14 @@ window.Peraa.ThemeManager.setTheme('light');</code></pre>
                           <thead><tr><th>Class</th><th>Description</th><th>Required</th></tr></thead>
                           <tbody>
                             <tr><td><code>.peraa-field</code></td><td>Wrapper grouping label, input, and hint</td><td>Yes</td></tr>
-                            <tr><td><code>.peraa-label</code></td><td>Visible form label — always pair with an input</td><td>Yes</td></tr>
-                            <tr><td><code>.peraa-input</code></td><td>Base input style — applies to text, email, password, number</td><td>Yes</td></tr>
+                            <tr><td><code>.peraa-label</code></td><td>Visible form label</td><td>Yes</td></tr>
+                            <tr><td><code>.peraa-input</code></td><td>Base input style — text, email, password, number</td><td>Yes</td></tr>
                             <tr><td><code>.peraa-input--error</code></td><td>Red border + ring for invalid state</td><td>No</td></tr>
                             <tr><td><code>.peraa-input--success</code></td><td>Green border + ring for valid state</td><td>No</td></tr>
                             <tr><td><code>.peraa-textarea</code></td><td>Add alongside <code>.peraa-input</code> for textarea sizing</td><td>No</td></tr>
                             <tr><td><code>.peraa-select</code></td><td>Add alongside <code>.peraa-input</code> for select styling</td><td>No</td></tr>
                             <tr><td><code>.peraa-field__hint</code></td><td>Helper text below the input</td><td>No</td></tr>
                             <tr><td><code>.peraa-field__hint--error</code></td><td>Error variant of hint text (red)</td><td>No</td></tr>
-                          </tbody>
-                        </table>
-
-                        <h3 class="peraa-doc-section__subtitle">Design Tokens</h3>
-                        <table class="peraa-table peraa-table--tokens">
-                          <thead><tr><th>Token</th><th>Light</th><th>Dark</th><th>Usage</th></tr></thead>
-                          <tbody>
-                            <tr><td><code>--peraa-input-bg</code></td><td>#ffffff</td><td>#18181b</td><td>Input background</td></tr>
-                            <tr><td><code>--peraa-input-border</code></td><td>--peraa-border-default</td><td>--peraa-border-default</td><td>Default border</td></tr>
-                            <tr><td><code>--peraa-input-border-focus</code></td><td>--peraa-color-purple-500</td><td>--peraa-color-purple-400</td><td>Focus ring</td></tr>
-                            <tr><td><code>--peraa-input-text</code></td><td>--peraa-text-primary</td><td>--peraa-text-primary</td><td>Typed text</td></tr>
-                            <tr><td><code>--peraa-input-placeholder</code></td><td>--peraa-text-tertiary</td><td>--peraa-text-tertiary</td><td>Placeholder text</td></tr>
-                            <tr><td><code>--peraa-input-border-error</code></td><td>--peraa-color-error-500</td><td>--peraa-color-error-500</td><td>Error state border</td></tr>
                           </tbody>
                         </table>
                       </div>
@@ -1828,7 +1786,7 @@ window.Peraa.ThemeManager.setTheme('light');</code></pre>
                               <div class="peraa-alert peraa-alert--warning">
                                 <div class="peraa-alert__content">
                                   <p class="peraa-alert__title">Attention needed</p>
-                                  <p class="peraa-alert__message">This action may have unintended side effects. Review before continuing.</p>
+                                  <p class="peraa-alert__message">This action may have unintended side effects.</p>
                                 </div>
                               </div>
                               <div class="peraa-alert peraa-alert--error">
@@ -1867,10 +1825,6 @@ window.Peraa.ThemeManager.setTheme('light');</code></pre>
 
 &lt;Alert variant="success" title="All done"&gt;
   Changes saved.
-&lt;/Alert&gt;
-
-&lt;Alert variant="error" title="Something went wrong"&gt;
-  Please try again.
 &lt;/Alert&gt;</code></pre>
                               </div>
                             </div>
@@ -1892,10 +1846,10 @@ window.Peraa.ThemeManager.setTheme('light');</code></pre>
                           <thead><tr><th>Class</th><th>Description</th><th>Required</th></tr></thead>
                           <tbody>
                             <tr><td><code>.peraa-alert</code></td><td>Base alert container (flex row with left border)</td><td>Yes</td></tr>
-                            <tr><td><code>.peraa-alert--info</code></td><td>Blue variant using <code>--peraa-color-info-500</code></td><td>One required</td></tr>
-                            <tr><td><code>.peraa-alert--success</code></td><td>Green variant using <code>--peraa-color-success-500</code></td><td>One required</td></tr>
-                            <tr><td><code>.peraa-alert--warning</code></td><td>Amber variant using <code>--peraa-color-warning-500</code></td><td>One required</td></tr>
-                            <tr><td><code>.peraa-alert--error</code></td><td>Red variant using <code>--peraa-color-error-500</code></td><td>One required</td></tr>
+                            <tr><td><code>.peraa-alert--info</code></td><td>Blue variant</td><td>One required</td></tr>
+                            <tr><td><code>.peraa-alert--success</code></td><td>Green variant</td><td>One required</td></tr>
+                            <tr><td><code>.peraa-alert--warning</code></td><td>Amber variant</td><td>One required</td></tr>
+                            <tr><td><code>.peraa-alert--error</code></td><td>Red variant</td><td>One required</td></tr>
                             <tr><td><code>.peraa-alert__content</code></td><td>Inner content wrapper</td><td>Yes</td></tr>
                             <tr><td><code>.peraa-alert__title</code></td><td>Bold short label (optional)</td><td>No</td></tr>
                             <tr><td><code>.peraa-alert__message</code></td><td>Body text of the alert</td><td>Yes</td></tr>
@@ -2095,7 +2049,7 @@ window.Peraa.ThemeManager.setTheme('light');</code></pre>
 
                   <!-- Teal Color Scale -->
                   <h3 class="peraa-heading-4 peraa-mb-4">Teal (Brand Accent)</h3>
-                  <p class="peraa-body" style="margin-bottom:1rem;">The secondary brand palette. Used for ambient glows, interactive hover states, card accent borders, and CTAs that need to read as "active" without purple. The 400–600 range is the primary active zone.</p>
+                  <p class="peraa-body" style="margin-bottom:1rem;">The secondary brand palette. Used for ambient glows, interactive hover states, card accent borders, and CTAs. The 400–600 range is the primary active zone.</p>
                   <table class="peraa-table peraa-table--tokens peraa-mb-8">
                     <thead><tr><th>Token</th><th>Value</th><th>Preview</th><th>Usage</th></tr></thead>
                     <tbody>
@@ -2115,17 +2069,17 @@ window.Peraa.ThemeManager.setTheme('light');</code></pre>
 
                   <!-- Semantic Tokens -->
                   <h3 class="peraa-heading-4 peraa-mb-4">Semantic Tokens</h3>
-                  <p class="peraa-body" style="margin-bottom:1rem;">Semantic tokens are the layer between raw color values and your UI. Always prefer semantic tokens over primitives — they automatically respond to the active theme (light or dark) so components remain consistent without per-component media queries.</p>
+                  <p class="peraa-body" style="margin-bottom:1rem;">Semantic tokens are the layer between raw color values and your UI. Always prefer semantic tokens over primitives — they automatically respond to the active theme.</p>
 
                   <h4 class="peraa-heading-6" style="margin:1.25rem 0 0.5rem;color:var(--peraa-text-secondary);">Surface</h4>
                   <table class="peraa-table peraa-table--tokens peraa-mb-6">
                     <thead><tr><th>Token</th><th>Light value</th><th>Dark value</th><th>Description</th></tr></thead>
                     <tbody>
-                      <tr><td><code>--peraa-surface-page</code></td><td>#fafafa</td><td>#09090b</td><td>Main page background. Dark mode carries ambient teal glow as background-image layers.</td></tr>
+                      <tr><td><code>--peraa-surface-page</code></td><td>#fafafa</td><td>#09090b</td><td>Main page background</td></tr>
                       <tr><td><code>--peraa-surface-card</code></td><td>#ffffff</td><td>#18181b</td><td>Card / panel background</td></tr>
-                      <tr><td><code>--peraa-surface-elevated</code></td><td>#ffffff</td><td>#27272a</td><td>Dropdowns, tooltips, modals — above card level</td></tr>
-                      <tr><td><code>--peraa-surface-subtle</code></td><td>#f4f4f5</td><td>#3f3f46</td><td>Muted fills, hover states, tag backgrounds</td></tr>
-                      <tr><td><code>--peraa-surface-overlay</code></td><td>rgba(0,0,0,0.4)</td><td>rgba(0,0,0,0.65)</td><td>Modal / drawer scrim overlay</td></tr>
+                      <tr><td><code>--peraa-surface-elevated</code></td><td>#ffffff</td><td>#27272a</td><td>Dropdowns, tooltips, modals</td></tr>
+                      <tr><td><code>--peraa-surface-subtle</code></td><td>#f4f4f5</td><td>#3f3f46</td><td>Muted fills, hover states</td></tr>
+                      <tr><td><code>--peraa-surface-overlay</code></td><td>rgba(0,0,0,0.4)</td><td>rgba(0,0,0,0.65)</td><td>Modal scrim</td></tr>
                     </tbody>
                   </table>
 
@@ -2135,10 +2089,10 @@ window.Peraa.ThemeManager.setTheme('light');</code></pre>
                     <tbody>
                       <tr><td><code>--peraa-text-primary</code></td><td>#09090b</td><td>#fafafa</td><td>Body text, headings</td></tr>
                       <tr><td><code>--peraa-text-secondary</code></td><td>#71717a</td><td>#a1a1aa</td><td>Descriptions, subheadings</td></tr>
-                      <tr><td><code>--peraa-text-tertiary</code></td><td>#a1a1aa</td><td>#52525b</td><td>Placeholders, hints, disabled labels</td></tr>
-                      <tr><td><code>--peraa-text-disabled</code></td><td>#d4d4d8</td><td>#3f3f46</td><td>Fully disabled state text</td></tr>
-                      <tr><td><code>--peraa-text-brand</code></td><td>#6F1FAC</td><td>#ab51e5</td><td>Overlines, active nav links, brand callouts</td></tr>
-                      <tr><td><code>--peraa-text-inverse</code></td><td>#fafafa</td><td>#09090b</td><td>Text on filled/inverted surfaces</td></tr>
+                      <tr><td><code>--peraa-text-tertiary</code></td><td>#a1a1aa</td><td>#52525b</td><td>Placeholders, hints</td></tr>
+                      <tr><td><code>--peraa-text-disabled</code></td><td>#d4d4d8</td><td>#3f3f46</td><td>Disabled state text</td></tr>
+                      <tr><td><code>--peraa-text-brand</code></td><td>#6F1FAC</td><td>#ab51e5</td><td>Overlines, active nav links</td></tr>
+                      <tr><td><code>--peraa-text-inverse</code></td><td>#fafafa</td><td>#09090b</td><td>Text on inverted surfaces</td></tr>
                     </tbody>
                   </table>
 
@@ -2161,7 +2115,6 @@ window.Peraa.ThemeManager.setTheme('light');</code></pre>
                       <tr><td><code>--peraa-interactive-primary-bg</code></td><td>#6F1FAC</td><td>#6F1FAC</td><td>Primary button fill</td></tr>
                       <tr><td><code>--peraa-interactive-primary-bg-hover</code></td><td>#5c1a8f</td><td>#ab51e5</td><td>Primary button hover</td></tr>
                       <tr><td><code>--peraa-interactive-primary-text</code></td><td>#ffffff</td><td>#ffffff</td><td>Text on primary button</td></tr>
-                      <tr><td><code>--peraa-interactive-secondary-bg</code></td><td>transparent</td><td>transparent</td><td>Secondary button fill</td></tr>
                       <tr><td><code>--peraa-interactive-secondary-border</code></td><td>#6F1FAC</td><td>#ab51e5</td><td>Secondary button border</td></tr>
                       <tr><td><code>--peraa-interactive-tertiary-text</code></td><td>#6F1FAC</td><td>#ab51e5</td><td>Tertiary / text-only button</td></tr>
                     </tbody>
@@ -2321,12 +2274,11 @@ window.Peraa.ThemeManager.setTheme('light');</code></pre>
                     </tbody>
                   </table>
 
-                  <!-- Line Height -->
                   <h3 class="peraa-heading-4 peraa-mb-4">Line Height</h3>
                   <table class="peraa-table peraa-table--tokens peraa-mb-8">
                     <thead><tr><th>Token</th><th>Value</th><th>Description</th></tr></thead>
                     <tbody>
-                      <tr><td><code>--peraa-line-height-tight</code></td><td>1.2</td><td>Large headings (h1, h2) — condensed for display use</td></tr>
+                      <tr><td><code>--peraa-line-height-tight</code></td><td>1.2</td><td>Large headings (h1, h2)</td></tr>
                       <tr><td><code>--peraa-line-height-snug</code></td><td>1.375</td><td>Subheadings (h3–h4)</td></tr>
                       <tr><td><code>--peraa-line-height-normal</code></td><td>1.5</td><td>Body text — default reading rhythm</td></tr>
                       <tr><td><code>--peraa-line-height-relaxed</code></td><td>1.625</td><td>Long-form reading, articles</td></tr>
@@ -2334,9 +2286,7 @@ window.Peraa.ThemeManager.setTheme('light');</code></pre>
                     </tbody>
                   </table>
 
-                  <!-- Letter Spacing -->
                   <h3 class="peraa-heading-4 peraa-mb-4">Letter Spacing</h3>
-                  <p class="peraa-body" style="margin-bottom:1rem;">Direction A (Premium Dark Editorial) uses negative tracking on large headings to tighten display type. Overlines use wide tracking to add visual contrast against heading copy.</p>
                   <table class="peraa-table peraa-table--tokens peraa-mb-8">
                     <thead><tr><th>Token</th><th>Value</th><th>Used on</th></tr></thead>
                     <tbody>
@@ -2349,7 +2299,6 @@ window.Peraa.ThemeManager.setTheme('light');</code></pre>
                     </tbody>
                   </table>
 
-                  <!-- Border Widths -->
                   <h3 class="peraa-heading-4 peraa-mb-4">Border Widths</h3>
                   <table class="peraa-table peraa-table--tokens peraa-mb-8">
                     <thead><tr><th>Token</th><th>Value</th><th>Description</th></tr></thead>
@@ -2361,12 +2310,11 @@ window.Peraa.ThemeManager.setTheme('light');</code></pre>
                     </tbody>
                   </table>
 
-                  <!-- Animation / Duration -->
                   <h3 class="peraa-heading-4 peraa-mb-4">Animation — Duration</h3>
                   <table class="peraa-table peraa-table--tokens peraa-mb-8">
                     <thead><tr><th>Token</th><th>Value</th><th>Use case</th></tr></thead>
                     <tbody>
-                      <tr><td><code>--peraa-duration-75</code></td><td>75ms</td><td>Instant micro-interactions (checkbox tick)</td></tr>
+                      <tr><td><code>--peraa-duration-75</code></td><td>75ms</td><td>Instant micro-interactions</td></tr>
                       <tr><td><code>--peraa-duration-100</code></td><td>100ms</td><td>Icon state changes</td></tr>
                       <tr><td><code>--peraa-duration-150</code></td><td>150ms</td><td>Button press feedback</td></tr>
                       <tr><td><code>--peraa-duration-200</code></td><td>200ms</td><td>Hover transitions (color, border)</td></tr>
@@ -2375,7 +2323,6 @@ window.Peraa.ThemeManager.setTheme('light');</code></pre>
                     </tbody>
                   </table>
 
-                  <!-- Easing -->
                   <h3 class="peraa-heading-4 peraa-mb-4">Animation — Easing</h3>
                   <table class="peraa-table peraa-table--tokens peraa-mb-8">
                     <thead><tr><th>Token</th><th>Value</th><th>Use case</th></tr></thead>
@@ -2387,9 +2334,7 @@ window.Peraa.ThemeManager.setTheme('light');</code></pre>
                     </tbody>
                   </table>
 
-                  <!-- Z-Index -->
                   <h3 class="peraa-heading-4 peraa-mb-4">Z-Index</h3>
-                  <p class="peraa-body" style="margin-bottom:1rem;">Use only the defined Z layers — never use arbitrary values. Layers establish a clear stacking context that prevents unresolvable overlap bugs.</p>
                   <table class="peraa-table peraa-table--tokens">
                     <thead><tr><th>Token</th><th>Value</th><th>Intended layer</th></tr></thead>
                     <tbody>
@@ -2416,54 +2361,35 @@ window.Peraa.ThemeManager.setTheme('light');</code></pre>
     <footer class="peraa-footer">
       <div class="peraa-footer__inner">
         <div class="peraa-footer__main">
-          <div class="peraa-footer__links">
-            <a href="https://www.linkedin.com/in/toddrlewis/" class="peraa-footer__link" target="_blank" rel="noopener noreferrer">
-              <svg class="peraa-footer__link-icon" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-              </svg>
-              LinkedIn
-            </a>
-            <a href="https://x.com/allbydesign13" class="peraa-footer__link" target="_blank" rel="noopener noreferrer">
-              <svg class="peraa-footer__link-icon" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-              </svg>
-              X
-            </a>
-            <a href="https://medium.com/@trldesignr" class="peraa-footer__link" target="_blank" rel="noopener noreferrer">
-              <svg class="peraa-footer__link-icon" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/>
-              </svg>
-              Medium
-            </a>
+          <div class="peraa-footer__brand">
+            <span class="peraa-footer__site-name">Peraa Design System</span>
+            <span class="peraa-footer__design-system">
+              Created by <a href="https://toddrlewis.com" class="peraa-footer__link" target="_blank" rel="noopener noreferrer" style="display: inline;">Todd R. Lewis</a>
+            </span>
           </div>
-          <div class="peraa-footer__contact">
-            <a href="../assets/TRL-Resume.pdf" class="peraa-footer__contact-link" target="_blank" rel="noopener noreferrer">
-              <svg class="peraa-footer__contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/>
+          <div class="peraa-footer__links">
+            <a href="https://github.com/allbydesign/peraa-design-system" class="peraa-footer__link" target="_blank" rel="noopener noreferrer">
+              <svg class="peraa-footer__link-icon" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/>
               </svg>
-              Resume
+              GitHub
             </a>
-            <div class="peraa-footer__contact-divider"></div>
-            <a href="mailto:trldesignr@gmail.com" class="peraa-footer__contact-link">
-              <svg class="peraa-footer__contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-                <polyline points="22,6 12,13 2,6"/>
+            <a href="https://www.npmjs.com/package/@peraa/design-system" class="peraa-footer__link" target="_blank" rel="noopener noreferrer">
+              <svg class="peraa-footer__link-icon" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M0 7.334v8h6.666v1.332H12v-1.332h12v-8H0zm6.666 6.664H5.334v-4H3.999v4H1.335V8.667h5.331v5.331zm4 0v1.336H8.001V8.667h5.334v5.332h-2.669v-.001zm12.001 0h-1.33v-4h-1.336v4h-1.335v-4h-1.33v4h-2.671V8.667h8.002v5.331zM10.665 10H12v2.667h-1.335V10z"/>
               </svg>
-              trldesignr@gmail.com
+              npm
             </a>
           </div>
         </div>
         <div class="peraa-footer__bottom">
-          <p class="peraa-footer__copyright">© 2026 Todd R. Lewis. All rights reserved.</p>
-          <span class="peraa-footer__design-system">
-            Built with <span class="peraa-footer__design-system-name">Peraa</span> Design System. Not a template
-          </span>
+          <p class="peraa-footer__copyright">© 2026 Peraa Design System. MIT License.</p>
         </div>
       </div>
     </footer>
   </div>
 
-  <script src="../js/main.js"></script>
+  <script src="js/main.js"></script>
   <script>
     // Component Navigation
     document.addEventListener('DOMContentLoaded', () => {
