@@ -36,6 +36,8 @@
 @import './components/_articles.css';
 @import './components/_forms.css';
 @import './components/_alert.css';
+@import './components/_modal.css';
+@import './components/_glass.css';
 
 /* ═══════════════════════════════════════════════════════════════════════════
    LAYOUT UTILITIES
@@ -203,7 +205,7 @@
 }
 
 [data-theme="dark"] .peraa-page {
-  background-color: #09090b;
+  background-color: var(--peraa-color-neutral-950);
   background-image:
     radial-gradient(ellipse 1280px 1280px at -80px -80px, rgba(20, 184, 166, 0.14) 0%, transparent 70%),
     radial-gradient(ellipse 900px 900px at 400px 600px, rgba(111, 31, 172, 0.11) 0%, transparent 58%),

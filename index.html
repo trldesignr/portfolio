@@ -245,7 +245,7 @@
 
     /* ─── Stats Banner ─── */
     .index-stats {
-      background: #ffffff;
+      background: var(--peraa-surface-card);
       min-height: 300px;
       display: flex;
       align-items: center;
@@ -288,23 +288,23 @@
 
     .index-stats__number {
       font-size: clamp(2.75rem, 5vw, 4rem);
-      font-weight: var(--peraa-font-weight-bold, 700);
-      color: #111111;
+      font-weight: var(--peraa-font-weight-bold);
+      color: var(--peraa-text-primary);
       line-height: 1;
-      font-family: var(--peraa-font-sans);
+      font-family: var(--peraa-font-family-heading);
       font-variant-numeric: tabular-nums;
     }
 
     .index-stats__unit {
-      font-size: var(--peraa-font-size-lg, 1.125rem);
-      font-weight: var(--peraa-font-weight-medium, 500);
-      color: #555555;
+      font-size: var(--peraa-font-size-lg);
+      font-weight: var(--peraa-font-weight-medium);
+      color: var(--peraa-text-secondary);
       line-height: 1.2;
     }
 
     .index-stats__desc {
-      font-size: var(--peraa-font-size-sm, 0.875rem);
-      color: #777777;
+      font-size: var(--peraa-font-size-sm);
+      color: var(--peraa-text-tertiary);
       line-height: 1.6;
       max-width: 280px;
       text-align: center;
@@ -387,6 +387,23 @@
 
     [data-theme="light"] .index-overview__cta:hover {
       color: var(--peraa-color-teal-700);
+    }
+
+    [data-theme="light"] .index-overview__inner {
+      padding: 0;
+    }
+
+    [data-theme="light"] .index-overview {
+      border-top: none;
+      max-width: 1040px;
+      margin: 0 auto var(--peraa-spacing-6);
+      padding: var(--peraa-spacing-12) var(--peraa-spacing-8);
+      background: var(--peraa-glass-bg);
+      border: 1px solid var(--peraa-glass-border);
+      border-radius: var(--peraa-radius-2xl);
+      backdrop-filter: var(--peraa-glass-blur);
+      -webkit-backdrop-filter: var(--peraa-glass-blur);
+      box-shadow: var(--peraa-glass-shadow);
     }
 
     .index-overview__points {
@@ -655,6 +672,7 @@
             </a>
           </div>
           <div class="peraa-footer__contact">
+<<<<<<< Updated upstream
             <!--<a href="assets/TRL-Resume.pdf" class="peraa-footer__contact-link" target="_blank" rel="noopener noreferrer">
               <svg class="peraa-footer__contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/>
@@ -663,6 +681,9 @@
             </a>-->
             <div class="peraa-footer__contact-divider"></div>
             <a href="mailto:trldesignr@gmail.com" class="peraa-footer__contact-link">
+=======
+            <a href="#" class="peraa-footer__contact-link" data-modal-trigger="conversation">
+>>>>>>> Stashed changes
               <svg class="peraa-footer__contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
                 <polyline points="22,6 12,13 2,6"/>
@@ -747,5 +768,7 @@
       }
     })();
   </script>
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script src="js/contact-modal.js"></script>
 </body>
 </html>

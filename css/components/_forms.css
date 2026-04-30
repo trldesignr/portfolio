@@ -16,28 +16,28 @@
 
 /* ─── Custom tokens (extend semantic layer) ─────────────────────────────── */
 [data-theme="light"] {
-  --peraa-input-bg: #ffffff;
+  --peraa-input-bg: var(--peraa-color-neutral-0);
   --peraa-input-border: var(--peraa-border-default);
   --peraa-input-text: var(--peraa-text-primary);
   --peraa-input-placeholder: var(--peraa-text-tertiary);
   --peraa-input-focus-ring: var(--peraa-color-purple-500);
-  --peraa-input-border-error: #ef4444;
-  --peraa-input-border-success: #22c55e;
-  --peraa-hint-error: #dc2626;
-  --peraa-hint-success: #16a34a;
+  --peraa-input-border-error: var(--peraa-color-error-500);
+  --peraa-input-border-success: var(--peraa-color-success-500);
+  --peraa-hint-error: var(--peraa-color-error-600);
+  --peraa-hint-success: var(--peraa-color-success-600);
 }
 
 :root,
 [data-theme="dark"] {
-  --peraa-input-bg: #1c1c1f;
-  --peraa-input-border: rgba(255, 255, 255, 0.1);
+  --peraa-input-bg: var(--peraa-color-neutral-900);
+  --peraa-input-border: var(--peraa-border-subtle);
   --peraa-input-text: var(--peraa-text-primary);
   --peraa-input-placeholder: var(--peraa-text-tertiary);
   --peraa-input-focus-ring: var(--peraa-color-purple-400);
-  --peraa-input-border-error: #f87171;
-  --peraa-input-border-success: #4ade80;
-  --peraa-hint-error: #f87171;
-  --peraa-hint-success: #4ade80;
+  --peraa-input-border-error: var(--peraa-color-error-400);
+  --peraa-input-border-success: var(--peraa-color-success-400);
+  --peraa-hint-error: var(--peraa-color-error-400);
+  --peraa-hint-success: var(--peraa-color-success-400);
 }
 
 /* ─── Field wrapper ──────────────────────────────────────────────────────── */
@@ -87,11 +87,7 @@
 
 .peraa-input:focus {
   border-color: var(--peraa-input-focus-ring);
-  box-shadow: 0 0 0 3px rgba(111, 31, 172, 0.15);
-}
-
-[data-theme="dark"] .peraa-input:focus {
-  box-shadow: 0 0 0 3px rgba(171, 81, 229, 0.2);
+  box-shadow: var(--peraa-focus-ring-shadow);
 }
 
 /* ─── State modifiers ────────────────────────────────────────────────────── */
@@ -100,7 +96,7 @@
 }
 
 .peraa-input--error:focus {
-  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.15);
+  box-shadow: 0 0 0 3px var(--peraa-status-error-bg-subtle);
 }
 
 .peraa-input--success {
@@ -108,7 +104,7 @@
 }
 
 .peraa-input--success:focus {
-  box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.15);
+  box-shadow: 0 0 0 3px var(--peraa-status-success-bg-subtle);
 }
 
 .peraa-input:disabled {

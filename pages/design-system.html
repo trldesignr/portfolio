@@ -277,6 +277,8 @@ window.Peraa.ThemeManager.setTheme('light');</code></pre>
                         <button class="peraa-vnav__item" data-component="flip-card">Flip Card</button>
                         <button class="peraa-vnav__item" data-component="form-inputs">Form Inputs</button>
                         <button class="peraa-vnav__item" data-component="alert">Alert</button>
+                        <button class="peraa-vnav__item" data-component="glass">Glass</button>
+                        <button class="peraa-vnav__item" data-component="modal">Modal</button>
                       </div>
                     </nav>
                   </aside>
@@ -1904,6 +1906,138 @@ window.Peraa.ThemeManager.setTheme('light');</code></pre>
                       </div>
                     </div>
 
+                    <!-- ── Glass ── -->
+                    <div class="peraa-component-doc" data-doc="glass" style="display: none;">
+                      <div class="peraa-doc-section">
+                        <h2 class="peraa-doc-section__title">Glass</h2>
+                        <p class="peraa-doc-section__description">
+                          A glassmorphism surface style driven entirely by semantic tokens. In light mode the surface is translucent with a backdrop blur and a subtle teal-to-purple radial gradient. In dark mode it resolves to a solid <code>neutral-800</code> card — no blur, no transparency. Apply <code>.peraa-glass</code> to any container for immediate theme-aware glass styling. Layout properties (width, padding, margin) are always applied separately on the element.
+                        </p>
+
+                        <div class="peraa-preview">
+                          <div class="peraa-preview__visual" style="min-height:200px;display:flex;gap:1.5rem;align-items:center;justify-content:center;flex-wrap:wrap;">
+                            <div class="peraa-glass" style="padding:var(--peraa-spacing-8);max-width:280px;text-align:center;">
+                              <p style="font-weight:var(--peraa-font-weight-semibold);margin-bottom:var(--peraa-spacing-2);color:var(--peraa-text-primary);">Glass Card</p>
+                              <p style="font-size:var(--peraa-font-size-sm);color:var(--peraa-text-secondary);">Switch to light mode to see the translucent blur effect with a subtle gradient overlay.</p>
+                            </div>
+                          </div>
+                          <div class="peraa-preview__code">
+                            <div class="peraa-framework-switch-bar">
+                              <div class="peraa-framework-switch">
+                                <button class="peraa-framework-switch__btn peraa-framework-switch__btn--active" data-code="tailwind">HTML</button>
+                              </div>
+                            </div>
+                            <div class="peraa-framework-code" data-code="tailwind">
+                              <div class="peraa-code-block"><div class="peraa-code-block__header"><span class="peraa-code-block__lang">HTML</span></div>
+                                <pre class="peraa-code-block__pre"><code class="peraa-code-block__code">&lt;div class="peraa-glass" style="padding: var(--peraa-spacing-8);"&gt;
+  Card content
+&lt;/div&gt;</code></pre>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <h3 class="peraa-doc-section__subtitle">Tokens</h3>
+                        <table class="peraa-table">
+                          <thead><tr><th>Token</th><th>Dark</th><th>Light</th></tr></thead>
+                          <tbody>
+                            <tr><td><code>--peraa-glass-bg</code></td><td><code>neutral-800</code> solid</td><td>Translucent white + teal/purple radial gradients</td></tr>
+                            <tr><td><code>--peraa-glass-border</code></td><td><code>neutral-700</code></td><td><code>rgba(255,255,255,0.75)</code></td></tr>
+                            <tr><td><code>--peraa-glass-blur</code></td><td><code>none</code></td><td><code>blur(20px) saturate(1.4)</code></td></tr>
+                            <tr><td><code>--peraa-glass-shadow</code></td><td><code>none</code></td><td>Layered outer + inner top highlight</td></tr>
+                            <tr><td><code>--peraa-glass-radius</code></td><td colspan="2"><code>--peraa-radius-xl</code> (1rem)</td></tr>
+                          </tbody>
+                        </table>
+
+                        <h3 class="peraa-doc-section__subtitle" style="margin-top:var(--peraa-spacing-6);">Classes</h3>
+                        <table class="peraa-table">
+                          <thead><tr><th>Class</th><th>Description</th><th>Required</th></tr></thead>
+                          <tbody>
+                            <tr><td><code>.peraa-glass</code></td><td>Applies all glass tokens: background, border, border-radius, backdrop-filter, box-shadow</td><td>Yes</td></tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+
+                    <!-- ── Modal ── -->
+                    <div class="peraa-component-doc" data-doc="modal" style="display: none;">
+                      <div class="peraa-doc-section">
+                        <h2 class="peraa-doc-section__title">Modal</h2>
+                        <p class="peraa-doc-section__description">
+                          A dynamically rendered, accessible dialog for capturing user input. Two configurations are supported out of the box: <strong>Workshop Inquiry</strong> (Name, Company, Session Type) and <strong>Start a Conversation</strong> (Name, Email, Message). Modals are triggered via <code>data-modal-trigger</code> attributes on any element. Submission is handled client-side via EmailJS — no backend required.
+                        </p>
+
+                        <div class="peraa-preview">
+                          <div class="peraa-preview__visual" style="min-height:80px;display:flex;gap:1.5rem;align-items:center;justify-content:center;flex-wrap:wrap;">
+                            <button class="peraa-btn peraa-btn--primary" data-modal-trigger="workshop">Open Workshop Modal</button>
+                            <button class="peraa-btn peraa-btn--secondary" data-modal-trigger="conversation">Open Conversation Modal</button>
+                          </div>
+                          <div class="peraa-preview__code">
+                            <div class="peraa-framework-switch-bar">
+                              <div class="peraa-framework-switch">
+                                <button class="peraa-framework-switch__btn peraa-framework-switch__btn--active" data-code="tailwind">HTML</button>
+                              </div>
+                            </div>
+                            <div class="peraa-framework-code" data-code="tailwind">
+                              <div class="peraa-code-block"><div class="peraa-code-block__header"><span class="peraa-code-block__lang">HTML</span></div>
+                                <pre class="peraa-code-block__pre"><code class="peraa-code-block__code">&lt;!-- Workshop Inquiry trigger --&gt;
+&lt;button data-modal-trigger="workshop"&gt;Book a Workshop&lt;/button&gt;
+
+&lt;!-- Start a Conversation trigger --&gt;
+&lt;button data-modal-trigger="conversation"&gt;Start a Conversation&lt;/button&gt;
+
+&lt;!-- Link trigger (footer pattern) --&gt;
+&lt;a href="#" data-modal-trigger="conversation"&gt;
+  trldesignr@gmail.com
+&lt;/a&gt;</code></pre>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <h3 class="peraa-doc-section__subtitle">Props / Attributes</h3>
+                        <table class="peraa-table">
+                          <thead><tr><th>Attribute</th><th>Values</th><th>Description</th></tr></thead>
+                          <tbody>
+                            <tr><td><code>data-modal-trigger</code></td><td><code>"workshop"</code> | <code>"conversation"</code></td><td>Placed on any clickable element to open the modal with the matching form configuration</td></tr>
+                          </tbody>
+                        </table>
+
+                        <h3 class="peraa-doc-section__subtitle" style="margin-top:var(--peraa-spacing-6);">Modal Types</h3>
+                        <table class="peraa-table">
+                          <thead><tr><th>Type</th><th>Fields</th><th>EmailJS Template</th></tr></thead>
+                          <tbody>
+                            <tr><td><code>workshop</code></td><td>Full Name, Company, Session Type (1:1 or Team)</td><td><code>template_snotsri</code></td></tr>
+                            <tr><td><code>conversation</code></td><td>Full Name, Email, Message</td><td><code>template_s2eoihd</code></td></tr>
+                          </tbody>
+                        </table>
+
+                        <h3 class="peraa-doc-section__subtitle" style="margin-top:var(--peraa-spacing-6);">Key Classes</h3>
+                        <table class="peraa-table">
+                          <thead><tr><th>Class</th><th>Description</th></tr></thead>
+                          <tbody>
+                            <tr><td><code>.peraa-modal-overlay</code></td><td>Full-screen backdrop (semi-transparent, closes modal on click)</td></tr>
+                            <tr><td><code>.peraa-modal</code></td><td>Dialog container (max 480px, centered, glass-surface background)</td></tr>
+                            <tr><td><code>.peraa-modal__header</code></td><td>Title + close button row</td></tr>
+                            <tr><td><code>.peraa-modal__body</code></td><td>Scrollable form content area</td></tr>
+                            <tr><td><code>.peraa-modal__footer</code></td><td>Submit button + privacy disclaimer</td></tr>
+                            <tr><td><code>.peraa-modal__privacy</code></td><td>Small <code>--peraa-font-size-xs</code> disclaimer text below submit</td></tr>
+                            <tr><td><code>.peraa-modal__feedback</code></td><td>Inline success/error message bar above the submit button</td></tr>
+                            <tr><td><code>.peraa-form-group</code></td><td>Label + input column wrapper, gap <code>--peraa-spacing-1-5</code></td></tr>
+                            <tr><td><code>.peraa-form-input</code></td><td>Text input styled with <code>--peraa-input-*</code> tokens</td></tr>
+                            <tr><td><code>.peraa-form-select</code></td><td>Select input styled with <code>--peraa-input-*</code> tokens</td></tr>
+                          </tbody>
+                        </table>
+
+                        <h3 class="peraa-doc-section__subtitle" style="margin-top:var(--peraa-spacing-6);">Scripts Required</h3>
+                        <p class="peraa-body" style="margin-bottom:var(--peraa-spacing-3);">Both scripts must be loaded before <code>&lt;/body&gt;</code>. Use the correct relative path for the page's depth.</p>
+                        <div class="peraa-code-block"><div class="peraa-code-block__header"><span class="peraa-code-block__lang">HTML</span></div>
+                          <pre class="peraa-code-block__pre"><code class="peraa-code-block__code">&lt;script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"&gt;&lt;/script&gt;
+&lt;script src="js/contact-modal.js"&gt;&lt;/script&gt;</code></pre>
+                        </div>
+                      </div>
+                    </div>
+
                   </div>
                 </div>
               </div>
@@ -2179,7 +2313,9 @@ window.Peraa.ThemeManager.setTheme('light');</code></pre>
                     </thead>
                     <tbody>
                       <tr><td><code>--peraa-spacing-1</code></td><td>0.25rem</td><td>4px</td><td>Extra small</td></tr>
+                      <tr><td><code>--peraa-spacing-1-5</code></td><td>0.375rem</td><td>6px</td><td>Form gap, tight inline spacing</td></tr>
                       <tr><td><code>--peraa-spacing-2</code></td><td>0.5rem</td><td>8px</td><td>Small</td></tr>
+                      <tr><td><code>--peraa-spacing-2-5</code></td><td>0.625rem</td><td>10px</td><td>Input padding vertical</td></tr>
                       <tr><td><code>--peraa-spacing-3</code></td><td>0.75rem</td><td>12px</td><td>Medium small</td></tr>
                       <tr><td><code>--peraa-spacing-4</code></td><td>1rem</td><td>16px</td><td>Base</td></tr>
                       <tr><td><code>--peraa-spacing-5</code></td><td>1.25rem</td><td>20px</td><td>Medium</td></tr>
@@ -2403,6 +2539,42 @@ window.Peraa.ThemeManager.setTheme('light');</code></pre>
                     </tbody>
                   </table>
 
+                  <!-- Glass Tokens -->
+                  <h3 class="peraa-heading-4 peraa-mb-4" style="margin-top:var(--peraa-spacing-8);">Glass — Semantic Tokens</h3>
+                  <p class="peraa-body" style="margin-bottom:1rem;">All values are defined per theme. Apply via the <code>.peraa-glass</code> component class — do not use these tokens directly in component styles unless you are building a glass variant.</p>
+                  <table class="peraa-table peraa-table--tokens peraa-mb-8">
+                    <thead><tr><th>Token</th><th>Dark value</th><th>Light value</th></tr></thead>
+                    <tbody>
+                      <tr><td><code>--peraa-glass-bg</code></td><td><code>neutral-800</code> solid</td><td>Translucent white + teal/purple radial gradients</td></tr>
+                      <tr><td><code>--peraa-glass-border</code></td><td><code>neutral-700</code></td><td><code>rgba(255,255,255,0.75)</code></td></tr>
+                      <tr><td><code>--peraa-glass-blur</code></td><td><code>none</code></td><td><code>blur(20px) saturate(1.4)</code></td></tr>
+                      <tr><td><code>--peraa-glass-shadow</code></td><td><code>none</code></td><td>Layered outer shadow + inner top highlight</td></tr>
+                      <tr><td><code>--peraa-glass-radius</code></td><td colspan="2"><code>--peraa-radius-xl</code> (1rem)</td></tr>
+                    </tbody>
+                  </table>
+
+                  <!-- Focus Ring Token -->
+                  <h3 class="peraa-heading-4 peraa-mb-4">Focus Ring</h3>
+                  <table class="peraa-table peraa-table--tokens peraa-mb-8">
+                    <thead><tr><th>Token</th><th>Dark</th><th>Light</th></tr></thead>
+                    <tbody>
+                      <tr><td><code>--peraa-focus-ring-shadow</code></td><td><code>0 0 0 3px rgba(purple-500, 0.2)</code></td><td><code>0 0 0 3px rgba(purple-500, 0.15)</code></td></tr>
+                    </tbody>
+                  </table>
+
+                  <!-- Status Subtle Backgrounds -->
+                  <h3 class="peraa-heading-4 peraa-mb-4">Status — Subtle Backgrounds</h3>
+                  <p class="peraa-body" style="margin-bottom:1rem;">Low-opacity status backgrounds used for feedback banners and toast surfaces. Theme-aware.</p>
+                  <table class="peraa-table peraa-table--tokens">
+                    <thead><tr><th>Token</th><th>Description</th></tr></thead>
+                    <tbody>
+                      <tr><td><code>--peraa-status-success-bg-subtle</code></td><td>Muted green tint — success feedback banners</td></tr>
+                      <tr><td><code>--peraa-status-warning-bg-subtle</code></td><td>Muted amber tint — warning feedback banners</td></tr>
+                      <tr><td><code>--peraa-status-error-bg-subtle</code></td><td>Muted red tint — error feedback banners</td></tr>
+                      <tr><td><code>--peraa-status-info-bg-subtle</code></td><td>Muted blue tint — info feedback banners</td></tr>
+                    </tbody>
+                  </table>
+
                 </div>
               </div>
 
@@ -2437,14 +2609,7 @@ window.Peraa.ThemeManager.setTheme('light');</code></pre>
             </a>
           </div>
           <div class="peraa-footer__contact">
-            <a href="../assets/TRL-Resume.pdf" class="peraa-footer__contact-link" target="_blank" rel="noopener noreferrer">
-              <svg class="peraa-footer__contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/>
-              </svg>
-              Resume
-            </a>
-            <div class="peraa-footer__contact-divider"></div>
-            <a href="mailto:trldesignr@gmail.com" class="peraa-footer__contact-link">
+            <a href="#" class="peraa-footer__contact-link" data-modal-trigger="conversation">
               <svg class="peraa-footer__contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
                 <polyline points="22,6 12,13 2,6"/>
@@ -2493,5 +2658,7 @@ window.Peraa.ThemeManager.setTheme('light');</code></pre>
       }
     });
   </script>
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script src="../js/contact-modal.js"></script>
 </body>
 </html>
