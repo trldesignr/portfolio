@@ -150,7 +150,7 @@
 }
 
 .peraa-form-input::placeholder {
-  color: var(--peraa-text-disabled);
+  color: var(--peraa-text-tertiary);
 }
 
 .peraa-form-input:focus,

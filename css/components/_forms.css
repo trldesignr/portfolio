@@ -15,18 +15,6 @@
    ═══════════════════════════════════════════════════════════════════════════ */
 
 /* ─── Custom tokens (extend semantic layer) ─────────────────────────────── */
-[data-theme="light"] {
-  --peraa-input-bg: var(--peraa-color-neutral-0);
-  --peraa-input-border: var(--peraa-border-default);
-  --peraa-input-text: var(--peraa-text-primary);
-  --peraa-input-placeholder: var(--peraa-text-tertiary);
-  --peraa-input-focus-ring: var(--peraa-color-purple-500);
-  --peraa-input-border-error: var(--peraa-color-error-500);
-  --peraa-input-border-success: var(--peraa-color-success-500);
-  --peraa-hint-error: var(--peraa-color-error-600);
-  --peraa-hint-success: var(--peraa-color-success-600);
-}
-
 :root,
 [data-theme="dark"] {
   --peraa-input-bg: var(--peraa-color-neutral-900);
@@ -38,6 +26,18 @@
   --peraa-input-border-success: var(--peraa-color-success-400);
   --peraa-hint-error: var(--peraa-color-error-400);
   --peraa-hint-success: var(--peraa-color-success-400);
+}
+
+[data-theme="light"] {
+  --peraa-input-bg: var(--peraa-color-neutral-0);
+  --peraa-input-border: var(--peraa-border-default);
+  --peraa-input-text: var(--peraa-text-primary);
+  --peraa-input-placeholder: var(--peraa-text-tertiary);
+  --peraa-input-focus-ring: var(--peraa-color-purple-500);
+  --peraa-input-border-error: var(--peraa-color-error-500);
+  --peraa-input-border-success: var(--peraa-color-success-500);
+  --peraa-hint-error: var(--peraa-color-error-600);
+  --peraa-hint-success: var(--peraa-color-success-600);
 }
 
 /* ─── Field wrapper ──────────────────────────────────────────────────────── */
