@@ -45,7 +45,7 @@
   color: var(--peraa-color-teal-300);
 }
 
-/* Status variants */
+/* Status variants — dark mode (default) */
 .peraa-badge--success {
   background-color: rgba(34, 197, 94, 0.15);
   color: var(--peraa-color-success-500);
@@ -64,6 +64,27 @@
 .peraa-badge--info {
   background-color: rgba(14, 165, 233, 0.15);
   color: var(--peraa-color-info-500);
+}
+
+/* Status variants — light mode overrides (WCAG AA compliant) */
+[data-theme="light"] .peraa-badge--success {
+  background-color: rgba(34, 197, 94, 0.08);
+  color: var(--peraa-color-success-700);
+}
+
+[data-theme="light"] .peraa-badge--warning {
+  background-color: rgba(245, 158, 11, 0.08);
+  color: var(--peraa-color-warning-700);
+}
+
+[data-theme="light"] .peraa-badge--error {
+  background-color: rgba(239, 68, 68, 0.08);
+  color: var(--peraa-color-error-700);
+}
+
+[data-theme="light"] .peraa-badge--info {
+  background-color: rgba(14, 165, 233, 0.08);
+  color: var(--peraa-color-info-700);
 }
 
 /* Outline variant */

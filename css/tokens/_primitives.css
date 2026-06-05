@@ -57,11 +57,26 @@
   --peraa-color-accent-gold-500: #eab308;
   --peraa-color-accent-blue-500: #3b82f6;
 
-  /* Status Colors (placeholders - update later) */
+  /* Status Colors */
+  --peraa-color-success-400: #4ade80;
   --peraa-color-success-500: #22c55e;
+  --peraa-color-success-600: #16a34a;
+  --peraa-color-success-700: #15803d;
+
+  --peraa-color-warning-400: #fbbf24;
   --peraa-color-warning-500: #f59e0b;
+  --peraa-color-warning-600: #d97706;
+  --peraa-color-warning-700: #b45309;
+
+  --peraa-color-error-400: #f87171;
   --peraa-color-error-500: #ef4444;
+  --peraa-color-error-600: #dc2626;
+  --peraa-color-error-700: #b91c1c;
+
+  --peraa-color-info-400: #38bdf8;
   --peraa-color-info-500: #0ea5e9;
+  --peraa-color-info-600: #0284c7;
+  --peraa-color-info-700: #0369a1;
 
   /* ═══════════════════════════════════════════════════════════════════════════
      TYPOGRAPHY PRIMITIVES
@@ -73,6 +88,7 @@
   --peraa-font-family-mono: 'JetBrains Mono', 'Fira Code', 'SF Mono', monospace;
 
   /* Font Sizes */
+  --peraa-font-size-2xs: 0.625rem;   /* 10px */
   --peraa-font-size-xs: 0.75rem;     /* 12px */
   --peraa-font-size-sm: 0.875rem;    /* 14px */
   --peraa-font-size-base: 1rem;      /* 16px */
@@ -110,19 +126,21 @@
      ═══════════════════════════════════════════════════════════════════════════ */
 
   --peraa-spacing-0: 0;
-  --peraa-spacing-1: 0.25rem;   /* 4px */
-  --peraa-spacing-2: 0.5rem;    /* 8px */
-  --peraa-spacing-3: 0.75rem;   /* 12px */
-  --peraa-spacing-4: 1rem;      /* 16px */
-  --peraa-spacing-5: 1.25rem;   /* 20px */
-  --peraa-spacing-6: 1.5rem;    /* 24px */
-  --peraa-spacing-8: 2rem;      /* 32px */
-  --peraa-spacing-10: 2.5rem;   /* 40px */
-  --peraa-spacing-12: 3rem;     /* 48px */
-  --peraa-spacing-16: 4rem;     /* 64px */
-  --peraa-spacing-20: 5rem;     /* 80px */
-  --peraa-spacing-24: 6rem;     /* 96px */
-  --peraa-spacing-32: 8rem;     /* 128px */
+  --peraa-spacing-1: 0.25rem;    /* 4px */
+  --peraa-spacing-1-5: 0.375rem; /* 6px */
+  --peraa-spacing-2: 0.5rem;     /* 8px */
+  --peraa-spacing-2-5: 0.625rem; /* 10px */
+  --peraa-spacing-3: 0.75rem;    /* 12px */
+  --peraa-spacing-4: 1rem;       /* 16px */
+  --peraa-spacing-5: 1.25rem;    /* 20px */
+  --peraa-spacing-6: 1.5rem;     /* 24px */
+  --peraa-spacing-8: 2rem;       /* 32px */
+  --peraa-spacing-10: 2.5rem;    /* 40px */
+  --peraa-spacing-12: 3rem;      /* 48px */
+  --peraa-spacing-16: 4rem;      /* 64px */
+  --peraa-spacing-20: 5rem;      /* 80px */
+  --peraa-spacing-24: 6rem;      /* 96px */
+  --peraa-spacing-32: 8rem;      /* 128px */
 
   /* ═══════════════════════════════════════════════════════════════════════════
      BORDER & RADIUS PRIMITIVES

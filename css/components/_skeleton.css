@@ -1,0 +1,113 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   SKELETON LOADER
+   Peraa Design System — Skeleton component
+
+   Animated placeholder shapes that preview content layout while loading.
+   Uses a shimmer animation. Compose shapes to match any content layout.
+
+   Structure:
+     .peraa-skeleton                    (base, rect)
+     .peraa-skeleton.peraa-skeleton--text
+     .peraa-skeleton.peraa-skeleton--circle
+     .peraa-skeleton.peraa-skeleton--heading
+
+     Compound:
+     .peraa-skeleton-card
+       .peraa-skeleton.peraa-skeleton--circle
+       .peraa-skeleton-lines
+         .peraa-skeleton.peraa-skeleton--text
+         .peraa-skeleton.peraa-skeleton--text.peraa-skeleton--short
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* ─── Tokens ──────────────────────────────────────────────────────────────── */
+:root,
+[data-theme="dark"] {
+  --peraa-skeleton-base: var(--peraa-color-neutral-800);
+  --peraa-skeleton-highlight: var(--peraa-color-neutral-700);
+}
+
+[data-theme="light"] {
+  --peraa-skeleton-base: var(--peraa-color-neutral-200);
+  --peraa-skeleton-highlight: var(--peraa-color-neutral-100);
+}
+
+/* ─── Base ────────────────────────────────────────────────────────────────── */
+.peraa-skeleton {
+  display: block;
+  background: linear-gradient(
+    90deg,
+    var(--peraa-skeleton-base) 25%,
+    var(--peraa-skeleton-highlight) 50%,
+    var(--peraa-skeleton-base) 75%
+  );
+  background-size: 200% 100%;
+  animation: peraa-shimmer 1.5s ease-in-out infinite;
+  border-radius: var(--peraa-radius-sm);
+  height: 1em;
+  width: 100%;
+}
+
+@keyframes peraa-shimmer {
+  0% { background-position: 200% center; }
+  100% { background-position: -200% center; }
+}
+
+/* ─── Shape variants ──────────────────────────────────────────────────────── */
+.peraa-skeleton--text {
+  height: 0.875rem;
+  border-radius: var(--peraa-radius-sm);
+}
+
+.peraa-skeleton--heading {
+  height: 1.5rem;
+  border-radius: var(--peraa-radius-sm);
+}
+
+.peraa-skeleton--circle {
+  border-radius: var(--peraa-radius-full);
+  width: 40px;
+  height: 40px;
+}
+
+.peraa-skeleton--rect {
+  border-radius: var(--peraa-radius-md);
+  height: auto;
+  aspect-ratio: 16 / 9;
+}
+
+.peraa-skeleton--button {
+  height: 40px;
+  width: 120px;
+  border-radius: var(--peraa-radius-md);
+}
+
+/* ─── Width helpers ───────────────────────────────────────────────────────── */
+.peraa-skeleton--short { width: 60%; }
+.peraa-skeleton--medium { width: 80%; }
+.peraa-skeleton--full { width: 100%; }
+
+/* ─── Compound: skeleton lines ────────────────────────────────────────────── */
+.peraa-skeleton-lines {
+  display: flex;
+  flex-direction: column;
+  gap: var(--peraa-spacing-2);
+  flex: 1;
+}
+
+/* ─── Compound: card skeleton ─────────────────────────────────────────────── */
+.peraa-skeleton-card {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--peraa-spacing-3);
+  padding: var(--peraa-spacing-4);
+  border: var(--peraa-border-width-1) solid var(--peraa-border-subtle);
+  border-radius: var(--peraa-radius-lg);
+}
+
+/* ─── No-animation for reduced-motion users ───────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .peraa-skeleton {
+    animation: none;
+    background: var(--peraa-skeleton-base);
+  }
+}

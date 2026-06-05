@@ -1,0 +1,120 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   SEARCH INPUT
+   Peraa Design System — Search Input component
+
+   Text input with a leading search icon and optional clear button.
+   Can be rendered standalone or inside a form. Supports loading state.
+
+   Structure:
+     .peraa-search
+       .peraa-search__icon  (search svg)
+       input.peraa-search__input[type="search"]
+       button.peraa-search__clear  (optional, shown when has value)
+       .peraa-search__spinner  (optional, shown while loading)
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* ─── Container ───────────────────────────────────────────────────────────── */
+.peraa-search {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+/* ─── Leading icon ────────────────────────────────────────────────────────── */
+.peraa-search__icon {
+  position: absolute;
+  left: var(--peraa-spacing-3);
+  width: 16px;
+  height: 16px;
+  color: var(--peraa-text-tertiary);
+  pointer-events: none;
+  flex-shrink: 0;
+  transition: color var(--peraa-duration-150) var(--peraa-ease-out);
+}
+
+/* ─── Input ───────────────────────────────────────────────────────────────── */
+.peraa-search__input {
+  width: 100%;
+  padding: var(--peraa-spacing-2-5) var(--peraa-spacing-4) var(--peraa-spacing-2-5) calc(var(--peraa-spacing-8) + var(--peraa-spacing-1));
+  font-family: var(--peraa-font-family-sans);
+  font-size: var(--peraa-font-size-sm);
+  font-weight: var(--peraa-font-weight-regular);
+  line-height: var(--peraa-line-height-normal);
+  color: var(--peraa-input-text);
+  background-color: var(--peraa-input-bg);
+  border: var(--peraa-border-width-1) solid var(--peraa-input-border);
+  border-radius: var(--peraa-radius-full);
+  outline: none;
+  -webkit-appearance: none;
+  appearance: none;
+  transition:
+    border-color var(--peraa-duration-150) var(--peraa-ease-out),
+    box-shadow var(--peraa-duration-150) var(--peraa-ease-out);
+}
+
+.peraa-search__input::-webkit-search-cancel-button {
+  display: none;
+}
+
+.peraa-search__input::placeholder {
+  color: var(--peraa-input-placeholder);
+}
+
+.peraa-search__input:hover {
+  border-color: var(--peraa-border-strong);
+}
+
+.peraa-search__input:focus {
+  border-color: var(--peraa-input-focus-ring);
+  box-shadow: var(--peraa-focus-ring-shadow);
+}
+
+.peraa-search__input:focus ~ .peraa-search__icon,
+.peraa-search:has(.peraa-search__input:focus) .peraa-search__icon {
+  color: var(--peraa-text-brand);
+}
+
+/* ─── Clear button ────────────────────────────────────────────────────────── */
+.peraa-search__clear {
+  position: absolute;
+  right: var(--peraa-spacing-3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  padding: 0;
+  background: none;
+  border: none;
+  color: var(--peraa-text-tertiary);
+  cursor: pointer;
+  border-radius: var(--peraa-radius-full);
+  transition: color var(--peraa-duration-150) var(--peraa-ease-out);
+}
+
+.peraa-search__clear:hover {
+  color: var(--peraa-text-primary);
+}
+
+/* ─── Square variant (no pill radius) ────────────────────────────────────── */
+.peraa-search--square .peraa-search__input {
+  border-radius: var(--peraa-radius-md);
+}
+
+/* ─── Size modifiers ──────────────────────────────────────────────────────── */
+.peraa-search--sm .peraa-search__input {
+  padding-top: var(--peraa-spacing-1-5);
+  padding-bottom: var(--peraa-spacing-1-5);
+  font-size: var(--peraa-font-size-xs);
+}
+
+.peraa-search--lg .peraa-search__input {
+  padding-top: var(--peraa-spacing-3);
+  padding-bottom: var(--peraa-spacing-3);
+  font-size: var(--peraa-font-size-base);
+}
+
+/* ─── Full-width modifier ─────────────────────────────────────────────────── */
+.peraa-search--full {
+  width: 100%;
+}

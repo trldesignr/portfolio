@@ -1,0 +1,160 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   DRAWER / SIDE PANEL
+   Peraa Design System — Drawer component
+
+   Full-height side panel that slides in from left or right. Managed via
+   an open/closed state class. In React apps, pair with a useDrawer hook
+   or a headless library (Radix Dialog, Headless UI) for accessibility.
+
+   Structure:
+     .peraa-drawer-overlay.peraa-drawer-overlay--open
+     .peraa-drawer.peraa-drawer--right.peraa-drawer--open
+       .peraa-drawer__header
+         h2.peraa-drawer__title
+         button.peraa-drawer__close
+       .peraa-drawer__body
+       .peraa-drawer__footer  (optional)
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* ─── Tokens ──────────────────────────────────────────────────────────────── */
+:root,
+[data-theme="dark"] {
+  --peraa-drawer-bg: var(--peraa-color-neutral-900);
+  --peraa-drawer-border: var(--peraa-color-neutral-800);
+  --peraa-drawer-overlay-bg: rgba(0, 0, 0, 0.6);
+}
+
+[data-theme="light"] {
+  --peraa-drawer-bg: var(--peraa-color-neutral-0);
+  --peraa-drawer-border: var(--peraa-color-neutral-200);
+  --peraa-drawer-overlay-bg: rgba(0, 0, 0, 0.35);
+}
+
+/* ─── Backdrop overlay ────────────────────────────────────────────────────── */
+.peraa-drawer-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: var(--peraa-z-40);
+  background-color: var(--peraa-drawer-overlay-bg);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--peraa-duration-300) var(--peraa-ease-out);
+}
+
+.peraa-drawer-overlay--open {
+  opacity: 1;
+  pointer-events: all;
+}
+
+/* ─── Drawer panel ────────────────────────────────────────────────────────── */
+.peraa-drawer {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  z-index: var(--peraa-z-50);
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  max-width: 90vw;
+  background-color: var(--peraa-drawer-bg);
+  box-shadow: var(--peraa-shadow-2xl);
+  transition: transform var(--peraa-duration-300) var(--peraa-ease-in-out);
+}
+
+/* ─── Side variants ───────────────────────────────────────────────────────── */
+.peraa-drawer--right {
+  right: 0;
+  border-left: var(--peraa-border-width-1) solid var(--peraa-drawer-border);
+  transform: translateX(100%);
+}
+
+.peraa-drawer--left {
+  left: 0;
+  border-right: var(--peraa-border-width-1) solid var(--peraa-drawer-border);
+  transform: translateX(-100%);
+}
+
+.peraa-drawer--open {
+  transform: translateX(0);
+}
+
+/* ─── Width modifiers ─────────────────────────────────────────────────────── */
+.peraa-drawer--sm {
+  width: 280px;
+}
+
+.peraa-drawer--lg {
+  width: 560px;
+}
+
+.peraa-drawer--full {
+  width: 100vw;
+  max-width: none;
+}
+
+/* ─── Header ──────────────────────────────────────────────────────────────── */
+.peraa-drawer__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--peraa-spacing-5) var(--peraa-spacing-6);
+  border-bottom: var(--peraa-border-width-1) solid var(--peraa-border-subtle);
+  flex-shrink: 0;
+}
+
+.peraa-drawer__title {
+  font-family: var(--peraa-font-family-heading);
+  font-size: var(--peraa-font-size-lg);
+  font-weight: var(--peraa-font-weight-semibold);
+  color: var(--peraa-text-primary);
+  margin: 0;
+}
+
+.peraa-drawer__close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  background: none;
+  border: none;
+  color: var(--peraa-text-tertiary);
+  cursor: pointer;
+  border-radius: var(--peraa-radius-md);
+  transition: background-color var(--peraa-duration-150) var(--peraa-ease-out),
+              color var(--peraa-duration-150) var(--peraa-ease-out);
+}
+
+.peraa-drawer__close:hover {
+  background-color: var(--peraa-surface-subtle);
+  color: var(--peraa-text-primary);
+}
+
+/* ─── Body ────────────────────────────────────────────────────────────────── */
+.peraa-drawer__body {
+  flex: 1;
+  overflow-y: auto;
+  padding: var(--peraa-spacing-6);
+}
+
+/* ─── Footer ──────────────────────────────────────────────────────────────── */
+.peraa-drawer__footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--peraa-spacing-3);
+  padding: var(--peraa-spacing-4) var(--peraa-spacing-6);
+  border-top: var(--peraa-border-width-1) solid var(--peraa-border-subtle);
+  flex-shrink: 0;
+}
+
+/* ─── Reduced motion ──────────────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .peraa-drawer {
+    transition: none;
+  }
+  .peraa-drawer-overlay {
+    transition: none;
+  }
+}
