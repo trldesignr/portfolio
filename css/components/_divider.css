@@ -1,0 +1,75 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   DIVIDER
+   Peraa Design System — Divider component
+
+   Visual separator for sections or list items. Horizontal by default;
+   vertical variant for inline use. Optional text label.
+
+   Structure:
+     <hr class="peraa-divider">
+
+     Labelled:
+     <div class="peraa-divider peraa-divider--label" role="separator">
+       <span class="peraa-divider__text">or</span>
+     </div>
+
+     Vertical:
+     <div class="peraa-divider peraa-divider--vertical" role="separator" aria-orientation="vertical"></div>
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* ─── Horizontal divider ──────────────────────────────────────────────────── */
+.peraa-divider {
+  display: block;
+  width: 100%;
+  height: var(--peraa-border-width-1);
+  background-color: var(--peraa-border-default);
+  border: none;
+  margin: var(--peraa-spacing-4) 0;
+}
+
+/* ─── Stronger variant ────────────────────────────────────────────────────── */
+.peraa-divider--strong {
+  background-color: var(--peraa-border-default);
+}
+
+/* ─── Spacing modifiers ───────────────────────────────────────────────────── */
+.peraa-divider--xs { margin: var(--peraa-spacing-2) 0; }
+.peraa-divider--sm { margin: var(--peraa-spacing-3) 0; }
+.peraa-divider--lg { margin: var(--peraa-spacing-6) 0; }
+.peraa-divider--xl { margin: var(--peraa-spacing-8) 0; }
+
+/* ─── Vertical divider ────────────────────────────────────────────────────── */
+.peraa-divider--vertical {
+  display: inline-block;
+  width: var(--peraa-border-width-1);
+  height: auto;
+  align-self: stretch;
+  margin: 0 var(--peraa-spacing-3);
+  background-color: var(--peraa-border-default);
+}
+
+/* ─── Labelled divider ────────────────────────────────────────────────────── */
+.peraa-divider--label {
+  display: flex;
+  align-items: center;
+  gap: var(--peraa-spacing-3);
+  height: auto;
+  background-color: transparent;
+}
+
+.peraa-divider--label::before,
+.peraa-divider--label::after {
+  content: '';
+  flex: 1;
+  height: var(--peraa-border-width-1);
+  background-color: var(--peraa-border-default);
+}
+
+.peraa-divider__text {
+  font-family: var(--peraa-font-family-sans);
+  font-size: var(--peraa-font-size-xs);
+  font-weight: var(--peraa-font-weight-medium);
+  color: var(--peraa-text-tertiary);
+  white-space: nowrap;
+  user-select: none;
+}

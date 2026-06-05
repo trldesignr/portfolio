@@ -1,0 +1,95 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   SELECT
+   Peraa Design System — Select / Dropdown component
+
+   Fully styled native <select> with custom chevron. For fully custom
+   dropdown menus, see Popover component. Supports all standard input states.
+
+   Structure:
+     .peraa-field
+       label.peraa-label
+       .peraa-select-wrapper
+         select.peraa-select
+       .peraa-field__hint
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* ─── Wrapper (positions the chevron icon) ────────────────────────────────── */
+.peraa-select-wrapper {
+  position: relative;
+  display: block;
+}
+
+.peraa-select-wrapper::after {
+  content: '';
+  position: absolute;
+  right: var(--peraa-spacing-3);
+  top: 50%;
+  transform: translateY(-50%);
+  width: 16px;
+  height: 16px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='%2371717a' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='4,6 8,10 12,6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-size: contain;
+  pointer-events: none;
+}
+
+/* ─── Select element ──────────────────────────────────────────────────────── */
+.peraa-select {
+  width: 100%;
+  padding: var(--peraa-spacing-3) var(--peraa-spacing-10) var(--peraa-spacing-3) var(--peraa-spacing-4);
+  font-family: var(--peraa-font-family-sans);
+  font-size: var(--peraa-font-size-base);
+  font-weight: var(--peraa-font-weight-regular);
+  line-height: var(--peraa-line-height-normal);
+  color: var(--peraa-input-text);
+  background-color: var(--peraa-input-bg);
+  border: var(--peraa-border-width-1) solid var(--peraa-input-border);
+  border-radius: var(--peraa-radius-md);
+  outline: none;
+  cursor: pointer;
+  -webkit-appearance: none;
+  appearance: none;
+  transition:
+    border-color var(--peraa-duration-150) var(--peraa-ease-out),
+    box-shadow var(--peraa-duration-150) var(--peraa-ease-out);
+}
+
+.peraa-select:hover {
+  border-color: var(--peraa-border-strong);
+}
+
+.peraa-select:focus {
+  border-color: var(--peraa-input-focus-ring);
+  box-shadow: var(--peraa-focus-ring-shadow);
+}
+
+.peraa-select:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background-color: var(--peraa-surface-subtle);
+}
+
+.peraa-select option {
+  color: var(--peraa-text-primary);
+  background-color: var(--peraa-surface-elevated);
+}
+
+/* ─── State modifiers ─────────────────────────────────────────────────────── */
+.peraa-select--error {
+  border-color: var(--peraa-input-border-error);
+}
+
+.peraa-select--error:focus {
+  box-shadow: 0 0 0 3px var(--peraa-status-error-bg-subtle);
+}
+
+/* ─── Size modifiers ──────────────────────────────────────────────────────── */
+.peraa-select--sm {
+  padding: var(--peraa-spacing-1-5) var(--peraa-spacing-8) var(--peraa-spacing-1-5) var(--peraa-spacing-3);
+  font-size: var(--peraa-font-size-sm);
+}
+
+.peraa-select--lg {
+  padding: var(--peraa-spacing-4) var(--peraa-spacing-12) var(--peraa-spacing-4) var(--peraa-spacing-5);
+  font-size: var(--peraa-font-size-lg);
+}

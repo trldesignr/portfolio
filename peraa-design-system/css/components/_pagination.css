@@ -1,0 +1,109 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   PAGINATION
+   Peraa Design System — Pagination component
+
+   Page navigation for lists, tables, and search results. Supports prev/next
+   arrows, page number buttons, and an ellipsis for large page counts.
+
+   Structure:
+     nav.peraa-pagination[aria-label="Pagination"]
+       button.peraa-pagination__prev[aria-label="Previous page"]
+       .peraa-pagination__pages
+         button.peraa-pagination__item           (page number)
+         button.peraa-pagination__item.peraa-pagination__item--active[aria-current="page"]
+         span.peraa-pagination__ellipsis
+       button.peraa-pagination__next[aria-label="Next page"]
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* ─── Wrapper ─────────────────────────────────────────────────────────────── */
+.peraa-pagination {
+  display: flex;
+  align-items: center;
+  gap: var(--peraa-spacing-1);
+}
+
+/* ─── Pages group ─────────────────────────────────────────────────────────── */
+.peraa-pagination__pages {
+  display: flex;
+  align-items: center;
+  gap: var(--peraa-spacing-1);
+}
+
+/* ─── Shared button base ──────────────────────────────────────────────────── */
+.peraa-pagination__item,
+.peraa-pagination__prev,
+.peraa-pagination__next {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 36px;
+  height: 36px;
+  padding: 0 var(--peraa-spacing-2);
+  font-family: var(--peraa-font-family-sans);
+  font-size: var(--peraa-font-size-sm);
+  font-weight: var(--peraa-font-weight-medium);
+  color: var(--peraa-text-secondary);
+  background-color: transparent;
+  border: var(--peraa-border-width-1) solid transparent;
+  border-radius: var(--peraa-radius-md);
+  cursor: pointer;
+  text-decoration: none;
+  transition:
+    background-color var(--peraa-duration-150) var(--peraa-ease-out),
+    border-color var(--peraa-duration-150) var(--peraa-ease-out),
+    color var(--peraa-duration-150) var(--peraa-ease-out);
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+/* ─── Hover ───────────────────────────────────────────────────────────────── */
+.peraa-pagination__item:hover:not(:disabled):not(.peraa-pagination__item--active),
+.peraa-pagination__prev:hover:not(:disabled),
+.peraa-pagination__next:hover:not(:disabled) {
+  background-color: var(--peraa-interactive-tertiary-bg-hover);
+  color: var(--peraa-text-primary);
+}
+
+/* ─── Active page ─────────────────────────────────────────────────────────── */
+.peraa-pagination__item--active {
+  background-color: var(--peraa-interactive-primary-bg);
+  color: var(--peraa-interactive-primary-text);
+  border-color: var(--peraa-interactive-primary-bg);
+  cursor: default;
+}
+
+/* ─── Focus ───────────────────────────────────────────────────────────────── */
+.peraa-pagination__item:focus-visible,
+.peraa-pagination__prev:focus-visible,
+.peraa-pagination__next:focus-visible {
+  outline: 2px solid var(--peraa-border-focus);
+  outline-offset: 2px;
+}
+
+/* ─── Disabled ────────────────────────────────────────────────────────────── */
+.peraa-pagination__prev:disabled,
+.peraa-pagination__next:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* ─── Ellipsis ────────────────────────────────────────────────────────────── */
+.peraa-pagination__ellipsis {
+  min-width: 36px;
+  height: 36px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--peraa-font-size-sm);
+  color: var(--peraa-text-tertiary);
+  user-select: none;
+}
+
+/* ─── Compact size ────────────────────────────────────────────────────────── */
+.peraa-pagination--sm .peraa-pagination__item,
+.peraa-pagination--sm .peraa-pagination__prev,
+.peraa-pagination--sm .peraa-pagination__next {
+  min-width: 28px;
+  height: 28px;
+  font-size: var(--peraa-font-size-xs);
+}

@@ -1,0 +1,141 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   POPOVER
+   Peraa Design System — Popover component
+
+   Rich floating panel for contextual content (menus, info panels, pickers).
+   Larger than a tooltip; can contain interactive content. CSS provides the
+   visual shell and entry animation; positioning is handled by JS/React
+   (Radix Popover, Floating UI, or Headless UI recommended in apps).
+
+   Structure:
+     .peraa-popover-wrapper  (relative positioning context)
+       button.peraa-popover-trigger
+       .peraa-popover[data-side="bottom"]
+         .peraa-popover__arrow  (optional)
+         .peraa-popover__header  (optional)
+         .peraa-popover__body
+         .peraa-popover__footer  (optional)
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* ─── Tokens ──────────────────────────────────────────────────────────────── */
+:root,
+[data-theme="dark"] {
+  --peraa-popover-bg: var(--peraa-color-neutral-800);
+  --peraa-popover-border: var(--peraa-color-neutral-700);
+  --peraa-popover-shadow: var(--peraa-shadow-xl);
+}
+
+[data-theme="light"] {
+  --peraa-popover-bg: var(--peraa-color-neutral-0);
+  --peraa-popover-border: var(--peraa-color-neutral-200);
+  --peraa-popover-shadow: var(--peraa-shadow-xl);
+}
+
+/* ─── Wrapper ─────────────────────────────────────────────────────────────── */
+.peraa-popover-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+/* ─── Popover panel ───────────────────────────────────────────────────────── */
+.peraa-popover {
+  position: absolute;
+  z-index: var(--peraa-z-40);
+  min-width: 200px;
+  max-width: 360px;
+  background-color: var(--peraa-popover-bg);
+  border: var(--peraa-border-width-1) solid var(--peraa-popover-border);
+  border-radius: var(--peraa-radius-lg);
+  box-shadow: var(--peraa-popover-shadow);
+  animation: peraa-popover-in var(--peraa-duration-150) var(--peraa-ease-out) both;
+}
+
+@keyframes peraa-popover-in {
+  from {
+    opacity: 0;
+    transform: scale(0.97) translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* ─── Default position (bottom-start) ────────────────────────────────────── */
+.peraa-popover[data-side="bottom"],
+.peraa-popover--bottom {
+  top: calc(100% + var(--peraa-spacing-2));
+  left: 0;
+}
+
+.peraa-popover[data-side="top"],
+.peraa-popover--top {
+  bottom: calc(100% + var(--peraa-spacing-2));
+  left: 0;
+  animation-name: peraa-popover-in-up;
+}
+
+@keyframes peraa-popover-in-up {
+  from {
+    opacity: 0;
+    transform: scale(0.97) translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* ─── Arrow ───────────────────────────────────────────────────────────────── */
+.peraa-popover__arrow {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background-color: var(--peraa-popover-bg);
+  border: var(--peraa-border-width-1) solid var(--peraa-popover-border);
+  transform: rotate(45deg);
+}
+
+.peraa-popover--bottom .peraa-popover__arrow {
+  top: -5px;
+  left: var(--peraa-spacing-4);
+  border-bottom: none;
+  border-right: none;
+}
+
+/* ─── Inner sections ──────────────────────────────────────────────────────── */
+.peraa-popover__header {
+  padding: var(--peraa-spacing-3) var(--peraa-spacing-4);
+  border-bottom: var(--peraa-border-width-1) solid var(--peraa-border-subtle);
+}
+
+.peraa-popover__title {
+  font-family: var(--peraa-font-family-sans);
+  font-size: var(--peraa-font-size-sm);
+  font-weight: var(--peraa-font-weight-semibold);
+  color: var(--peraa-text-primary);
+  margin: 0;
+}
+
+.peraa-popover__body {
+  padding: var(--peraa-spacing-3) var(--peraa-spacing-4);
+  font-family: var(--peraa-font-family-sans);
+  font-size: var(--peraa-font-size-sm);
+  color: var(--peraa-text-secondary);
+  line-height: var(--peraa-line-height-relaxed);
+}
+
+.peraa-popover__footer {
+  padding: var(--peraa-spacing-3) var(--peraa-spacing-4);
+  border-top: var(--peraa-border-width-1) solid var(--peraa-border-subtle);
+  display: flex;
+  gap: var(--peraa-spacing-2);
+  justify-content: flex-end;
+}
+
+/* ─── Reduced motion ──────────────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .peraa-popover {
+    animation: none;
+  }
+}

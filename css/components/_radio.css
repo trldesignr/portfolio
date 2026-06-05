@@ -1,0 +1,125 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   RADIO
+   Peraa Design System — Radio Button component
+
+   Accessible custom radio using a hidden native input + styled sibling.
+   Always used in groups; one selection per group.
+
+   Structure:
+     .peraa-radio-group[role="radiogroup"]
+       .peraa-radio
+         input.peraa-radio__input[type="radio"]
+         label.peraa-radio__label
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* ─── Tokens ──────────────────────────────────────────────────────────────── */
+:root,
+[data-theme="dark"] {
+  --peraa-radio-bg: var(--peraa-color-neutral-900);
+  --peraa-radio-border: var(--peraa-border-subtle);
+  --peraa-radio-checked-border: var(--peraa-color-purple-500);
+  --peraa-radio-dot: var(--peraa-color-purple-500);
+}
+
+[data-theme="light"] {
+  --peraa-radio-bg: var(--peraa-color-neutral-0);
+  --peraa-radio-border: var(--peraa-border-default);
+  --peraa-radio-checked-border: var(--peraa-color-purple-500);
+  --peraa-radio-dot: var(--peraa-color-purple-500);
+}
+
+/* ─── Wrapper ─────────────────────────────────────────────────────────────── */
+.peraa-radio {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--peraa-spacing-2-5);
+  cursor: pointer;
+  user-select: none;
+}
+
+/* ─── Hidden native input ─────────────────────────────────────────────────── */
+.peraa-radio__input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* ─── Visual circle (::before) + dot (::after) ────────────────────────────── */
+.peraa-radio__label {
+  position: relative;
+  padding-left: calc(var(--peraa-spacing-5) + var(--peraa-spacing-1));
+  font-family: var(--peraa-font-family-sans);
+  font-size: var(--peraa-font-size-sm);
+  font-weight: var(--peraa-font-weight-regular);
+  line-height: var(--peraa-line-height-normal);
+  color: var(--peraa-text-primary);
+  cursor: pointer;
+}
+
+.peraa-radio__label::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 18px;
+  height: 18px;
+  background-color: var(--peraa-radio-bg);
+  border: var(--peraa-border-width-1) solid var(--peraa-radio-border);
+  border-radius: var(--peraa-radius-full);
+  transition:
+    border-color var(--peraa-duration-150) var(--peraa-ease-out),
+    box-shadow var(--peraa-duration-150) var(--peraa-ease-out);
+}
+
+.peraa-radio__label::after {
+  content: '';
+  position: absolute;
+  left: 5px;
+  top: 50%;
+  transform: translateY(-50%) scale(0);
+  width: 8px;
+  height: 8px;
+  background-color: var(--peraa-radio-dot);
+  border-radius: var(--peraa-radius-full);
+  transition: transform var(--peraa-duration-150) var(--peraa-ease-out);
+}
+
+/* ─── Checked state ───────────────────────────────────────────────────────── */
+.peraa-radio__input:checked + .peraa-radio__label::before {
+  border-color: var(--peraa-radio-checked-border);
+}
+
+.peraa-radio__input:checked + .peraa-radio__label::after {
+  transform: translateY(-50%) scale(1);
+}
+
+/* ─── Focus ring ──────────────────────────────────────────────────────────── */
+.peraa-radio__input:focus-visible + .peraa-radio__label::before {
+  box-shadow: var(--peraa-focus-ring-shadow);
+}
+
+/* ─── Disabled ────────────────────────────────────────────────────────────── */
+.peraa-radio__input:disabled + .peraa-radio__label {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* ─── Group layout ────────────────────────────────────────────────────────── */
+.peraa-radio-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--peraa-spacing-3);
+}
+
+.peraa-radio-group--horizontal {
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: var(--peraa-spacing-5);
+}

@@ -1,0 +1,122 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   ACCORDION
+   Peraa Design System — Accordion component
+
+   Vertically stacked collapsible sections. Each item has a trigger button
+   and an animated content panel. Open state is toggled via `.peraa-accordion__item--open`.
+
+   Structure:
+     .peraa-accordion
+       .peraa-accordion__item.peraa-accordion__item--open
+         button.peraa-accordion__trigger[aria-expanded="true"][aria-controls="panel-id"]
+           span.peraa-accordion__title
+           span.peraa-accordion__icon
+         .peraa-accordion__panel[id="panel-id"][aria-hidden="false"]
+           .peraa-accordion__content
+       .peraa-accordion__item
+         (closed state)
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* ─── Container ───────────────────────────────────────────────────────────── */
+.peraa-accordion {
+  display: flex;
+  flex-direction: column;
+  border: var(--peraa-border-width-1) solid var(--peraa-border-subtle);
+  border-radius: var(--peraa-radius-lg);
+  overflow: hidden;
+}
+
+/* ─── Item ────────────────────────────────────────────────────────────────── */
+.peraa-accordion__item {
+  border-bottom: var(--peraa-border-width-1) solid var(--peraa-border-subtle);
+}
+
+.peraa-accordion__item:last-child {
+  border-bottom: none;
+}
+
+/* ─── Trigger button ──────────────────────────────────────────────────────── */
+.peraa-accordion__trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: var(--peraa-spacing-4) var(--peraa-spacing-5);
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  transition: background-color var(--peraa-duration-150) var(--peraa-ease-out);
+  gap: var(--peraa-spacing-3);
+}
+
+.peraa-accordion__trigger:hover {
+  background-color: var(--peraa-surface-subtle);
+}
+
+.peraa-accordion__trigger:focus-visible {
+  outline: 2px solid var(--peraa-border-focus);
+  outline-offset: -2px;
+}
+
+/* ─── Title text ──────────────────────────────────────────────────────────── */
+.peraa-accordion__title {
+  font-family: var(--peraa-font-family-sans);
+  font-size: var(--peraa-font-size-base);
+  font-weight: var(--peraa-font-weight-medium);
+  color: var(--peraa-text-primary);
+  flex: 1;
+}
+
+/* ─── Chevron icon ────────────────────────────────────────────────────────── */
+.peraa-accordion__icon {
+  width: 18px;
+  height: 18px;
+  color: var(--peraa-text-tertiary);
+  flex-shrink: 0;
+  transition: transform var(--peraa-duration-200) var(--peraa-ease-out);
+}
+
+.peraa-accordion__item--open .peraa-accordion__icon {
+  transform: rotate(180deg);
+}
+
+/* ─── Panel ───────────────────────────────────────────────────────────────── */
+.peraa-accordion__panel {
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height var(--peraa-duration-300) var(--peraa-ease-out);
+}
+
+.peraa-accordion__item--open .peraa-accordion__panel {
+  max-height: 1000px;
+}
+
+/* ─── Content ─────────────────────────────────────────────────────────────── */
+.peraa-accordion__content {
+  padding: 0 var(--peraa-spacing-5) var(--peraa-spacing-5);
+  font-family: var(--peraa-font-family-sans);
+  font-size: var(--peraa-font-size-sm);
+  line-height: var(--peraa-line-height-relaxed);
+  color: var(--peraa-text-secondary);
+}
+
+/* ─── Flush variant (no outer border, full-bleed) ─────────────────────────── */
+.peraa-accordion--flush {
+  border: none;
+  border-radius: 0;
+}
+
+.peraa-accordion--flush .peraa-accordion__item {
+  border-bottom-color: var(--peraa-border-subtle);
+}
+
+/* ─── Reduced motion ──────────────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .peraa-accordion__panel {
+    transition: none;
+  }
+  .peraa-accordion__icon {
+    transition: none;
+  }
+}

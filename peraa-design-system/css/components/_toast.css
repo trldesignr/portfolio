@@ -1,0 +1,209 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   TOAST / NOTIFICATION
+   Peraa Design System — Toast component
+
+   Temporary floating notifications stacked in a fixed portal region.
+   Four semantic variants. Supports optional action and dismiss button.
+   Animation: slide-in from bottom, fade out on dismiss.
+
+   Structure:
+     .peraa-toast-stack  (fixed portal container)
+       .peraa-toast.peraa-toast--[variant]
+         .peraa-toast__content
+           .peraa-toast__icon   (optional)
+           .peraa-toast__body
+             p.peraa-toast__title  (optional)
+             p.peraa-toast__message
+         .peraa-toast__actions   (optional)
+           button.peraa-toast__action
+           button.peraa-toast__dismiss
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* ─── Tokens ──────────────────────────────────────────────────────────────── */
+:root,
+[data-theme="dark"] {
+  --peraa-toast-bg: var(--peraa-color-neutral-800);
+  --peraa-toast-border: var(--peraa-color-neutral-700);
+  --peraa-toast-shadow: var(--peraa-shadow-xl);
+}
+
+[data-theme="light"] {
+  --peraa-toast-bg: var(--peraa-color-neutral-0);
+  --peraa-toast-border: var(--peraa-color-neutral-200);
+  --peraa-toast-shadow: var(--peraa-shadow-xl);
+}
+
+/* ─── Stack container ─────────────────────────────────────────────────────── */
+.peraa-toast-stack {
+  position: fixed;
+  bottom: var(--peraa-spacing-6);
+  right: var(--peraa-spacing-6);
+  z-index: var(--peraa-z-100);
+  display: flex;
+  flex-direction: column;
+  gap: var(--peraa-spacing-3);
+  pointer-events: none;
+  max-width: 400px;
+  width: calc(100vw - var(--peraa-spacing-12));
+}
+
+/* ─── Toast item ──────────────────────────────────────────────────────────── */
+.peraa-toast {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--peraa-spacing-3);
+  padding: var(--peraa-spacing-4) var(--peraa-spacing-4);
+  background-color: var(--peraa-toast-bg);
+  border: var(--peraa-border-width-1) solid var(--peraa-toast-border);
+  border-radius: 2px;
+  box-shadow: var(--peraa-toast-shadow);
+  pointer-events: all;
+  animation: peraa-toast-in var(--peraa-duration-300) var(--peraa-ease-out) both;
+}
+
+@keyframes peraa-toast-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.peraa-toast--exiting {
+  animation: peraa-toast-out var(--peraa-duration-200) var(--peraa-ease-in) both;
+}
+
+@keyframes peraa-toast-out {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+}
+
+/* ─── Content ─────────────────────────────────────────────────────────────── */
+.peraa-toast__content {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--peraa-spacing-3);
+  flex: 1;
+  min-width: 0;
+}
+
+.peraa-toast__icon {
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+  margin-top: 1px;
+}
+
+.peraa-toast__body {
+  flex: 1;
+  min-width: 0;
+}
+
+.peraa-toast__title {
+  font-family: var(--peraa-font-family-sans);
+  font-size: var(--peraa-font-size-sm);
+  font-weight: var(--peraa-font-weight-semibold);
+  line-height: var(--peraa-line-height-snug);
+  color: var(--peraa-text-primary);
+  margin: 0 0 var(--peraa-spacing-1);
+}
+
+.peraa-toast__message {
+  font-family: var(--peraa-font-family-sans);
+  font-size: var(--peraa-font-size-sm);
+  font-weight: var(--peraa-font-weight-regular);
+  line-height: var(--peraa-line-height-normal);
+  color: var(--peraa-text-secondary);
+  margin: 0;
+}
+
+/* ─── Actions ─────────────────────────────────────────────────────────────── */
+.peraa-toast__actions {
+  display: flex;
+  align-items: center;
+  gap: var(--peraa-spacing-2);
+  flex-shrink: 0;
+}
+
+.peraa-toast__action {
+  padding: var(--peraa-spacing-1) var(--peraa-spacing-2-5);
+  font-family: var(--peraa-font-family-sans);
+  font-size: var(--peraa-font-size-xs);
+  font-weight: var(--peraa-font-weight-semibold);
+  color: var(--peraa-text-brand);
+  background: none;
+  border: none;
+  border-radius: var(--peraa-radius-sm);
+  cursor: pointer;
+  transition: background-color var(--peraa-duration-150) var(--peraa-ease-out);
+}
+
+.peraa-toast__action:hover {
+  background-color: var(--peraa-surface-subtle);
+}
+
+.peraa-toast__dismiss {
+  width: 20px;
+  height: 20px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  color: var(--peraa-text-tertiary);
+  cursor: pointer;
+  border-radius: var(--peraa-radius-sm);
+  transition: color var(--peraa-duration-150) var(--peraa-ease-out);
+}
+
+.peraa-toast__dismiss:hover {
+  color: var(--peraa-text-primary);
+}
+
+/* ─── Semantic variants (bottom border accent) ────────────────────────────── */
+.peraa-toast--success {
+  border-bottom: var(--peraa-border-width-4) solid var(--peraa-color-success-500);
+}
+.peraa-toast--success .peraa-toast__icon { color: var(--peraa-status-success-text); }
+
+.peraa-toast--warning {
+  border-bottom: var(--peraa-border-width-4) solid var(--peraa-color-warning-500);
+}
+.peraa-toast--warning .peraa-toast__icon { color: var(--peraa-status-warning-text); }
+
+.peraa-toast--error {
+  border-bottom: var(--peraa-border-width-4) solid var(--peraa-color-error-500);
+}
+.peraa-toast--error .peraa-toast__icon { color: var(--peraa-status-error-text); }
+
+.peraa-toast--info {
+  border-bottom: var(--peraa-border-width-4) solid var(--peraa-color-info-500);
+}
+.peraa-toast--info .peraa-toast__icon { color: var(--peraa-status-info-text); }
+
+/* ─── Top position variant ────────────────────────────────────────────────── */
+.peraa-toast-stack--top {
+  bottom: auto;
+  top: var(--peraa-spacing-6);
+}
+
+/* ─── Mobile ──────────────────────────────────────────────────────────────── */
+@media (max-width: 480px) {
+  .peraa-toast-stack {
+    right: var(--peraa-spacing-4);
+    left: var(--peraa-spacing-4);
+    bottom: var(--peraa-spacing-4);
+    width: auto;
+    max-width: none;
+  }
+}

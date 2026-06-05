@@ -1,0 +1,87 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   KBD
+   Peraa Design System — Keyboard Key component
+
+   Renders a keyboard key label in documentation, shortcut hints, and command
+   palettes. Combines into .peraa-kbd-combo for multi-key sequences.
+
+   Structure:
+     <kbd class="peraa-kbd">⌘</kbd>
+     <kbd class="peraa-kbd">K</kbd>
+
+     Combo:
+     <span class="peraa-kbd-combo">
+       <kbd class="peraa-kbd">⌘</kbd>
+       <span class="peraa-kbd-combo__plus">+</span>
+       <kbd class="peraa-kbd">K</kbd>
+     </span>
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* ─── Tokens ──────────────────────────────────────────────────────────────── */
+:root,
+[data-theme="dark"] {
+  --peraa-kbd-bg: var(--peraa-color-neutral-800);
+  --peraa-kbd-border: var(--peraa-color-neutral-600);
+  --peraa-kbd-shadow: 0 2px 0 var(--peraa-color-neutral-700);
+  --peraa-kbd-text: var(--peraa-text-secondary);
+}
+
+[data-theme="light"] {
+  --peraa-kbd-bg: var(--peraa-color-neutral-100);
+  --peraa-kbd-border: var(--peraa-color-neutral-300);
+  --peraa-kbd-shadow: 0 2px 0 var(--peraa-color-neutral-300);
+  --peraa-kbd-text: var(--peraa-text-secondary);
+}
+
+/* ─── Key ─────────────────────────────────────────────────────────────────── */
+.peraa-kbd {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 24px;
+  height: 22px;
+  padding: 0 var(--peraa-spacing-1-5);
+  font-family: var(--peraa-font-family-mono);
+  font-size: var(--peraa-font-size-xs);
+  font-weight: var(--peraa-font-weight-medium);
+  line-height: 1;
+  color: var(--peraa-kbd-text);
+  background-color: var(--peraa-kbd-bg);
+  border: var(--peraa-border-width-1) solid var(--peraa-kbd-border);
+  border-radius: var(--peraa-radius-sm);
+  box-shadow: var(--peraa-kbd-shadow);
+  vertical-align: middle;
+  white-space: nowrap;
+  user-select: none;
+}
+
+/* ─── Size modifiers ──────────────────────────────────────────────────────── */
+.peraa-kbd--sm {
+  min-width: 18px;
+  height: 18px;
+  font-size: 10px;
+  padding: 0 var(--peraa-spacing-1);
+}
+
+.peraa-kbd--lg {
+  min-width: 32px;
+  height: 28px;
+  font-size: var(--peraa-font-size-sm);
+  padding: 0 var(--peraa-spacing-2);
+}
+
+/* ─── Combo sequence ──────────────────────────────────────────────────────── */
+.peraa-kbd-combo {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--peraa-spacing-1);
+  vertical-align: middle;
+}
+
+.peraa-kbd-combo__plus {
+  font-family: var(--peraa-font-family-sans);
+  font-size: var(--peraa-font-size-xs);
+  color: var(--peraa-text-tertiary);
+  line-height: 1;
+  user-select: none;
+}

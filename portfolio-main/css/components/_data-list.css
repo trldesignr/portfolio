@@ -1,0 +1,88 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   DATA LIST
+   Peraa Design System — Data List component
+
+   Semantic key/value pairs for detail views: user profiles, settings panels,
+   invoice summaries. Each row shows a label and its associated value.
+
+   Structure:
+     dl.peraa-data-list
+       .peraa-data-list__row
+         dt.peraa-data-list__label
+         dd.peraa-data-list__value
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* ─── Container ───────────────────────────────────────────────────────────── */
+.peraa-data-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  margin: 0;
+  padding: 0;
+}
+
+/* ─── Row ─────────────────────────────────────────────────────────────────── */
+.peraa-data-list__row {
+  display: grid;
+  grid-template-columns: minmax(120px, 35%) 1fr;
+  gap: var(--peraa-spacing-3);
+  align-items: baseline;
+  padding: var(--peraa-spacing-3) 0;
+  border-bottom: var(--peraa-border-width-1) solid var(--peraa-border-subtle);
+}
+
+.peraa-data-list__row:first-child {
+  padding-top: 0;
+}
+
+.peraa-data-list__row:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+/* ─── Label (dt) ──────────────────────────────────────────────────────────── */
+.peraa-data-list__label {
+  font-family: var(--peraa-font-family-sans);
+  font-size: var(--peraa-font-size-sm);
+  font-weight: var(--peraa-font-weight-medium);
+  color: var(--peraa-text-tertiary);
+  line-height: var(--peraa-line-height-normal);
+}
+
+/* ─── Value (dd) ──────────────────────────────────────────────────────────── */
+.peraa-data-list__value {
+  font-family: var(--peraa-font-family-sans);
+  font-size: var(--peraa-font-size-sm);
+  font-weight: var(--peraa-font-weight-regular);
+  color: var(--peraa-text-primary);
+  line-height: var(--peraa-line-height-normal);
+  margin: 0;
+  word-break: break-word;
+}
+
+/* ─── Striped variant ─────────────────────────────────────────────────────── */
+.peraa-data-list--striped .peraa-data-list__row:nth-child(odd) {
+  background-color: var(--peraa-surface-subtle);
+  padding-left: var(--peraa-spacing-3);
+  padding-right: var(--peraa-spacing-3);
+  margin-left: calc(-1 * var(--peraa-spacing-3));
+  margin-right: calc(-1 * var(--peraa-spacing-3));
+  border-radius: var(--peraa-radius-sm);
+}
+
+.peraa-data-list--striped .peraa-data-list__row {
+  border-bottom: none;
+}
+
+/* ─── Stacked variant (label above value, useful for narrow panels) ───────── */
+.peraa-data-list--stacked .peraa-data-list__row {
+  grid-template-columns: 1fr;
+  gap: var(--peraa-spacing-1);
+}
+
+/* ─── Card wrapper (adds border/radius around the whole list) ─────────────── */
+.peraa-data-list--card {
+  padding: var(--peraa-spacing-5);
+  border: var(--peraa-border-width-1) solid var(--peraa-border-subtle);
+  border-radius: var(--peraa-radius-lg);
+  background-color: var(--peraa-surface-base);
+}

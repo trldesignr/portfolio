@@ -13,24 +13,6 @@
    ═══════════════════════════════════════════════════════════════════════════ */
 
 /* ─── Custom tokens ──────────────────────────────────────────────────────── */
-[data-theme="light"] {
-  --peraa-alert-info-bg:      rgba(59, 130, 246, 0.06);
-  --peraa-alert-info-border:  #3b82f6;
-  --peraa-alert-info-title:   #1d4ed8;
-
-  --peraa-alert-success-bg:   rgba(34, 197, 94, 0.06);
-  --peraa-alert-success-border: #22c55e;
-  --peraa-alert-success-title: #15803d;
-
-  --peraa-alert-warning-bg:   rgba(234, 179, 8, 0.06);
-  --peraa-alert-warning-border: #eab308;
-  --peraa-alert-warning-title: #a16207;
-
-  --peraa-alert-error-bg:     rgba(239, 68, 68, 0.06);
-  --peraa-alert-error-border: #ef4444;
-  --peraa-alert-error-title:  #b91c1c;
-}
-
 :root,
 [data-theme="dark"] {
   --peraa-alert-info-bg:      rgba(59, 130, 246, 0.08);
@@ -48,6 +30,24 @@
   --peraa-alert-error-bg:     rgba(239, 68, 68, 0.08);
   --peraa-alert-error-border: #f87171;
   --peraa-alert-error-title:  #fca5a5;
+}
+
+[data-theme="light"] {
+  --peraa-alert-info-bg:      rgba(59, 130, 246, 0.06);
+  --peraa-alert-info-border:  #2563eb; /* blue-600: 5.17:1 ✓ */
+  --peraa-alert-info-title:   #1d4ed8; /* blue-700: 6.70:1 ✓ */
+
+  --peraa-alert-success-bg:   rgba(34, 197, 94, 0.06);
+  --peraa-alert-success-border: #16a34a; /* success-600: 3.30:1 ✓ */
+  --peraa-alert-success-title: #15803d; /* success-700: 5.02:1 ✓ */
+
+  --peraa-alert-warning-bg:   rgba(234, 179, 8, 0.06);
+  --peraa-alert-warning-border: #b45309; /* warning-700: 5.02:1 ✓ */
+  --peraa-alert-warning-title:  #b45309; /* warning-700: 5.02:1 ✓ */
+
+  --peraa-alert-error-bg:     rgba(239, 68, 68, 0.06);
+  --peraa-alert-error-border: #dc2626; /* error-600: 4.83:1 ✓ */
+  --peraa-alert-error-title:  #b91c1c; /* error-700: 6.47:1 ✓ */
 }
 
 /* ─── Base ───────────────────────────────────────────────────────────────── */

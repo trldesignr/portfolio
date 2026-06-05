@@ -1,0 +1,155 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   FORM INPUTS
+   Peraa Design System — Form Inputs component
+
+   A field-based form system: label + input + hint grouped in .peraa-field.
+   All inputs share the .peraa-input base class; .peraa-textarea and
+   .peraa-select extend it with element-specific overrides.
+
+   Tokens used:
+     --peraa-input-bg         Background color for the input surface
+     --peraa-input-border     Default border color
+     --peraa-input-text       Typed text color
+     --peraa-input-placeholder Placeholder text color
+     --peraa-input-focus-ring Focus ring color (always purple)
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* ─── Custom tokens (extend semantic layer) ─────────────────────────────── */
+[data-theme="light"] {
+  --peraa-input-bg: #ffffff;
+  --peraa-input-border: var(--peraa-border-default);
+  --peraa-input-text: var(--peraa-text-primary);
+  --peraa-input-placeholder: var(--peraa-text-tertiary);
+  --peraa-input-focus-ring: var(--peraa-color-purple-500);
+  --peraa-input-border-error: #ef4444;
+  --peraa-input-border-success: #22c55e;
+  --peraa-hint-error: #dc2626;
+  --peraa-hint-success: #16a34a;
+}
+
+:root,
+[data-theme="dark"] {
+  --peraa-input-bg: #1c1c1f;
+  --peraa-input-border: rgba(255, 255, 255, 0.1);
+  --peraa-input-text: var(--peraa-text-primary);
+  --peraa-input-placeholder: var(--peraa-text-tertiary);
+  --peraa-input-focus-ring: var(--peraa-color-purple-400);
+  --peraa-input-border-error: #f87171;
+  --peraa-input-border-success: #4ade80;
+  --peraa-hint-error: #f87171;
+  --peraa-hint-success: #4ade80;
+}
+
+/* ─── Field wrapper ──────────────────────────────────────────────────────── */
+.peraa-field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--peraa-spacing-2);
+}
+
+/* ─── Label ──────────────────────────────────────────────────────────────── */
+.peraa-label {
+  font-family: var(--peraa-font-family-sans);
+  font-size: var(--peraa-font-size-sm);
+  font-weight: var(--peraa-font-weight-medium);
+  line-height: var(--peraa-line-height-normal);
+  color: var(--peraa-text-secondary);
+  letter-spacing: var(--peraa-letter-spacing-normal);
+}
+
+/* ─── Base input ─────────────────────────────────────────────────────────── */
+.peraa-input {
+  width: 100%;
+  padding: var(--peraa-spacing-3) var(--peraa-spacing-4);
+  font-family: var(--peraa-font-family-sans);
+  font-size: var(--peraa-font-size-base);
+  font-weight: var(--peraa-font-weight-regular);
+  line-height: var(--peraa-line-height-normal);
+  color: var(--peraa-input-text);
+  background-color: var(--peraa-input-bg);
+  border: var(--peraa-border-width-1) solid var(--peraa-input-border);
+  border-radius: var(--peraa-radius-md);
+  outline: none;
+  transition:
+    border-color var(--peraa-duration-150) var(--peraa-ease-out),
+    box-shadow var(--peraa-duration-150) var(--peraa-ease-out);
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.peraa-input::placeholder {
+  color: var(--peraa-input-placeholder);
+}
+
+.peraa-input:hover {
+  border-color: var(--peraa-border-strong);
+}
+
+.peraa-input:focus {
+  border-color: var(--peraa-input-focus-ring);
+  box-shadow: 0 0 0 3px rgba(111, 31, 172, 0.15);
+}
+
+[data-theme="dark"] .peraa-input:focus {
+  box-shadow: 0 0 0 3px rgba(171, 81, 229, 0.2);
+}
+
+/* ─── State modifiers ────────────────────────────────────────────────────── */
+.peraa-input--error {
+  border-color: var(--peraa-input-border-error);
+}
+
+.peraa-input--error:focus {
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.15);
+}
+
+.peraa-input--success {
+  border-color: var(--peraa-input-border-success);
+}
+
+.peraa-input--success:focus {
+  box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.15);
+}
+
+.peraa-input:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background-color: var(--peraa-surface-subtle);
+}
+
+/* ─── Textarea ───────────────────────────────────────────────────────────── */
+.peraa-textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+/* ─── Select ─────────────────────────────────────────────────────────────── */
+.peraa-select {
+  cursor: pointer;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%2371717a'%3E%3Cpath d='M4 6l4 4 4-4'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right var(--peraa-spacing-3) center;
+  background-size: 16px;
+  padding-right: var(--peraa-spacing-10);
+}
+
+.peraa-select option {
+  color: var(--peraa-text-primary);
+  background-color: var(--peraa-surface-elevated);
+}
+
+/* ─── Hint text ──────────────────────────────────────────────────────────── */
+.peraa-field__hint {
+  font-family: var(--peraa-font-family-sans);
+  font-size: var(--peraa-font-size-xs);
+  line-height: var(--peraa-line-height-normal);
+  color: var(--peraa-text-tertiary);
+}
+
+.peraa-field__hint--error {
+  color: var(--peraa-hint-error);
+}
+
+.peraa-field__hint--success {
+  color: var(--peraa-hint-success);
+}

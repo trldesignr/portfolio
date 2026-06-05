@@ -1,0 +1,133 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   TABLE
+   Peraa Design System — Table component
+
+   Data table with sticky header option, row hover, and striped variant.
+   Scroll wrapper handles horizontal overflow.
+
+   Structure:
+     .peraa-table-wrapper
+       table.peraa-table
+         thead
+           tr
+             th.peraa-th  (or th.peraa-th.peraa-th--sortable)
+         tbody
+           tr.peraa-tr
+             td.peraa-td
+         tfoot  (optional)
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* ─── Tokens ──────────────────────────────────────────────────────────────── */
+:root,
+[data-theme="dark"] {
+  --peraa-table-header-bg: var(--peraa-color-neutral-900);
+  --peraa-table-row-hover: rgba(255, 255, 255, 0.03);
+  --peraa-table-stripe: rgba(255, 255, 255, 0.02);
+}
+
+[data-theme="light"] {
+  --peraa-table-header-bg: var(--peraa-color-neutral-50);
+  --peraa-table-row-hover: rgba(0, 0, 0, 0.02);
+  --peraa-table-stripe: rgba(0, 0, 0, 0.015);
+}
+
+/* ─── Scroll wrapper ──────────────────────────────────────────────────────── */
+.peraa-table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  border: var(--peraa-border-width-1) solid var(--peraa-border-subtle);
+  border-radius: var(--peraa-radius-lg);
+}
+
+/* ─── Table ───────────────────────────────────────────────────────────────── */
+.peraa-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--peraa-font-family-sans);
+  font-size: var(--peraa-font-size-sm);
+}
+
+/* ─── Header cell ─────────────────────────────────────────────────────────── */
+.peraa-th {
+  padding: var(--peraa-spacing-3) var(--peraa-spacing-4);
+  background-color: var(--peraa-table-header-bg);
+  color: var(--peraa-text-tertiary);
+  font-weight: var(--peraa-font-weight-semibold);
+  font-size: var(--peraa-font-size-xs);
+  letter-spacing: var(--peraa-letter-spacing-wide);
+  text-transform: uppercase;
+  text-align: left;
+  white-space: nowrap;
+  border-bottom: var(--peraa-border-width-1) solid var(--peraa-border-subtle);
+  position: sticky;
+  top: 0;
+  z-index: var(--peraa-z-10);
+}
+
+/* Sortable header */
+.peraa-th--sortable {
+  cursor: pointer;
+  user-select: none;
+}
+
+.peraa-th--sortable:hover {
+  color: var(--peraa-text-primary);
+}
+
+.peraa-th--asc::after  { content: ' ↑'; }
+.peraa-th--desc::after { content: ' ↓'; }
+
+/* ─── Data cell ───────────────────────────────────────────────────────────── */
+.peraa-td {
+  padding: var(--peraa-spacing-3) var(--peraa-spacing-4);
+  color: var(--peraa-text-secondary);
+  border-bottom: var(--peraa-border-width-1) solid var(--peraa-border-subtle);
+  vertical-align: middle;
+  line-height: var(--peraa-line-height-normal);
+}
+
+/* ─── Row states ──────────────────────────────────────────────────────────── */
+.peraa-tr:last-child .peraa-td {
+  border-bottom: none;
+}
+
+.peraa-tr:hover .peraa-td {
+  background-color: var(--peraa-table-row-hover);
+}
+
+.peraa-tr--selected .peraa-td {
+  background-color: rgba(111, 31, 172, 0.06);
+}
+
+/* ─── Striped variant ─────────────────────────────────────────────────────── */
+.peraa-table--striped tbody .peraa-tr:nth-child(even) .peraa-td {
+  background-color: var(--peraa-table-stripe);
+}
+
+/* ─── Compact size ────────────────────────────────────────────────────────── */
+.peraa-table--sm .peraa-th,
+.peraa-table--sm .peraa-td {
+  padding: var(--peraa-spacing-2) var(--peraa-spacing-3);
+  font-size: var(--peraa-font-size-xs);
+}
+
+/* ─── Fixed layout (equal columns) ───────────────────────────────────────── */
+.peraa-table--fixed {
+  table-layout: fixed;
+}
+
+/* ─── Numeric column (right-align) ───────────────────────────────────────── */
+.peraa-td--num,
+.peraa-th--num {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ─── Footer row ──────────────────────────────────────────────────────────── */
+.peraa-table tfoot .peraa-td {
+  background-color: var(--peraa-table-header-bg);
+  font-weight: var(--peraa-font-weight-semibold);
+  color: var(--peraa-text-primary);
+  border-top: var(--peraa-border-width-1) solid var(--peraa-border-default);
+  border-bottom: none;
+}

@@ -1,0 +1,133 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   STAT CARD
+   Peraa Design System — Stat Card component
+
+   Compact metric display card for dashboards and summary panels.
+   Shows a primary value, a label, and an optional trend indicator.
+
+   Structure:
+     .peraa-stat-card
+       .peraa-stat-card__header  (optional icon + label row)
+         .peraa-stat-card__icon
+         span.peraa-stat-card__label
+       .peraa-stat-card__value
+       .peraa-stat-card__trend   (optional)
+         span.peraa-stat-card__trend-badge.peraa-stat-card__trend-badge--up/down
+         span.peraa-stat-card__trend-label
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* ─── Card container ──────────────────────────────────────────────────────── */
+.peraa-stat-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--peraa-spacing-2);
+  padding: var(--peraa-spacing-5);
+  background-color: var(--peraa-surface-base);
+  border: var(--peraa-border-width-1) solid var(--peraa-border-subtle);
+  border-radius: var(--peraa-radius-xl);
+}
+
+/* ─── Header row ──────────────────────────────────────────────────────────── */
+.peraa-stat-card__header {
+  display: flex;
+  align-items: center;
+  gap: var(--peraa-spacing-2);
+}
+
+.peraa-stat-card__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: var(--peraa-radius-md);
+  background-color: var(--peraa-surface-subtle);
+  color: var(--peraa-text-tertiary);
+  flex-shrink: 0;
+}
+
+.peraa-stat-card__icon svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* ─── Label ───────────────────────────────────────────────────────────────── */
+.peraa-stat-card__label {
+  font-family: var(--peraa-font-family-sans);
+  font-size: var(--peraa-font-size-sm);
+  font-weight: var(--peraa-font-weight-medium);
+  color: var(--peraa-text-tertiary);
+  line-height: var(--peraa-line-height-normal);
+}
+
+/* ─── Primary value ───────────────────────────────────────────────────────── */
+.peraa-stat-card__value {
+  font-family: var(--peraa-font-family-heading);
+  font-size: var(--peraa-font-size-3xl);
+  font-weight: var(--peraa-font-weight-bold);
+  color: var(--peraa-text-primary);
+  line-height: var(--peraa-line-height-tight);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: var(--peraa-letter-spacing-tight);
+}
+
+/* ─── Trend row ───────────────────────────────────────────────────────────── */
+.peraa-stat-card__trend {
+  display: flex;
+  align-items: center;
+  gap: var(--peraa-spacing-2);
+  margin-top: var(--peraa-spacing-1);
+}
+
+/* Trend badge (pill) */
+.peraa-stat-card__trend-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  padding: 2px var(--peraa-spacing-1-5);
+  font-family: var(--peraa-font-family-sans);
+  font-size: var(--peraa-font-size-xs);
+  font-weight: var(--peraa-font-weight-semibold);
+  border-radius: var(--peraa-radius-full);
+  line-height: 1;
+}
+
+.peraa-stat-card__trend-badge--up {
+  background-color: var(--peraa-status-success-bg-subtle);
+  color: var(--peraa-status-success-text);
+}
+
+.peraa-stat-card__trend-badge--down {
+  background-color: var(--peraa-status-error-bg-subtle);
+  color: var(--peraa-status-error-text);
+}
+
+.peraa-stat-card__trend-badge--neutral {
+  background-color: var(--peraa-surface-subtle);
+  color: var(--peraa-text-tertiary);
+}
+
+/* Trend context label */
+.peraa-stat-card__trend-label {
+  font-family: var(--peraa-font-family-sans);
+  font-size: var(--peraa-font-size-xs);
+  color: var(--peraa-text-tertiary);
+}
+
+/* ─── Accent top border variant ───────────────────────────────────────────── */
+.peraa-stat-card--accent {
+  border-top: var(--peraa-border-width-4) solid var(--peraa-color-purple-500);
+}
+
+/* ─── Highlighted (purple tint bg) variant ────────────────────────────────── */
+.peraa-stat-card--highlighted {
+  background-color: rgba(111, 31, 172, 0.06);
+  border-color: rgba(111, 31, 172, 0.2);
+}
+
+/* ─── Stat card grid helper ───────────────────────────────────────────────── */
+.peraa-stat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: var(--peraa-spacing-4);
+}

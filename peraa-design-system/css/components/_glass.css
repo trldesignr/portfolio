@@ -1,0 +1,19 @@
+/**
+ * Peraa Design System - Glass Component
+ *
+ * A frosted-glass card surface that adapts to both themes:
+ *   Dark  → solid neutral-800 card (subdued contrast against page bg)
+ *   Light → translucent frosted glass with backdrop blur
+ *
+ * Usage: add class="peraa-glass" to any card, section, or panel element.
+ * All values are driven by --peraa-glass-* tokens defined in _semantic.css.
+ */
+
+.peraa-glass {
+  background: var(--peraa-glass-bg);
+  border: 1px solid var(--peraa-glass-border);
+  border-radius: var(--peraa-glass-radius);
+  backdrop-filter: var(--peraa-glass-blur);
+  -webkit-backdrop-filter: var(--peraa-glass-blur);
+  box-shadow: var(--peraa-glass-shadow);
+}

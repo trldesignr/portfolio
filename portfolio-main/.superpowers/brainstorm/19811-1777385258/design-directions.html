@@ -1,0 +1,108 @@
+<h2>Three Design Directions</h2>
+<p class="subtitle">Same content, same structure — different visual language. Which direction feels right for the clients you're targeting?</p>
+
+<div class="cards" style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:24px;">
+
+  <!-- Direction A: Premium Dark Editorial -->
+  <div class="card" data-choice="a" onclick="toggleSelect(this)" style="padding:0;overflow:hidden;cursor:pointer;border-radius:10px;border:2px solid transparent;">
+    <div class="card-image" style="padding:0;background:none;">
+      <div style="background:#0c0c0f;padding:24px 20px 20px;font-family:'Inter','Helvetica Neue',sans-serif;min-height:260px;position:relative;overflow:hidden;">
+        <!-- Subtle noise texture via CSS -->
+        <div style="position:absolute;inset:0;background:url('data:image/svg+xml,%3Csvg viewBox%3D%220 0 200 200%22 xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cfilter id%3D%22n%22%3E%3CfeTurbulence type%3D%22fractalNoise%22 baseFrequency%3D%220.9%22 numOctaves%3D%224%22 stitchTiles%3D%22stitch%22%2F%3E%3C%2Ffilter%3E%3Crect width%3D%22100%25%22 height%3D%22100%25%22 filter%3D%22url(%23n)%22 opacity%3D%220.04%22%2F%3E%3C%2Fsvg%3E') repeat;opacity:0.4;pointer-events:none;"></div>
+        <!-- Nav stub -->
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:32px;opacity:0.7;">
+          <div style="width:22px;height:22px;border-radius:4px;background:#6F1FAC;"></div>
+          <div style="display:flex;gap:14px;">
+            <div style="width:48px;height:5px;border-radius:2px;background:#3f3f46;"></div>
+            <div style="width:36px;height:5px;border-radius:2px;background:#3f3f46;"></div>
+            <div style="width:54px;height:5px;border-radius:2px;background:#3f3f46;"></div>
+          </div>
+          <div style="width:52px;height:22px;border-radius:4px;background:#6F1FAC;opacity:0.9;"></div>
+        </div>
+        <!-- Hero content -->
+        <div style="letter-spacing:0.12em;font-size:9px;font-weight:600;color:#6F1FAC;text-transform:uppercase;margin-bottom:10px;">Design Leader. Independent.</div>
+        <div style="font-size:28px;font-weight:700;color:#fafafa;line-height:1.1;letter-spacing:-0.03em;margin-bottom:10px;">Todd R.<br>Lewis</div>
+        <div style="font-size:10px;color:#71717a;line-height:1.6;margin-bottom:18px;max-width:200px;">I lead design, build systems, and help enterprise organizations work more deliberately.</div>
+        <div style="display:flex;gap:8px;">
+          <div style="background:#6F1FAC;color:#fff;font-size:9px;font-weight:600;padding:6px 12px;border-radius:4px;">View My Work</div>
+          <div style="border:1px solid #3f3f46;color:#a1a1aa;font-size:9px;padding:6px 12px;border-radius:4px;">Explore Services</div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body" style="padding:16px 20px 20px;background:#1a1a1f;">
+      <h3 style="margin:0 0 6px;font-size:15px;color:#f4f4f5;">A — Premium Dark Editorial</h3>
+      <p style="margin:0;font-size:12px;color:#71717a;line-height:1.5;">Deep surfaces with noise texture. Bold type hierarchy. Purple accent used with restraint. Signals: <em>architectural, precise, authoritative.</em><br><br>Comparable: Linear, Vercel, Stripe</p>
+    </div>
+  </div>
+
+  <!-- Direction B: Warm Professional -->
+  <div class="card" data-choice="b" onclick="toggleSelect(this)" style="padding:0;overflow:hidden;cursor:pointer;border-radius:10px;border:2px solid transparent;">
+    <div class="card-image" style="padding:0;background:none;">
+      <div style="background:#faf8f5;padding:24px 20px 20px;font-family:'Inter','Helvetica Neue',sans-serif;min-height:260px;position:relative;overflow:hidden;">
+        <!-- Nav stub -->
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:32px;opacity:0.8;">
+          <div style="width:22px;height:22px;border-radius:50%;background:#6F1FAC;opacity:0.85;"></div>
+          <div style="display:flex;gap:14px;">
+            <div style="width:48px;height:5px;border-radius:2px;background:#d4d4d8;"></div>
+            <div style="width:36px;height:5px;border-radius:2px;background:#d4d4d8;"></div>
+            <div style="width:54px;height:5px;border-radius:2px;background:#d4d4d8;"></div>
+          </div>
+          <div style="width:52px;height:22px;border-radius:20px;background:#6F1FAC;opacity:0.9;"></div>
+        </div>
+        <!-- Hero content -->
+        <div style="letter-spacing:0.1em;font-size:9px;font-weight:600;color:#6F1FAC;text-transform:uppercase;margin-bottom:10px;">Design Leader. Independent.</div>
+        <div style="font-size:26px;font-weight:700;color:#1c1917;line-height:1.15;letter-spacing:-0.02em;margin-bottom:10px;">Todd R.<br>Lewis</div>
+        <div style="font-size:10px;color:#78716c;line-height:1.6;margin-bottom:18px;max-width:200px;">I lead design, build systems, and help enterprise organizations work more deliberately.</div>
+        <div style="display:flex;gap:8px;">
+          <div style="background:#6F1FAC;color:#fff;font-size:9px;font-weight:600;padding:6px 14px;border-radius:20px;">View My Work</div>
+          <div style="border:1.5px solid #d4d4d8;color:#78716c;font-size:9px;padding:6px 14px;border-radius:20px;">Explore Services</div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body" style="padding:16px 20px 20px;">
+      <h3 style="margin:0 0 6px;font-size:15px;">B — Warm Neutral Professional</h3>
+      <p style="margin:0;font-size:12px;color:#71717a;line-height:1.5;">Warm off-white (#faf8f5) base. Rounded pill buttons. Softer typographic weight. Signals: <em>approachable, trustworthy, human.</em><br><br>Comparable: Notion, Figma, Loom</p>
+    </div>
+  </div>
+
+  <!-- Direction C: Structured Authority -->
+  <div class="card" data-choice="c" onclick="toggleSelect(this)" style="padding:0;overflow:hidden;cursor:pointer;border-radius:10px;border:2px solid transparent;">
+    <div class="card-image" style="padding:0;background:none;">
+      <div style="background:#09090b;padding:24px 20px 20px;font-family:'Inter','Helvetica Neue',sans-serif;min-height:260px;position:relative;overflow:hidden;">
+        <!-- Grid lines decoration -->
+        <div style="position:absolute;inset:0;background-image:linear-gradient(#27272a 1px,transparent 1px),linear-gradient(90deg,#27272a 1px,transparent 1px);background-size:28px 28px;opacity:0.3;pointer-events:none;"></div>
+        <!-- Nav stub -->
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:32px;position:relative;">
+          <div style="display:flex;align-items:center;gap:6px;">
+            <div style="width:18px;height:18px;background:#6F1FAC;clip-path:polygon(50% 0%,100% 50%,50% 100%,0% 50%);"></div>
+          </div>
+          <div style="display:flex;gap:14px;">
+            <div style="width:48px;height:5px;border-radius:2px;background:#27272a;"></div>
+            <div style="width:36px;height:5px;border-radius:2px;background:#27272a;"></div>
+            <div style="width:54px;height:5px;border-radius:2px;background:#27272a;"></div>
+          </div>
+          <div style="width:52px;height:22px;border-radius:3px;background:transparent;border:1px solid #6F1FAC;"></div>
+        </div>
+        <!-- Hero content - structured grid feel -->
+        <div style="border-left:2px solid #6F1FAC;padding-left:10px;margin-bottom:12px;">
+          <div style="font-size:8px;font-weight:500;color:#6F1FAC;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:4px;font-family:monospace;">DESIGN LEADER · INDEPENDENT</div>
+          <div style="font-size:26px;font-weight:800;color:#fafafa;line-height:1.1;letter-spacing:-0.04em;">Todd R.<br>Lewis</div>
+        </div>
+        <div style="font-size:10px;color:#71717a;line-height:1.6;margin-bottom:18px;max-width:200px;border-left:2px solid #27272a;padding-left:10px;">I lead design, build systems, and help enterprise organizations work more deliberately.</div>
+        <div style="display:flex;gap:8px;">
+          <div style="background:#6F1FAC;color:#fff;font-size:9px;font-weight:700;padding:6px 12px;border-radius:3px;letter-spacing:0.03em;">VIEW WORK</div>
+          <div style="border:1px solid #27272a;color:#71717a;font-size:9px;padding:6px 12px;border-radius:3px;letter-spacing:0.03em;">SERVICES →</div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body" style="padding:16px 20px 20px;background:#111113;">
+      <h3 style="margin:0 0 6px;font-size:15px;color:#f4f4f5;">C — Structured Authority</h3>
+      <p style="margin:0;font-size:12px;color:#71717a;line-height:1.5;">Subtle grid overlay, left-border accent for hierarchy, uppercase tracking on labels. Signals: <em>systematic, expert, engineered.</em><br><br>Comparable: Resend, Clerk, Liveblocks</p>
+    </div>
+  </div>
+
+</div>
+
+<div style="margin-top:28px;padding:16px 20px;background:rgba(111,31,172,0.08);border-radius:8px;border-left:3px solid #6F1FAC;">
+  <p style="margin:0;font-size:13px;line-height:1.6;color:#a1a1aa;"><strong style="color:#d4d4d8;">Note:</strong> These are style previews of the hero section only. Whichever direction you pick, the existing content, navigation, and page structure stays exactly as-is — only the visual language changes: colors, type treatment, spacing, and surface textures.</p>
+</div>

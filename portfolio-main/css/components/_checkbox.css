@@ -1,0 +1,129 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   CHECKBOX
+   Peraa Design System — Checkbox component
+
+   Accessible custom checkbox using a hidden native input + styled sibling.
+   Fully keyboard navigable; supports indeterminate state.
+
+   Structure:
+     .peraa-checkbox
+       input.peraa-checkbox__input[type="checkbox"]
+       label.peraa-checkbox__label
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* ─── Tokens ──────────────────────────────────────────────────────────────── */
+:root,
+[data-theme="dark"] {
+  --peraa-checkbox-bg: var(--peraa-color-neutral-900);
+  --peraa-checkbox-border: var(--peraa-border-subtle);
+  --peraa-checkbox-checked-bg: var(--peraa-color-purple-500);
+  --peraa-checkbox-checked-border: var(--peraa-color-purple-500);
+  --peraa-checkbox-checkmark: var(--peraa-color-neutral-0);
+}
+
+[data-theme="light"] {
+  --peraa-checkbox-bg: var(--peraa-color-neutral-0);
+  --peraa-checkbox-border: var(--peraa-border-default);
+  --peraa-checkbox-checked-bg: var(--peraa-color-purple-500);
+  --peraa-checkbox-checked-border: var(--peraa-color-purple-500);
+  --peraa-checkbox-checkmark: var(--peraa-color-neutral-0);
+}
+
+/* ─── Wrapper ─────────────────────────────────────────────────────────────── */
+.peraa-checkbox {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--peraa-spacing-2-5);
+  cursor: pointer;
+  user-select: none;
+}
+
+/* ─── Hidden native input ─────────────────────────────────────────────────── */
+.peraa-checkbox__input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* ─── Visual box (::before on label) ─────────────────────────────────────── */
+.peraa-checkbox__label {
+  position: relative;
+  padding-left: calc(var(--peraa-spacing-5) + var(--peraa-spacing-1));
+  font-family: var(--peraa-font-family-sans);
+  font-size: var(--peraa-font-size-sm);
+  font-weight: var(--peraa-font-weight-regular);
+  line-height: var(--peraa-line-height-normal);
+  color: var(--peraa-text-primary);
+  cursor: pointer;
+}
+
+.peraa-checkbox__label::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 18px;
+  height: 18px;
+  background-color: var(--peraa-checkbox-bg);
+  border: var(--peraa-border-width-1) solid var(--peraa-checkbox-border);
+  border-radius: var(--peraa-radius-sm);
+  transition:
+    background-color var(--peraa-duration-150) var(--peraa-ease-out),
+    border-color var(--peraa-duration-150) var(--peraa-ease-out);
+}
+
+.peraa-checkbox__label::after {
+  content: '';
+  position: absolute;
+  left: 5px;
+  top: 50%;
+  transform: translateY(-60%) rotate(45deg);
+  width: 6px;
+  height: 10px;
+  border: 2px solid var(--peraa-checkbox-checkmark);
+  border-top: none;
+  border-left: none;
+  opacity: 0;
+  transition: opacity var(--peraa-duration-100) var(--peraa-ease-out);
+}
+
+/* ─── Checked state ───────────────────────────────────────────────────────── */
+.peraa-checkbox__input:checked + .peraa-checkbox__label::before {
+  background-color: var(--peraa-checkbox-checked-bg);
+  border-color: var(--peraa-checkbox-checked-border);
+}
+
+.peraa-checkbox__input:checked + .peraa-checkbox__label::after {
+  opacity: 1;
+}
+
+/* ─── Focus ring ──────────────────────────────────────────────────────────── */
+.peraa-checkbox__input:focus-visible + .peraa-checkbox__label::before {
+  box-shadow: var(--peraa-focus-ring-shadow);
+}
+
+/* ─── Disabled ────────────────────────────────────────────────────────────── */
+.peraa-checkbox__input:disabled + .peraa-checkbox__label {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* ─── Group layout ────────────────────────────────────────────────────────── */
+.peraa-checkbox-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--peraa-spacing-3);
+}
+
+.peraa-checkbox-group--horizontal {
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: var(--peraa-spacing-4);
+}

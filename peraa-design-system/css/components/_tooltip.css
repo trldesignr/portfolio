@@ -1,0 +1,132 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   TOOLTIP
+   Peraa Design System — Tooltip component
+
+   Small text label that appears on hover/focus. CSS-driven for static text;
+   use React + Floating UI / Radix Tooltip for dynamic positioning in apps.
+
+   Structure:
+     .peraa-tooltip-wrapper[data-tooltip="Label text"][data-tooltip-pos="top"]
+       (any trigger element)
+
+   Or explicit markup:
+     .peraa-tooltip-wrapper
+       button (trigger)
+       .peraa-tooltip.peraa-tooltip--top  (positioned absolutely)
+         span.peraa-tooltip__arrow
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* ─── Tokens ──────────────────────────────────────────────────────────────── */
+:root,
+[data-theme="dark"] {
+  --peraa-tooltip-bg: var(--peraa-color-neutral-100);
+  --peraa-tooltip-text: var(--peraa-color-neutral-900);
+  --peraa-tooltip-shadow: var(--peraa-shadow-lg);
+}
+
+[data-theme="light"] {
+  --peraa-tooltip-bg: var(--peraa-color-neutral-900);
+  --peraa-tooltip-text: var(--peraa-color-neutral-50);
+  --peraa-tooltip-shadow: var(--peraa-shadow-lg);
+}
+
+/* ─── Wrapper (positioning context) ──────────────────────────────────────── */
+.peraa-tooltip-wrapper {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ─── Tooltip bubble ──────────────────────────────────────────────────────── */
+.peraa-tooltip {
+  position: absolute;
+  z-index: var(--peraa-z-50);
+  padding: var(--peraa-spacing-1-5) var(--peraa-spacing-3);
+  background-color: var(--peraa-tooltip-bg);
+  color: var(--peraa-tooltip-text);
+  font-family: var(--peraa-font-family-sans);
+  font-size: var(--peraa-font-size-xs);
+  font-weight: var(--peraa-font-weight-medium);
+  line-height: var(--peraa-line-height-snug);
+  white-space: nowrap;
+  border-radius: var(--peraa-radius-md);
+  box-shadow: var(--peraa-tooltip-shadow);
+  pointer-events: none;
+  opacity: 0;
+  transition:
+    opacity var(--peraa-duration-150) var(--peraa-ease-out),
+    transform var(--peraa-duration-150) var(--peraa-ease-out);
+}
+
+/* ─── Show on wrapper hover/focus ─────────────────────────────────────────── */
+.peraa-tooltip-wrapper:hover .peraa-tooltip,
+.peraa-tooltip-wrapper:focus-within .peraa-tooltip {
+  opacity: 1;
+}
+
+/* ─── Positions ───────────────────────────────────────────────────────────── */
+.peraa-tooltip--top {
+  bottom: calc(100% + var(--peraa-spacing-2));
+  left: 50%;
+  transform: translateX(-50%) translateY(4px);
+}
+
+.peraa-tooltip-wrapper:hover .peraa-tooltip--top,
+.peraa-tooltip-wrapper:focus-within .peraa-tooltip--top {
+  transform: translateX(-50%) translateY(0);
+}
+
+.peraa-tooltip--bottom {
+  top: calc(100% + var(--peraa-spacing-2));
+  left: 50%;
+  transform: translateX(-50%) translateY(-4px);
+}
+
+.peraa-tooltip-wrapper:hover .peraa-tooltip--bottom,
+.peraa-tooltip-wrapper:focus-within .peraa-tooltip--bottom {
+  transform: translateX(-50%) translateY(0);
+}
+
+.peraa-tooltip--left {
+  right: calc(100% + var(--peraa-spacing-2));
+  top: 50%;
+  transform: translateY(-50%) translateX(4px);
+}
+
+.peraa-tooltip-wrapper:hover .peraa-tooltip--left,
+.peraa-tooltip-wrapper:focus-within .peraa-tooltip--left {
+  transform: translateY(-50%) translateX(0);
+}
+
+.peraa-tooltip--right {
+  left: calc(100% + var(--peraa-spacing-2));
+  top: 50%;
+  transform: translateY(-50%) translateX(-4px);
+}
+
+.peraa-tooltip-wrapper:hover .peraa-tooltip--right,
+.peraa-tooltip-wrapper:focus-within .peraa-tooltip--right {
+  transform: translateY(-50%) translateX(0);
+}
+
+/* ─── Default position (top) ─────────────────────────────────────────────── */
+.peraa-tooltip:not([class*="peraa-tooltip--"]) {
+  bottom: calc(100% + var(--peraa-spacing-2));
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* ─── Max-width (multiline tooltips) ─────────────────────────────────────── */
+.peraa-tooltip--wide {
+  white-space: normal;
+  max-width: 200px;
+  text-align: center;
+}
+
+/* ─── Reduced motion ──────────────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .peraa-tooltip {
+    transition: opacity var(--peraa-duration-150) var(--peraa-ease-out);
+  }
+}

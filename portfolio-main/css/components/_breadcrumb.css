@@ -1,0 +1,96 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   BREADCRUMB
+   Peraa Design System — Breadcrumb component
+
+   Horizontal trail showing the current page's location within the site
+   hierarchy. Last item is the current page (non-interactive, aria-current).
+
+   Structure:
+     nav.peraa-breadcrumb[aria-label="Breadcrumb"]
+       ol.peraa-breadcrumb__list
+         li.peraa-breadcrumb__item
+           a.peraa-breadcrumb__link[href="..."]
+           span.peraa-breadcrumb__separator[aria-hidden="true"]
+         li.peraa-breadcrumb__item.peraa-breadcrumb__item--current[aria-current="page"]
+           span.peraa-breadcrumb__current
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* ─── Nav wrapper ─────────────────────────────────────────────────────────── */
+.peraa-breadcrumb {
+  display: block;
+}
+
+/* ─── List ────────────────────────────────────────────────────────────────── */
+.peraa-breadcrumb__list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-family: var(--peraa-font-family-sans);
+  font-size: var(--peraa-font-size-sm);
+  line-height: var(--peraa-line-height-normal);
+}
+
+/* ─── Item ────────────────────────────────────────────────────────────────── */
+.peraa-breadcrumb__item {
+  display: inline-flex;
+  align-items: center;
+}
+
+/* ─── Link ────────────────────────────────────────────────────────────────── */
+.peraa-breadcrumb__link {
+  color: var(--peraa-text-tertiary);
+  text-decoration: none;
+  transition: color var(--peraa-duration-150) var(--peraa-ease-out);
+  border-radius: var(--peraa-radius-sm);
+}
+
+.peraa-breadcrumb__link:hover {
+  color: var(--peraa-text-primary);
+}
+
+.peraa-breadcrumb__link:focus-visible {
+  outline: 2px solid var(--peraa-border-focus);
+  outline-offset: 2px;
+}
+
+/* ─── Separator ───────────────────────────────────────────────────────────── */
+.peraa-breadcrumb__separator {
+  color: var(--peraa-text-disabled);
+  margin: 0 var(--peraa-spacing-2);
+  user-select: none;
+}
+
+/* ─── Current page ────────────────────────────────────────────────────────── */
+.peraa-breadcrumb__current {
+  color: var(--peraa-text-primary);
+  font-weight: var(--peraa-font-weight-medium);
+}
+
+/* ─── Collapsed (ellipsis) variant ───────────────────────────────────────── */
+.peraa-breadcrumb__ellipsis {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 20px;
+  color: var(--peraa-text-tertiary);
+  background-color: var(--peraa-surface-subtle);
+  border-radius: var(--peraa-radius-sm);
+  font-size: var(--peraa-font-size-xs);
+  cursor: pointer;
+  transition: background-color var(--peraa-duration-150) var(--peraa-ease-out);
+}
+
+.peraa-breadcrumb__ellipsis:hover {
+  background-color: var(--peraa-interactive-tertiary-bg-hover);
+  color: var(--peraa-text-primary);
+}
+
+/* ─── Size modifier ───────────────────────────────────────────────────────── */
+.peraa-breadcrumb--lg .peraa-breadcrumb__list {
+  font-size: var(--peraa-font-size-base);
+}

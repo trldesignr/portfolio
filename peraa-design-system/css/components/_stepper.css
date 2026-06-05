@@ -1,0 +1,170 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   STEPPER
+   Peraa Design System — Stepper / Progress Steps component
+
+   Shows a multi-step flow with visual state for each step: complete,
+   active, and pending. Supports horizontal (default) and vertical layouts.
+
+   Structure:
+     ol.peraa-stepper
+       li.peraa-stepper__step.peraa-stepper__step--complete
+         .peraa-stepper__indicator
+           span.peraa-stepper__number  (or checkmark svg)
+         .peraa-stepper__content
+           span.peraa-stepper__label
+           span.peraa-stepper__sublabel  (optional)
+       li.peraa-stepper__step.peraa-stepper__step--active[aria-current="step"]
+       li.peraa-stepper__step
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* ─── Tokens ──────────────────────────────────────────────────────────────── */
+:root,
+[data-theme="dark"] {
+  --peraa-stepper-track: var(--peraa-color-neutral-700);
+  --peraa-stepper-indicator-pending: var(--peraa-color-neutral-800);
+  --peraa-stepper-indicator-border-pending: var(--peraa-color-neutral-600);
+  --peraa-stepper-indicator-active: var(--peraa-color-purple-500);
+  --peraa-stepper-indicator-complete: var(--peraa-color-purple-500);
+}
+
+[data-theme="light"] {
+  --peraa-stepper-track: var(--peraa-color-neutral-200);
+  --peraa-stepper-indicator-pending: var(--peraa-color-neutral-100);
+  --peraa-stepper-indicator-border-pending: var(--peraa-color-neutral-300);
+  --peraa-stepper-indicator-active: var(--peraa-color-purple-500);
+  --peraa-stepper-indicator-complete: var(--peraa-color-purple-500);
+}
+
+/* ─── List ────────────────────────────────────────────────────────────────── */
+.peraa-stepper {
+  display: flex;
+  align-items: flex-start;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 0;
+}
+
+/* ─── Step item ───────────────────────────────────────────────────────────── */
+.peraa-stepper__step {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  position: relative;
+}
+
+/* Track connector line (between steps) */
+.peraa-stepper__step:not(:last-child)::after {
+  content: '';
+  flex: 1;
+  height: 2px;
+  background-color: var(--peraa-stepper-track);
+  margin: 0 var(--peraa-spacing-2);
+  align-self: flex-start;
+  margin-top: 18px;
+  transition: background-color var(--peraa-duration-300) var(--peraa-ease-out);
+}
+
+.peraa-stepper__step--complete:not(:last-child)::after {
+  background-color: var(--peraa-stepper-indicator-complete);
+}
+
+/* ─── Step header (indicator + content) ──────────────────────────────────── */
+.peraa-stepper__header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--peraa-spacing-2);
+}
+
+/* ─── Indicator circle ────────────────────────────────────────────────────── */
+.peraa-stepper__indicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--peraa-radius-full);
+  border: 2px solid var(--peraa-stepper-indicator-border-pending);
+  background-color: var(--peraa-stepper-indicator-pending);
+  flex-shrink: 0;
+  transition:
+    background-color var(--peraa-duration-200) var(--peraa-ease-out),
+    border-color var(--peraa-duration-200) var(--peraa-ease-out);
+}
+
+.peraa-stepper__number {
+  font-family: var(--peraa-font-family-sans);
+  font-size: var(--peraa-font-size-sm);
+  font-weight: var(--peraa-font-weight-semibold);
+  color: var(--peraa-text-tertiary);
+}
+
+/* ─── Active step ─────────────────────────────────────────────────────────── */
+.peraa-stepper__step--active .peraa-stepper__indicator {
+  background-color: var(--peraa-stepper-indicator-active);
+  border-color: var(--peraa-stepper-indicator-active);
+}
+
+.peraa-stepper__step--active .peraa-stepper__number {
+  color: var(--peraa-color-neutral-0);
+}
+
+/* ─── Complete step ───────────────────────────────────────────────────────── */
+.peraa-stepper__step--complete .peraa-stepper__indicator {
+  background-color: var(--peraa-stepper-indicator-complete);
+  border-color: var(--peraa-stepper-indicator-complete);
+}
+
+.peraa-stepper__step--complete .peraa-stepper__number {
+  color: var(--peraa-color-neutral-0);
+}
+
+/* ─── Labels ──────────────────────────────────────────────────────────────── */
+.peraa-stepper__label {
+  font-family: var(--peraa-font-family-sans);
+  font-size: var(--peraa-font-size-sm);
+  font-weight: var(--peraa-font-weight-medium);
+  color: var(--peraa-text-tertiary);
+  text-align: center;
+  white-space: nowrap;
+}
+
+.peraa-stepper__step--active .peraa-stepper__label {
+  color: var(--peraa-text-primary);
+  font-weight: var(--peraa-font-weight-semibold);
+}
+
+.peraa-stepper__step--complete .peraa-stepper__label {
+  color: var(--peraa-text-secondary);
+}
+
+.peraa-stepper__sublabel {
+  font-size: var(--peraa-font-size-xs);
+  color: var(--peraa-text-tertiary);
+  text-align: center;
+}
+
+/* ─── Vertical variant ────────────────────────────────────────────────────── */
+.peraa-stepper--vertical {
+  flex-direction: column;
+}
+
+.peraa-stepper--vertical .peraa-stepper__step {
+  flex-direction: column;
+  align-items: flex-start;
+  flex: none;
+}
+
+.peraa-stepper--vertical .peraa-stepper__step:not(:last-child)::after {
+  width: 2px;
+  height: var(--peraa-spacing-8);
+  margin: var(--peraa-spacing-1) 0 var(--peraa-spacing-1) 17px;
+  align-self: auto;
+}
+
+.peraa-stepper--vertical .peraa-stepper__header {
+  flex-direction: row;
+  align-items: flex-start;
+  text-align: left;
+}
