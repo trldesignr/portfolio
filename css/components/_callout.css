@@ -1,0 +1,99 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   CALLOUT
+   Peraa Design System — Callout component
+
+   Prominent inline block for drawing attention to important content —
+   tips, notes, warnings, and danger notices in documentation or UI.
+   Similar to Alert but larger, document-oriented, with an icon column.
+
+   Structure:
+     .peraa-callout.peraa-callout--[variant]
+       .peraa-callout__icon  (emoji or svg)
+       .peraa-callout__body
+         strong.peraa-callout__title  (optional)
+         p  (body content)
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* ─── Tokens ──────────────────────────────────────────────────────────────── */
+:root,
+[data-theme="dark"] {
+  --peraa-callout-info-bg:    rgba(59, 130, 246, 0.08);
+  --peraa-callout-info-border: var(--peraa-color-info-500);
+  --peraa-callout-tip-bg:     rgba(20, 184, 166, 0.08);
+  --peraa-callout-tip-border:  var(--peraa-color-teal-500);
+  --peraa-callout-warning-bg:  rgba(234, 179, 8, 0.08);
+  --peraa-callout-warning-border: var(--peraa-color-warning-500);
+  --peraa-callout-danger-bg:   rgba(239, 68, 68, 0.08);
+  --peraa-callout-danger-border: var(--peraa-color-error-500);
+}
+
+[data-theme="light"] {
+  --peraa-callout-info-bg:    rgba(59, 130, 246, 0.05);
+  --peraa-callout-info-border: #2563eb;  /* blue-600: 5.17:1 (up from 3.68) */
+  --peraa-callout-tip-bg:     rgba(20, 184, 166, 0.05);
+  --peraa-callout-tip-border:  #0f766e;  /* teal-700: 5.47:1 (up from 3.74) */
+  --peraa-callout-warning-bg:  rgba(234, 179, 8, 0.05);
+  --peraa-callout-warning-border: #b45309; /* warning-700: 5.02:1 (was 2.94:1 ✗) */
+  --peraa-callout-danger-bg:   rgba(239, 68, 68, 0.05);
+  --peraa-callout-danger-border: #dc2626; /* error-600: 4.83:1 ✓ */
+}
+
+/* ─── Base ────────────────────────────────────────────────────────────────── */
+.peraa-callout {
+  display: flex;
+  gap: var(--peraa-spacing-4);
+  padding: var(--peraa-spacing-4) var(--peraa-spacing-5);
+  border-radius: var(--peraa-radius-lg);
+  border-left: var(--peraa-border-width-4) solid transparent;
+}
+
+/* ─── Icon column ─────────────────────────────────────────────────────────── */
+.peraa-callout__icon {
+  flex-shrink: 0;
+  font-size: var(--peraa-font-size-lg);
+  line-height: var(--peraa-line-height-snug);
+  margin-top: 1px;
+}
+
+/* ─── Body ────────────────────────────────────────────────────────────────── */
+.peraa-callout__body {
+  flex: 1;
+  min-width: 0;
+  font-family: var(--peraa-font-family-sans);
+  font-size: var(--peraa-font-size-sm);
+  line-height: var(--peraa-line-height-relaxed);
+  color: var(--peraa-text-secondary);
+}
+
+.peraa-callout__body > p {
+  margin: 0;
+}
+
+.peraa-callout__title {
+  display: block;
+  font-weight: var(--peraa-font-weight-semibold);
+  color: var(--peraa-text-primary);
+  margin-bottom: var(--peraa-spacing-1);
+  font-size: var(--peraa-font-size-sm);
+}
+
+/* ─── Variants ────────────────────────────────────────────────────────────── */
+.peraa-callout--info {
+  background-color: var(--peraa-callout-info-bg);
+  border-left-color: var(--peraa-callout-info-border);
+}
+
+.peraa-callout--tip {
+  background-color: var(--peraa-callout-tip-bg);
+  border-left-color: var(--peraa-callout-tip-border);
+}
+
+.peraa-callout--warning {
+  background-color: var(--peraa-callout-warning-bg);
+  border-left-color: var(--peraa-callout-warning-border);
+}
+
+.peraa-callout--danger {
+  background-color: var(--peraa-callout-danger-bg);
+  border-left-color: var(--peraa-callout-danger-border);
+}

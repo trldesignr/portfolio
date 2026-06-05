@@ -101,9 +101,13 @@
 
     .consulting-eval-item {
       padding: var(--peraa-spacing-4) var(--peraa-spacing-5);
-      background: var(--peraa-surface-card);
-      border: 1px solid var(--peraa-border-default);
+      background: var(--peraa-glass-bg);
+      border: 1px solid var(--peraa-glass-border);
       border-left: 3px solid var(--peraa-color-teal-500);
+      border-radius: var(--peraa-glass-radius);
+      backdrop-filter: var(--peraa-glass-blur);
+      -webkit-backdrop-filter: var(--peraa-glass-blur);
+      box-shadow: var(--peraa-glass-shadow);
     }
 
     .consulting-eval-item__title {
@@ -167,8 +171,12 @@
 
     .consulting-outcome-stat {
       padding: var(--peraa-spacing-5);
-      background: var(--peraa-surface-card);
-      border: 1px solid var(--peraa-border-default);
+      background: var(--peraa-glass-bg);
+      border: 1px solid var(--peraa-glass-border);
+      border-radius: var(--peraa-glass-radius);
+      backdrop-filter: var(--peraa-glass-blur);
+      -webkit-backdrop-filter: var(--peraa-glass-blur);
+      box-shadow: var(--peraa-glass-shadow);
       text-align: center;
     }
 
@@ -227,8 +235,12 @@
 
     .consulting-engagement-item {
       padding: var(--peraa-spacing-5);
-      background: var(--peraa-surface-card);
-      border: 1px solid var(--peraa-border-default);
+      background: var(--peraa-glass-bg);
+      border: 1px solid var(--peraa-glass-border);
+      border-radius: var(--peraa-glass-radius);
+      backdrop-filter: var(--peraa-glass-blur);
+      -webkit-backdrop-filter: var(--peraa-glass-blur);
+      box-shadow: var(--peraa-glass-shadow);
     }
 
     .consulting-engagement-item__label {
@@ -250,12 +262,17 @@
       line-height: var(--peraa-line-height-relaxed);
     }
 
+
     /* ─── CTA Block ─── */
     .consulting-cta {
       text-align: center;
       padding: var(--peraa-spacing-12) var(--peraa-spacing-6);
-      background: var(--peraa-surface-card);
-      border: 1px solid var(--peraa-border-default);
+      background: var(--peraa-glass-bg);
+      border: 1px solid var(--peraa-glass-border);
+      border-radius: var(--peraa-glass-radius);
+      backdrop-filter: var(--peraa-glass-blur);
+      -webkit-backdrop-filter: var(--peraa-glass-blur);
+      box-shadow: var(--peraa-glass-shadow);
       margin: var(--peraa-spacing-6) 0;
     }
 
@@ -337,9 +354,9 @@
             Before investing in AI integration, most organizations need to answer a simpler question: where does it actually help? This engagement is structured to answer that question with evidence, not assumptions.
           </p>
           <div class="peraa-mt-8" style="display: flex; gap: var(--peraa-spacing-4); flex-wrap: wrap;">
-            <a href="mailto:trldesignr@gmail.com?subject=AI Consulting Inquiry" class="peraa-btn peraa-btn--primary">
+            <button class="peraa-btn peraa-btn--primary" data-modal-trigger="conversation">
               Start a Conversation
-            </a>
+            </button>
             <a href="ai-workshop.html" class="peraa-btn peraa-btn--secondary">
               View AI Workshop
             </a>
@@ -605,12 +622,12 @@
               If you want to understand where AI fits in your organization, with specifics, not generalities, the first step is a conversation. No commitment, no pitch.
             </p>
             <div class="consulting-cta__actions">
-              <a
-                href="mailto:trldesignr@gmail.com?subject=AI Consulting Inquiry"
+              <button
                 class="peraa-btn peraa-btn--primary"
+                data-modal-trigger="conversation"
               >
                 Start a Conversation
-              </a>
+              </button>
               <a
                 href="https://www.linkedin.com/in/toddrlewis/"
                 target="_blank"
@@ -653,14 +670,7 @@
             </a>
           </div>
           <div class="peraa-footer__contact">
-            <a href="../assets/TRL-Resume.pdf" class="peraa-footer__contact-link" target="_blank" rel="noopener noreferrer">
-              <svg class="peraa-footer__contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/>
-              </svg>
-              Resume
-            </a>
-            <div class="peraa-footer__contact-divider"></div>
-            <a href="mailto:trldesignr@gmail.com" class="peraa-footer__contact-link">
+            <a href="#" class="peraa-footer__contact-link" data-modal-trigger="conversation">
               <svg class="peraa-footer__contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
                 <polyline points="22,6 12,13 2,6"/>
@@ -681,5 +691,7 @@
   </div>
 
   <script src="../js/main.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script src="../js/contact-modal.js"></script>
 </body>
 </html>

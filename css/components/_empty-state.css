@@ -1,0 +1,114 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   EMPTY STATE
+   Peraa Design System — Empty State component
+
+   Centered illustration + message for zero-content views: empty tables,
+   empty inboxes, no search results, first-run states, and error states.
+
+   Structure:
+     .peraa-empty-state
+       .peraa-empty-state__icon  (svg or emoji)
+       h3.peraa-empty-state__title
+       p.peraa-empty-state__description
+       .peraa-empty-state__actions  (optional)
+         button / a
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* ─── Container ───────────────────────────────────────────────────────────── */
+.peraa-empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: var(--peraa-spacing-12) var(--peraa-spacing-6);
+  gap: var(--peraa-spacing-3);
+}
+
+/* ─── Icon / illustration area ────────────────────────────────────────────── */
+.peraa-empty-state__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  border-radius: var(--peraa-radius-xl);
+  background-color: var(--peraa-surface-subtle);
+  color: var(--peraa-text-tertiary);
+  font-size: var(--peraa-spacing-8);
+  line-height: 1;
+  margin-bottom: var(--peraa-spacing-2);
+}
+
+.peraa-empty-state__icon svg {
+  width: 32px;
+  height: 32px;
+}
+
+/* ─── Title ───────────────────────────────────────────────────────────────── */
+.peraa-empty-state__title {
+  font-family: var(--peraa-font-family-heading);
+  font-size: var(--peraa-font-size-lg);
+  font-weight: var(--peraa-font-weight-semibold);
+  color: var(--peraa-text-primary);
+  margin: 0;
+  line-height: var(--peraa-line-height-snug);
+}
+
+/* ─── Description ─────────────────────────────────────────────────────────── */
+.peraa-empty-state__description {
+  font-family: var(--peraa-font-family-sans);
+  font-size: var(--peraa-font-size-sm);
+  color: var(--peraa-text-tertiary);
+  line-height: var(--peraa-line-height-relaxed);
+  max-width: 360px;
+  margin: 0;
+}
+
+/* ─── Actions ─────────────────────────────────────────────────────────────── */
+.peraa-empty-state__actions {
+  display: flex;
+  gap: var(--peraa-spacing-3);
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: var(--peraa-spacing-2);
+}
+
+/* ─── Compact variant (inside a table or card panel) ─────────────────────── */
+.peraa-empty-state--sm {
+  padding: var(--peraa-spacing-8) var(--peraa-spacing-4);
+}
+
+.peraa-empty-state--sm .peraa-empty-state__icon {
+  width: 48px;
+  height: 48px;
+  font-size: var(--peraa-spacing-6);
+}
+
+.peraa-empty-state--sm .peraa-empty-state__title {
+  font-size: var(--peraa-font-size-base);
+}
+
+/* ─── Inline (horizontal, left-aligned) ──────────────────────────────────── */
+.peraa-empty-state--inline {
+  flex-direction: row;
+  text-align: left;
+  padding: var(--peraa-spacing-5);
+  gap: var(--peraa-spacing-4);
+}
+
+.peraa-empty-state--inline .peraa-empty-state__icon {
+  margin-bottom: 0;
+  flex-shrink: 0;
+}
+
+.peraa-empty-state--inline .peraa-empty-state__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--peraa-spacing-1);
+  align-items: flex-start;
+}
+
+.peraa-empty-state--inline .peraa-empty-state__description {
+  max-width: none;
+}

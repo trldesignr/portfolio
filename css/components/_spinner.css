@@ -1,0 +1,88 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   SPINNER / LOADER
+   Peraa Design System — Spinner component
+
+   Animated circular loading indicator. Three sizes. Can be rendered inline
+   or as a full-area overlay. Uses border animation (CSS only, no SVG needed).
+
+   Structure:
+     .peraa-spinner               (default, 24px)
+     .peraa-spinner.peraa-spinner--sm
+     .peraa-spinner.peraa-spinner--lg
+
+     Overlay:
+     .peraa-spinner-overlay
+       .peraa-spinner
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* ─── Base spinner ────────────────────────────────────────────────────────── */
+.peraa-spinner {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  border: 2px solid var(--peraa-border-subtle);
+  border-top-color: var(--peraa-color-purple-500);
+  border-radius: var(--peraa-radius-full);
+  animation: peraa-spin var(--peraa-duration-500) linear infinite;
+  flex-shrink: 0;
+}
+
+@keyframes peraa-spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ─── Size modifiers ──────────────────────────────────────────────────────── */
+.peraa-spinner--sm {
+  width: 16px;
+  height: 16px;
+  border-width: 2px;
+}
+
+.peraa-spinner--md {
+  width: 24px;
+  height: 24px;
+}
+
+.peraa-spinner--lg {
+  width: 40px;
+  height: 40px;
+  border-width: 3px;
+}
+
+.peraa-spinner--xl {
+  width: 56px;
+  height: 56px;
+  border-width: 4px;
+}
+
+/* ─── Color variants ──────────────────────────────────────────────────────── */
+.peraa-spinner--light {
+  border-color: rgba(255, 255, 255, 0.2);
+  border-top-color: var(--peraa-color-neutral-0);
+}
+
+.peraa-spinner--accent {
+  border-top-color: var(--peraa-color-teal-500);
+}
+
+/* ─── Overlay (center spinner in parent) ─────────────────────────────────── */
+.peraa-spinner-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--peraa-image-placeholder-overlay);
+  border-radius: inherit;
+  z-index: var(--peraa-z-10);
+}
+
+/* ─── Inline with label ───────────────────────────────────────────────────── */
+.peraa-spinner-label {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--peraa-spacing-2);
+  font-family: var(--peraa-font-family-sans);
+  font-size: var(--peraa-font-size-sm);
+  color: var(--peraa-text-secondary);
+}

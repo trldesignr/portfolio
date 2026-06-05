@@ -1,0 +1,155 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   FILE UPLOAD
+   Peraa Design System — File Upload component
+
+   Drag-and-drop zone with hidden native file input. Shows file list after
+   selection. Variant: compact (inline button-style).
+
+   Structure:
+     .peraa-file-upload
+       input.peraa-file-upload__input[type="file"]
+       label.peraa-file-upload__zone[for="..."]
+         .peraa-file-upload__icon
+         .peraa-file-upload__prompt
+         .peraa-file-upload__hint
+       .peraa-file-upload__list   (populated via JS)
+         .peraa-file-upload__item
+           span.peraa-file-upload__item-name
+           button.peraa-file-upload__item-remove
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* ─── Tokens ──────────────────────────────────────────────────────────────── */
+:root,
+[data-theme="dark"] {
+  --peraa-upload-bg: var(--peraa-color-neutral-900);
+  --peraa-upload-border: var(--peraa-border-subtle);
+  --peraa-upload-border-hover: var(--peraa-color-purple-500);
+  --peraa-upload-bg-drag: rgba(111, 31, 172, 0.08);
+}
+
+[data-theme="light"] {
+  --peraa-upload-bg: var(--peraa-color-neutral-50);
+  --peraa-upload-border: var(--peraa-border-default);
+  --peraa-upload-border-hover: var(--peraa-color-purple-500);
+  --peraa-upload-bg-drag: rgba(111, 31, 172, 0.05);
+}
+
+/* ─── Hidden input ────────────────────────────────────────────────────────── */
+.peraa-file-upload__input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* ─── Drop zone ───────────────────────────────────────────────────────────── */
+.peraa-file-upload__zone {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--peraa-spacing-2);
+  padding: var(--peraa-spacing-8) var(--peraa-spacing-6);
+  background-color: var(--peraa-upload-bg);
+  border: 2px dashed var(--peraa-upload-border);
+  border-radius: var(--peraa-radius-lg);
+  cursor: pointer;
+  text-align: center;
+  transition:
+    border-color var(--peraa-duration-150) var(--peraa-ease-out),
+    background-color var(--peraa-duration-150) var(--peraa-ease-out);
+}
+
+.peraa-file-upload__zone:hover,
+.peraa-file-upload__zone:focus-within {
+  border-color: var(--peraa-upload-border-hover);
+}
+
+.peraa-file-upload__zone--dragging {
+  border-color: var(--peraa-upload-border-hover);
+  background-color: var(--peraa-upload-bg-drag);
+}
+
+/* ─── Zone content ────────────────────────────────────────────────────────── */
+.peraa-file-upload__icon {
+  color: var(--peraa-text-tertiary);
+  width: 32px;
+  height: 32px;
+}
+
+.peraa-file-upload__prompt {
+  font-family: var(--peraa-font-family-sans);
+  font-size: var(--peraa-font-size-sm);
+  font-weight: var(--peraa-font-weight-medium);
+  color: var(--peraa-text-primary);
+}
+
+.peraa-file-upload__prompt span {
+  color: var(--peraa-text-brand);
+}
+
+.peraa-file-upload__hint {
+  font-family: var(--peraa-font-family-sans);
+  font-size: var(--peraa-font-size-xs);
+  color: var(--peraa-text-tertiary);
+}
+
+/* ─── File list ───────────────────────────────────────────────────────────── */
+.peraa-file-upload__list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--peraa-spacing-2);
+  margin-top: var(--peraa-spacing-3);
+}
+
+.peraa-file-upload__item {
+  display: flex;
+  align-items: center;
+  gap: var(--peraa-spacing-2);
+  padding: var(--peraa-spacing-2) var(--peraa-spacing-3);
+  background-color: var(--peraa-surface-subtle);
+  border: var(--peraa-border-width-1) solid var(--peraa-border-subtle);
+  border-radius: var(--peraa-radius-md);
+}
+
+.peraa-file-upload__item-name {
+  flex: 1;
+  font-family: var(--peraa-font-family-sans);
+  font-size: var(--peraa-font-size-sm);
+  color: var(--peraa-text-secondary);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.peraa-file-upload__item-remove {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  padding: 0;
+  background: none;
+  border: none;
+  color: var(--peraa-text-tertiary);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--peraa-radius-sm);
+  transition: color var(--peraa-duration-150) var(--peraa-ease-out);
+}
+
+.peraa-file-upload__item-remove:hover {
+  color: var(--peraa-status-error-text);
+}
+
+/* ─── Compact variant (inline button) ────────────────────────────────────── */
+.peraa-file-upload--compact .peraa-file-upload__zone {
+  flex-direction: row;
+  padding: var(--peraa-spacing-3) var(--peraa-spacing-4);
+  gap: var(--peraa-spacing-3);
+}

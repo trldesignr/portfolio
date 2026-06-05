@@ -81,38 +81,32 @@
 
 /* ═══════════════════════════════════════════════════════════════════════════
    COMPONENT PREVIEW
+   Stacked layout: visual above, code below.
+   Gives the component preview the full content-area width.
    ═══════════════════════════════════════════════════════════════════════════ */
 
 .peraa-preview {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--peraa-spacing-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--peraa-spacing-4);
   margin-bottom: var(--peraa-spacing-6);
-}
-
-@media (max-width: 900px) {
-  .peraa-preview {
-    grid-template-columns: 1fr;
-  }
 }
 
 .peraa-preview__visual {
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 200px;
-  padding: var(--peraa-spacing-8);
+  flex-wrap: wrap;
+  min-height: 140px;
+  padding: var(--peraa-spacing-6);
   background-color: var(--peraa-surface-subtle);
   border: var(--peraa-border-width-1) solid var(--peraa-border-default);
   border-radius: var(--peraa-radius-lg);
+  overflow: hidden;
 }
 
 .peraa-preview__code {
-  min-height: 200px;
-}
-
-.peraa-preview__code .peraa-code-block {
-  height: 100%;
+  /* height determined by code content; no fixed min-height needed */
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════
