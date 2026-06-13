@@ -91,9 +91,7 @@
       grid-template-columns: auto 1fr;
       gap: var(--peraa-spacing-8);
       align-items: start;
-      padding: var(--peraa-spacing-8);
-      background: var(--peraa-surface-card);
-      border: 1px solid var(--peraa-border-default);
+      padding: var(--peraa-spacing-8) 0;
       margin: var(--peraa-spacing-6) 0;
     }
 
@@ -166,70 +164,64 @@
       margin: var(--peraa-spacing-6) 0;
       display: flex;
       flex-direction: column;
-      gap: var(--peraa-spacing-3);
+      gap: var(--peraa-spacing-4);
     }
 
     .workshop-pain-list li {
-      padding: var(--peraa-spacing-4) var(--peraa-spacing-5);
-      background: var(--peraa-glass-bg);
-      border: 1px solid var(--peraa-glass-border);
-      border-left: 3px solid var(--peraa-color-purple-500);
-      border-radius: var(--peraa-glass-radius);
-      backdrop-filter: var(--peraa-glass-blur);
-      -webkit-backdrop-filter: var(--peraa-glass-blur);
-      box-shadow: var(--peraa-glass-shadow);
+      padding-left: var(--peraa-spacing-5);
+      border-left: 2px solid var(--peraa-color-purple-500);
       color: var(--peraa-text-secondary);
       line-height: var(--peraa-line-height-relaxed);
     }
 
+    [data-theme="light"] .workshop-pain-list li {
+      border-left-color: var(--peraa-color-purple-600);
+    }
+
     /* ─── Workshop Format Details ─── */
-    .workshop-details-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: var(--peraa-spacing-4);
+    .workshop-spec-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--peraa-spacing-8);
       margin: var(--peraa-spacing-6) 0;
+      padding: var(--peraa-spacing-6) 0;
+      border-top: 1px solid var(--peraa-border-subtle);
+      border-bottom: 1px solid var(--peraa-border-subtle);
     }
 
-    @media (max-width: 600px) {
-      .workshop-details-grid {
-        grid-template-columns: 1fr;
-      }
+    .workshop-spec-item {
+      display: flex;
+      flex-direction: column;
+      gap: var(--peraa-spacing-1);
+      flex: 1;
+      min-width: 140px;
     }
 
-    .workshop-detail {
-      padding: var(--peraa-spacing-5);
-      background: var(--peraa-glass-bg);
-      border: 1px solid var(--peraa-glass-border);
-      border-radius: var(--peraa-glass-radius);
-      backdrop-filter: var(--peraa-glass-blur);
-      -webkit-backdrop-filter: var(--peraa-glass-blur);
-      box-shadow: var(--peraa-glass-shadow);
-    }
-
-    .workshop-detail__label {
+    .workshop-spec__label {
       font-size: var(--peraa-font-size-xs);
       font-weight: var(--peraa-font-weight-semibold);
-      color: var(--peraa-color-teal-400);
       text-transform: uppercase;
       letter-spacing: 0.06em;
-      margin-bottom: var(--peraa-spacing-2);
+      color: var(--peraa-color-teal-400);
     }
 
-    [data-theme="light"] .workshop-detail__label {
+    [data-theme="light"] .workshop-spec__label {
       color: var(--peraa-color-teal-700);
     }
 
-    .workshop-detail__value {
-      font-size: var(--peraa-font-size-base);
+    .workshop-spec__value {
+      font-size: var(--peraa-font-size-sm);
       color: var(--peraa-text-primary);
+      line-height: var(--peraa-line-height-relaxed);
     }
 
     /* ─── Learning Objectives Grid ─── */
     .workshop-learn-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: var(--peraa-spacing-4);
+      gap: 0;
       margin: var(--peraa-spacing-6) 0;
+      column-gap: var(--peraa-spacing-10);
     }
 
     @media (max-width: 600px) {
@@ -239,16 +231,11 @@
     }
 
     .workshop-learn-item {
-      padding: var(--peraa-spacing-4) var(--peraa-spacing-5);
-      background: var(--peraa-glass-bg);
-      border: 1px solid var(--peraa-glass-border);
-      border-radius: var(--peraa-glass-radius);
-      backdrop-filter: var(--peraa-glass-blur);
-      -webkit-backdrop-filter: var(--peraa-glass-blur);
-      box-shadow: var(--peraa-glass-shadow);
       display: flex;
-      gap: var(--peraa-spacing-3);
+      gap: var(--peraa-spacing-4);
       align-items: flex-start;
+      padding: var(--peraa-spacing-4) 0;
+      border-bottom: 1px solid var(--peraa-border-subtle);
     }
 
     .workshop-learn-item__number {
@@ -271,33 +258,32 @@
       line-height: var(--peraa-line-height-relaxed);
     }
 
-    /* ─── Module Cards ─── */
+    /* ─── Module Timeline ─── */
     .workshop-modules {
       display: flex;
       flex-direction: column;
-      gap: var(--peraa-spacing-3);
       margin: var(--peraa-spacing-6) 0;
     }
 
     .workshop-module {
       display: grid;
-      grid-template-columns: auto 1fr;
+      grid-template-columns: 56px 1fr;
       gap: var(--peraa-spacing-5);
-      padding: var(--peraa-spacing-5);
-      background: var(--peraa-glass-bg);
-      border: 1px solid var(--peraa-glass-border);
-      border-radius: var(--peraa-glass-radius);
-      backdrop-filter: var(--peraa-glass-blur);
-      -webkit-backdrop-filter: var(--peraa-glass-blur);
-      box-shadow: var(--peraa-glass-shadow);
+      padding: var(--peraa-spacing-6) 0;
+      border-bottom: 1px solid var(--peraa-border-subtle);
       align-items: start;
+    }
+
+    .workshop-module:first-child {
+      padding-top: 0;
     }
 
     .workshop-module__index {
       display: flex;
       flex-direction: column;
-      align-items: center;
+      align-items: flex-start;
       gap: var(--peraa-spacing-1);
+      padding-top: 2px;
     }
 
     .workshop-module__number {
@@ -382,12 +368,8 @@
       margin-top: 8px;
     }
 
-    [data-theme="light"] .workshop-learn-item__number {
-      color: var(--peraa-color-purple-600);
-    }
-
-    [data-theme="light"] .workshop-detail__label {
-      color: var(--peraa-color-teal-600);
+    [data-theme="light"] .workshop-audience-list__dot {
+      background: var(--peraa-color-purple-600);
     }
 
     /* ─── CTA Section ─── */
@@ -429,8 +411,6 @@
   <div class="peraa-page peraa-page--hero">
 
     <!-- Decorative Logomark -->
-    <img src="../assets/images/TRL-logomark.png" alt="" class="peraa-logomark-bg" aria-hidden="true">
-
     <!-- Navigation -->
     <header class="peraa-header">
       <div class="peraa-container">
@@ -596,22 +576,22 @@
             The focus is on building a shared mental model, mapping how AI fits your actual workflows, and establishing the criteria your team will use to evaluate and integrate AI tools going forward. Participants leave with something concrete, not just inspiration.
           </p>
 
-          <div class="workshop-details-grid" role="list" aria-label="Workshop format details">
-            <div class="workshop-detail" role="listitem">
-              <p class="workshop-detail__label">Format</p>
-              <p class="workshop-detail__value">Facilitated workshop, on-site or remote</p>
+          <div class="workshop-spec-bar" role="list" aria-label="Workshop format details">
+            <div class="workshop-spec-item" role="listitem">
+              <span class="workshop-spec__label">Format</span>
+              <span class="workshop-spec__value">Facilitated workshop, on-site or remote</span>
             </div>
-            <div class="workshop-detail" role="listitem">
-              <p class="workshop-detail__label">Duration</p>
-              <p class="workshop-detail__value">2–4 hours, modular and configurable</p>
+            <div class="workshop-spec-item" role="listitem">
+              <span class="workshop-spec__label">Duration</span>
+              <span class="workshop-spec__value">2–4 hours, modular and configurable</span>
             </div>
-            <div class="workshop-detail" role="listitem">
-              <p class="workshop-detail__label">Participants</p>
-              <p class="workshop-detail__value">6–20 per session; cross-functional teams welcome</p>
+            <div class="workshop-spec-item" role="listitem">
+              <span class="workshop-spec__label">Participants</span>
+              <span class="workshop-spec__value">6–20 per session; cross-functional teams welcome</span>
             </div>
-            <div class="workshop-detail" role="listitem">
-              <p class="workshop-detail__label">Customization</p>
-              <p class="workshop-detail__value">Tailored to your team's context and AI maturity</p>
+            <div class="workshop-spec-item" role="listitem">
+              <span class="workshop-spec__label">Customization</span>
+              <span class="workshop-spec__value">Tailored to your team's context and AI maturity</span>
             </div>
           </div>
 

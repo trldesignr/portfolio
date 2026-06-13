@@ -40,7 +40,7 @@
   grid-area: 1 / 1; /* Stack both faces in same grid cell */
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
-  border-radius: var(--peraa-radius-none, 0);
+  border-radius: var(--peraa-radius-xl);
   overflow: hidden;
   background-color: var(--peraa-card-bg);
   border: var(--peraa-border-width-1) solid var(--peraa-card-border);

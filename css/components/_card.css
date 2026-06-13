@@ -172,6 +172,31 @@
   aspect-ratio: 21 / 9;
 }
 
+/* Ghost card - no visible boundary; content floats on page surface */
+.peraa-card--ghost {
+  background: transparent;
+  border-color: transparent;
+  box-shadow: none;
+}
+
+.peraa-card--ghost:hover {
+  background: var(--peraa-surface-subtle);
+  border-color: transparent;
+  box-shadow: none;
+  transform: none;
+}
+
+[data-theme="dark"] .peraa-card--ghost {
+  border-color: transparent;
+  box-shadow: none;
+}
+
+[data-theme="dark"] .peraa-card--ghost:hover {
+  background: var(--peraa-surface-subtle);
+  border-color: transparent;
+  box-shadow: none;
+}
+
 /* ═══════════════════════════════════════════════════════════════════════════
    RESPONSIVE
    ═══════════════════════════════════════════════════════════════════════════ */

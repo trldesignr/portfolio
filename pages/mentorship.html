@@ -78,43 +78,44 @@
     
     /* Quote Block */
     .mentorship-quote {
-      padding: var(--peraa-spacing-6);
-      background: var(--peraa-surface-card);
-      border: 1px solid var(--peraa-border-default);
+      padding: var(--peraa-spacing-4) 0 var(--peraa-spacing-4) var(--peraa-spacing-6);
+      border-left: 3px solid var(--peraa-color-teal-500);
       margin: var(--peraa-spacing-6) 0;
       position: relative;
     }
-    
+
+    [data-theme="light"] .mentorship-quote {
+      border-left-color: var(--peraa-color-teal-600);
+    }
+
     .mentorship-quote::before {
       content: '"';
       position: absolute;
-      top: var(--peraa-spacing-3);
-      left: var(--peraa-spacing-4);
-      font-size: 48px;
+      top: -8px;
+      left: var(--peraa-spacing-3);
+      font-size: 56px;
       color: var(--peraa-color-teal-500);
-      opacity: 0.3;
+      opacity: 0.25;
       line-height: 1;
       font-family: Georgia, serif;
     }
-    
+
     [data-theme="light"] .mentorship-quote::before {
       color: var(--peraa-color-teal-600);
-      opacity: 0.5;
+      opacity: 0.35;
     }
-    
+
     .mentorship-quote__text {
       font-size: var(--peraa-font-size-lg);
       font-style: italic;
       color: var(--peraa-text-primary);
       line-height: var(--peraa-line-height-relaxed);
-      padding-left: var(--peraa-spacing-6);
     }
-    
+
     .mentorship-quote__attribution {
       font-size: var(--peraa-font-size-sm);
       color: var(--peraa-text-tertiary);
       margin-top: var(--peraa-spacing-3);
-      padding-left: var(--peraa-spacing-6);
     }
     
     /* Section Divider */
@@ -169,29 +170,32 @@
     .mentorship-impact-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: var(--peraa-spacing-4);
+      gap: var(--peraa-spacing-6);
       margin: var(--peraa-spacing-6) 0;
     }
-    
+
     @media (max-width: 600px) {
       .mentorship-impact-grid {
         grid-template-columns: 1fr;
       }
     }
-    
+
     .mentorship-impact-card {
-      padding: var(--peraa-spacing-4);
-      background: var(--peraa-surface-card);
-      border: 1px solid var(--peraa-border-default);
+      padding: var(--peraa-spacing-2) 0 var(--peraa-spacing-2) var(--peraa-spacing-4);
+      border-left: 2px solid var(--peraa-border-subtle);
     }
-    
+
+    [data-theme="light"] .mentorship-impact-card {
+      border-left-color: var(--peraa-border-default);
+    }
+
     .mentorship-impact-card__title {
       font-size: var(--peraa-font-size-sm);
       font-weight: var(--peraa-font-weight-medium);
       color: var(--peraa-text-primary);
       margin-bottom: var(--peraa-spacing-1);
     }
-    
+
     .mentorship-impact-card__desc {
       font-size: var(--peraa-font-size-sm);
       color: var(--peraa-text-secondary);
@@ -207,7 +211,7 @@
       border: 1px solid var(--peraa-border-default);
       margin: var(--peraa-spacing-6) 0;
     }
-    
+
     @media (max-width: 600px) {
       .mentorship-global-stats {
         grid-template-columns: repeat(2, 1fr);

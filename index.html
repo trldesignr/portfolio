@@ -50,24 +50,24 @@
     }
     
     /* Staggered delays for hero content */
-    .peraa-hero .peraa-overline {
+    .peraa-hero .index-hero__kicker {
       animation: contentReveal 600ms cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
       animation-delay: 200ms;
     }
     
-    .peraa-hero .peraa-heading-1 {
+    .peraa-hero .index-hero__name {
       animation: contentReveal 600ms cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
       animation-delay: 350ms;
     }
     
-    .peraa-hero .peraa-lead {
+    .peraa-hero .index-hero__rule {
       animation: contentReveal 600ms cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
-      animation-delay: 500ms;
+      animation-delay: 480ms;
     }
-    
-    .peraa-hero .peraa-flex {
+
+    .peraa-hero .index-hero__deck {
       animation: contentReveal 600ms cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
-      animation-delay: 650ms;
+      animation-delay: 560ms;
     }
 
     .index-areas {
@@ -75,26 +75,123 @@
       animation-delay: 850ms;
     }
 
+    /* ─── Editorial Hero ─── */
+    .index-hero__kicker {
+      display: flex;
+      align-items: center;
+      gap: var(--peraa-spacing-3);
+      margin-bottom: var(--peraa-spacing-8);
+      font-size: var(--peraa-font-size-xs);
+      font-weight: var(--peraa-font-weight-semibold);
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--peraa-color-purple-400);
+      font-family: var(--peraa-font-mono);
+    }
+
+    [data-theme="light"] .index-hero__kicker {
+      color: var(--peraa-color-purple-600);
+    }
+
+    .index-hero__kicker-sep {
+      color: var(--peraa-border-default);
+      font-family: var(--peraa-font-family-sans);
+      font-weight: var(--peraa-font-weight-regular);
+      letter-spacing: 0;
+      font-size: var(--peraa-font-size-sm);
+    }
+
+    .index-hero__name {
+      font-family: var(--peraa-font-family-heading);
+      font-size: clamp(3.5rem, 8.5vw, 6.5rem);
+      font-weight: var(--peraa-font-weight-semibold);
+      letter-spacing: -0.04em;
+      line-height: 1;
+      color: var(--peraa-text-primary);
+      margin-bottom: var(--peraa-spacing-8);
+    }
+
+    .index-hero__rule {
+      border: none;
+      border-top: 1px solid var(--peraa-border-default);
+      margin: 0 0 var(--peraa-spacing-8) 0;
+      width: 100%;
+    }
+
+    .index-hero__deck {
+      display: grid;
+      grid-template-columns: 3fr 2fr;
+      gap: var(--peraa-spacing-12);
+      max-width: 960px;
+    }
+
+    @media (max-width: 700px) {
+      .index-hero__deck {
+        grid-template-columns: 1fr;
+        gap: var(--peraa-spacing-5);
+      }
+
+      .index-hero__name {
+        font-size: clamp(2.75rem, 12vw, 3.5rem);
+      }
+    }
+
+    .index-hero__deck-primary {
+      font-size: var(--peraa-font-size-xl);
+      font-weight: var(--peraa-font-weight-regular);
+      line-height: 1.55;
+      color: var(--peraa-text-primary);
+      margin: 0;
+    }
+
+    .index-hero__deck-secondary {
+      font-size: var(--peraa-font-size-sm);
+      color: var(--peraa-text-tertiary);
+      line-height: 1.8;
+      margin: 0;
+      padding-top: 4px;
+      border-left: 1px solid var(--peraa-border-subtle);
+      padding-left: var(--peraa-spacing-6);
+    }
+
+    [data-theme="light"] .index-hero__deck-secondary {
+      color: var(--peraa-text-secondary);
+    }
+
+    @media (max-width: 700px) {
+      .index-hero__deck-secondary {
+        border-left: none;
+        padding-left: 0;
+        padding-top: 0;
+      }
+    }
+
+    /* ─── Rune divider icon ─── */
+    [data-theme="light"] .index-rune-icon {
+      filter: invert(1);
+    }
+
     /* ─── Areas Grid ─── */
     .index-areas__grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: var(--peraa-spacing-6);
+      gap: var(--peraa-spacing-12);
     }
 
     @media (max-width: 640px) {
       .index-areas__grid {
         grid-template-columns: 1fr;
+        gap: var(--peraa-spacing-8);
       }
     }
 
     .index-area-card {
       display: flex;
       flex-direction: column;
-      padding: var(--peraa-spacing-8);
-      background: var(--peraa-surface-card);
-      border: 1px solid var(--peraa-border-default);
-      transition: border-color 150ms ease, transform 150ms ease;
+      padding: var(--peraa-spacing-6);
+      background: transparent;
+      border: 1px solid transparent;
+      transition: border-color 200ms ease, box-shadow 200ms ease, transform 200ms ease;
     }
 
     .index-area-card:hover {
@@ -108,8 +205,9 @@
       font-weight: var(--peraa-font-weight-semibold);
       color: var(--peraa-color-purple-400);
       text-transform: uppercase;
-      letter-spacing: 0.06em;
-      margin-bottom: var(--peraa-spacing-3);
+      letter-spacing: 0.14em;
+      font-family: var(--peraa-font-mono);
+      margin-bottom: var(--peraa-spacing-4);
     }
 
     [data-theme="light"] .index-area-card__label {
@@ -117,8 +215,9 @@
     }
 
     .index-area-card__title {
-      font-size: var(--peraa-font-size-xl);
-      font-weight: var(--peraa-font-weight-medium);
+      font-size: var(--peraa-font-size-2xl);
+      font-weight: var(--peraa-font-weight-semibold);
+      letter-spacing: -0.02em;
       color: var(--peraa-text-primary);
       margin-bottom: var(--peraa-spacing-3);
     }
@@ -230,10 +329,10 @@
     /* Respect reduced motion preference */
     @media (prefers-reduced-motion: reduce) {
       .peraa-logomark-bg,
-      .peraa-hero .peraa-overline,
-      .peraa-hero .peraa-heading-1,
-      .peraa-hero .peraa-lead,
-      .peraa-hero .peraa-flex,
+      .peraa-hero .index-hero__kicker,
+      .peraa-hero .index-hero__name,
+      .peraa-hero .index-hero__rule,
+      .peraa-hero .index-hero__deck,
       .index-areas,
       .peraa-page--hero .peraa-header,
       .peraa-page--hero .peraa-footer {
@@ -313,7 +412,6 @@
     /* ─── Overview Sections ─── */
     .index-overview {
       padding: var(--peraa-spacing-20) 0;
-      border-top: 1px solid var(--peraa-border-subtle);
     }
 
     .index-overview__inner {
@@ -440,6 +538,32 @@
       color: var(--peraa-text-secondary);
       line-height: 1.6;
     }
+
+    /* ─── CTA Section ─── */
+    .index-cta__heading {
+      font-family: var(--peraa-font-family-heading);
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: var(--peraa-font-weight-semibold);
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      color: var(--peraa-text-primary);
+      margin-bottom: var(--peraa-spacing-5);
+    }
+
+    .index-cta__body {
+      font-size: var(--peraa-font-size-lg);
+      color: var(--peraa-text-secondary);
+      line-height: 1.65;
+      max-width: 520px;
+      margin: 0 auto var(--peraa-spacing-8);
+    }
+
+    .index-cta__actions {
+      display: flex;
+      gap: var(--peraa-spacing-4);
+      justify-content: center;
+      flex-wrap: wrap;
+    }
   </style>
 </head>
 <body>
@@ -481,39 +605,45 @@
       <section class="peraa-section peraa-section--lg">
         <div class="peraa-container">
           <div class="peraa-hero">
-            <p class="peraa-overline">Design Leader. Independent.</p>
-            <h1 class="peraa-heading-1">Todd R. Lewis</h1>
-            <p class="peraa-lead peraa-mt-4">
-              I lead design, build systems, and help enterprise organizations work more deliberately. This site covers both: my portfolio of design work and the independent services I offer to teams navigating complexity, with systems-thinking and AI integrations.
-            </p>
-            <!--<div class="peraa-flex peraa-gap-4 peraa-mt-6">
-              <a href="pages/case-studies/index.html" class="peraa-btn peraa-btn--primary">View My Work</a>
-            </div>-->
+
+            <div class="index-hero__kicker">
+              <span class="index-hero__kicker-label">Leader in Design Craft</span>
+              <span class="index-hero__kicker-sep" aria-hidden="true">·</span>
+              <span class="index-hero__kicker-label">Principled Architect</span>
+              <span class="index-hero__kicker-sep" aria-hidden="true">·</span>
+              <span class="index-hero__kicker-label">Design Technologist</span>
+            </div>
+
+            <h1 class="index-hero__name">Todd R. Lewis</h1>
+
+            <hr class="index-hero__rule" aria-hidden="true">
+
+            <div class="index-hero__deck">
+              <p class="index-hero__deck-primary">
+                I lead design, build systems, and help enterprise organizations, teams, and individuals work more deliberately.
+              </p>
+              <p class="index-hero__deck-secondary">
+                This site acts as my portfolio of enterprise design work and independent services for teams navigating complexity — with systems-thinking and AI integrations.
+              </p>
+            </div>
+
           </div>
         </div>
       </section>
 
-      <!-- Areas Section -->
-      <section class="peraa-section index-areas" style="padding-top: 0;" aria-label="Site sections">
-        <div class="peraa-container peraa-container--narrow">
-          <div class="index-areas__grid">
+      <!-- Rune divider -->
+      <div style="max-width: 800px; margin: 0 auto; padding: 0 var(--peraa-spacing-8); display: flex; align-items: center; gap: var(--peraa-spacing-4);">
+        <div style="flex: 1; height: 1px; background: var(--peraa-border-default);"></div>
+        <div style="width: 18px; height: 18px; flex-shrink: 0;">
+          <img src="assets/images/rune.png" alt="" class="index-rune-icon" style="width: 100%; height: 100%; object-fit: contain;">
+        </div>
+        <div style="flex: 1; height: 1px; background: var(--peraa-border-default);"></div>
+      </div>
 
-            <!-- Services Card -->
-            <div class="index-area-card">
-              <p class="index-area-card__label">Services</p>
-              <h2 class="index-area-card__title">AI-Focused Practice</h2>
-              <p class="index-area-card__desc">Structured engagements designed to help enterprise organizations integrate AI deliberately, through facilitated workshops and targeted systems audits.</p>
-              <nav class="index-area-card__links" aria-label="Services">
-                <a href="pages/ai-workshop.html" class="index-area-card__sub-link">
-                  <span>AI Workshops</span>
-                  <span class="index-area-card__sub-link-arrow" aria-hidden="true">→</span>
-                </a>
-                <a href="pages/ai-consulting.html" class="index-area-card__sub-link">
-                  <span>Consulting</span>
-                  <span class="index-area-card__sub-link-arrow" aria-hidden="true">→</span>
-                </a>
-              </nav>
-            </div>
+      <!-- Areas Section -->
+      <section class="peraa-section index-areas" aria-label="Site sections">
+        <div class="peraa-container">
+          <div class="index-areas__grid">
 
             <!-- Experience Card -->
             <div class="index-area-card">
@@ -527,6 +657,23 @@
                 </a>
                 <a href="pages/mentorship.html" class="index-area-card__sub-link">
                   <span>Mentoring</span>
+                  <span class="index-area-card__sub-link-arrow" aria-hidden="true">→</span>
+                </a>
+              </nav>
+            </div>
+
+            <!-- Services Card -->
+            <div class="index-area-card">
+              <p class="index-area-card__label">Services</p>
+              <h2 class="index-area-card__title">AI-Focused Practice</h2>
+              <p class="index-area-card__desc">Structured engagements designed to help enterprise organizations integrate AI deliberately, through facilitated workshops and targeted systems audits.</p>
+              <nav class="index-area-card__links" aria-label="Services">
+                <a href="pages/ai-workshop.html" class="index-area-card__sub-link">
+                  <span>AI Workshops</span>
+                  <span class="index-area-card__sub-link-arrow" aria-hidden="true">→</span>
+                </a>
+                <a href="pages/ai-consulting.html" class="index-area-card__sub-link">
+                  <span>Consulting</span>
                   <span class="index-area-card__sub-link-arrow" aria-hidden="true">→</span>
                 </a>
               </nav>
@@ -593,6 +740,9 @@
         </div>
       </section>
 
+      <!-- Divider 400px -->
+      <div style="max-width: 400px; margin: 0 auto; padding: 0 var(--peraa-spacing-8); height: 1px; background: var(--peraa-border-default);" aria-hidden="true"></div>
+
       <!-- Overview: Consulting -->
       <section class="index-overview" aria-labelledby="overview-consulting">
         <div class="index-overview__inner">
@@ -619,6 +769,9 @@
         </div>
       </section>
 
+      <!-- Divider 400px -->
+      <div style="max-width: 400px; margin: 0 auto; padding: 0 var(--peraa-spacing-8); height: 1px; background: var(--peraa-border-default);" aria-hidden="true"></div>
+
       <!-- Overview: Design & Systems Thinking -->
       <section class="index-overview" aria-labelledby="overview-design">
         <div class="index-overview__inner">
@@ -642,6 +795,33 @@
               <span class="index-overview__point-value">1:1 and group mentorship for practitioners at every level of their career</span>
             </li>
           </ul>
+        </div>
+      </section>
+
+      <!-- Full-width rune divider -->
+      <div style="padding: 0 var(--peraa-spacing-8); display: flex; align-items: center; gap: var(--peraa-spacing-4);" aria-hidden="true">
+        <div style="flex: 1; height: 1px; background: var(--peraa-border-default);"></div>
+        <div style="width: 18px; height: 18px; flex-shrink: 0;">
+          <img src="assets/images/rune.png" alt="" class="index-rune-icon" style="width: 100%; height: 100%; object-fit: contain;">
+        </div>
+        <div style="flex: 1; height: 1px; background: var(--peraa-border-default);"></div>
+      </div>
+
+      <!-- CTA Section -->
+      <section class="peraa-section index-cta" aria-labelledby="cta-heading">
+        <div class="peraa-container peraa-container--narrow" style="text-align: center;">
+          <h2 id="cta-heading" class="index-cta__heading">Ready to work together?</h2>
+          <p class="index-cta__body">
+            Design leadership. AI integration. Mentorship. If any of these are relevant to what you're working through, the first step is a conversation.
+          </p>
+          <div class="index-cta__actions">
+            <button class="peraa-btn peraa-btn--primary" data-modal-trigger="conversation">
+              Start a Conversation
+            </button>
+            <a href="pages/case-studies/index.html" class="peraa-btn peraa-btn--secondary">
+              View My Work
+            </a>
+          </div>
         </div>
       </section>
 

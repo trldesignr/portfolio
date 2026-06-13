@@ -91,28 +91,31 @@
 
     /* ─── Profile layout ─── */
     .perspective-profile {
-      display: flex;
-      flex-direction: column;
-      gap: var(--peraa-spacing-6);
       margin-bottom: var(--peraa-spacing-8);
     }
 
-    @media (min-width: 600px) {
-      .perspective-profile {
-        flex-direction: row;
-        align-items: flex-start;
-        gap: var(--peraa-spacing-8);
-      }
+    /* ─── Dual-photo side-by-side grid ─── */
+    .perspective-profile__photos {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--peraa-spacing-4);
+      margin-bottom: var(--peraa-spacing-8);
     }
 
-    .perspective-profile__photo {
-      width: 160px;
-      height: 160px;
-      object-fit: cover;
-      object-position: center top;
+    .perspective-profile__photo--primary,
+    .perspective-profile__photo--secondary {
+      width: 100%;
+      height: auto;
+      display: block;
       border-radius: var(--peraa-radius-lg);
-      filter: grayscale(20%);
-      flex-shrink: 0;
+      filter: grayscale(15%);
+    }
+
+    @media (max-width: 600px) {
+      .perspective-profile__photos {
+        grid-template-columns: 1fr;
+        gap: var(--peraa-spacing-3);
+      }
     }
 
     /* ─── Section subheading ─── */
@@ -127,6 +130,8 @@
 </head>
 <body>
   <div class="peraa-page">
+    <!-- Decorative Logomark -->
+    <img src="../assets/images/TRL-logomark.png" alt="" class="peraa-logomark-bg" aria-hidden="true">
     <!-- Navigation -->
     <header class="peraa-header">
       <div class="peraa-container">
@@ -189,11 +194,19 @@
               <div class="peraa-tabs__panel peraa-tabs__panel--active" role="tabpanel">
 
                 <div class="perspective-profile peraa-mt-6">
-                  <img
-                    src="../assets/images/trl.jpg"
-                    alt="Todd R. Lewis"
-                    class="perspective-profile__photo"
-                  >
+                  <div class="perspective-profile__photos">
+                    <img
+                      src="../assets/images/Todd-Front.png"
+                      alt="Todd R. Lewis"
+                      class="perspective-profile__photo--primary"
+                    >
+                    <img
+                      src="../assets/images/Todd-back.png"
+                      alt=""
+                      aria-hidden="true"
+                      class="perspective-profile__photo--secondary"
+                    >
+                  </div>
                   <div>
                     <p class="peraa-body">
                       I have a passion for design. That will become obvious. It's never been a "job" or "work" for me. I just simply enjoy it.

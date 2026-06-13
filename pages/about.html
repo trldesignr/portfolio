@@ -14,11 +14,69 @@
   
   <!-- Styles -->
   <link rel="stylesheet" href="../css/main.css">
+  <style>
+    .about-intro {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--peraa-spacing-16);
+      align-items: start;
+    }
+
+    .about-intro__photos {
+      position: relative;
+      padding-bottom: 72px;
+      padding-right: 40px;
+    }
+
+    .about-photo--primary {
+      width: 72%;
+      aspect-ratio: 5/8;
+      object-fit: cover;
+      object-position: center top;
+      border-radius: var(--peraa-radius-lg);
+      display: block;
+      filter: grayscale(15%);
+    }
+
+    .about-photo--secondary {
+      width: 56%;
+      aspect-ratio: 5/8;
+      object-fit: cover;
+      object-position: center top;
+      border-radius: var(--peraa-radius-lg);
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      border: 5px solid var(--peraa-surface-page);
+      box-shadow: var(--peraa-shadow-lg);
+      filter: grayscale(15%);
+    }
+
+    @media (max-width: 720px) {
+      .about-intro {
+        grid-template-columns: 1fr;
+        gap: var(--peraa-spacing-10);
+      }
+
+      .about-intro__photos {
+        order: -1;
+        padding-bottom: 56px;
+        padding-right: 32px;
+      }
+
+      .about-photo--primary {
+        width: 65%;
+      }
+
+      .about-photo--secondary {
+        width: 50%;
+      }
+    }
+  </style>
 </head>
 <body>
   <div class="peraa-page peraa-page--hero">
     <!-- Decorative Logomark -->
-    <img src="../assets/images/TRL-logomark.png" alt="" class="peraa-logomark-bg" aria-hidden="true">
     <!-- Navigation -->
     <header class="peraa-header">
       <div class="peraa-container">
@@ -52,24 +110,9 @@
       <!-- Intro Section -->
       <section class="peraa-section">
         <div class="peraa-container peraa-container--narrow">
-          <div style="display: flex; flex-direction: column; align-items: flex-start; gap: var(--peraa-spacing-8);">
-            <!-- Profile Photo -->
-            <div style="position: relative;">
-              <img 
-                src="../assets/images/trl.jpg" 
-                alt="Todd R. Lewis" 
-                style="
-                  width: 200px; 
-                  height: 200px; 
-                  object-fit: cover; 
-                  object-position: center top;
-                  border-radius: var(--peraa-radius-lg);
-                  filter: grayscale(20%);
-                "
-              >
-            </div>
-            <!-- Intro Content -->
-            <div>
+          <div class="about-intro">
+            <!-- Bio Content -->
+            <div class="about-intro__text">
               <p class="peraa-overline">About</p>
               <h1 class="peraa-heading-1 peraa-mt-4">About Me</h1>
               <p class="peraa-lead peraa-mt-6">
@@ -81,6 +124,20 @@
               <p class="peraa-body peraa-mt-4" style="color: var(--peraa-color-text-tertiary); font-style: italic;">
                 Campaigner ENFP-A
               </p>
+            </div>
+            <!-- Photos Composition -->
+            <div class="about-intro__photos">
+              <img
+                src="../assets/images/Todd-Front.png"
+                alt="Todd R. Lewis"
+                class="about-photo about-photo--primary"
+              >
+              <img
+                src="../assets/images/Todd-back.png"
+                alt=""
+                aria-hidden="true"
+                class="about-photo about-photo--secondary"
+              >
             </div>
           </div>
         </div>
